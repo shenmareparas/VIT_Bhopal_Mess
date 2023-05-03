@@ -12,7 +12,7 @@ class MyData {
 class MyHomePage extends StatelessWidget {
   final Map<String, List<MyData>> allData;
 
-  const MyHomePage({super.key, required this.allData});
+  const MyHomePage({Key? key, required this.allData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
