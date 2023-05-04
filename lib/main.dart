@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 // ignore_for_file: avoid_print
 
 void main() {
@@ -221,5 +222,12 @@ void main() {
       ],
     },
   };
-  print(days['Monday']!['Breakfast']);
+
+  DateTime now = DateTime.now();
+  String formattedDate = DateFormat('EEEE').format(now);
+  String formattedTime = DateFormat('HH:mm').format(now);
+  print(formattedDate);
+  print(formattedTime);
+
+  print(days[formattedDate]!['Dinner']);
 }
