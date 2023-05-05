@@ -42,8 +42,3 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-
-#created by me
-lib/main_test1.dart
-lib/main_test2.dart
-lib/main_test3.dart
