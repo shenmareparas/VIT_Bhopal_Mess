@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'upcoming.dart';
 import 'timetable.dart';
 
@@ -28,8 +29,8 @@ class _MyAppState extends State<MyApp> {
               labelColor: Colors.white,
               indicatorColor: Colors.white,
               tabs: [
-                Tab(text: "Upcoming", icon: Icon(Icons.fastfood)),
-                Tab(text: "Timetable", icon: Icon(Icons.table_chart))
+                Tab(text: "Upcoming", icon: Icon(FontAwesomeIcons.utensils)),
+                Tab(text: "Timetable", icon: Icon(FontAwesomeIcons.table))
               ],
             ),
             title: const Center(
