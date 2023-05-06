@@ -13,8 +13,9 @@ class MainRunner extends StatelessWidget {
     String formattedDate = DateFormat('EEEE').format(now);
     String formattedTime = DateFormat('HH:mm').format(now);
 
-    print(formattedDate);
-    print(formattedTime);
+    print("Day: $formattedDate");
+    print("Time: $formattedTime");
+    print("Total items: ${days[formattedDate]![mealTime]?.length}");
 
     if (days[formattedDate] != null && days[formattedDate]![mealTime] != null) {
       print(days[formattedDate]![mealTime]);
@@ -55,8 +56,8 @@ class MainRunner extends StatelessWidget {
   }
 
   static const Map<String, Map<String, List<String>>> days = {
-    'Monday': {
-      'Breakfast': [
+    "Monday": {
+      "Breakfast": [
         "Idly, Midhu Vada",
         "Chutney, Sambar",
         "Banana/Fruit Salad",
@@ -64,9 +65,9 @@ class MainRunner extends StatelessWidget {
         "Butter/Jam",
         "Tea, Coffee, Milk"
       ],
-      'Lunch': [
-        'Salad',
-        'Roti',
+      "Lunch": [
+        "Salad",
+        "Roti",
         "Rajma Gharwala",
         "Jeera Rice",
         "Aloo Pepper Fry",
@@ -76,8 +77,8 @@ class MainRunner extends StatelessWidget {
         "Rasam",
         "Juice"
       ],
-      'Snacks': ["Vada Pav", "Tea, Coffee, Milk"],
-      'Dinner': [
+      "Snacks": ["Vada Pav", "Tea, Coffee, Milk"],
+      "Dinner": [
         "Roti",
         "Kashmiri Pulao",
         "Egg Bhurji Masala",
@@ -87,18 +88,18 @@ class MainRunner extends StatelessWidget {
         "Pickle"
       ],
     },
-    'Tuesday': {
-      'Breakfast': [
-        'Veg Paratha',
-        'Veg Sabji',
+    "Tuesday": {
+      "Breakfast": [
+        "Veg Paratha",
+        "Veg Sabji",
         "Banava/Fruit Salad",
         "Bread",
         "Butter/Jam",
         "Tea, Coffee, Milk"
       ],
-      'Lunch': [
-        'Salad',
-        'Poori',
+      "Lunch": [
+        "Salad",
+        "Poori",
         "Chana Masala",
         "Plain Rice",
         "Dal Tadka",
@@ -107,8 +108,8 @@ class MainRunner extends StatelessWidget {
         "Carrot Beans Poriyal",
         "Curd"
       ],
-      'Snacks': ["Bhel/Chana Sundal", "Sauce", "Tea, Coffee, Milk"],
-      'Dinner': [
+      "Snacks": ["Bhel/Chana Sundal", "Sauce", "Tea, Coffee, Milk"],
+      "Dinner": [
         "Roti",
         "Kuska",
         "Aloo Meal Maker Sabji",
@@ -118,159 +119,156 @@ class MainRunner extends StatelessWidget {
         "Halwa"
       ],
     },
-    'Wednesday': {
-      'Breakfast': [
-        'Veg Paratha',
-        'Veg Sabji',
-        "Banava/Fruit Salad",
+    "Wednesday": {
+      "Breakfast": [
+        "Uthappam",
+        "Sambhar",
+        "Karachutany",
         "Bread",
         "Butter/Jam",
         "Tea, Coffee, Milk"
       ],
-      'Lunch': [
-        'Salad',
-        'Poori',
-        "Chana Masala",
-        "Plain Rice",
-        "Dal Tadka",
-        "Sambar",
-        "Rasam",
-        "Carrot Beans Poriyal",
-        "Curd"
-      ],
-      'Snacks': ["Bhel/Chana Sundal", "Sauce", "Tea, Coffee, Milk"],
-      'Dinner': [
+      "Lunch": [
+        "Salad",
         "Roti",
-        "Kuska",
-        "Aloo Meal Maker Sabji",
-        "Masala Dal",
+        "Veg Hariyali",
+        "Rice",
+        "Mix Dal",
+        "Palak Koottu Sabji",
         "Rasam",
-        "Pickle",
-        "Halwa"
+        "Curd Rice",
+        "Payasam/Boondi"
+      ],
+      "Snacks": ["Pani Poori", "Tea, Coffee, Milk"],
+      "Dinner": [
+        "Roti",
+        "Rice",
+        "Plain Dal",
+        "Capsicum Onion Chicken",
+        "Butter Paneer",
+        "Rasam",
+        "Pickle"
       ],
     },
-    'Thursday': {
-      'Breakfast': [
-        'Veg Paratha',
-        'Veg Sabji',
-        "Banava/Fruit Salad",
+    "Thursday": {
+      "Breakfast": [
+        "Poha, Pongal",
+        "Jalebi",
+        "Banana/ Fruit Salad",
+        "Chutney",
         "Bread",
         "Butter/Jam",
         "Tea, Coffee, Milk"
       ],
-      'Lunch': [
-        'Salad',
-        'Poori',
-        "Chana Masala",
-        "Plain Rice",
-        "Dal Tadka",
-        "Sambar",
-        "Rasam",
-        "Carrot Beans Poriyal",
-        "Curd"
-      ],
-      'Snacks': ["Bhel/Chana Sundal", "Sauce", "Tea, Coffee, Milk"],
-      'Dinner': [
+      "Lunch": [
+        "Salad",
         "Roti",
-        "Kuska",
-        "Aloo Meal Maker Sabji",
-        "Masala Dal",
+        "Navratan Kurma",
+        "Tomato Dal (Andhara Style)",
+        "Veg Pulao",
+        "Plain Rice",
+        "Drumstick, Bagan, Poriyal",
         "Rasam",
         "Pickle",
-        "Halwa"
+        "Butter Milk"
+      ],
+      "Snacks": ["Sweet Corn Salad", "Tea, Coffee, Milk"],
+      "Dinner": [
+        "Roti",
+        "Green Peas Masala",
+        "Egg Bhurji",
+        "Rice",
+        "Dal Fry",
+        "Rasam",
+        "Pickle"
       ],
     },
-    'Friday': {
-      'Breakfast': [
-        'Veg Paratha',
-        'Veg Sabji',
-        "Banava/Fruit Salad",
+    "Friday": {
+      "Breakfast": [
+        "Bhatura",
+        "Chole Masala",
+        "Banana/Fruit Salad",
         "Bread",
         "Butter/Jam",
         "Tea, Coffee, Milk"
       ],
-      'Lunch': [
-        'Salad',
-        'Poori',
-        "Chana Masala",
-        "Plain Rice",
-        "Dal Tadka",
-        "Sambar",
-        "Rasam",
-        "Carrot Beans Poriyal",
-        "Curd"
-      ],
-      'Snacks': ["Bhel/Chana Sundal", "Sauce", "Tea, Coffee, Milk"],
-      'Dinner': [
+      "Lunch": [
+        "Raitha",
+        "Veg Biryani",
         "Roti",
-        "Kuska",
-        "Aloo Meal Maker Sabji",
-        "Masala Dal",
+        "Palak Dal",
+        "Plain Rice",
+        "Tomato Hokku",
         "Rasam",
-        "Pickle",
-        "Halwa"
+        "Fryums",
+      ],
+      "Snacks": ["Cake/Patties", "Tea, Coffee, Milk"],
+      "Dinner": [
+        "Roti",
+        "Rice",
+        "Dal Tadka",
+        "Chettandu Chicken",
+        "Kadhai Paneer",
+        "Rasam",
+        "Pickle"
       ],
     },
-    'Saturday': {
-      'Breakfast': [
-        'Veg Paratha',
-        'Veg Sabji',
-        "Banava/Fruit Salad",
+    "Saturday": {
+      "Breakfast": [
+        "Pav Bhaji",
+        "Uppma",
+        "Banana/Fruit Salad",
         "Bread",
         "Butter/Jam",
         "Tea, Coffee, Milk"
       ],
-      'Lunch': [
-        'Salad',
-        'Poori',
-        "Chana Masala",
-        "Plain Rice",
-        "Dal Tadka",
-        "Sambar",
-        "Rasam",
-        "Carrot Beans Poriyal",
-        "Curd"
-      ],
-      'Snacks': ["Bhel/Chana Sundal", "Sauce", "Tea, Coffee, Milk"],
-      'Dinner': [
+      "Lunch": [
+        "Salad",
         "Roti",
-        "Kuska",
-        "Aloo Meal Maker Sabji",
-        "Masala Dal",
+        "Chana Dal",
+        "Kitchadi/Tamarind Rice",
+        "Baingan Bharta",
+        "Rice",
+        "Vegetable Sambhar",
+        "Raw Banana Poriyal",
         "Rasam",
-        "Pickle",
-        "Halwa"
+        "Butter Milk"
+      ],
+      "Snacks": ["Samosa", "Tea, Coffee, Milk"],
+      "Dinner": [
+        "Chapati",
+        "Fried Rice",
+        "Dal Fry",
+        "Gobi Monchuriyan",
+        "Rice",
+        "Rasam",
       ],
     },
-    'Sunday': {
-      'Breakfast': [
-        'Veg Paratha',
-        'Veg Sabji',
-        "Banava/Fruit Salad",
+    "Sunday": {
+      "Breakfast": [
+        "Masala Dosa",
+        "Sambar, Chutney",
+        "Banana/Fruit Salad",
         "Bread",
         "Butter/Jam",
         "Tea, Coffee, Milk"
       ],
-      'Lunch': [
-        'Salad',
-        'Poori',
-        "Chana Masala",
-        "Plain Rice",
-        "Dal Tadka",
-        "Sambar",
-        "Rasam",
-        "Carrot Beans Poriyal",
-        "Curd"
-      ],
-      'Snacks': ["Bhel/Chana Sundal", "Sauce", "Tea, Coffee, Milk"],
-      'Dinner': [
+      "Lunch": [
+        "Onion Cucumber Raitha",
         "Roti",
-        "Kuska",
-        "Aloo Meal Maker Sabji",
+        "Chicken Biryani",
+        "Paneer Biryani",
         "Masala Dal",
+        "Mint Lemon Juice"
+      ],
+      "Snacks": ["Dhokla/Pasta", "Green Chutney", "Tea, Coffee, Milk"],
+      "Dinner": [
+        "Chapathi",
+        "Rice",
+        "Tinda Aloo Sabji/Allo Patha Gobi",
+        "Dal Makhani",
         "Rasam",
-        "Pickle",
-        "Halwa"
+        "Gulab Jamun/Bondi"
       ],
     },
   };
@@ -281,10 +279,12 @@ class MainRunner extends StatelessWidget {
       return 'Breakfast';
     } else if (hour < 15) {
       return 'Lunch';
-    } else if (hour < 17) {
+    } else if (hour < 18) {
       return 'Snacks';
-    } else {
+    } else if (hour < 21) {
       return 'Dinner';
+    } else {
+      return "Breakfast";
     }
   }
 }
