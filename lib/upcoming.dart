@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class Upcomming extends StatelessWidget {
-  const Upcomming({super.key});
+class Upcoming extends StatelessWidget {
+  const Upcoming({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,26 +24,37 @@ class Upcomming extends StatelessWidget {
     }
 
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            getMealTime(now).toString(),
-            style: const TextStyle(color: Colors.black, fontSize: 18),
-          ),
-          Text(
-            formattedDate,
-            style: const TextStyle(color: Colors.black, fontSize: 18),
-          ),
-          Text(
-            formattedTime,
-            style: const TextStyle(color: Colors.black, fontSize: 18),
-          ),
-          Text(
-            days[formattedDate]![mealTime].toString(),
-            style: const TextStyle(color: Colors.black, fontSize: 18),
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              formattedDate,
+              style: const TextStyle(color: Colors.black, fontSize: 18),
+            ),
+            Text(
+              getMealTime(now).toString(),
+              style: const TextStyle(color: Colors.black, fontSize: 18),
+            ),
+            Text(
+              formattedTime,
+              style: const TextStyle(color: Colors.black, fontSize: 18),
+            ),
+            Expanded(
+              child: ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: days[formattedDate]![mealTime]?.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Text(
+                    days[formattedDate]![mealTime]![index].toString(),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

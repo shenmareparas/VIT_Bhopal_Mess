@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'upcomming.dart';
+import 'upcoming.dart';
 import 'timetable.dart';
 
 void main() {
@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
               labelColor: Colors.white,
               indicatorColor: Colors.white,
               tabs: [
-                Tab(text: "Upcomming", icon: Icon(Icons.fastfood)),
+                Tab(text: "Upcoming", icon: Icon(Icons.fastfood)),
                 Tab(text: "Timetable", icon: Icon(Icons.table_chart))
               ],
             ),
@@ -39,7 +39,8 @@ class _MyAppState extends State<MyApp> {
             )),
           ),
           body: const TabBarView(
-            children: [Upcomming(), Timetable()],
+            physics: NeverScrollableScrollPhysics(),
+            children: [Upcoming(), Timetable()],
           ),
         ),
       ),
