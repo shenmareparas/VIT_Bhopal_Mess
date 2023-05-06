@@ -34,6 +34,10 @@ class MainRunner extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
+            getMealTime(now).toString(),
+            style: const TextStyle(color: Colors.black, fontSize: 18),
+          ),
+          Text(
             formattedDate,
             style: const TextStyle(color: Colors.black, fontSize: 18),
           ),
@@ -50,50 +54,235 @@ class MainRunner extends StatelessWidget {
     );
   }
 
-  static const Map<String, Map<String, String>> days = {
+  static const Map<String, Map<String, List<String>>> days = {
     'Monday': {
-      'Breakfast': 'Toast',
-      'Lunch': 'Hamburger',
-      'Dinner': 'Spaghetti'
+      'Breakfast': [
+        "Idly, Midhu Vada",
+        "Chutney, Sambar",
+        "Banana/Fruit Salad",
+        "Bread",
+        "Butter/Jam",
+        "Tea, Coffee, Milk"
+      ],
+      'Lunch': [
+        'Salad',
+        'Roti',
+        "Rajma Gharwala",
+        "Jeera Rice",
+        "Aloo Pepper Fry",
+        "Rice",
+        "Lemon Rice",
+        "Koottu",
+        "Rasam",
+        "Juice"
+      ],
+      'Snacks': ["Vada Pav", "Tea, Coffee, Milk"],
+      'Dinner': [
+        "Roti",
+        "Kashmiri Pulao",
+        "Egg Bhurji Masala",
+        "Plain Dal",
+        "Rice",
+        "Rasam",
+        "Pickle"
+      ],
     },
     'Tuesday': {
-      'Breakfast': 'Cereal',
-      'Lunch': 'Turkey sandwich',
-      'Dinner': 'Meatloaf'
+      'Breakfast': [
+        'Veg Paratha',
+        'Veg Sabji',
+        "Banava/Fruit Salad",
+        "Bread",
+        "Butter/Jam",
+        "Tea, Coffee, Milk"
+      ],
+      'Lunch': [
+        'Salad',
+        'Poori',
+        "Chana Masala",
+        "Plain Rice",
+        "Dal Tadka",
+        "Sambar",
+        "Rasam",
+        "Carrot Beans Poriyal",
+        "Curd"
+      ],
+      'Snacks': ["Bhel/Chana Sundal", "Sauce", "Tea, Coffee, Milk"],
+      'Dinner': [
+        "Roti",
+        "Kuska",
+        "Aloo Meal Maker Sabji",
+        "Masala Dal",
+        "Rasam",
+        "Pickle",
+        "Halwa"
+      ],
     },
     'Wednesday': {
-      'Breakfast': 'Oatmeal',
-      'Lunch': 'Grilled cheese',
-      'Dinner': 'Roast beef'
+      'Breakfast': [
+        'Veg Paratha',
+        'Veg Sabji',
+        "Banava/Fruit Salad",
+        "Bread",
+        "Butter/Jam",
+        "Tea, Coffee, Milk"
+      ],
+      'Lunch': [
+        'Salad',
+        'Poori',
+        "Chana Masala",
+        "Plain Rice",
+        "Dal Tadka",
+        "Sambar",
+        "Rasam",
+        "Carrot Beans Poriyal",
+        "Curd"
+      ],
+      'Snacks': ["Bhel/Chana Sundal", "Sauce", "Tea, Coffee, Milk"],
+      'Dinner': [
+        "Roti",
+        "Kuska",
+        "Aloo Meal Maker Sabji",
+        "Masala Dal",
+        "Rasam",
+        "Pickle",
+        "Halwa"
+      ],
     },
     'Thursday': {
-      'Breakfast': 'Pancakes',
-      'Lunch': 'BLT',
-      'Dinner': 'Chicken alfredo'
+      'Breakfast': [
+        'Veg Paratha',
+        'Veg Sabji',
+        "Banava/Fruit Salad",
+        "Bread",
+        "Butter/Jam",
+        "Tea, Coffee, Milk"
+      ],
+      'Lunch': [
+        'Salad',
+        'Poori',
+        "Chana Masala",
+        "Plain Rice",
+        "Dal Tadka",
+        "Sambar",
+        "Rasam",
+        "Carrot Beans Poriyal",
+        "Curd"
+      ],
+      'Snacks': ["Bhel/Chana Sundal", "Sauce", "Tea, Coffee, Milk"],
+      'Dinner': [
+        "Roti",
+        "Kuska",
+        "Aloo Meal Maker Sabji",
+        "Masala Dal",
+        "Rasam",
+        "Pickle",
+        "Halwa"
+      ],
     },
     'Friday': {
-      'Breakfast': 'Bagel',
-      'Lunch': 'Pizza',
-      'Dinner': 'Fish and chips'
+      'Breakfast': [
+        'Veg Paratha',
+        'Veg Sabji',
+        "Banava/Fruit Salad",
+        "Bread",
+        "Butter/Jam",
+        "Tea, Coffee, Milk"
+      ],
+      'Lunch': [
+        'Salad',
+        'Poori',
+        "Chana Masala",
+        "Plain Rice",
+        "Dal Tadka",
+        "Sambar",
+        "Rasam",
+        "Carrot Beans Poriyal",
+        "Curd"
+      ],
+      'Snacks': ["Bhel/Chana Sundal", "Sauce", "Tea, Coffee, Milk"],
+      'Dinner': [
+        "Roti",
+        "Kuska",
+        "Aloo Meal Maker Sabji",
+        "Masala Dal",
+        "Rasam",
+        "Pickle",
+        "Halwa"
+      ],
     },
     'Saturday': {
-      'Breakfast': 'Waffles',
-      'Lunch': 'French dip',
-      'Dinner': 'Tacos'
+      'Breakfast': [
+        'Veg Paratha',
+        'Veg Sabji',
+        "Banava/Fruit Salad",
+        "Bread",
+        "Butter/Jam",
+        "Tea, Coffee, Milk"
+      ],
+      'Lunch': [
+        'Salad',
+        'Poori',
+        "Chana Masala",
+        "Plain Rice",
+        "Dal Tadka",
+        "Sambar",
+        "Rasam",
+        "Carrot Beans Poriyal",
+        "Curd"
+      ],
+      'Snacks': ["Bhel/Chana Sundal", "Sauce", "Tea, Coffee, Milk"],
+      'Dinner': [
+        "Roti",
+        "Kuska",
+        "Aloo Meal Maker Sabji",
+        "Masala Dal",
+        "Rasam",
+        "Pickle",
+        "Halwa"
+      ],
     },
     'Sunday': {
-      'Breakfast': 'Eggs benedict',
-      'Lunch': 'Philly cheesesteak',
-      'Dinner': 'Pot roast'
+      'Breakfast': [
+        'Veg Paratha',
+        'Veg Sabji',
+        "Banava/Fruit Salad",
+        "Bread",
+        "Butter/Jam",
+        "Tea, Coffee, Milk"
+      ],
+      'Lunch': [
+        'Salad',
+        'Poori',
+        "Chana Masala",
+        "Plain Rice",
+        "Dal Tadka",
+        "Sambar",
+        "Rasam",
+        "Carrot Beans Poriyal",
+        "Curd"
+      ],
+      'Snacks': ["Bhel/Chana Sundal", "Sauce", "Tea, Coffee, Milk"],
+      'Dinner': [
+        "Roti",
+        "Kuska",
+        "Aloo Meal Maker Sabji",
+        "Masala Dal",
+        "Rasam",
+        "Pickle",
+        "Halwa"
+      ],
     },
   };
 
   static String getMealTime(DateTime now) {
     int hour = now.hour;
-    if (hour < 10) {
+    if (hour < 9) {
       return 'Breakfast';
     } else if (hour < 15) {
       return 'Lunch';
+    } else if (hour < 17) {
+      return 'Snacks';
     } else {
       return 'Dinner';
     }
