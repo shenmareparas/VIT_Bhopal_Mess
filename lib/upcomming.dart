@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class MainRunner extends StatelessWidget {
-  const MainRunner({super.key});
+class Upcomming extends StatelessWidget {
+  const Upcomming({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +24,6 @@ class MainRunner extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(
-          title: const Center(
-              child: Text(
-            'VIT Bhopal Mess',
-            style: TextStyle(color: Colors.white),
-          )),
-          backgroundColor: Colors.black),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

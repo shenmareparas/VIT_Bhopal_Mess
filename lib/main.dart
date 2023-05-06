@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'main_runner.dart';
+import 'upcomming.dart';
+import 'timetable.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,9 +17,32 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainRunner(),
+      home: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.black,
+            bottom: const TabBar(
+              labelColor: Colors.white,
+              indicatorColor: Colors.white,
+              tabs: [
+                Tab(text: "Upcomming", icon: Icon(Icons.fastfood)),
+                Tab(text: "Timetable", icon: Icon(Icons.table_chart))
+              ],
+            ),
+            title: const Center(
+                child: Text(
+              'VIT Bhopal Mess',
+              style: TextStyle(color: Colors.white),
+            )),
+          ),
+          body: const TabBarView(
+            children: [Upcomming(), Timetable()],
+          ),
+        ),
+      ),
     );
   }
 }
