@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'settings.dart';
 
 class Upcoming extends StatelessWidget {
   const Upcoming({super.key});
@@ -16,6 +17,7 @@ class Upcoming extends StatelessWidget {
     print("Day: $formattedDate");
     print("Time: $formattedTime");
     print("Total items: ${days[formattedDate]![mealTime]?.length}");
+    print("Mess: $selectedMess");
 
     if (days[formattedDate] != null && days[formattedDate]![mealTime] != null) {
       print(days[formattedDate]![mealTime]);
@@ -24,6 +26,7 @@ class Upcoming extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -31,15 +34,15 @@ class Upcoming extends StatelessWidget {
           children: [
             Text(
               formattedDate,
-              style: const TextStyle(color: Colors.black, fontSize: 18),
+              style: const TextStyle(color: Colors.white, fontSize: 18),
             ),
             Text(
               getMealTime(now).toString(),
-              style: const TextStyle(color: Colors.black, fontSize: 18),
+              style: const TextStyle(color: Colors.white, fontSize: 18),
             ),
             Text(
               formattedTime,
-              style: const TextStyle(color: Colors.black, fontSize: 18),
+              style: const TextStyle(color: Colors.white, fontSize: 18),
             ),
             Expanded(
               child: ListView.builder(
@@ -49,6 +52,7 @@ class Upcoming extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return Text(
                     days[formattedDate]![mealTime]![index].toString(),
+                    style: const TextStyle(color: Colors.white, fontSize: 18),
                   );
                 },
               ),

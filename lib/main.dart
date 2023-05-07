@@ -2,20 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'upcoming.dart';
 import 'timetable.dart';
+import 'settings.dart';
+import 'about.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,6 +22,37 @@ class _MyAppState extends State<MyApp> {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.black,
+            actions: [
+              Builder(builder: (BuildContext context) {
+                return PopupMenuButton(
+                  itemBuilder: (BuildContext context) {
+                    return [
+                      const PopupMenuItem(
+                        value: 'settings',
+                        child: Text('Settings'),
+                      ),
+                      const PopupMenuItem(
+                        value: 'about',
+                        child: Text('About'),
+                      ),
+                    ];
+                  },
+                  onSelected: (value) {
+                    if (value == 'settings') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Settings()),
+                      );
+                    } else if (value == 'about') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const About()),
+                      );
+                    }
+                  },
+                );
+              }),
+            ],
             bottom: const TabBar(
               labelColor: Colors.white,
               indicatorColor: Colors.white,
@@ -33,11 +61,11 @@ class _MyAppState extends State<MyApp> {
                 Tab(text: "Timetable", icon: Icon(FontAwesomeIcons.table))
               ],
             ),
-            title: const Center(
-                child: Text(
-              'VIT Bhopal Mess',
-              style: TextStyle(color: Colors.white),
-            )),
+            centerTitle: true,
+            title: const Text('VIT Bhopal Mess',
+                style: TextStyle(
+                  color: Colors.white,
+                )),
           ),
           body: const TabBarView(
             physics: NeverScrollableScrollPhysics(),
