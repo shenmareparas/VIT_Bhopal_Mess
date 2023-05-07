@@ -11,10 +11,17 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   int? selectedMess = 1;
+  int? apptheme = 1;
 
   void _handleMessSelection(int? value) {
     setState(() {
       selectedMess = value;
+    });
+  }
+
+  void _handleappthemeSelection(int? value) {
+    setState(() {
+      apptheme = value;
     });
   }
 
@@ -57,6 +64,27 @@ class _SettingsState extends State<Settings> {
               groupValue: selectedMess,
               onChanged: _handleMessSelection,
             ),
+            const SizedBox(height: 16.0),
+            const Text(
+              'App Theme:',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 16.0),
+            RadioListTile(
+              title: const Text('Light Mode'),
+              value: 1,
+              groupValue: apptheme,
+              onChanged: _handleappthemeSelection,
+            ),
+            RadioListTile(
+              title: const Text('Dark Mode'),
+              value: 2,
+              groupValue: apptheme,
+              onChanged: _handleappthemeSelection,
+            )
           ],
         ),
       ),

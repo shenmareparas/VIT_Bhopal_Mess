@@ -6,7 +6,6 @@ import 'settings.dart';
 import 'about.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -41,7 +40,8 @@ class MyApp extends StatelessWidget {
                     if (value == 'settings') {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const Settings()),
+                        MaterialPageRoute(
+                            builder: (context) => const Settings()),
                       );
                     } else if (value == 'about') {
                       Navigator.push(

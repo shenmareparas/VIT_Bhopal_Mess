@@ -8,7 +8,7 @@ class Timetable extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PhotoView(
-        imageProvider: const AssetImage('assets/images/timetable.jpg'),
+        imageProvider: const AssetImage('assets/images/0.timetable.jpg'),
       ),
     );
   }
