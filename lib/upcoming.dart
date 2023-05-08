@@ -34,26 +34,26 @@ class Upcoming extends StatelessWidget {
           children: [
             Text(
               formattedDate,
-              style: const TextStyle(color: Colors.white, fontSize: 18),
+              style: const TextStyle(color: Colors.white, fontSize: 30),
             ),
             Text(
               getMealTime(now).toString(),
               style: const TextStyle(
                 color: Colors.white,
-                fontSize: 18,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
                 shadows: [
                   Shadow(
                     blurRadius: 2,
                     color: Colors.black,
                     offset: Offset(1, 1),
-                  ), // Add a shadow effect
+                  ),
                 ],
               ),
             ),
             Text(
               formattedTime,
-              style: const TextStyle(color: Colors.white, fontSize: 18),
+              style: const TextStyle(color: Colors.white, fontSize: 30),
             ),
             Expanded(
               child: ListView.builder(
@@ -65,14 +65,14 @@ class Upcoming extends StatelessWidget {
                     days[formattedDate]![mealTime]![index].toString(),
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold, // Add bold font weight
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
                       shadows: [
                         Shadow(
                           blurRadius: 2,
                           color: Colors.black,
                           offset: Offset(1, 1),
-                        ), // Add a shadow effect
+                        ),
                       ],
                     ),
                   );
