@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.black,
+            backgroundColor: Colors.blueGrey[900],
             actions: [
               Builder(builder: (BuildContext context) {
                 return PopupMenuButton(

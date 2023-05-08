@@ -27,6 +27,7 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Settings'),
         centerTitle: true,
@@ -40,24 +41,28 @@ class _SettingsState extends State<Settings> {
             const Text(
               'Choose your Mess:',
               style: TextStyle(
+                color: Colors.black,
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 16.0),
             RadioListTile(
+              activeColor: Colors.blueGrey[900],
               title: const Text('Boys Hostel 1 CRCL Mess'),
               value: 1,
               groupValue: selectedMess,
               onChanged: _handleMessSelection,
             ),
             RadioListTile(
+              activeColor: Colors.blueGrey[900],
               title: const Text('Boys Hostel 2 Mayuri Mess'),
               value: 2,
               groupValue: selectedMess,
               onChanged: _handleMessSelection,
             ),
             RadioListTile(
+              activeColor: Colors.blueGrey[900],
               title: const Text('Girls Hostel CRCL Mess'),
               value: 3,
               groupValue: selectedMess,
@@ -73,12 +78,14 @@ class _SettingsState extends State<Settings> {
             ),
             const SizedBox(height: 16.0),
             RadioListTile(
+              activeColor: Colors.blueGrey[900],
               title: const Text('Light Mode'),
               value: 1,
               groupValue: apptheme,
               onChanged: _handleappthemeSelection,
             ),
             RadioListTile(
+              activeColor: Colors.blueGrey[900],
               title: const Text('Dark Mode'),
               value: 2,
               groupValue: apptheme,
