@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-int selectedMess = 0;
+int? selectedMess = 1;
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -10,7 +10,6 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  int? selectedMess = 1;
   int? apptheme = 1;
 
   void _handleMessSelection(int? value) {

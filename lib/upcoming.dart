@@ -38,7 +38,18 @@ class Upcoming extends StatelessWidget {
             ),
             Text(
               getMealTime(now).toString(),
-              style: const TextStyle(color: Colors.white, fontSize: 18),
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                shadows: [
+                  Shadow(
+                    blurRadius: 2,
+                    color: Colors.black,
+                    offset: Offset(1, 1),
+                  ), // Add a shadow effect
+                ],
+              ),
             ),
             Text(
               formattedTime,
@@ -52,7 +63,18 @@ class Upcoming extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return Text(
                     days[formattedDate]![mealTime]![index].toString(),
-                    style: const TextStyle(color: Colors.white, fontSize: 18),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold, // Add bold font weight
+                      shadows: [
+                        Shadow(
+                          blurRadius: 2,
+                          color: Colors.black,
+                          offset: Offset(1, 1),
+                        ), // Add a shadow effect
+                      ],
+                    ),
                   );
                 },
               ),

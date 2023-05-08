@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
+import 'settings.dart';
 
 class Timetable extends StatelessWidget {
   const Timetable({super.key});
@@ -8,7 +9,7 @@ class Timetable extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PhotoView(
-        imageProvider: const AssetImage('assets/images/0.timetable.jpg'),
+        imageProvider: AssetImage('assets/images/$selectedMess.timetable.jpg'),
       ),
     );
   }
