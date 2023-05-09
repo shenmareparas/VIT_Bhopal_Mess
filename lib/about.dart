@@ -19,7 +19,7 @@ class About extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const CircleAvatar(
-                  radius: 120,
+                  radius: 130,
                   backgroundImage: AssetImage('assets/images/profile.jpg'),
                 ),
                 const SizedBox(height: 20),
@@ -33,7 +33,7 @@ class About extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  'App description.',
+                  'App Description',
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.blueGrey[700],
@@ -58,7 +58,7 @@ class About extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  'Contact me at shenmareparas@gmail.com',
+                  'shenmareparas@gmail.com',
                   style: TextStyle(
                     fontSize: 14,
                     color: Colors.blueGrey[700],

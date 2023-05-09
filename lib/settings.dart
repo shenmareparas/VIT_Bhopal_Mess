@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:vit_mess/timetable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-int? selectedMess = 1;
+int selectedMess = 1;
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -10,15 +12,18 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  static final GlobalKey<TimetableState> timetableKey =
+      GlobalKey<TimetableState>();
   int? apptheme = 1;
 
-  void _handleMessSelection(int? value) {
+  void handleMessSelection(int? value) {
     setState(() {
-      selectedMess = value;
+      selectedMess = value!;
+      _SettingsState.timetableKey.currentState?.updateImage();
     });
   }
 
-  void _handleappthemeSelection(int? value) {
+  void handleappthemeSelection(int? value) {
     setState(() {
       apptheme = value;
     });
@@ -52,21 +57,21 @@ class _SettingsState extends State<Settings> {
               title: const Text('Boys Hostel 1 CRCL Mess'),
               value: 1,
               groupValue: selectedMess,
-              onChanged: _handleMessSelection,
+              onChanged: handleMessSelection,
             ),
             RadioListTile(
               activeColor: Colors.blueGrey[900],
               title: const Text('Boys Hostel 2 Mayuri Mess'),
               value: 2,
               groupValue: selectedMess,
-              onChanged: _handleMessSelection,
+              onChanged: handleMessSelection,
             ),
             RadioListTile(
               activeColor: Colors.blueGrey[900],
               title: const Text('Girls Hostel CRCL Mess'),
               value: 3,
               groupValue: selectedMess,
-              onChanged: _handleMessSelection,
+              onChanged: handleMessSelection,
             ),
             const SizedBox(height: 16.0),
             const Text(
@@ -82,14 +87,14 @@ class _SettingsState extends State<Settings> {
               title: const Text('Light Mode'),
               value: 1,
               groupValue: apptheme,
-              onChanged: _handleappthemeSelection,
+              onChanged: handleappthemeSelection,
             ),
             RadioListTile(
               activeColor: Colors.blueGrey[900],
               title: const Text('Dark Mode'),
               value: 2,
               groupValue: apptheme,
-              onChanged: _handleappthemeSelection,
+              onChanged: handleappthemeSelection,
             )
           ],
         ),

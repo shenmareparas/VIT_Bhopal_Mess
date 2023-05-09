@@ -1,4 +1,4 @@
-const Map<String, Map<String, List<String>>> mess1 = {
+const Map<String, Map<String, List<String>>> mess_1 = {
   "Monday": {
     "Breakfast": [
       "Idly, Midhu Vada",
@@ -216,7 +216,7 @@ const Map<String, Map<String, List<String>>> mess1 = {
   },
 };
 
-const Map<String, Map<String, List<String>>> mess2 = {
+const Map<String, Map<String, List<String>>> mess_2 = {
   "Monday": {
     "Breakfast": [
       "Idly, Midhu Vada",
@@ -434,7 +434,7 @@ const Map<String, Map<String, List<String>>> mess2 = {
   },
 };
 
-const Map<String, Map<String, List<String>>> mess3 = {
+const Map<String, Map<String, List<String>>> mess_3 = {
   "Monday": {
     "Breakfast": [
       "Idly, Midhu Vada",

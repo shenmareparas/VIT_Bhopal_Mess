@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'settings.dart';
@@ -15,17 +13,17 @@ class Upcoming extends StatelessWidget {
     String formattedDate = DateFormat('EEEE').format(now);
     String formattedTime = DateFormat('HH:mm').format(now);
 
-    print("Day: $formattedDate");
-    print("Time: $formattedTime");
-    print("Total items: ${mess1[formattedDate]![mealTime]?.length}");
-    print("Mess: $selectedMess");
+    // print("Day: $formattedDate");
+    // print("Time: $formattedTime");
+    // print("Total items: ${getMess[formattedDate]![mealTime]?.length}");
+    // print("Mess: $selectedMess");
 
-    if (mess1[formattedDate] != null &&
-        mess1[formattedDate]![mealTime] != null) {
-      print(mess1[formattedDate]![mealTime]);
-    } else {
-      print('No meal found for $formattedDate at $mealTime');
-    }
+    // if (getMess[formattedDate] != null &&
+    //     getMess[formattedDate]![mealTime] != null) {
+    //   print(getMess[formattedDate]![mealTime]);
+    // } else {
+    //   print('No meal found for $formattedDate at $mealTime');
+    // }
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -34,48 +32,96 @@ class Upcoming extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              formattedDate,
-              style: const TextStyle(color: Colors.black, fontSize: 30),
+            Row(
+              children: [
+                Expanded(
+                  child: Card(
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        formattedDate,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            Text(
-              getMealTime(now).toString(),
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 30,
-                // fontWeight: FontWeight.bold,
-                // shadows: [
-                //   Shadow(
-                //     blurRadius: 2,
-                //     color: Colors.black,
-                //     offset: Offset(1, 1),
-                //   ),
-                // ],
-              ),
+            Row(
+              children: [
+                Expanded(
+                  child: Card(
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        getMealTime(now).toString(),
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            Text(
-              formattedTime,
-              style: const TextStyle(color: Colors.black, fontSize: 30),
+            Row(
+              children: [
+                Expanded(
+                  child: Card(
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        formattedTime,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
             Expanded(
               child: ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: mess1[formattedDate]![mealTime]?.length,
+                itemCount: getMess(selectedMess)[formattedDate][mealTime]?.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Text(
-                    mess1[formattedDate]![mealTime]![index].toString(),
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 30,
-                      // fontWeight: FontWeight.bold,
-                      // shadows: [
-                      //   Shadow(
-                      //     blurRadius: 2,
-                      //     color: Colors.black,
-                      //     offset: Offset(1, 1),
-                      //   ),
-                      // ],
+                  return Card(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        getMess(selectedMess)[formattedDate]![mealTime]![index].toString(),
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
                     ),
                   );
                 },
@@ -87,15 +133,18 @@ class Upcoming extends StatelessWidget {
     );
   }
 
-  // static String getMess() {
-  //   if (selectedMess == 1) {
-  //     return 'mess1';
-  //   } else if (selectedMess == 2) {
-  //     return 'mess2';
-  //   } else {
-  //     return "mess3";
-  //   }
-  // }
+  Map getMess(int selectedMess) {
+    switch (selectedMess) {
+      case 1:
+        return mess_1;
+      case 2:
+        return mess_2;
+      case 3:
+        return mess_3;
+      default:
+        return mess_1;
+    }
+  }
 
   static String getMealTime(DateTime now) {
     int hour = now.hour;
