@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(textTheme: GoogleFonts.karlaTextTheme() ),
+      theme: ThemeData(textTheme: GoogleFonts.karlaTextTheme()),
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: 2,
@@ -64,9 +64,7 @@ class MyApp extends StatelessWidget {
             ),
             centerTitle: true,
             title: const Text('VIT Bhopal Mess',
-                style: TextStyle(
-                  color: Colors.white,
-                )),
+                style: TextStyle(fontSize: 25, color: Colors.white)),
           ),
           body: const TabBarView(
             physics: NeverScrollableScrollPhysics(),

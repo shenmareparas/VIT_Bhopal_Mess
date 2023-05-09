@@ -36,18 +36,20 @@ class Upcoming extends StatelessWidget {
               children: [
                 Expanded(
                   child: Card(
-                    elevation: 4,
+                    elevation: 7,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        formattedDate,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                      child: Center(
+                        child: Text(
+                          formattedDate,
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -59,18 +61,20 @@ class Upcoming extends StatelessWidget {
               children: [
                 Expanded(
                   child: Card(
-                    elevation: 4,
+                    elevation: 7,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        getMealTime(now).toString(),
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                      child: Center(
+                        child: Text(
+                          getMealTime(now).toString(),
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -78,44 +82,46 @@ class Upcoming extends StatelessWidget {
                 ),
               ],
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: Card(
-                    elevation: 4,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        formattedTime,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     Expanded(
+            //       child: Card(
+            //         elevation: 4,
+            //         shape: RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(10),
+            //         ),
+            //         child: Padding(
+            //           padding: const EdgeInsets.all(16.0),
+            //           child: Text(
+            //             formattedTime,
+            //             style: const TextStyle(
+            //               color: Colors.black,
+            //               fontSize: 20,
+            //               fontWeight: FontWeight.bold,
+            //             ),
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
             Expanded(
               child: ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: getMess(selectedMess)[formattedDate][mealTime]?.length,
+                itemCount:
+                    getMess(selectedMess)[formattedDate][mealTime]?.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Card(
-                    elevation: 2,
+                    elevation: 3,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Text(
-                        getMess(selectedMess)[formattedDate]![mealTime]![index].toString(),
+                        getMess(selectedMess)[formattedDate]![mealTime]![index]
+                            .toString(),
                         style: const TextStyle(
                           color: Colors.black,
                           fontSize: 16,

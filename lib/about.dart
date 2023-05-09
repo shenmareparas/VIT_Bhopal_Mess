@@ -8,7 +8,11 @@ class About extends StatelessWidget {
     return Material(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('About'),
+          title: const Text('About',
+              style: TextStyle(
+                fontSize: 25,
+                color: Colors.white,
+              )),
           centerTitle: true,
           backgroundColor: Colors.blueGrey[900],
         ),
@@ -26,7 +30,7 @@ class About extends StatelessWidget {
                 Text(
                   'VIT Mess',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 35,
                     fontWeight: FontWeight.bold,
                     color: Colors.blueGrey[900],
                   ),
@@ -35,7 +39,7 @@ class About extends StatelessWidget {
                 Text(
                   'App Description',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 17,
                     color: Colors.blueGrey[700],
                   ),
                   textAlign: TextAlign.center,

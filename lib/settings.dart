@@ -34,7 +34,11 @@ class _SettingsState extends State<Settings> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: const Text('Settings',
+            style: TextStyle(
+              fontSize: 25,
+              color: Colors.white,
+            )),
         centerTitle: true,
         backgroundColor: Colors.blueGrey[900],
       ),
@@ -84,14 +88,14 @@ class _SettingsState extends State<Settings> {
             const SizedBox(height: 16.0),
             RadioListTile(
               activeColor: Colors.blueGrey[900],
-              title: const Text('Light Mode'),
+              title: const Text('Light Mode ☀️'),
               value: 1,
               groupValue: apptheme,
               onChanged: handleappthemeSelection,
             ),
             RadioListTile(
               activeColor: Colors.blueGrey[900],
-              title: const Text('Dark Mode'),
+              title: const Text('Dark Mode 🌙'),
               value: 2,
               groupValue: apptheme,
               onChanged: handleappthemeSelection,
