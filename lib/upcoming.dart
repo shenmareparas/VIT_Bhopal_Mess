@@ -3,13 +3,33 @@ import 'package:intl/intl.dart';
 import 'settings.dart';
 import 'map.dart';
 
-class Upcoming extends StatelessWidget {
+class Upcoming extends StatefulWidget {
   const Upcoming({super.key});
 
   @override
+  State<Upcoming> createState() => _UpcomingState();
+
+  static String getMealTime(DateTime now) {
+    int hour = now.hour;
+    if (hour < 9) {
+      return 'Breakfast';
+    } else if (hour < 15) {
+      return 'Lunch';
+    } else if (hour < 18) {
+      return 'Snacks';
+    } else if (hour < 21) {
+      return 'Dinner';
+    } else {
+      return "Breakfast";
+    }
+  }
+}
+
+class _UpcomingState extends State<Upcoming> {
+  @override
   Widget build(BuildContext context) {
     DateTime now = DateTime.now();
-    String mealTime = getMealTime(now);
+    String mealTime = Upcoming.getMealTime(now);
     String formattedDate = DateFormat('EEEE').format(now);
     String formattedTime = DateFormat('HH:mm').format(now);
 
@@ -69,7 +89,7 @@ class Upcoming extends StatelessWidget {
                       padding: const EdgeInsets.all(16.0),
                       child: Center(
                         child: Text(
-                          getMealTime(now).toString(),
+                          Upcoming.getMealTime(now).toString(),
                           style: const TextStyle(
                             color: Colors.black,
                             fontSize: 20,
@@ -107,7 +127,7 @@ class Upcoming extends StatelessWidget {
             // ),
             Expanded(
               child: ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
+                // physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount:
                     getMess(selectedMess)[formattedDate][mealTime]?.length,
@@ -149,21 +169,6 @@ class Upcoming extends StatelessWidget {
         return mess_3;
       default:
         return mess_1;
-    }
-  }
-
-  static String getMealTime(DateTime now) {
-    int hour = now.hour;
-    if (hour < 9) {
-      return 'Breakfast';
-    } else if (hour < 15) {
-      return 'Lunch';
-    } else if (hour < 18) {
-      return 'Snacks';
-    } else if (hour < 21) {
-      return 'Dinner';
-    } else {
-      return "Breakfast";
     }
   }
 }
