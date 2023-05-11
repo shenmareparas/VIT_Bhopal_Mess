@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:vit_mess/timetable.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'timetable.dart';
+import 'color_schemes.dart';
 
 int selectedMess = 1;
+ColorScheme apptheme = lightColorScheme;
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -14,7 +15,6 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   static final GlobalKey<TimetableState> timetableKey =
       GlobalKey<TimetableState>();
-  int? apptheme = 1;
 
   void handleMessSelection(int? value) {
     setState(() {
@@ -23,9 +23,9 @@ class _SettingsState extends State<Settings> {
     });
   }
 
-  void handleappthemeSelection(int? value) {
+  void handleappthemeSelection(colorScheme) {
     setState(() {
-      apptheme = value;
+      apptheme = colorScheme!;
     });
   }
 
@@ -102,7 +102,7 @@ class _SettingsState extends State<Settings> {
                           Text('Light Mode'),
                         ],
                       ),
-                      value: 1,
+                      value: lightColorScheme,
                       groupValue: apptheme,
                       onChanged: handleappthemeSelection,
                     ),
@@ -111,10 +111,10 @@ class _SettingsState extends State<Settings> {
                         children: [
                           Icon(Icons.nightlight_round),
                           SizedBox(width: 10),
-                          Text('Light Mode'),
+                          Text('Dark Mode'),
                         ],
                       ),
-                      value: 2,
+                      value: darkColorScheme,
                       groupValue: apptheme,
                       onChanged: handleappthemeSelection,
                     ),
