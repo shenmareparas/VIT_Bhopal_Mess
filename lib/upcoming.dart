@@ -46,7 +46,6 @@ class _UpcomingState extends State<Upcoming> {
     // }
 
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -66,7 +65,6 @@ class _UpcomingState extends State<Upcoming> {
                         child: Text(
                           formattedDate,
                           style: const TextStyle(
-                            color: Colors.black,
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
@@ -91,7 +89,6 @@ class _UpcomingState extends State<Upcoming> {
                         child: Text(
                           Upcoming.getMealTime(now).toString(),
                           style: const TextStyle(
-                            color: Colors.black,
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
@@ -102,55 +99,40 @@ class _UpcomingState extends State<Upcoming> {
                 ),
               ],
             ),
-            // Row(
-            //   children: [
-            //     Expanded(
-            //       child: Card(
-            //         elevation: 4,
-            //         shape: RoundedRectangleBorder(
-            //           borderRadius: BorderRadius.circular(10),
-            //         ),
-            //         child: Padding(
-            //           padding: const EdgeInsets.all(16.0),
-            //           child: Text(
-            //             formattedTime,
-            //             style: const TextStyle(
-            //               color: Colors.black,
-            //               fontSize: 20,
-            //               fontWeight: FontWeight.bold,
-            //             ),
-            //           ),
-            //         ),
-            //       ),
-            //     ),
-            //   ],
-            // ),
             Expanded(
-              child: ListView.builder(
-                // physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount:
-                    getMess(selectedMess)[formattedDate][mealTime]?.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Card(
-                    elevation: 3,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        getMess(selectedMess)[formattedDate]![mealTime]![index]
-                            .toString(),
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  );
-                },
+              child: Card(
+                elevation: 3,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount:
+                        getMess(selectedMess)[formattedDate][mealTime]?.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            getMess(selectedMess)[formattedDate]![mealTime]![
+                                    index]
+                                .toString(),
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ),
               ),
             ),
           ],

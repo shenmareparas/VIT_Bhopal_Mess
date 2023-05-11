@@ -5,71 +5,62 @@ class About extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('About',
-              style: TextStyle(
-                fontSize: 25,
-                color: Colors.white,
-              )),
-          centerTitle: true,
-          backgroundColor: Colors.blueGrey[900],
-        ),
-        body: Center(
-          child: Container(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const CircleAvatar(
-                  radius: 130,
-                  backgroundImage: AssetImage('assets/images/profile.jpg'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('About',
+            style: TextStyle(
+              fontSize: 25,
+            )),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          child: const Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: 130,
+                backgroundImage: AssetImage('assets/images/profile.jpg'),
+              ),
+              SizedBox(height: 20),
+              Text(
+                'VIT Mess',
+                style: TextStyle(
+                  fontSize: 35,
+                  fontWeight: FontWeight.bold,
                 ),
-                const SizedBox(height: 20),
-                Text(
-                  'VIT Mess',
-                  style: TextStyle(
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.blueGrey[900],
-                  ),
+              ),
+              SizedBox(height: 10),
+              Text(
+                'App Description',
+                style: TextStyle(
+                  fontSize: 17,
                 ),
-                const SizedBox(height: 10),
-                Text(
-                  'App Description',
-                  style: TextStyle(
-                    fontSize: 17,
-                    color: Colors.blueGrey[700],
-                  ),
-                  textAlign: TextAlign.center,
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 20),
+              Text(
+                'Version 1.0.0',
+                style: TextStyle(
+                  fontSize: 14,
                 ),
-                const SizedBox(height: 20),
-                Text(
-                  'Version 1.0.0',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.blueGrey[700],
-                  ),
+              ),
+              SizedBox(height: 10),
+              Text(
+                'Developed by Paras Shenmare',
+                style: TextStyle(
+                  fontSize: 14,
                 ),
-                const SizedBox(height: 10),
-                Text(
-                  'Developed by Paras Shenmare',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.blueGrey[700],
-                  ),
+              ),
+              SizedBox(height: 10),
+              Text(
+                'shenmareparas@gmail.com',
+                style: TextStyle(
+                  fontSize: 14,
                 ),
-                const SizedBox(height: 10),
-                Text(
-                  'shenmareparas@gmail.com',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.blueGrey[700],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

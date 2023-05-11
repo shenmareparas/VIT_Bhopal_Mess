@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'color_schemes.dart';
 import 'upcoming.dart';
 import 'timetable.dart';
 import 'settings.dart';
@@ -15,13 +16,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(textTheme: GoogleFonts.karlaTextTheme()),
+      theme: ThemeData(
+          useMaterial3: true,
+          colorScheme: lightColorScheme,
+          textTheme: GoogleFonts.karlaTextTheme()),
+      darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: 2,
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.blueGrey[900],
             actions: [
               Builder(builder: (BuildContext context) {
                 return PopupMenuButton(
@@ -55,8 +59,6 @@ class MyApp extends StatelessWidget {
               }),
             ],
             bottom: const TabBar(
-              labelColor: Colors.white,
-              indicatorColor: Colors.white,
               tabs: [
                 Tab(text: "Upcoming", icon: Icon(Icons.restaurant)),
                 Tab(text: "Timetable", icon: Icon(Icons.table_chart))
@@ -64,7 +66,9 @@ class MyApp extends StatelessWidget {
             ),
             centerTitle: true,
             title: const Text('VIT Bhopal Mess',
-                style: TextStyle(fontSize: 25, color: Colors.white)),
+                style: TextStyle(
+                  fontSize: 25,
+                )),
           ),
           body: const TabBarView(
             physics: NeverScrollableScrollPhysics(),
