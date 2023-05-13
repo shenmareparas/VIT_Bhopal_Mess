@@ -3,6 +3,7 @@ import 'upcoming.dart';
 import 'timetable.dart';
 import 'settings.dart';
 import 'about.dart';
+import 'color_schemes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,14 +17,11 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  void updateTheme(ColorScheme apptheme) {
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.from(useMaterial3: true, colorScheme: apptheme),
+      theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
+      darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: 2,

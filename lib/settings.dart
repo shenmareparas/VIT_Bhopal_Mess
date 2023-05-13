@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
 import 'timetable.dart';
-import 'color_schemes.dart';
+import "package:shared_preferences/shared_preferences.dart";
 
 int selectedMess = 1;
-ColorScheme apptheme = lightColorScheme;
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -17,8 +15,6 @@ class _SettingsState extends State<Settings> {
   static final GlobalKey<TimetableState> timetableKey =
       GlobalKey<TimetableState>();
 
-  MyAppState? _appState;
-
   void handleMessSelection(int? value) {
     setState(() {
       selectedMess = value!;
@@ -29,21 +25,6 @@ class _SettingsState extends State<Settings> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _appState = context.findAncestorStateOfType<MyAppState>();
-  }
-
-  void handleSystemDefaultTheme(ColorScheme? colorScheme) {
-    setState(() {
-      apptheme = Theme.of(context).colorScheme;
-      _appState?.updateTheme(apptheme);
-    });
-  }
-
-  void handleappthemeSelection(colorScheme) {
-    setState(() {
-      apptheme = colorScheme;
-      _appState?.updateTheme(apptheme);
-    });
   }
 
   @override
@@ -53,7 +34,6 @@ class _SettingsState extends State<Settings> {
         title: const Text('Settings',
             style: TextStyle(
               fontSize: 25,
-              // color: Colors.white,
             )),
         centerTitle: true,
       ),
@@ -68,7 +48,7 @@ class _SettingsState extends State<Settings> {
                 child: Column(
                   children: [
                     const Text(
-                      'Choose your Mess',
+                      'Choose Mess',
                       style: TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold,
@@ -98,54 +78,25 @@ class _SettingsState extends State<Settings> {
               ),
             ),
             const SizedBox(height: 16.0),
-            Card(
+            const Card(
               child: Padding(
-                padding: const EdgeInsets.only(top: 20, bottom: 20),
+                padding: EdgeInsets.only(top: 20, bottom: 20),
                 child: Column(
                   children: [
-                    const Text(
+                    Text(
                       'App Theme',
                       style: TextStyle(
-                        fontSize: 18.0,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 16.0),
-                    RadioListTile(
-                      title: const Row(
-                        children: [
-                          Icon(Icons.wb_sunny),
-                          SizedBox(width: 10),
-                          Text('Light Mode'),
-                        ],
-                      ),
-                      value: lightColorScheme,
-                      groupValue: apptheme,
-                      onChanged: handleappthemeSelection,
-                    ),
-                    RadioListTile(
-                      title: const Row(
-                        children: [
-                          Icon(Icons.nightlight_round),
-                          SizedBox(width: 10),
-                          Text('Dark Mode'),
-                        ],
-                      ),
-                      value: darkColorScheme,
-                      groupValue: apptheme,
-                      onChanged: handleappthemeSelection,
-                    ),
-                    RadioListTile(
-                      title: const Row(
-                        children: [
-                          Icon(Icons.settings_system_daydream),
-                          SizedBox(width: 10),
-                          Text('System Default'),
-                        ],
-                      ),
-                      value: Theme.of(context).colorScheme,
-                      groupValue: apptheme,
-                      onChanged: handleSystemDefaultTheme,
+                    SizedBox(height: 16),
+                    Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Text(
+                          'App Theme is set to System Default.\n\nTo change App Theme change your System Theme.',
+                          style: TextStyle(fontSize: 18),
+                          textAlign: TextAlign.center),
                     ),
                   ],
                 ),
