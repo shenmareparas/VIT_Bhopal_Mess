@@ -226,7 +226,7 @@ class _UpcomingState extends State<Upcoming> {
     );
   }
 
-  Map getMess(int selectedMess) {
+  Map getMess(int electedMess) {
     switch (selectedMess) {
       case 1:
         return mess_1;

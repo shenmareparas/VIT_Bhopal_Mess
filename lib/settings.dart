@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'upcoming.dart';
 import 'timetable.dart';
 import "package:shared_preferences/shared_preferences.dart";
 
 int selectedMess = 1;
+int savedselectedMess = 1;
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -15,16 +17,34 @@ class _SettingsState extends State<Settings> {
   static final GlobalKey<TimetableState> timetableKey =
       GlobalKey<TimetableState>();
 
-  void handleMessSelection(int? value) {
+  void handleMessSelection(int? value) async {
     setState(() {
       selectedMess = value!;
       _SettingsState.timetableKey.currentState?.updateImage();
     });
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt("selectedMess", selectedMess);
+  }
+
+  void saveselectedMess() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt("selectedMess", selectedMess);
+  }
+
+  void readselectedMess() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int? savedselectedMess = prefs.getInt("selectedMess");
+    if (savedselectedMess != null) {
+      setState(() {
+        selectedMess = savedselectedMess;
+      });
+    }
   }
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
+  void initState() {
+    super.initState();
+    readselectedMess();
   }
 
   @override
