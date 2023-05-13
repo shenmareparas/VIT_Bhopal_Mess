@@ -12,17 +12,22 @@ class Timetable extends StatefulWidget {
 class TimetableState extends State<Timetable> {
   String img = 'assets/images/$selectedMess.timetable.jpg';
 
-void updateImage(){
-  setState(() {
-    img = 'assets/images/$selectedMess.timetable.jpg';
-  });
-}
+  void updateImage() {
+    setState(() {
+      img = 'assets/images/$selectedMess.timetable.jpg';
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PhotoView(
-        imageProvider: AssetImage(img),
+      body: Center(
+        child: PhotoView(
+          imageProvider: AssetImage(img),
+          minScale: PhotoViewComputedScale.contained * 0.8,
+          maxScale: PhotoViewComputedScale.covered * 1.8,
+          tightMode: true,
+        ),
       ),
     );
   }
