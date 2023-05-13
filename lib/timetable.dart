@@ -24,7 +24,7 @@ class TimetableState extends State<Timetable> {
       body: Center(
         child: PhotoView(
           imageProvider: AssetImage(img),
-          minScale: PhotoViewComputedScale.contained * 0.8,
+          minScale: PhotoViewComputedScale.contained * 0,
           maxScale: PhotoViewComputedScale.covered * 1.8,
           tightMode: true,
         ),

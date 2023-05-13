@@ -64,10 +64,8 @@ class _UpcomingState extends State<Upcoming> {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        title: const Text(
-                          'Select Day',
-                          textAlign: TextAlign.center, // Center align the text
-                        ),
+                        title: const Text('Select Day',
+                            textAlign: TextAlign.center),
                         content: SizedBox(
                           width: double.maxFinite,
                           child: ListView.builder(
@@ -112,86 +110,70 @@ class _UpcomingState extends State<Upcoming> {
               ),
             ),
             const SizedBox(height: 10),
-            Row(
-              children: [
-                Expanded(
-                  child: FloatingActionButton(
-                    heroTag: 'btn02',
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: const Text('Select Meal Time'),
-                            content: SingleChildScrollView(
-                              child: ListBody(
-                                children: <Widget>[
+            SizedBox(
+              height: 55,
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  var meal = ["Breakfast", "Lunch", "Snacks", "Dinner"];
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const Text('Select Meal Time',
+                            textAlign: TextAlign.center),
+                        content: SizedBox(
+                          width: double.maxFinite,
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: meal.length,
+                            itemBuilder: (context, index) {
+                              return Column(
+                                children: [
                                   GestureDetector(
-                                    child: const Text('Breakfast'),
-                                    onTap: () {
+                                    onTap: () => {
                                       setState(() {
-                                        mealTime = 'Breakfast';
-                                      });
-                                      Navigator.of(context).pop();
+                                        mealTime = meal[index];
+                                      }),
+                                      Navigator.of(context).pop(),
+                                      print(mealTime),
                                     },
+                                    child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(meal[index])),
                                   ),
-                                  const SizedBox(height: 18),
-                                  GestureDetector(
-                                    child: const Text('Lunch'),
-                                    onTap: () {
-                                      setState(() {
-                                        mealTime = 'Lunch';
-                                      });
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                  const SizedBox(height: 18),
-                                  GestureDetector(
-                                    child: const Text('Snacks'),
-                                    onTap: () {
-                                      setState(() {
-                                        mealTime = 'Snacks';
-                                      });
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                  const SizedBox(height: 18),
-                                  GestureDetector(
-                                    child: const Text('Dinner'),
-                                    onTap: () {
-                                      setState(() {
-                                        mealTime = 'Dinner';
-                                      });
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
+                                  const SizedBox(height: 18)
                                 ],
-                              ),
-                            ),
-                          );
-                        },
+                              );
+                            },
+                          ),
+                        ),
                       );
                     },
-                    child: Text(
-                      mealTime,
-                      style: const TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15))),
+                child: Text(
+                  mealTime,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-              ],
+              ),
             ),
             const SizedBox(height: 10),
             Expanded(
               child: Card(
-                elevation: 3,
+                elevation: 4,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(15),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
@@ -226,7 +208,7 @@ class _UpcomingState extends State<Upcoming> {
     );
   }
 
-  Map getMess(int electedMess) {
+  Map getMess(int selectedMess) {
     switch (selectedMess) {
       case 1:
         return mess_1;
