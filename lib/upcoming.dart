@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'settings.dart';
@@ -33,17 +35,11 @@ class _UpcomingState extends State<Upcoming> {
     String formattedDate = DateFormat('EEEE').format(now);
     String formattedTime = DateFormat('HH:mm').format(now);
 
-    // print("Day: $formattedDate");
-    // print("Time: $formattedTime");
-    // print("Total items: ${getMess[formattedDate]![mealTime]?.length}");
-    // print("Mess: $selectedMess");
-
-    // if (getMess[formattedDate] != null &&
-    //     getMess[formattedDate]![mealTime] != null) {
-    //   print(getMess[formattedDate]![mealTime]);
-    // } else {
-    //   print('No meal found for $formattedDate at $mealTime');
-    // }
+    print("Day: $formattedDate");
+    print("Time: $formattedTime");
+    print(
+        "Total items: ${getMess(selectedMess)[formattedDate][mealTime]?.length}");
+    print("Mess: $selectedMess");
 
     return Scaffold(
       body: Padding(
@@ -54,51 +50,177 @@ class _UpcomingState extends State<Upcoming> {
             Row(
               children: [
                 Expanded(
-                  child: Card(
-                    elevation: 7,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Center(
-                        child: Text(
-                          formattedDate,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                  child: FloatingActionButton(
+                    heroTag: 'btn01',
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text('Select Day'),
+                            content: SingleChildScrollView(
+                              child: ListBody(
+                                children: <Widget>[
+                                  GestureDetector(
+                                    child: const Text('Monday'),
+                                    onTap: () {
+                                      setState(() {
+                                        formattedDate = 'Monday';
+                                      });
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                  const SizedBox(height: 18),
+                                  GestureDetector(
+                                    child: const Text('Tuesday'),
+                                    onTap: () {
+                                      setState(() {
+                                        formattedDate = 'Tuesday';
+                                      });
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                  const SizedBox(height: 18),
+                                  GestureDetector(
+                                    child: const Text('Wednesday'),
+                                    onTap: () {
+                                      setState(() {
+                                        formattedDate = 'Wednesday';
+                                      });
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                  const SizedBox(height: 18),
+                                  GestureDetector(
+                                    child: const Text('Thursday'),
+                                    onTap: () {
+                                      setState(() {
+                                        formattedDate = 'Thursday';
+                                      });
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                  const SizedBox(height: 18),
+                                  GestureDetector(
+                                    child: const Text('Friday'),
+                                    onTap: () {
+                                      setState(() {
+                                        formattedDate = 'Friday';
+                                      });
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                  const SizedBox(height: 18),
+                                  GestureDetector(
+                                    child: const Text('Saturday'),
+                                    onTap: () {
+                                      setState(() {
+                                        formattedDate = 'Saturday';
+                                      });
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                  const SizedBox(height: 18),
+                                  GestureDetector(
+                                    child: const Text('Sunday'),
+                                    onTap: () {
+                                      setState(() {
+                                        formattedDate = 'Sunday';
+                                      });
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                    child: Text(
+                      formattedDate,
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),
                 ),
               ],
             ),
+            const SizedBox(height: 10),
             Row(
               children: [
                 Expanded(
-                  child: Card(
-                    elevation: 7,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Center(
-                        child: Text(
-                          Upcoming.getMealTime(now).toString(),
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                  child: FloatingActionButton(
+                    heroTag: 'btn02',
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text('Select Meal Time'),
+                            content: SingleChildScrollView(
+                              child: ListBody(
+                                children: <Widget>[
+                                  GestureDetector(
+                                    child: const Text('Breakfast'),
+                                    onTap: () {
+                                      setState(() {
+                                        mealTime = 'Breakfast';
+                                      });
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                  const SizedBox(height: 18),
+                                  GestureDetector(
+                                    child: const Text('Lunch'),
+                                    onTap: () {
+                                      setState(() {
+                                        mealTime = 'Lunch';
+                                      });
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                  const SizedBox(height: 18),
+                                  GestureDetector(
+                                    child: const Text('Snacks'),
+                                    onTap: () {
+                                      setState(() {
+                                        mealTime = 'Snacks';
+                                      });
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                  const SizedBox(height: 18),
+                                  GestureDetector(
+                                    child: const Text('Dinner'),
+                                    onTap: () {
+                                      setState(() {
+                                        mealTime = 'Dinner';
+                                      });
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                    child: Text(
+                      mealTime,
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),
                 ),
               ],
             ),
+            const SizedBox(height: 10),
             Expanded(
               child: Card(
                 elevation: 3,

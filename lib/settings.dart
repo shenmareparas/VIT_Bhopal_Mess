@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'main.dart';
 import 'timetable.dart';
 import 'color_schemes.dart';
 
@@ -16,6 +17,8 @@ class _SettingsState extends State<Settings> {
   static final GlobalKey<TimetableState> timetableKey =
       GlobalKey<TimetableState>();
 
+  MyAppState? _appState;
+
   void handleMessSelection(int? value) {
     setState(() {
       selectedMess = value!;
@@ -23,9 +26,23 @@ class _SettingsState extends State<Settings> {
     });
   }
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _appState = context.findAncestorStateOfType<MyAppState>();
+  }
+
+  void handleSystemDefaultTheme(ColorScheme? colorScheme) {
+    setState(() {
+      apptheme = Theme.of(context).colorScheme;
+      _appState?.updateTheme(apptheme);
+    });
+  }
+
   void handleappthemeSelection(colorScheme) {
     setState(() {
-      apptheme = colorScheme!;
+      apptheme = colorScheme;
+      _appState?.updateTheme(apptheme);
     });
   }
 
@@ -117,6 +134,18 @@ class _SettingsState extends State<Settings> {
                       value: darkColorScheme,
                       groupValue: apptheme,
                       onChanged: handleappthemeSelection,
+                    ),
+                    RadioListTile(
+                      title: const Row(
+                        children: [
+                          Icon(Icons.settings_system_daydream),
+                          SizedBox(width: 10),
+                          Text('System Default'),
+                        ],
+                      ),
+                      value: Theme.of(context).colorScheme,
+                      groupValue: apptheme,
+                      onChanged: handleSystemDefaultTheme,
                     ),
                   ],
                 ),

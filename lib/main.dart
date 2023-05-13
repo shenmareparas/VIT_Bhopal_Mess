@@ -12,14 +12,18 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<MyApp> createState() => MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class MyAppState extends State<MyApp> {
+  void updateTheme(ColorScheme apptheme) {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(useMaterial3: true, colorScheme: apptheme),
+      theme: ThemeData.from(useMaterial3: true, colorScheme: apptheme),
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: 2,
@@ -32,11 +36,17 @@ class _MyAppState extends State<MyApp> {
                     return [
                       const PopupMenuItem(
                         value: 'settings',
-                        child: Text('Settings'),
+                        child: Text(
+                          'Settings',
+                          style: TextStyle(fontSize: 17),
+                        ),
                       ),
                       const PopupMenuItem(
                         value: 'about',
-                        child: Text('About'),
+                        child: Text(
+                          'About',
+                          style: TextStyle(fontSize: 17),
+                        ),
                       ),
                     ];
                   },
@@ -65,9 +75,7 @@ class _MyAppState extends State<MyApp> {
             ),
             centerTitle: true,
             title: const Text('VIT Bhopal Mess',
-                style: TextStyle(
-                  fontSize: 25,
-                )),
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400)),
           ),
           body: const TabBarView(
             physics: NeverScrollableScrollPhysics(),
