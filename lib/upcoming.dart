@@ -45,108 +45,71 @@ class _UpcomingState extends State<Upcoming> {
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: FloatingActionButton(
-                    heroTag: 'btn01',
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: const Text('Select Day'),
-                            content: SingleChildScrollView(
-                              child: ListBody(
-                                children: <Widget>[
+            SizedBox(
+              height: 55,
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  var days = [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday"
+                  ];
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const Text(
+                          'Select Day',
+                          textAlign: TextAlign.center, // Center align the text
+                        ),
+                        content: SizedBox(
+                          width: double.maxFinite,
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: days.length,
+                            itemBuilder: (context, index) {
+                              return Column(
+                                children: [
                                   GestureDetector(
-                                    child: const Text('Monday'),
-                                    onTap: () {
+                                    onTap: () => {
                                       setState(() {
-                                        formattedDate = 'Monday';
-                                      });
-                                      Navigator.of(context).pop();
+                                        formattedDate = days[index];
+                                      }),
+                                      Navigator.of(context).pop(),
+                                      print(formattedDate),
                                     },
+                                    child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(days[index])),
                                   ),
-                                  const SizedBox(height: 18),
-                                  GestureDetector(
-                                    child: const Text('Tuesday'),
-                                    onTap: () {
-                                      setState(() {
-                                        formattedDate = 'Tuesday';
-                                      });
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                  const SizedBox(height: 18),
-                                  GestureDetector(
-                                    child: const Text('Wednesday'),
-                                    onTap: () {
-                                      setState(() {
-                                        formattedDate = 'Wednesday';
-                                      });
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                  const SizedBox(height: 18),
-                                  GestureDetector(
-                                    child: const Text('Thursday'),
-                                    onTap: () {
-                                      setState(() {
-                                        formattedDate = 'Thursday';
-                                      });
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                  const SizedBox(height: 18),
-                                  GestureDetector(
-                                    child: const Text('Friday'),
-                                    onTap: () {
-                                      setState(() {
-                                        formattedDate = 'Friday';
-                                      });
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                  const SizedBox(height: 18),
-                                  GestureDetector(
-                                    child: const Text('Saturday'),
-                                    onTap: () {
-                                      setState(() {
-                                        formattedDate = 'Saturday';
-                                      });
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                  const SizedBox(height: 18),
-                                  GestureDetector(
-                                    child: const Text('Sunday'),
-                                    onTap: () {
-                                      setState(() {
-                                        formattedDate = 'Sunday';
-                                      });
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
+                                  const SizedBox(height: 18)
                                 ],
-                              ),
-                            ),
-                          );
-                        },
+                              );
+                            },
+                          ),
+                        ),
                       );
                     },
-                    child: Text(
-                      formattedDate,
-                      style: const TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15))),
+                child: Text(
+                  formattedDate,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-              ],
+              ),
             ),
             const SizedBox(height: 10),
             Row(
