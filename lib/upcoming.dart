@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'settings.dart';
@@ -67,12 +65,6 @@ class _UpcomingState extends State<Upcoming> {
 
   @override
   Widget build(BuildContext context) {
-    print("Day: $formattedDate");
-    print("Time: $formattedTime");
-    print(
-        "Total items: ${getMess(selectedMess)[formattedDate][mealTime]?.length}");
-    print("Mess: $selectedMess");
-
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -97,17 +89,18 @@ class _UpcomingState extends State<Upcoming> {
                             itemBuilder: (context, index) {
                               return Column(
                                 children: [
-                                  GestureDetector(
+                                  InkWell(
                                     onTap: () => {
                                       setState(() {
                                         formattedDate = days[index];
                                       }),
                                       Navigator.of(context).pop(),
-                                      print(formattedDate),
                                     },
                                     child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: Text(days[index])),
+                                        child: Text(days[index],
+                                            style:
+                                                const TextStyle(fontSize: 18))),
                                   ),
                                   const SizedBox(height: 18)
                                 ],
@@ -152,17 +145,18 @@ class _UpcomingState extends State<Upcoming> {
                             itemBuilder: (context, index) {
                               return Column(
                                 children: [
-                                  GestureDetector(
+                                  InkWell(
                                     onTap: () => {
                                       setState(() {
                                         mealTime = meal[index];
                                       }),
                                       Navigator.of(context).pop(),
-                                      print(mealTime),
                                     },
                                     child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: Text(meal[index])),
+                                        child: Text(meal[index],
+                                            style:
+                                                const TextStyle(fontSize: 18))),
                                   ),
                                   const SizedBox(height: 18)
                                 ],
@@ -206,8 +200,8 @@ class _UpcomingState extends State<Upcoming> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            getMess(selectedMess)[formattedDate]![mealTime]![
-                                    index]
+                            getMess(selectedMess)[formattedDate]![
+                                    mealTime]![index]
                                 .toString(),
                             style: const TextStyle(
                               fontSize: 20,

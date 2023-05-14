@@ -16,23 +16,27 @@ class NightCanteen extends StatefulWidget {
 }
 
 class NightCanteenState extends State<NightCanteen> {
-  int _sortCounter = 0;
   final List<Menu> _originalItems = items.toList();
 
-  void sortItems() {
-    List<Menu> sortedItems =
-        List.from(items); // create a new list and copy contents of items
+  void sortItemsByAscending() {
+    List<Menu> sortedItems = List.from(items);
+    sortedItems.sort((a, b) => a.price.compareTo(b.price));
     setState(() {
-      _sortCounter++;
-      if (_sortCounter == 1) {
-        sortedItems.sort((a, b) => a.price.compareTo(b.price));
-      } else if (_sortCounter == 2) {
-        sortedItems.sort((a, b) => b.price.compareTo(a.price));
-      } else {
-        sortedItems = List.from(_originalItems); // restore original order
-        _sortCounter = 0;
-      }
-      items = sortedItems; // update items with the sorted list
+      items = sortedItems;
+    });
+  }
+
+  void sortItemsByDescending() {
+    List<Menu> sortedItems = List.from(items);
+    sortedItems.sort((a, b) => b.price.compareTo(a.price));
+    setState(() {
+      items = sortedItems;
+    });
+  }
+
+  void resetItems() {
+    setState(() {
+      items = _originalItems.toList();
     });
   }
 
@@ -40,10 +44,11 @@ class NightCanteenState extends State<NightCanteen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-        itemCount: items.length + 1, // add 1 for header row
+        itemCount: items.length + 1,
         itemBuilder: (BuildContext context, int index) {
           if (index == 0) {
             // header row
+
             return const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -71,7 +76,7 @@ class NightCanteenState extends State<NightCanteen> {
             );
           } else {
             // menu item row
-            int itemIndex = index - 1; // adjust index for header row
+            int itemIndex = index - 1;
             return Column(
               children: [
                 Padding(
@@ -103,9 +108,25 @@ class NightCanteenState extends State<NightCanteen> {
           }
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: sortItems,
-        child: const Icon(Icons.sort),
+      floatingActionButton: PopupMenuButton(
+        itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+          PopupMenuItem(
+            onTap: sortItemsByAscending,
+            child: const Text('Sort by Price: Low to High'),
+          ),
+          PopupMenuItem(
+            onTap: sortItemsByDescending,
+            child: const Text('Sort by Price: High to Low'),
+          ),
+          PopupMenuItem(
+            onTap: resetItems,
+            child: const Text('Reset'),
+          ),
+        ],
+        child: const FloatingActionButton(
+          onPressed: null,
+          child: Icon(Icons.sort),
+        ),
       ),
     );
   }
