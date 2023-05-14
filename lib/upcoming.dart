@@ -58,6 +58,13 @@ class Upcoming extends StatefulWidget {
 }
 
 class _UpcomingState extends State<Upcoming> {
+  void _resetValues() {
+    setState(() {
+      formattedDate = DateFormat('EEEE').format(DateTime.now());
+      mealTime = getMealTime(DateTime.now());
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     print("Day: $formattedDate");
@@ -218,6 +225,15 @@ class _UpcomingState extends State<Upcoming> {
               ),
             ),
           ],
+        ),
+      ),
+      floatingActionButton: Positioned(
+        bottom: 20,
+        right: 20,
+        child: FloatingActionButton(
+          onPressed: _resetValues,
+          tooltip: 'Reset',
+          child: const Icon(Icons.restart_alt),
         ),
       ),
     );

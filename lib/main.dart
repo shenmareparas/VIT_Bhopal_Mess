@@ -32,7 +32,7 @@ class MyAppState extends State<MyApp> {
               tabs: [
                 Tab(text: "Upcoming", icon: Icon(Icons.restaurant)),
                 Tab(text: "Timetable", icon: Icon(Icons.table_chart)),
-                Tab(text: "Night Canteen", icon: Icon(Icons.storefront)),
+                Tab(text: "Canteen", icon: Icon(Icons.storefront)),
               ],
             ),
             centerTitle: true,
