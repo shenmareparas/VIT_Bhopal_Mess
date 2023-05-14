@@ -1,6 +1,6 @@
 import 'night_canteen.dart';
 
-final List<Menu> items = [
+List<Menu> items = [
   Menu(name: 'Bread Omelete', price: 45),
   Menu(name: 'Plain Omelete', price: 35),
   Menu(name: 'Onion Omelete', price: 40),

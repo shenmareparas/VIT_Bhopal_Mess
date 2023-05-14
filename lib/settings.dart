@@ -58,7 +58,7 @@ class _SettingsState extends State<Settings> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -70,11 +70,11 @@ class _SettingsState extends State<Settings> {
                     const Text(
                       'Choose Mess',
                       style: TextStyle(
-                        fontSize: 18.0,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 16.0),
+                    const SizedBox(height: 16),
                     RadioListTile(
                       title: const Text('Boys Hostel 1 CRCL Mess'),
                       value: 1,
@@ -97,7 +97,7 @@ class _SettingsState extends State<Settings> {
                 ),
               ),
             ),
-            const SizedBox(height: 16.0),
+            const SizedBox(height: 16),
             const Card(
               child: Padding(
                 padding: EdgeInsets.only(top: 20, bottom: 20),
@@ -106,16 +106,22 @@ class _SettingsState extends State<Settings> {
                     Text(
                       'App Theme',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     SizedBox(height: 16),
                     Padding(
                       padding: EdgeInsets.all(10),
-                      child: Text(
-                          'App Theme is set to System Default.\n\nTo change App Theme change your System Theme.',
+                      child: Text('App Theme is set to System Default',
                           style: TextStyle(fontSize: 18),
+                          textAlign: TextAlign.center),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Text(
+                          'Note: To change app theme change your system theme',
+                          style: TextStyle(fontSize: 13),
                           textAlign: TextAlign.center),
                     ),
                   ],
