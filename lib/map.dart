@@ -1,3 +1,46 @@
+import 'night_canteen.dart';
+
+final List<Menu> items = [
+  Menu(name: 'Bread Omelete', price: 45),
+  Menu(name: 'Plain Omelete', price: 35),
+  Menu(name: 'Onion Omelete', price: 40),
+  Menu(name: 'Boiled Egg', price: 10),
+  Menu(name: 'Paneer Tikka', price: 125),
+  Menu(name: 'Chicken Tikka', price: 130),
+  Menu(name: 'Tandoori Chicken Quarter', price: 115),
+  Menu(name: 'Tandoori Chicken Half', price: 225),
+  Menu(name: 'Tandoori Chicken Full', price: 450),
+  Menu(name: 'Chicken 65', price: 100),
+  Menu(name: 'Chilly Chicken', price: 130),
+  Menu(name: 'Butter Chicken Masala', price: 150),
+  Menu(name: 'Kadai Chicken Masala', price: 140),
+  Menu(name: 'Chicken Masala', price: 140),
+  Menu(name: 'Chicken Tikka Masala', price: 140),
+  Menu(name: 'Schezwan Chicken Noodles', price: 130),
+  Menu(name: 'Schezwan Chicken Rice', price: 120),
+  Menu(name: 'Chicken Fried Rice', price: 130),
+  Menu(name: 'Egg Fried Rice', price: 120),
+  Menu(name: 'Egg Noodles', price: 120),
+  Menu(name: 'Chicken Noodles', price: 120),
+  Menu(name: 'Plain Naan', price: 25),
+  Menu(name: 'Garlic Naan', price: 35),
+  Menu(name: 'Butter Naan', price: 30),
+  Menu(name: 'Plain Roti', price: 20),
+  Menu(name: 'Butter Roti', price: 30),
+  Menu(name: 'Butter Paneer Masala', price: 140),
+  Menu(name: 'Kadhai Paneer', price: 130),
+  Menu(name: 'Chilly Paneer', price: 130),
+  Menu(name: 'Veg Noodles', price: 110),
+  Menu(name: 'Schezwan Veg Noodles', price: 120),
+  Menu(name: 'Veg Fried Rice', price: 110),
+  Menu(name: 'Schezwan Veg Fried Rice', price: 125),
+  Menu(name: 'Plain Dosa', price: 50),
+  Menu(name: 'Masala Dosa', price: 60),
+  Menu(name: 'Onion Dosa', price: 55),
+  Menu(name: 'Ghee Dosa', price: 60),
+  Menu(name: 'Egg Dosa', price: 60)
+];
+
 const Map<String, Map<String, List<String>>> mess_1 = {
   "Monday": {
     "Breakfast": [

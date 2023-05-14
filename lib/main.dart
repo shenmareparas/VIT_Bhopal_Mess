@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'night_canteen.dart';
 import 'upcoming.dart';
 import 'timetable.dart';
 import 'settings.dart';
@@ -24,23 +25,33 @@ class MyAppState extends State<MyApp> {
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
-        length: 2,
+        length: 3,
         child: Scaffold(
           appBar: AppBar(
+            bottom: const TabBar(
+              tabs: [
+                Tab(text: "Upcoming", icon: Icon(Icons.restaurant)),
+                Tab(text: "Timetable", icon: Icon(Icons.table_chart)),
+                Tab(text: "Night Canteen", icon: Icon(Icons.storefront)),
+              ],
+            ),
+            centerTitle: true,
+            title: const Text('VIT Bhopal Mess',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400)),
             actions: [
               Builder(builder: (BuildContext context) {
                 return PopupMenuButton(
                   itemBuilder: (BuildContext context) {
                     return [
                       const PopupMenuItem(
-                        value: 'settings',
+                        value: 'Settings',
                         child: Text(
                           'Settings',
                           style: TextStyle(fontSize: 17),
                         ),
                       ),
                       const PopupMenuItem(
-                        value: 'about',
+                        value: 'About',
                         child: Text(
                           'About',
                           style: TextStyle(fontSize: 17),
@@ -49,13 +60,13 @@ class MyAppState extends State<MyApp> {
                     ];
                   },
                   onSelected: (value) {
-                    if (value == 'settings') {
+                    if (value == 'Settings') {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const Settings()),
                       );
-                    } else if (value == 'about') {
+                    } else if (value == 'About') {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const About()),
@@ -65,19 +76,10 @@ class MyAppState extends State<MyApp> {
                 );
               }),
             ],
-            bottom: const TabBar(
-              tabs: [
-                Tab(text: "Upcoming", icon: Icon(Icons.restaurant)),
-                Tab(text: "Timetable", icon: Icon(Icons.table_chart))
-              ],
-            ),
-            centerTitle: true,
-            title: const Text('VIT Bhopal Mess',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400)),
           ),
           body: const TabBarView(
             physics: NeverScrollableScrollPhysics(),
-            children: [Upcoming(), Timetable()],
+            children: [Upcoming(), Timetable(), NightCanteen()],
           ),
         ),
       ),

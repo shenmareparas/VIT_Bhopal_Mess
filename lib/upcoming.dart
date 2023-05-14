@@ -5,36 +5,61 @@ import 'package:intl/intl.dart';
 import 'settings.dart';
 import 'map.dart';
 
+String getMealTime(DateTime now) {
+  int hour = now.hour;
+  if (hour < 9) {
+    return 'Breakfast';
+  } else if (hour < 15) {
+    return 'Lunch';
+  } else if (hour < 18) {
+    return 'Snacks';
+  } else if (hour < 21) {
+    return 'Dinner';
+  } else {
+    return "Breakfast";
+  }
+}
+
+Map getMess(int selectedMess) {
+  switch (selectedMess) {
+    case 1:
+      return mess_1;
+    case 2:
+      return mess_2;
+    case 3:
+      return mess_3;
+    default:
+      return mess_1;
+  }
+}
+
+var days = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday"
+];
+
+var meal = ["Breakfast", "Lunch", "Snacks", "Dinner"];
+
+DateTime now = DateTime.now();
+String mealTime = getMealTime(now);
+String formattedDate = DateFormat('EEEE').format(now);
+String formattedTime = DateFormat('HH:mm').format(now);
+
 class Upcoming extends StatefulWidget {
   const Upcoming({super.key});
 
   @override
   State<Upcoming> createState() => _UpcomingState();
-
-  static String getMealTime(DateTime now) {
-    int hour = now.hour;
-    if (hour < 9) {
-      return 'Breakfast';
-    } else if (hour < 15) {
-      return 'Lunch';
-    } else if (hour < 18) {
-      return 'Snacks';
-    } else if (hour < 21) {
-      return 'Dinner';
-    } else {
-      return "Breakfast";
-    }
-  }
 }
 
 class _UpcomingState extends State<Upcoming> {
   @override
   Widget build(BuildContext context) {
-    DateTime now = DateTime.now();
-    String mealTime = Upcoming.getMealTime(now);
-    String formattedDate = DateFormat('EEEE').format(now);
-    String formattedTime = DateFormat('HH:mm').format(now);
-
     print("Day: $formattedDate");
     print("Time: $formattedTime");
     print(
@@ -51,15 +76,6 @@ class _UpcomingState extends State<Upcoming> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  var days = [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday",
-                    "Sunday"
-                  ];
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
@@ -115,7 +131,6 @@ class _UpcomingState extends State<Upcoming> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  var meal = ["Breakfast", "Lunch", "Snacks", "Dinner"];
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
@@ -175,7 +190,7 @@ class _UpcomingState extends State<Upcoming> {
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
+                    // physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount:
                         getMess(selectedMess)[formattedDate][mealTime]?.length,
@@ -206,18 +221,5 @@ class _UpcomingState extends State<Upcoming> {
         ),
       ),
     );
-  }
-
-  Map getMess(int selectedMess) {
-    switch (selectedMess) {
-      case 1:
-        return mess_1;
-      case 2:
-        return mess_2;
-      case 3:
-        return mess_3;
-      default:
-        return mess_1;
-    }
   }
 }
