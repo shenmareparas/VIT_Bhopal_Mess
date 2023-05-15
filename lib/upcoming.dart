@@ -68,166 +68,171 @@ class _UpcomingState extends State<Upcoming> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
+        child: Stack(
           children: [
-            SizedBox(
-              height: 55,
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text('Select Day',
-                            textAlign: TextAlign.center),
-                        content: SizedBox(
-                          width: double.maxFinite,
-                          child: ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: days.length,
-                            itemBuilder: (context, index) {
-                              return Column(
-                                children: [
-                                  InkWell(
-                                    onTap: () => {
-                                      setState(() {
-                                        formattedDate = days[index];
-                                      }),
-                                      Navigator.of(context).pop(),
-                                    },
-                                    child: Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(days[index],
-                                            style:
-                                                const TextStyle(fontSize: 18))),
-                                  ),
-                                  const SizedBox(height: 18)
-                                ],
-                              );
-                            },
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15))),
-                child: Text(
-                  formattedDate,
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            SizedBox(
-              height: 55,
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text('Select Meal Time',
-                            textAlign: TextAlign.center),
-                        content: SizedBox(
-                          width: double.maxFinite,
-                          child: ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: meal.length,
-                            itemBuilder: (context, index) {
-                              return Column(
-                                children: [
-                                  InkWell(
-                                    onTap: () => {
-                                      setState(() {
-                                        mealTime = meal[index];
-                                      }),
-                                      Navigator.of(context).pop(),
-                                    },
-                                    child: Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(meal[index],
-                                            style:
-                                                const TextStyle(fontSize: 18))),
-                                  ),
-                                  const SizedBox(height: 18)
-                                ],
-                              );
-                            },
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15))),
-                child: Text(
-                  mealTime,
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Expanded(
-              child: Card(
-                elevation: 4,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: ListView.builder(
-                    // physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount:
-                        getMess(selectedMess)[formattedDate][mealTime]?.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            getMess(selectedMess)[formattedDate]![
-                                    mealTime]![index]
-                                .toString(),
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
+            Column(
+              children: [
+                SizedBox(
+                  height: 55,
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text('Select Day',
+                                textAlign: TextAlign.center),
+                            content: SizedBox(
+                              width: double.maxFinite,
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: days.length,
+                                itemBuilder: (context, index) {
+                                  return Column(
+                                    children: [
+                                      InkWell(
+                                        onTap: () => {
+                                          setState(() {
+                                            formattedDate = days[index];
+                                          }),
+                                          Navigator.of(context).pop(),
+                                        },
+                                        child: Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(days[index],
+                                                style: const TextStyle(
+                                                    fontSize: 18))),
+                                      ),
+                                      const SizedBox(height: 18)
+                                    ],
+                                  );
+                                },
+                              ),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                        ],
+                          );
+                        },
                       );
                     },
+                    style: ElevatedButton.styleFrom(
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15))),
+                    child: Text(
+                      formattedDate,
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                   ),
                 ),
+                const SizedBox(height: 10),
+                SizedBox(
+                  height: 55,
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text('Select Meal Time',
+                                textAlign: TextAlign.center),
+                            content: SizedBox(
+                              width: double.maxFinite,
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: meal.length,
+                                itemBuilder: (context, index) {
+                                  return Column(
+                                    children: [
+                                      InkWell(
+                                        onTap: () => {
+                                          setState(() {
+                                            mealTime = meal[index];
+                                          }),
+                                          Navigator.of(context).pop(),
+                                        },
+                                        child: Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(meal[index],
+                                                style: const TextStyle(
+                                                    fontSize: 18))),
+                                      ),
+                                      const SizedBox(height: 18)
+                                    ],
+                                  );
+                                },
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15))),
+                    child: Text(
+                      mealTime,
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Expanded(
+                  child: Card(
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: ListView.builder(
+                        // physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: getMess(selectedMess)[formattedDate]
+                                [mealTime]
+                            ?.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                getMess(selectedMess)[formattedDate]![
+                                        mealTime]![index]
+                                    .toString(),
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Positioned(
+              bottom: 20,
+              right: 20,
+              child: FloatingActionButton(
+                onPressed: _resetValues,
+                tooltip: 'Reset',
+                child: const Icon(Icons.restart_alt),
               ),
             ),
           ],
-        ),
-      ),
-      floatingActionButton: Positioned(
-        bottom: 20,
-        right: 20,
-        child: FloatingActionButton(
-          onPressed: _resetValues,
-          tooltip: 'Reset',
-          child: const Icon(Icons.restart_alt),
         ),
       ),
     );
