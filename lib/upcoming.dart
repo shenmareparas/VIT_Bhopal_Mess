@@ -69,7 +69,7 @@ class _UpcomingState extends State<Upcoming> {
     int? selectedMess = prefs.getInt("selectedMess");
     if (selectedMess != null) {
       setState(() {
-        selectedMess = savedselectedMess;
+        selectedMess = selectedMess;
       });
     }
   }

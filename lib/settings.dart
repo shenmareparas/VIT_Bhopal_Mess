@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import "package:shared_preferences/shared_preferences.dart";
 
 int selectedMess = 1;
-int savedselectedMess = 1;
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
