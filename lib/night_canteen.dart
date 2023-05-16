@@ -120,7 +120,7 @@ class NightCanteenState extends State<NightCanteen> {
           ),
           PopupMenuItem(
             onTap: resetItems,
-            child: const Text('Reset'),
+            child: const Text('Sort by Category'),
           ),
         ],
         child: const FloatingActionButton(

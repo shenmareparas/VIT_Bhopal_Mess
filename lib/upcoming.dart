@@ -87,6 +87,7 @@ class _UpcomingState extends State<Upcoming> {
                               width: double.maxFinite,
                               child: ListView.builder(
                                 shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
                                 itemCount: days.length,
                                 itemBuilder: (context, index) {
                                   return Column(
@@ -100,11 +101,13 @@ class _UpcomingState extends State<Upcoming> {
                                         },
                                         child: Align(
                                             alignment: Alignment.centerLeft,
-                                            child: Text(days[index],
-                                                style: const TextStyle(
-                                                    fontSize: 18))),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(10),
+                                              child: Text(days[index],
+                                                  style: const TextStyle(
+                                                      fontSize: 18)),
+                                            )),
                                       ),
-                                      const SizedBox(height: 18)
                                     ],
                                   );
                                 },
@@ -143,6 +146,7 @@ class _UpcomingState extends State<Upcoming> {
                               width: double.maxFinite,
                               child: ListView.builder(
                                 shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
                                 itemCount: meal.length,
                                 itemBuilder: (context, index) {
                                   return Column(
@@ -156,11 +160,13 @@ class _UpcomingState extends State<Upcoming> {
                                         },
                                         child: Align(
                                             alignment: Alignment.centerLeft,
-                                            child: Text(meal[index],
-                                                style: const TextStyle(
-                                                    fontSize: 18))),
-                                      ),
-                                      const SizedBox(height: 18)
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(10),
+                                              child: Text(meal[index],
+                                                  style: const TextStyle(
+                                                      fontSize: 18)),
+                                            )),
+                                      )
                                     ],
                                   );
                                 },

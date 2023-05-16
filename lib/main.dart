@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'night_canteen.dart';
 import 'upcoming.dart';
-import 'timetable.dart';
 import 'settings.dart';
 import 'about.dart';
 import 'color_schemes.dart';
@@ -31,7 +30,6 @@ class MyAppState extends State<MyApp> {
             bottom: const TabBar(
               tabs: [
                 Tab(text: "Upcoming", icon: Icon(Icons.restaurant)),
-                Tab(text: "Timetable", icon: Icon(Icons.table_chart)),
                 Tab(text: "Canteen", icon: Icon(Icons.storefront)),
               ],
             ),
@@ -78,8 +76,7 @@ class MyAppState extends State<MyApp> {
             ],
           ),
           body: const TabBarView(
-            physics: NeverScrollableScrollPhysics(),
-            children: [Upcoming(), Timetable(), NightCanteen()],
+            children: [Upcoming(), NightCanteen()],
           ),
         ),
       ),
