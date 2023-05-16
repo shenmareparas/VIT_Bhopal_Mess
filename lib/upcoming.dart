@@ -57,7 +57,7 @@ class Upcoming extends StatefulWidget {
 }
 
 class _UpcomingState extends State<Upcoming> {
-  void _resetValues() {
+  void resetValues() {
     setState(() {
       formattedDate = DateFormat('EEEE').format(DateTime.now());
       mealTime = getMealTime(DateTime.now());
@@ -250,7 +250,7 @@ class _UpcomingState extends State<Upcoming> {
               bottom: 20,
               right: 20,
               child: FloatingActionButton(
-                onPressed: _resetValues,
+                onPressed: resetValues,
                 tooltip: 'Reset',
                 child: const Icon(Icons.restart_alt),
               ),

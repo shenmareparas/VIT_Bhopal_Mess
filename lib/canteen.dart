@@ -18,7 +18,7 @@ class Canteen extends StatefulWidget {
 class CanteenState extends State<Canteen> {
   final List<Menu> _originalItems = items.toList();
 
-  void sortItemsByAscending() {
+  void sortByAscending() {
     List<Menu> sortedItems = List.from(items);
     sortedItems.sort((a, b) => a.price.compareTo(b.price));
     setState(() {
@@ -26,7 +26,7 @@ class CanteenState extends State<Canteen> {
     });
   }
 
-  void sortItemsByDescending() {
+  void sortByDescending() {
     List<Menu> sortedItems = List.from(items);
     sortedItems.sort((a, b) => b.price.compareTo(a.price));
     setState(() {
@@ -34,7 +34,7 @@ class CanteenState extends State<Canteen> {
     });
   }
 
-  void resetItems() {
+  void sortByCategory() {
     setState(() {
       items = _originalItems.toList();
     });
@@ -111,15 +111,15 @@ class CanteenState extends State<Canteen> {
       floatingActionButton: PopupMenuButton(
         itemBuilder: (BuildContext context) => <PopupMenuEntry>[
           PopupMenuItem(
-            onTap: sortItemsByAscending,
+            onTap: sortByAscending,
             child: const Text('Sort by Price: Low to High'),
           ),
           PopupMenuItem(
-            onTap: sortItemsByDescending,
+            onTap: sortByDescending,
             child: const Text('Sort by Price: High to Low'),
           ),
           PopupMenuItem(
-            onTap: resetItems,
+            onTap: sortByCategory,
             child: const Text('Sort by Category'),
           ),
         ],

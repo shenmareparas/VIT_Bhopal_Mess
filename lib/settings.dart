@@ -41,6 +41,7 @@ class _SettingsState extends State<Settings> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Card(
+              elevation: 3,
               child: Padding(
                 padding: const EdgeInsets.only(top: 20, bottom: 20),
                 child: Column(
@@ -76,26 +77,28 @@ class _SettingsState extends State<Settings> {
               ),
             ),
             const SizedBox(height: 16),
-            const Expanded(
-              child: Card(
-                child: Padding(
-                  padding: EdgeInsets.only(top: 20, bottom: 20),
-                  child: Column(
-                    children: [
-                      Text('App Theme',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
-                      SizedBox(height: 16),
-                      Text('App Theme is set to System Default',
-                          style: TextStyle(fontSize: 18),
-                          textAlign: TextAlign.center),
-                      SizedBox(height: 16),
-                      Text(
+            const Card(
+              elevation: 3,
+              child: Padding(
+                padding: EdgeInsets.only(top: 20, bottom: 20),
+                child: Column(
+                  children: [
+                    Text('App Theme',
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold)),
+                    SizedBox(height: 16),
+                    Text('App Theme is set to System Default',
+                        style: TextStyle(fontSize: 18),
+                        textAlign: TextAlign.center),
+                    SizedBox(height: 16),
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
                           'Note: To change app theme, change your system theme',
                           style: TextStyle(fontSize: 13),
                           textAlign: TextAlign.center),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             )
