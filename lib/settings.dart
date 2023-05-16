@@ -12,7 +12,6 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-
   void handleMessSelection(int? value) async {
     setState(() {
       selectedMess = value!;
@@ -24,22 +23,6 @@ class _SettingsState extends State<Settings> {
   void saveselectedMess() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setInt("selectedMess", selectedMess);
-  }
-
-  void readselectedMess() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    int? savedselectedMess = prefs.getInt("selectedMess");
-    if (savedselectedMess != null) {
-      setState(() {
-        selectedMess = savedselectedMess;
-      });
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    readselectedMess();
   }
 
   @override
@@ -93,33 +76,26 @@ class _SettingsState extends State<Settings> {
               ),
             ),
             const SizedBox(height: 16),
-            const Card(
-              child: Padding(
-                padding: EdgeInsets.only(top: 20, bottom: 20),
-                child: Column(
-                  children: [
-                    Text(
-                      'App Theme',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Text('App Theme is set to System Default',
+            const Expanded(
+              child: Card(
+                child: Padding(
+                  padding: EdgeInsets.only(top: 20, bottom: 20),
+                  child: Column(
+                    children: [
+                      Text('App Theme',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold)),
+                      SizedBox(height: 16),
+                      Text('App Theme is set to System Default',
                           style: TextStyle(fontSize: 18),
                           textAlign: TextAlign.center),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Text(
-                          'Note: To change app theme change your system theme',
+                      SizedBox(height: 16),
+                      Text(
+                          'Note: To change app theme, change your system theme',
                           style: TextStyle(fontSize: 13),
                           textAlign: TextAlign.center),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             )

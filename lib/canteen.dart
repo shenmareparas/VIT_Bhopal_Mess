@@ -8,14 +8,14 @@ class Menu {
   Menu({required this.name, required this.price});
 }
 
-class NightCanteen extends StatefulWidget {
-  const NightCanteen({super.key});
+class Canteen extends StatefulWidget {
+  const Canteen({super.key});
 
   @override
-  State<NightCanteen> createState() => NightCanteenState();
+  State<Canteen> createState() => CanteenState();
 }
 
-class NightCanteenState extends State<NightCanteen> {
+class CanteenState extends State<Canteen> {
   final List<Menu> _originalItems = items.toList();
 
   void sortItemsByAscending() {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'night_canteen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'canteen.dart';
 import 'upcoming.dart';
 import 'settings.dart';
 import 'about.dart';
@@ -17,6 +18,22 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
+  void readselectedMess() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int? savedselectedMess = prefs.getInt("selectedMess");
+    if (savedselectedMess != null) {
+      setState(() {
+        selectedMess = savedselectedMess;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readselectedMess();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,7 +41,7 @@ class MyAppState extends State<MyApp> {
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
-        length: 3,
+        length: 2,
         child: Scaffold(
           appBar: AppBar(
             bottom: const TabBar(
@@ -76,7 +93,7 @@ class MyAppState extends State<MyApp> {
             ],
           ),
           body: const TabBarView(
-            children: [Upcoming(), NightCanteen()],
+            children: [Upcoming(), Canteen()],
           ),
         ),
       ),

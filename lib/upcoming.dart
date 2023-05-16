@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'settings.dart';
 import 'map.dart';
 
@@ -61,6 +62,22 @@ class _UpcomingState extends State<Upcoming> {
       formattedDate = DateFormat('EEEE').format(DateTime.now());
       mealTime = getMealTime(DateTime.now());
     });
+  }
+
+  void readselectedMess() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int? selectedMess = prefs.getInt("selectedMess");
+    if (selectedMess != null) {
+      setState(() {
+        selectedMess = savedselectedMess;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readselectedMess();
   }
 
   @override
