@@ -4,6 +4,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'settings.dart';
 import 'map.dart';
 
+DateTime now = DateTime.now();
+DateTime nextDay = DateTime.now().add(const Duration(days: 1));
+String mealTime = getMealTime(now);
+String formattedDate = DateFormat('EEEE').format(now);
+String nextDayformattedDate = DateFormat('EEEE').format(nextDay);
+String formattedTime = DateFormat('HH:mm').format(now);
+
 String getMealTime(DateTime now) {
   int hour = now.hour;
   if (hour < 9) {
@@ -16,6 +23,15 @@ String getMealTime(DateTime now) {
     return 'Dinner';
   } else {
     return "Breakfast";
+  }
+}
+
+String getformattedDate(DateTime nextDay) {
+  int hour = now.hour;
+  if (hour < 21) {
+    return formattedDate;
+  } else {
+    return nextDayformattedDate;
   }
 }
 
@@ -43,11 +59,6 @@ var days = [
 ];
 
 var meal = ["Breakfast", "Lunch", "Snacks", "Dinner"];
-
-DateTime now = DateTime.now();
-String mealTime = getMealTime(now);
-String formattedDate = DateFormat('EEEE').format(now);
-String formattedTime = DateFormat('HH:mm').format(now);
 
 class Upcoming extends StatefulWidget {
   const Upcoming({super.key});
@@ -142,7 +153,7 @@ class _UpcomingState extends State<Upcoming> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15))),
                     child: Text(
-                      formattedDate,
+                      getformattedDate(nextDay),
                       style: const TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w500,
@@ -224,16 +235,17 @@ class _UpcomingState extends State<Upcoming> {
                       child: ListView.builder(
                         // physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemCount: getMess(selectedMess)[formattedDate]
-                                [mealTime]
-                            ?.length,
+                        itemCount:
+                            getMess(selectedMess)[getformattedDate(nextDay)]
+                                    [mealTime]
+                                ?.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                getMess(selectedMess)[formattedDate]![
-                                        mealTime]![index]
+                                getMess(selectedMess)[getformattedDate(
+                                        nextDay)]![mealTime]![index]
                                     .toString(),
                                 style: const TextStyle(
                                   fontSize: 20,
