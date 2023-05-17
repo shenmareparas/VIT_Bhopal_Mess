@@ -21,7 +21,7 @@ class About extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 130,
-                backgroundImage: AssetImage('assets/images/profile.jpg'),
+                backgroundImage: AssetImage('assets/images/icon.png'),
               ),
               SizedBox(height: 20),
               Text(
