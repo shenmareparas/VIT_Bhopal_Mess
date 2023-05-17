@@ -110,6 +110,7 @@ class _UpcomingState extends State<Upcoming> {
                                   return Column(
                                     children: [
                                       InkWell(
+                                        borderRadius: BorderRadius.circular(15),
                                         onTap: () => {
                                           setState(() {
                                             formattedDate = days[index];
@@ -136,6 +137,8 @@ class _UpcomingState extends State<Upcoming> {
                     },
                     style: ElevatedButton.styleFrom(
                         elevation: 5,
+                        side: const BorderSide(
+                            width: 2, color: Color(0xFFD0EE82)),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15))),
                     child: Text(
@@ -169,6 +172,7 @@ class _UpcomingState extends State<Upcoming> {
                                   return Column(
                                     children: [
                                       InkWell(
+                                        borderRadius: BorderRadius.circular(15),
                                         onTap: () => {
                                           setState(() {
                                             mealTime = meal[index];
@@ -195,6 +199,8 @@ class _UpcomingState extends State<Upcoming> {
                     },
                     style: ElevatedButton.styleFrom(
                         elevation: 5,
+                        side: const BorderSide(
+                            width: 2, color: Color(0xFFD0EE82)),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15))),
                     child: Text(

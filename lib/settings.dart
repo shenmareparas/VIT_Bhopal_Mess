@@ -28,16 +28,13 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings',
-            style: TextStyle(
-              fontSize: 25,
-            )),
+        title: const Text('Settings', style: TextStyle(fontSize: 25)),
         centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Card(
               elevation: 3,
@@ -47,12 +44,10 @@ class _SettingsState extends State<Settings> {
                   children: [
                     const Text(
                       'Choose Mess',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 5),
                     RadioListTile(
                       title: const Text('Boys Hostel 1 CRCL Mess'),
                       value: 1,
@@ -71,6 +66,9 @@ class _SettingsState extends State<Settings> {
                       groupValue: selectedMess,
                       onChanged: handleMessSelection,
                     ),
+                    const SizedBox(height: 10),
+                    const Text('Note: After changing Mess, please click Reset',
+                        style: TextStyle(fontSize: 13)),
                   ],
                 ),
               ),
@@ -85,22 +83,16 @@ class _SettingsState extends State<Settings> {
                     Text('App Theme',
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold)),
-                    SizedBox(height: 16),
+                    SizedBox(height: 15),
                     Text('App Theme is set to System Default',
-                        style: TextStyle(fontSize: 18),
-                        textAlign: TextAlign.center),
-                    SizedBox(height: 16),
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text(
-                          'Note: To change app theme, change your system theme',
-                          style: TextStyle(fontSize: 13),
-                          textAlign: TextAlign.center),
-                    ),
+                        style: TextStyle(fontSize: 18)),
+                    SizedBox(height: 15),
+                    Text('Note: To change app theme, change your system theme',
+                        style: TextStyle(fontSize: 13)),
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

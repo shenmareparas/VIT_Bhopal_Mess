@@ -31,22 +31,21 @@ class About extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
               Text(
-                'App Description',
+                'v1.0.0',
+                style: TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+              SizedBox(height: 30),
+              Text(
+                "This app aims to make it easier for\nVIT Bhopal University Students to find the correct food item available at the mess based on the current day and time.\nIt simplifies the process for them",
                 style: TextStyle(
                   fontSize: 17,
                 ),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 20),
-              Text(
-                'Version 1.0.0',
-                style: TextStyle(
-                  fontSize: 14,
-                ),
-              ),
-              SizedBox(height: 10),
               Text(
                 'Developed by Paras Shenmare',
                 style: TextStyle(
