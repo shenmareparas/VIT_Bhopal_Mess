@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "package:shared_preferences/shared_preferences.dart";
+import 'package:app_settings/app_settings.dart';
 
 int selectedMess = 1;
 
@@ -74,21 +75,30 @@ class _SettingsState extends State<Settings> {
               ),
             ),
             const SizedBox(height: 16),
-            const Card(
+            Card(
               elevation: 3,
               child: Padding(
-                padding: EdgeInsets.only(top: 20, bottom: 20),
+                padding: const EdgeInsets.only(top: 20, bottom: 20),
                 child: Column(
                   children: [
-                    Text('App Theme',
+                    const Text('App Theme',
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold)),
-                    SizedBox(height: 15),
-                    Text('App Theme is set to System Default',
+                    const SizedBox(height: 15),
+                    const Text('App Theme is set to System Default',
                         style: TextStyle(fontSize: 18)),
-                    SizedBox(height: 15),
-                    Text('Note: To change app theme, change your system theme',
+                    const SizedBox(height: 15),
+                    const Text(
+                        'Note: To change app theme, change your system theme',
+                        textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 13)),
+                    const SizedBox(height: 15),
+                    ElevatedButton(
+                      onPressed: () {
+                        AppSettings.openDisplaySettings();
+                      },
+                      child: const Text('Open Display Settings'),
+                    ),
                   ],
                 ),
               ),
