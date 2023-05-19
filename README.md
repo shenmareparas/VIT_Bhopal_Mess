@@ -46,6 +46,9 @@ Contributions to the VIT Mess app are welcome and encouraged! If you would like 
 ## Contact
 If you have any questions, suggestions, or feedback, please feel free to contact me at shenmareparas@gmail.com or create an issue in the repository. I'd love to hear from you!
 
+## Special Thanks
+@addi1402
+
 ## Privacy Policy
 https://www.termsfeed.com/live/f3a9fb52-9e8b-45e3-a0a4-16901f7da9c4
 
