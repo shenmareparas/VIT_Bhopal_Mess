@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import "package:shared_preferences/shared_preferences.dart";
-import 'package:app_settings/app_settings.dart';
+
+import '../provider/theme_provider.dart';
 
 int selectedMess = 1;
 
@@ -27,6 +29,7 @@ class _SettingsState extends State<Settings> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings', style: TextStyle(fontSize: 25)),
@@ -85,19 +88,17 @@ class _SettingsState extends State<Settings> {
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold)),
                     const SizedBox(height: 15),
-                    const Text('App Theme is set to System Default',
-                        style: TextStyle(fontSize: 18)),
-                    const SizedBox(height: 15),
-                    const Text(
-                        'Note: To change app theme, change your system theme',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 13)),
-                    const SizedBox(height: 15),
-                    ElevatedButton(
-                      onPressed: () {
-                        AppSettings.openDisplaySettings();
+                    ListTile(
+                      title: const Text('Dark Mode'),
+                      trailing: Switch(
+                        value: themeProvider.currentThemeType == ThemeType.dark,
+                        onChanged: (_) {
+                          themeProvider.toggleTheme();
+                        },
+                      ),
+                      onTap: () {
+                        themeProvider.toggleTheme();
                       },
-                      child: const Text('Open Display Settings'),
                     ),
                   ],
                 ),

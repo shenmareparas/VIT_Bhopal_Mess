@@ -75,6 +75,7 @@ class CanteenState extends State<Canteen> {
                         },
                         decoration: InputDecoration(
                           filled: true,
+                          fillColor: Theme.of(context).cardColor,
                           labelText: 'Search',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(
