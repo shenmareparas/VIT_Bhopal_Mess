@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../models/map.dart';
 import 'settings.dart';
-import 'map.dart';
 
 DateTime now = DateTime.now();
 DateTime nextDay = DateTime.now().add(const Duration(days: 1));
