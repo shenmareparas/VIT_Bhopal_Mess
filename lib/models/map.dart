@@ -1,4 +1,4 @@
-import 'canteen.dart';
+import '../screens/canteen.dart';
 
 List<Menu> items = [
   Menu(name: 'Bread Omelete', price: 45),
