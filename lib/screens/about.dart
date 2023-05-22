@@ -39,7 +39,7 @@ class About extends StatelessWidget {
               ),
               SizedBox(height: 30),
               Text(
-                "This app aims to make it easier for\nVIT Bhopal University Students to find the correct food item available at the mess based on the current day and time",
+                "This app aims to make it easier for\nVIT Bhopal University Students\nto find the correct food item\navailable at the mess based on\nthe current day and time",
                 style: TextStyle(
                   fontSize: 17,
                 ),

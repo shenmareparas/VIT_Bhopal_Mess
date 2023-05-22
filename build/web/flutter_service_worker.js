@@ -8,7 +8,7 @@ const RESOURCES = {"assets/AssetManifest.json": "923e53d3439bc17ad75069444a3152e
 "assets/assets/images/icon.png": "6c1e872bc544f8d5a0bf296577d9fcba",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "assets/fonts/MaterialIcons-Regular.otf": "66c5ed2bef015981e7c1ea7b8b6fafa8",
-"assets/NOTICES": "7aef47a1183fca3ab4c2615996770df1",
+"assets/NOTICES": "5059568f59e406fac4e94858703baecd",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "57d849d738900cfd590e9adc7e208250",
 "assets/shaders/ink_sparkle.frag": "f8b80e740d33eb157090be4e995febdf",
 "canvaskit/canvaskit.js": "76f7d822f42397160c5dfc69cbc9b2de",
@@ -18,7 +18,7 @@ const RESOURCES = {"assets/AssetManifest.json": "923e53d3439bc17ad75069444a3152e
 "canvaskit/skwasm.js": "1df4d741f441fa1a4d10530ced463ef8",
 "canvaskit/skwasm.wasm": "6711032e17bf49924b2b001cef0d3ea3",
 "canvaskit/skwasm.worker.js": "19659053a277272607529ef87acf9d8a",
-"favicon.png": "5dcef449791fa27946b3d35ad8803796",
+"favicon.png": "be9e704ce95e66da4454d0ceed1d885a",
 "flutter.js": "6b515e434cea20006b3ef1726d2c8894",
 "icons/apple-touch-icon.png": "0fbac25492c50b7fc339f8b1bb52da33",
 "icons/favicon.ico": "c457b14c0b74a990d7252023ed6679b6",
@@ -26,10 +26,10 @@ const RESOURCES = {"assets/AssetManifest.json": "923e53d3439bc17ad75069444a3152e
 "icons/icon-192.png": "93d79c4c80c6a78e1618591252a06e2c",
 "icons/icon-512-maskable.png": "6c1e872bc544f8d5a0bf296577d9fcba",
 "icons/icon-512.png": "8dccad8dd0ca5d77e483bec99563c23a",
-"index.html": "7708679ee8ff597a072af3ef7b841f4d",
-"/": "7708679ee8ff597a072af3ef7b841f4d",
-"main.dart.js": "4904f2964a43853530de9513f6a69d43",
-"manifest.json": "bb69d7707a998aaaa710f89ebaf066a6",
+"index.html": "8df5f1d0591f31d6747e46ce369e48e5",
+"/": "8df5f1d0591f31d6747e46ce369e48e5",
+"main.dart.js": "69493490577ba4901e8b7f8d99873673",
+"manifest.json": "02769d322bfaf829d17c6b1eb9847350",
 "version.json": "96c1f90c082cfb2787186c7cacf7c0be"};
 // The application shell files that are downloaded before a service worker can
 // start.

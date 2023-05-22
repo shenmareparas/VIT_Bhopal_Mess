@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: themeProvider.currentTheme,
+          title: "VIT Bhopal Mess",
           home: const HomeScreen(),
         );
       },

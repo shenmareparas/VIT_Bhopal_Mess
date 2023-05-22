@@ -10267,11 +10267,12 @@ Wq:function Wq(a){this.a=a},
 aBH(){return new A.wF(new A.a2W(),A.B(t.K,t.Qu))},
 aa2:function aa2(a,b){this.a=a
 this.b=b},
-nS:function nS(a,b,c,d){var _=this
+nS:function nS(a,b,c,d,e){var _=this
 _.e=a
-_.cy=b
-_.p4=c
-_.a=d},
+_.CW=b
+_.cy=c
+_.p4=d
+_.a=e},
 a2W:function a2W(){},
 a2Z:function a2Z(){},
 BC:function BC(a){var _=this
@@ -45722,14 +45723,15 @@ if(l==null)l=o.ax.b
 k.a.toString
 s=b==null?B.aB:b
 return new A.yQ(A.alX(new A.uY(o,s,B.S,B.L,j,j),l,n),j)},
-a0l(a){var s,r=this,q=null,p=r.a,o=p.cy
-o=o==null?q:o.fr
-s=o
+a0l(a){var s,r,q=this,p=null,o=q.a,n=o.cy
+n=n==null?p:n.fr
+s=n
 if(s==null)s=B.fz
-p=p.e
-o=r.ga6R()
-r.a.toString
-return new A.Ad(q,q,q,new A.aeK(),q,q,q,q,q,p,B.JV,q,q,B.GV,r.ga6Z(),"",q,B.SD,s,q,o,q,q,B.mX,!1,!1,!1,!1,r.ga6w(),!1,q,q,q,new A.jZ(r,t.bT))},
+n=o.e
+o=o.CW
+r=q.ga6R()
+q.a.toString
+return new A.Ad(p,p,p,new A.aeK(),p,p,p,p,p,n,B.JV,p,p,B.GV,q.ga6Z(),o,p,B.SD,s,p,r,p,p,B.mX,!1,!1,!1,!1,q.ga6w(),!1,p,p,p,new A.jZ(q,t.bT))},
 H(a){var s,r=null,q=A.qt(!1,!1,this.a0l(a),r,r,r,r,!0,r,r,new A.aeL(),r,r,r)
 this.a.toString
 s=this.d
@@ -81943,7 +81945,7 @@ r[3]=r[3]+s[3]}}
 A.J0.prototype={
 H(a){return new A.vI(new A.a3B(),null,null,t.Ra)}}
 A.a3B.prototype={
-$3(a,b,c){return new A.nS(B.DU,b.a,!1,null)},
+$3(a,b,c){return new A.nS(B.DU,"VIT Bhopal Mess",b.a,!1,null)},
 $C:"$3",
 $R:3,
 $S:457}
@@ -85019,7 +85021,7 @@ B.Ta=new A.cu("v1.0.1",null,B.jU,null,null,null,null,null,null,null)
 B.NF=new A.ha(null,30,null,null)
 B.jV=new A.l(!0,null,null,null,null,null,17,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.ev=new A.ky(2,"center")
-B.Tf=new A.cu("This app aims to make it easier for\nVIT Bhopal University Students to find the correct food item available at the mess based on the current day and time",null,B.jV,B.ev,null,null,null,null,null,null)
+B.Tf=new A.cu("This app aims to make it easier for\nVIT Bhopal University Students\nto find the correct food item\navailable at the mess based on\nthe current day and time",null,B.jV,B.ev,null,null,null,null,null,null)
 B.T5=new A.cu("Developed by Paras Shenmare",null,B.jU,null,null,null,null,null,null,null)
 B.h9=new A.ha(null,10,null,null)
 B.Te=new A.cu("shenmareparas@gmail.com",null,B.jU,null,null,null,null,null,null,null)
