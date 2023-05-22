@@ -1,5 +1,5 @@
-# VIT Mess
-The "VIT Mess" app is designed to simplify the process of finding out the correct food item available at the mess based on the current day and time. It provides an intuitive and user-friendly interface for VIT Bhopal University students to check the mess menu and make informed decisions about their meal choices. It also provides the option to view the menu in the canteen and their respective prices.
+# VIT Bhopal Mess
+The "VIT Bhopal Mess" app is designed to simplify the process of finding out the correct food item available at the mess based on the current day and time. It provides an intuitive and user-friendly interface for VIT Bhopal University students to check the mess menu and make informed decisions about their meal choices. It also provides the option to view the menu in the canteen and their respective prices.
 
 <a href='https://play.google.com/store/apps/details?id=com.shenmareparas.vit_mess'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width='300px'/></a>
 
@@ -9,20 +9,22 @@ The "VIT Mess" app is designed to simplify the process of finding out the correc
 - **User-Friendly Interface:** The user interface is designed to be intuitive and easy to navigate, allowing users to quickly find the information they need.
 - **Search Functionality:** Users can search for specific Day or Meal time to get Food Items of it respectively.
 - **Notifications:** The app can send push notifications to users to remind them about upcoming meals. (Coming Soon)
-- **Canteen:** Users can view the menu and prices available in the canteen, enabling them to make informed decisions about their food choices outside the mess.
+- **Canteen:** Users can view and search the menu and its prices available in the canteen, enabling them to make informed decisions about their food choices outside the mess.
 
 ## Technologies Used
-- Flutter and Dart for building the mobile app
+- Flutter and Dart for building the mobile app & website
 - Material UI (Light Theme & Dark Theme)
 - Shared Preferences
-- Visual Studio Code
+- Provider
+- Intl
 
 ## Installation
 To run the "VIT Mess" app locally, follow these steps:
 1. Ensure that you have Flutter installed on your machine. If not, refer to the official Flutter documentation for installation instructions.
 2. Clone the repository to your local machine.
+
 ```bash
-git clone https://github.com/shenmareparas/vit_mess.git
+https://github.com/shenmareparas/VIT_Bhopal_Mess.git
 ```
 3. Install the dependencies for the app.
 ```bash
