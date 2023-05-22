@@ -32,14 +32,14 @@ class About extends StatelessWidget {
                 ),
               ),
               Text(
-                'v1.0.0',
+                'v1.0.1',
                 style: TextStyle(
                   fontSize: 14,
                 ),
               ),
               SizedBox(height: 30),
               Text(
-                "This app aims to make it easier for\nVIT Bhopal University Students to find the correct food item available at the mess based on the current day and time.\nIt simplifies the process for them",
+                "This app aims to make it easier for\nVIT Bhopal University Students to find the correct food item available at the mess based on the current day and time",
                 style: TextStyle(
                   fontSize: 17,
                 ),

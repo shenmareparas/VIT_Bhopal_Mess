@@ -81,7 +81,7 @@ class _SettingsState extends State<Settings> {
             Card(
               elevation: 3,
               child: Padding(
-                padding: const EdgeInsets.only(top: 20, bottom: 20),
+                padding: const EdgeInsets.all(16),
                 child: Column(
                   children: [
                     const Text('App Theme',

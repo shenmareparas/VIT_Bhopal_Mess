@@ -61,7 +61,7 @@ class CanteenState extends State<Canteen> {
         body: Column(
           children: [
             Padding(
-              padding: EdgeInsets.only(right: 16.0),
+              padding: const EdgeInsets.only(right: 16.0),
               child: Row(
                 children: [
                   Expanded(
@@ -120,8 +120,8 @@ class CanteenState extends State<Canteen> {
                 itemBuilder: (BuildContext context, int index) {
                   final item = filteredItems[index];
                   return Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
                     child: ListTile(
                       title: Text(
                         item.name,
