@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:vit_mess/screens/settings.dart';
-import 'package:vit_mess/screens/upcoming.dart';
+import 'package:vit_bhopal_mess/screens/settings.dart';
+import 'package:vit_bhopal_mess/screens/upcoming.dart';
 
 import '../utils/floating_snackbar.dart';
 import 'about.dart';
@@ -37,8 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          bottom: const TabBar(
-            tabs: [
+          bottom: TabBar(
+            onTap: (_) => FocusManager.instance.primaryFocus?.unfocus(),
+            tabs: const [
               Tab(text: "Upcoming", icon: Icon(Icons.restaurant)),
               Tab(text: "Canteen", icon: Icon(Icons.storefront)),
             ],
@@ -71,7 +72,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     case 'About':
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const About()),
+                        MaterialPageRoute(
+                            builder: (context) => const About()),
                       );
                       break;
                     default:

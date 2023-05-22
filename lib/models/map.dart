@@ -1,15 +1,15 @@
 import '../screens/canteen.dart';
 
 List<Menu> items = [
-  Menu(name: 'Bread Omelete', price: 45),
-  Menu(name: 'Plain Omelete', price: 35),
-  Menu(name: 'Onion Omelete', price: 40),
+  Menu(name: 'Bread Omelette', price: 45),
+  Menu(name: 'Plain Omelette', price: 35),
+  Menu(name: 'Onion Omelette', price: 40),
   Menu(name: 'Boiled Egg', price: 10),
   Menu(name: 'Paneer Tikka', price: 125),
   Menu(name: 'Chicken Tikka', price: 130),
-  Menu(name: 'Tandoori Chicken Quarter', price: 115),
-  Menu(name: 'Tandoori Chicken Half', price: 225),
   Menu(name: 'Tandoori Chicken Full', price: 450),
+  Menu(name: 'Tandoori Chicken Half', price: 225),
+  Menu(name: 'Tandoori Chicken Quarter', price: 115),
   Menu(name: 'Chicken 65', price: 100),
   Menu(name: 'Chilly Chicken', price: 130),
   Menu(name: 'Butter Chicken Masala', price: 150),

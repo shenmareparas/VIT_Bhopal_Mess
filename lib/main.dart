@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:vit_mess/provider/theme_provider.dart';
-import 'package:vit_mess/screens/home_screen.dart';
+import 'package:vit_bhopal_mess/provider/theme_provider.dart';
+import 'package:vit_bhopal_mess/screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
