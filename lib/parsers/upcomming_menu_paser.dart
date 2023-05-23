@@ -3,10 +3,8 @@ import 'package:intl/intl.dart';
 import '../models/map.dart';
 
 DateTime now = DateTime.now();
-DateTime nextDay = DateTime.now().add(const Duration(days: 1));
 String mealTime = getMealTime(now);
 String formattedDate = DateFormat('EEEE').format(now);
-String nextDayformattedDate = DateFormat('EEEE').format(nextDay);
 String formattedTime = DateFormat('HH:mm').format(now);
 
 String getMealTime(DateTime now) {
@@ -24,12 +22,16 @@ String getMealTime(DateTime now) {
   }
 }
 
-String getformattedDate(DateTime nextDay) {
+String getformattedDate(DateTime now) {
   int hour = now.hour;
   if (hour < 21) {
     return formattedDate;
+  } else if (hour >= 21 && hour < 24) {
+    DateTime nextDay = DateTime.now().add(const Duration(days: 1));
+    String formattedDate = DateFormat('EEEE').format(nextDay);
+    return formattedDate;
   } else {
-    return nextDayformattedDate;
+    return formattedDate;
   }
 }
 

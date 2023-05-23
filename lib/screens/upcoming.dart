@@ -98,7 +98,7 @@ class _UpcomingState extends State<Upcoming> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15))),
                     child: Text(
-                      getformattedDate(nextDay),
+                      getformattedDate(now),
                       style: const TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w500,
@@ -180,17 +180,16 @@ class _UpcomingState extends State<Upcoming> {
                       child: ListView.builder(
                         // physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemCount:
-                            getMess(selectedMess)[getformattedDate(nextDay)]
-                                    [mealTime]
-                                ?.length,
+                        itemCount: getMess(selectedMess)[getformattedDate(now)]
+                                [mealTime]
+                            ?.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                getMess(selectedMess)[getformattedDate(
-                                        nextDay)]![mealTime]![index]
+                                getMess(selectedMess)[getformattedDate(now)]![
+                                        mealTime]![index]
                                     .toString(),
                                 style: const TextStyle(
                                   fontSize: 20,

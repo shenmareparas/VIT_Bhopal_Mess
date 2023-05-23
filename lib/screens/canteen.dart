@@ -66,7 +66,7 @@ class CanteenState extends State<Canteen> {
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.all(13),
+                      padding: const EdgeInsets.all(16),
                       child: TextField(
                         onChanged: (value) {
                           setState(() {

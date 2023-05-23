@@ -72,8 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     case 'About':
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const About()),
+                        MaterialPageRoute(builder: (context) => const About()),
                       );
                       break;
                     default:
