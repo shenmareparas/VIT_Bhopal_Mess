@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-
 import '../models/map.dart';
+import 'cart.dart';
 
 class Menu {
   final String name;
   int price;
+  bool isSelected;
 
-  Menu({required this.name, required this.price});
+  Menu({required this.name, required this.price, this.isSelected = false});
 }
 
 class Canteen extends StatefulWidget {
@@ -18,6 +19,7 @@ class Canteen extends StatefulWidget {
 
 class CanteenState extends State<Canteen> {
   String searchQuery = '';
+  List<Menu> selectedItems = [];
   final List<Menu> _originalItems = items.toList();
 
   List<Menu> get filteredItems {
@@ -53,6 +55,20 @@ class CanteenState extends State<Canteen> {
     });
   }
 
+  void addToCart(Menu item) {
+    setState(() {
+      item.isSelected = true;
+      selectedItems.add(item);
+    });
+  }
+
+  void removeFromCart(Menu item) {
+    setState(() {
+      item.isSelected = false;
+      selectedItems.remove(item);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -77,9 +93,9 @@ class CanteenState extends State<Canteen> {
                           filled: true,
                           fillColor: Theme.of(context).cardColor,
                           labelText: 'Search',
+                          prefixIcon: const Icon(Icons.search),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(
-                                10.0), // Set the desired border radius
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
                       ),
@@ -101,7 +117,7 @@ class CanteenState extends State<Canteen> {
                       ),
                     ],
                     child: const FloatingActionButton(
-                      elevation: 0,
+                      elevation: 5,
                       onPressed: null,
                       child: Icon(Icons.sort),
                     ),
@@ -111,12 +127,12 @@ class CanteenState extends State<Canteen> {
             ),
             Expanded(
               child: ListView.separated(
-                itemCount: filteredItems.length,
                 separatorBuilder: (BuildContext context, int index) =>
                     const Divider(
                   thickness: 1,
                   height: 1,
                 ),
+                itemCount: filteredItems.length,
                 itemBuilder: (BuildContext context, int index) {
                   final item = filteredItems[index];
                   return Padding(
@@ -127,11 +143,21 @@ class CanteenState extends State<Canteen> {
                         item.name,
                         style: const TextStyle(fontSize: 18),
                       ),
-                      trailing: Text(
+                      subtitle: Text(
                         '₹${item.price}',
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      trailing: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            item.isSelected = !item.isSelected;
+                          });
+                        },
+                        child: Icon(
+                          item.isSelected ? Icons.check : Icons.shopping_cart,
                         ),
                       ),
                     ),
@@ -140,6 +166,20 @@ class CanteenState extends State<Canteen> {
               ),
             ),
           ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            const Cart(
+              selectedItems: [],
+            );
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Cart(selectedItems: selectedItems),
+              ),
+            );
+          },
+          child: const Icon(Icons.shopping_cart_checkout),
         ),
       ),
     );
