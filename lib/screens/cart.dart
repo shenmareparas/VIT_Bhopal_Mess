@@ -3,7 +3,6 @@ import 'canteen.dart';
 
 class Cart extends StatefulWidget {
   final List<Menu> selectedItems;
-
   const Cart({Key? key, required this.selectedItems}) : super(key: key);
 
   @override

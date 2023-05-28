@@ -59,6 +59,7 @@ class CanteenState extends State<Canteen> {
     setState(() {
       item.isSelected = true;
       selectedItems.add(item);
+      print('Selected items: $selectedItems');
     });
   }
 
@@ -66,6 +67,7 @@ class CanteenState extends State<Canteen> {
     setState(() {
       item.isSelected = false;
       selectedItems.remove(item);
+      print('Selected items: $selectedItems');
     });
   }
 
