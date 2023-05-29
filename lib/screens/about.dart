@@ -49,17 +49,11 @@ class About extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  'Developed by Paras Shenmare',
+                  'Developed by Paras Shenmare\n Made with 💚 in Flutter',
                   style: TextStyle(
                     fontSize: 14,
                   ),
-                ),
-                const SizedBox(height: 10),
-                const Text(
-                  'shenmareparas@gmail.com',
-                  style: TextStyle(
-                    fontSize: 14,
-                  ),
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 10),
                 ElevatedButton(
