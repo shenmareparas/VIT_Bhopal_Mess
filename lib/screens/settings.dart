@@ -71,8 +71,11 @@ class _SettingsState extends State<Settings> {
                       onChanged: handleMessSelection,
                     ),
                     const SizedBox(height: 10),
-                    const Text('Note: After changing Mess, please click Reset',
-                        style: TextStyle(fontSize: 13)),
+                    const Text(
+                      'Note: After changing Mess, please click Reset',
+                      style: TextStyle(fontSize: 13),
+                      textAlign: TextAlign.center,
+                    ),
                   ],
                 ),
               ),

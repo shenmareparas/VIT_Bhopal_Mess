@@ -115,7 +115,13 @@ class CanteenState extends State<Canteen> {
                               });
                             },
                           ),
-                          Text(item.quantity.toString()),
+                          Text(
+                            '${item.quantity}',
+                            style: const TextStyle(
+                                color: Color(0xFFB4D269),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14),
+                          ),
                           IconButton(
                             icon: const Icon(Icons.add),
                             onPressed: () {
@@ -132,38 +138,50 @@ class CanteenState extends State<Canteen> {
               ),
             ],
           ),
-          bottomNavigationBar: Container(
-            padding: const EdgeInsets.all(16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Selected Items: ${getSelectedItemsCount()}',
-                      style: const TextStyle(),
-                    ),
-                    Text(
-                      'Total Price: ₹${getTotalPrice().toStringAsFixed(2)}',
-                      style: const TextStyle(),
-                    ),
-                  ],
+          bottomNavigationBar: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15)),
+                border: Border.all(
+                  color: const Color(0xFFB4D269),
+                  width: 3,
                 ),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    FloatingActionButton(
-                      onPressed: () {
-                        showReceiptDialog();
-                      },
-                      child: const Icon(Icons.receipt),
-                    ),
-                  ],
-                ),
-              ],
+              ),
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Selected Items: ${getSelectedItemsCount()}',
+                        style: const TextStyle(),
+                      ),
+                      Text(
+                        'Total Price: ₹${getTotalPrice().toStringAsFixed(2)}',
+                        style: const TextStyle(),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      FloatingActionButton(
+                        onPressed: () {
+                          showReceiptDialog();
+                        },
+                        child: const Icon(Icons.receipt),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ));
