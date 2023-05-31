@@ -8,8 +8,8 @@ The "VIT Bhopal Mess" app is designed to simplify the process of finding out the
 - **Current Time Tracking:** The app automatically detects the current time and displays the food items available during that specific time slot.
 - **User-Friendly Interface:** The user interface is designed to be intuitive and easy to navigate, allowing users to quickly find the information they need.
 - **Search Functionality:** Users can search for specific Day or Meal time to get Food Items of it respectively.
-- **Notifications:** The app can send push notifications to users to remind them about upcoming meals. (Coming Soon)
-- **Canteen:** Users can view and search the menu and its prices available in the canteen, enabling them to make informed decisions about their food choices outside the mess.
+- **Notifications:** The app will send push notifications to users to remind them about upcoming meals. (Coming Soon)
+- **Canteen:** Users can view, search as well as sort the menu and its prices available in the canteen, it can also see the total price of the selected items by adding or removing items from the cart, enabling them to make informed decisions about their food choices outside the mess.
 
 ## Technologies Used
 - Flutter and Dart for building the mobile app & website
@@ -17,6 +17,7 @@ The "VIT Bhopal Mess" app is designed to simplify the process of finding out the
 - Shared Preferences
 - Provider
 - Intl
+- URL Launcher
 
 ## Installation
 To run the "VIT Mess" app locally, follow these steps:
