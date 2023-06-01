@@ -1,8 +1,6 @@
 # VIT Bhopal Mess
 The "VIT Bhopal Mess" app is designed to simplify the process of finding out the correct food item available at the mess based on the current day and time. It provides an intuitive and user-friendly interface for VIT Bhopal University students to check the mess menu and make informed decisions about their meal choices. It also provides the option to view the menu in the canteen and their respective prices.
 
-![](assets/images/icon.png)
-
 <a href='https://play.google.com/store/apps/details?id=com.shenmareparas.vit_mess&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width ="300"/></a>
 
 ## Features
