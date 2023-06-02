@@ -14,8 +14,8 @@ class About extends StatelessWidget {
             )),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        child: Center(
+      body: Center(
+        child: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(20),
             child: Column(
