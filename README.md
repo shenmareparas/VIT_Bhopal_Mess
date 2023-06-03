@@ -15,7 +15,7 @@ The "VIT Bhopal Mess" app is designed to simplify the process of finding out the
 
 ## Technologies Used
 - Flutter and Dart for building the mobile app & website
-- Material UI (Light Theme & Dark Theme)
+- Material UI 3 (Light Theme & Dark Theme)
 - Shared Preferences
 - Provider
 - Intl
