@@ -99,9 +99,14 @@ class CanteenState extends State<Canteen> {
                   itemBuilder: (context, index) {
                     final item = filteredItems[index];
                     return ListTile(
-                      title: Text(item.name),
-                      subtitle:
-                          Text('Price: ₹${item.price.toStringAsFixed(2)}'),
+                      title: Text(
+                        item.name,
+                        style: const TextStyle(fontSize: 17),
+                      ),
+                      subtitle: Text(
+                        'Price: ₹${item.price.toStringAsFixed(2)}',
+                        style: const TextStyle(fontSize: 14),
+                      ),
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -120,7 +125,7 @@ class CanteenState extends State<Canteen> {
                             style: const TextStyle(
                                 color: Color(0xFFB4D269),
                                 fontWeight: FontWeight.bold,
-                                fontSize: 14),
+                                fontSize: 15),
                           ),
                           IconButton(
                             icon: const Icon(Icons.add),
@@ -138,86 +143,30 @@ class CanteenState extends State<Canteen> {
               ),
             ],
           ),
-          bottomNavigationBar: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15)),
-                border: Border.all(
-                  color: const Color(0xFFB4D269),
-                  width: 3,
+          bottomNavigationBar: Container(
+            decoration: const BoxDecoration(
+              border: Border(
+                  top: BorderSide(color: Color(0xFFB4D269), width: 3),
+                  bottom: BorderSide(width: 0),
+                  left: BorderSide(width: 0),
+                  right: BorderSide(width: 0)),
+            ),
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Selected Items: ${getSelectedItemsCount()}',
+                  style: const TextStyle(fontSize: 17),
                 ),
-              ),
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Selected Items: ${getSelectedItemsCount()}',
-                        style: const TextStyle(),
-                      ),
-                      Text(
-                        'Total Price: ₹${getTotalPrice().toStringAsFixed(2)}',
-                        style: const TextStyle(),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      FloatingActionButton(
-                        onPressed: () {
-                          showReceiptDialog();
-                        },
-                        child: const Icon(Icons.receipt),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                Text(
+                  'Total Price: ₹${getTotalPrice().toStringAsFixed(0)}',
+                  style: const TextStyle(fontSize: 18),
+                ),
+              ],
             ),
           ),
         ));
-  }
-
-  void showReceiptDialog() {
-    if (selectedItems.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('No items selected')),
-      );
-      return;
-    }
-
-    String message = 'Receipt\n\n';
-    for (var item in selectedItems) {
-      message += '${item.name} x ${item.quantity}\n';
-    }
-    message += '\nTotal: ₹${getTotalPrice().toStringAsFixed(2)}';
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Receipt'),
-          content: Text(message),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text('OK'),
-            ),
-          ],
-        );
-      },
-    );
   }
 
   void sortByAscending() {

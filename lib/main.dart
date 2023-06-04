@@ -7,7 +7,7 @@ import 'package:vit_bhopal_mess/screens/home_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  
+
   ThemeProvider themeProvider = ThemeProvider();
   await themeProvider.initializeTheme();
   runApp(

@@ -27,14 +27,14 @@ class About extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  'VIT Mess',
+                  'VITB Mess',
                   style: TextStyle(
                     fontSize: 35,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const Text(
-                  'v1.0.1',
+                  'v1.0.2',
                   style: TextStyle(
                     fontSize: 14,
                   ),
@@ -59,9 +59,9 @@ class About extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     String email = 'shenmareparas+vitbmess@gmail.com';
-                    String message = 'VIT Bhopal Mess Feedback';
+                    String subject = 'VIT Bhopal Mess Feedback';
                     String mailto =
-                        Uri.encodeFull('mailto:$email?body=$message');
+                        Uri.encodeFull('mailto:$email?subject=$subject');
                     launchUrlString(mailto);
                   },
                   child: const Text('Send Feedback'),
