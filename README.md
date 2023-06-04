@@ -1,4 +1,4 @@
-<a href='https://play.google.com/store/apps/details?id=com.shenmareparas.vit_mess&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='App Icon' src="assets/images/icon circle.png" width = 200/></a>
+<a href='https://play.google.com/store/apps/details?id=com.shenmareparas.vit_mess&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='App Icon' src="assets/images/icon squircle.png" width = 250/></a>
  
 # VIT Bhopal Mess
 The "VIT Bhopal Mess" app is designed to simplify the process of finding out the correct food item available at the mess based on the current day and time. It provides an intuitive and user-friendly interface for VIT Bhopal University students to check the mess menu and make informed decisions about their meal choices. It also provides the option to view the menu in the canteen and their respective prices.
@@ -15,7 +15,7 @@ The "VIT Bhopal Mess" app is designed to simplify the process of finding out the
 
 ## Technologies Used
 - Flutter and Dart for building the mobile app & website
-- Material UI (Light Theme & Dark Theme)
+- Material UI 3 (Light Theme & Dark Theme)
 - Shared Preferences
 - Provider
 - Intl
