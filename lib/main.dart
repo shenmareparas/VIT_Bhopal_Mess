@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vit_bhopal_mess/provider/theme_provider.dart';
 import 'package:vit_bhopal_mess/screens/home_screen.dart';
 import 'package:vit_bhopal_mess/screens/welcome.dart';
+import 'package:easy_splash_screen/easy_splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,15 +41,30 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: themeProvider.currentTheme,
           title: "VIT Bhopal Mess",
-          home: FutureBuilder<Widget>(
-            future: firstScreen(),
-            builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
-              if (snapshot.hasData) {
-                return snapshot.data!;
-              } else {
-                return Container();
-              }
-            },
+          home: EasySplashScreen(
+            logo: Image.asset('assets/images/icon circle.png'),
+            logoWidth: 100,
+            title: const Text(
+              "VIT Bhopal Mess",
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            backgroundColor: const Color(0xFF001C27),
+            showLoader: true,
+            loaderColor: const Color(0xFFD0EE82),
+            durationInSeconds: 1,
+            navigator: FutureBuilder<Widget>(
+              future: firstScreen(),
+              builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
+                if (snapshot.hasData) {
+                  return snapshot.data!;
+                } else {
+                  return Container();
+                }
+              },
+            ),
           ),
         );
       },

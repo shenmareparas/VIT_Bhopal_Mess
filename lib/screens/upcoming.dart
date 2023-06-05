@@ -9,10 +9,10 @@ class Upcoming extends StatefulWidget {
   const Upcoming({super.key});
 
   @override
-  State<Upcoming> createState() => _UpcomingState();
+  State<Upcoming> createState() => UpcomingState();
 }
 
-class _UpcomingState extends State<Upcoming> {
+class UpcomingState extends State<Upcoming> {
   void resetValues() {
     setState(() {
       formattedDate = DateFormat('EEEE').format(DateTime.now());

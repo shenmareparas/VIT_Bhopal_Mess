@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import "package:shared_preferences/shared_preferences.dart";
-
 import '../provider/theme_provider.dart';
 
 int selectedMess = 1;
@@ -10,10 +9,10 @@ class Settings extends StatefulWidget {
   const Settings({super.key});
 
   @override
-  State<Settings> createState() => _SettingsState();
+  State<Settings> createState() => SettingsState();
 }
 
-class _SettingsState extends State<Settings> {
+class SettingsState extends State<Settings> {
   void handleMessSelection(int? value) async {
     setState(() {
       selectedMess = value!;
