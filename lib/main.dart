@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            backgroundColor: const Color(0xFF001C27),
+            backgroundColor: const Color(0xFF14322E),
             showLoader: true,
             loaderColor: const Color(0xFFD0EE82),
             durationInSeconds: 1,
