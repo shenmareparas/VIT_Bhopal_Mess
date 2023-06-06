@@ -79,6 +79,9 @@ class CanteenState extends State<Canteen> {
                           child: const Text('Sort by Category'),
                         ),
                       ],
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15)),
+                      tooltip: 'Sort',
                       child: const FloatingActionButton(
                         elevation: 5,
                         onPressed: null,
@@ -112,6 +115,7 @@ class CanteenState extends State<Canteen> {
                         children: [
                           IconButton(
                             icon: const Icon(Icons.remove),
+                            tooltip: 'Remove',
                             onPressed: () {
                               setState(() {
                                 if (item.quantity > 0) {
@@ -129,6 +133,7 @@ class CanteenState extends State<Canteen> {
                           ),
                           IconButton(
                             icon: const Icon(Icons.add),
+                            tooltip: 'Add',
                             onPressed: () {
                               setState(() {
                                 item.quantity++;

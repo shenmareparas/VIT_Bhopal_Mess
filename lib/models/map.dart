@@ -501,7 +501,7 @@ const Map<String, Map<String, List<String>>> mess_3 = {
     "Dinner": [
       "Jeera Rice",
       "Roti",
-      "Rajasthani Bindi",
+      "Rajasthani Bhindi",
       "Plain Dal",
       "Rasam",
       "Egg Bhurji"
