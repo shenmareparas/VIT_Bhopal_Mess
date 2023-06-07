@@ -12,6 +12,26 @@ The "VIT Bhopal Mess" app 📱 & website 🌐 is designed to simplify the proces
 - **Canteen:** Users can view, search as well as sort the menu and its prices available in the canteen, it can also see the total price of the selected items by adding or removing items from the cart, enabling them to make informed decisions about their food choices outside the mess.
 - **Notifications:** The app will send push notifications to users to remind them about upcoming meals. (Coming Soon)
 
+## Screenshots
+<div>
+  <div>
+    <img alt='Image 1' src="assets/playstore_images/1.jpg" width="250"/>
+    <img alt='Image 2' src="assets/playstore_images/2.jpg" width="250"/>
+  </div>
+  <div>
+    <img alt='Image 3' src="assets/playstore_images/3.jpg" width="250"/>
+    <img alt='Image 4' src="assets/playstore_images/4.jpg" width="250"/>
+  </div>
+  <div>
+    <img alt='Image 5' src="assets/playstore_images/5.jpg" width="250"/>
+    <img alt='Image 6' src="assets/playstore_images/6.jpg" width="250"/>
+  </div>
+  <div>
+    <img alt='Image 7' src="assets/playstore_images/7.jpg" width="250"/>
+    <img alt='Image 8' src="assets/playstore_images/8.jpg" width="250"/>
+  </div>
+</div>
+
 ## Technologies Used
 - Flutter and Dart for building the mobile app & website
 - Material UI 3 (Light Theme & Dark Theme)
