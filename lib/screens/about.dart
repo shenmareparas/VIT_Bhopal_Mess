@@ -34,7 +34,7 @@ class About extends StatelessWidget {
                   ),
                 ),
                 const Text(
-                  'v1.0.2',
+                  'v1.0.3',
                   style: TextStyle(
                     fontSize: 14,
                   ),

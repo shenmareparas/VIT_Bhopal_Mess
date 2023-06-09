@@ -58,7 +58,7 @@ class SettingsState extends State<Settings> {
                       onChanged: handleMessSelection,
                     ),
                     RadioListTile(
-                      title: const Text('Boys Hostel 2 Mayuri Mess'),
+                      title: const Text('Boys Hostel 2 & 3 Mayuri Mess'),
                       value: 2,
                       groupValue: selectedMess,
                       onChanged: handleMessSelection,
@@ -71,7 +71,7 @@ class SettingsState extends State<Settings> {
                     ),
                     const SizedBox(height: 10),
                     const Text(
-                      'Note: After changing Mess, please click Reset',
+                      'Note: After changing Mess,\nplease click Refresh or swipe down to Refresh',
                       style: TextStyle(fontSize: 13),
                       textAlign: TextAlign.center,
                     ),
