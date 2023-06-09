@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:vit_bhopal_mess/screens/settings.dart';
-import 'package:vit_bhopal_mess/screens/upcoming.dart';
-
-import '../utils/floating_snackbar.dart';
+import '/utils/floating_snackbar.dart';
+import 'settings.dart';
+import 'upcoming.dart';
 import 'about.dart';
 import 'canteen.dart';
 

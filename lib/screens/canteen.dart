@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/map.dart';
+import '/models/map.dart';
 
 class Menu {
   final String name;

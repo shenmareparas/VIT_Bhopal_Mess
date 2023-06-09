@@ -1,6 +1,5 @@
 import 'package:intl/intl.dart';
-
-import '../models/map.dart';
+import '/models/map.dart';
 
 DateTime now = DateTime.now();
 String mealTime = getMealTime(now);

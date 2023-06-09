@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:vit_bhopal_mess/provider/theme_provider.dart';
-import 'package:vit_bhopal_mess/screens/home_screen.dart';
-import 'package:vit_bhopal_mess/screens/welcome.dart';
 import 'package:easy_splash_screen/easy_splash_screen.dart';
+import '/provider/theme_provider.dart';
+import '/screens/home_screen.dart';
+import '/screens/welcome.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

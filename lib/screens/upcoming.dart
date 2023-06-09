@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../parsers/upcomming_menu_paser.dart';
+import '/parsers/upcomming_menu_paser.dart';
 import 'settings.dart';
 
 class Upcoming extends StatefulWidget {
