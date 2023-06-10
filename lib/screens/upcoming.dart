@@ -80,14 +80,14 @@ class UpcomingState extends State<Upcoming> {
                                             Navigator.of(context).pop(),
                                           },
                                           child: Align(
-                                              alignment: Alignment.centerLeft,
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(10),
-                                                child: Text(days[index],
-                                                    style: const TextStyle(
-                                                        fontSize: 18)),
-                                              )),
+                                            alignment: Alignment.centerLeft,
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(10),
+                                              child: Text(days[index],
+                                                  style: const TextStyle(
+                                                      fontSize: 18)),
+                                            ),
+                                          ),
                                         ),
                                       ],
                                     );
@@ -144,14 +144,14 @@ class UpcomingState extends State<Upcoming> {
                                             Navigator.of(context).pop(),
                                           },
                                           child: Align(
-                                              alignment: Alignment.centerLeft,
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(10),
-                                                child: Text(mealShow[index],
-                                                    style: const TextStyle(
-                                                        fontSize: 18)),
-                                              )),
+                                            alignment: Alignment.centerLeft,
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(10),
+                                              child: Text(mealShow[index],
+                                                  style: const TextStyle(
+                                                      fontSize: 18)),
+                                            ),
+                                          ),
                                         )
                                       ],
                                     );
