@@ -15,6 +15,7 @@ class UpcomingState extends State<Upcoming> {
   void resetValues() {
     setState(() {
       formattedDate = DateFormat('EEEE').format(DateTime.now());
+      // formattedDate = getformattedDate(now);
       mealTime = getMealTime(DateTime.now());
     });
   }
@@ -147,7 +148,7 @@ class UpcomingState extends State<Upcoming> {
                                               child: Padding(
                                                 padding:
                                                     const EdgeInsets.all(10),
-                                                child: Text(meal[index],
+                                                child: Text(mealShow[index],
                                                     style: const TextStyle(
                                                         fontSize: 18)),
                                               )),

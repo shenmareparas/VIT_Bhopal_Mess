@@ -6,26 +6,25 @@ String mealTime = getMealTime(now);
 String formattedDate = DateFormat('EEEE').format(now);
 String formattedTime = DateFormat('HH:mm').format(now);
 
-String getMealTime(DateTime now) {
-  int hour = now.hour;
+int hour = now.hour;
+int minute = now.minute;
+
+String getMealTime(now) {
   if (hour < 9) {
     return 'Breakfast';
-  } else if (hour < 15) {
+  } else if (hour < 15 || (hour == 15 && minute <= 30)) {
     return 'Lunch';
-  } else if (hour < 18) {
+  } else if (hour < 18 || (hour == 18 && minute <= 30)) {
     return 'Snacks';
   } else if (hour < 21) {
     return 'Dinner';
   } else {
-    return "Breakfast";
+    return 'Breakfast';
   }
 }
 
-String getformattedDate(DateTime now) {
-  int hour = now.hour;
-  if (hour < 21) {
-    return formattedDate;
-  } else if (hour >= 21 && hour < 24) {
+String getformattedDate(now) {
+  if (hour >= 21 && hour < 24) {
     DateTime nextDay = DateTime.now().add(const Duration(days: 1));
     String formattedDate = DateFormat('EEEE').format(nextDay);
     return formattedDate;
@@ -58,4 +57,9 @@ var days = [
 ];
 
 var meal = ["Breakfast", "Lunch", "Snacks", "Dinner"];
-// var meal = ["Breakfast (7:30 - 9:00)", "Lunch (12:00 - 2:30)", "Snacks (5:00 - 6:30)", "Dinner (7:30 to 9:00)"];
+var mealShow = [
+  "Breakfast (7:30 to 9:00)",
+  "Lunch (12:00 to 2:30)",
+  "Snacks (5:00 to 6:30)",
+  "Dinner (7:30 to 9:00)"
+];
