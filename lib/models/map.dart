@@ -284,7 +284,7 @@ const Map<String, Map<String, List<String>>> mess_2 = {
     "Snacks": ["Chivda/Vada Pav", "Chutney", "Tea, Coffee, Milk"],
     "Dinner": [
       "Roti",
-      "Kashmiri Pulao",
+      "Kashmiri Aloo",
       "Egg Bhurji Masala",
       "Dal Fry",
       "Rice",
