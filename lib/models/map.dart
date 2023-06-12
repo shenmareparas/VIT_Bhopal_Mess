@@ -66,7 +66,7 @@ const Map<String, Map<String, List<String>>> mess_1 = {
     "Snacks": ["Vada Pav", "Tea, Coffee, Milk"],
     "Dinner": [
       "Roti",
-      "Kashmiri Pulao",
+      "Kashmiri Aloo",
       "Egg Bhurji Masala",
       "Plain Dal",
       "Rice",
