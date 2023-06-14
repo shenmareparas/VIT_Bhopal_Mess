@@ -1,0 +1,14 @@
+icons_launcher:
+  image_path: 'assets/icons/ic_logo.png'
+  platforms:
+    android:
+      enable: true
+      adaptive_background_image: "assets/icons/ic_background.png"
+      adaptive_foreground_image: "assets/icons/ic_foreground.png"
+      adaptive_monochrome_image: "assets/icons/ic_monochrome.png"
+    ios:
+      enable: true
+    web:
+      enable: true
+      image_path: "assets/icons/ic_logo.png"
+      favicon_path: "assets/icons/ic_logo.png"
