@@ -1,3 +1,4 @@
+import '/screens/underbelly.dart';
 import '/screens/canteen.dart';
 
 List<Menu> items = [
@@ -39,6 +40,27 @@ List<Menu> items = [
   Menu(name: 'Onion Dosa', price: 55, quantity: 0),
   Menu(name: 'Ghee Dosa', price: 60, quantity: 0),
   Menu(name: 'Egg Dosa', price: 60, quantity: 0)
+];
+
+List<MenuUB> itemsUB = [
+  MenuUB(name: 'Ginger Tea', price: 45, category: 'Hot'),
+  MenuUB(name: 'Coffee', price: 35, category: 'Hot'),
+  MenuUB(name: 'Hot Chocolate', price: 40, category: 'Hot'),
+  MenuUB(name: 'Boiled Egg', price: 10, category: 'Non-Vegetarian'),
+  MenuUB(name: 'Paneer Tikka', price: 125, category: 'Vegetarian'),
+  MenuUB(name: 'Chicken Tikka', price: 130, category: 'Non-Vegetarian'),
+  MenuUB(name: 'Tandoori Chicken Full', price: 450, category: 'Non-Vegetarian'),
+  MenuUB(name: 'Tandoori Chicken Half', price: 225, category: 'Non-Vegetarian'),
+  MenuUB(
+      name: 'Tandoori Chicken Quarter', price: 115, category: 'Non-Vegetarian'),
+  MenuUB(name: 'Chicken 65', price: 100, category: 'Non-Vegetarian'),
+  MenuUB(name: 'Chilly Chicken', price: 130, category: 'Non-Vegetarian'),
+  MenuUB(name: 'Butter Chicken Masala', price: 150, category: 'Non-Vegetarian'),
+  MenuUB(name: 'Kadai Chicken Masala', price: 140, category: 'Non-Vegetarian'),
+  MenuUB(name: 'Chicken Masala', price: 140, category: 'Non-Vegetarian'),
+  MenuUB(name: 'Chicken Tikka Masala', price: 140, category: 'Non-Vegetarian'),
+  MenuUB(
+      name: 'Schezwan Chicken Noodles', price: 130, category: 'Non-Vegetarian'),
 ];
 
 const Map<String, Map<String, List<String>>> mess_1 = {

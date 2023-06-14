@@ -5,7 +5,7 @@ class Menu {
   final String name;
   int price;
   int quantity;
-
+  
   Menu({required this.name, required this.price, required this.quantity});
 }
 
@@ -107,7 +107,7 @@ class CanteenState extends State<Canteen> {
                         style: const TextStyle(fontSize: 17),
                       ),
                       subtitle: Text(
-                        'Price: ₹${item.price.toStringAsFixed(2)}',
+                        '₹${item.price.toStringAsFixed(0)}',
                         style: const TextStyle(fontSize: 14),
                       ),
                       trailing: Row(

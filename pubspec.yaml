@@ -37,6 +37,7 @@ dependencies:
   url_launcher: ^6.1.11
   introduction_screen: ^3.1.8
   easy_splash_screen: ^1.0.4
+  confetti: ^0.7.0
 
 
 dev_dependencies:

@@ -5,6 +5,7 @@ import 'settings.dart';
 import 'upcoming.dart';
 import 'about.dart';
 import 'canteen.dart';
+import 'underbelly.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -33,19 +34,19 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           bottom: TabBar(
             onTap: (_) => FocusManager.instance.primaryFocus?.unfocus(),
             tabs: const [
-              Tab(text: "Upcoming", icon: Icon(Icons.restaurant)),
+              Tab(text: "Upcoming", icon: Icon(Icons.restaurant_rounded)),
               Tab(text: "Canteen", icon: Icon(Icons.storefront)),
+              Tab(text: "UnderBelly", icon: Icon(Icons.fastfood_rounded)),
             ],
           ),
           centerTitle: true,
-          title: const Text('VIT Bhopal Mess',
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400)),
+          title: const Text('VIT Bhopal Mess', style: TextStyle(fontSize: 25)),
           actions: [
             Builder(
               builder: (BuildContext context) => PopupMenuButton(
@@ -83,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         body: const TabBarView(
-          children: [Upcoming(), Canteen()],
+          children: [Upcoming(), Canteen(), UnderBelly()],
         ),
       ),
     );
