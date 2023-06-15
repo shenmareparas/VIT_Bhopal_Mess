@@ -43,24 +43,124 @@ List<Menu> items = [
 ];
 
 List<MenuUB> itemsUB = [
-  MenuUB(name: 'Ginger Tea', price: 45, category: 'Hot'),
-  MenuUB(name: 'Coffee', price: 35, category: 'Hot'),
+  MenuUB(name: "Veg Plait", price: 45, category: "Bakery Items"),
+  MenuUB(name: "Veg Sub Roll", price: 42, category: "Bakery Items"),
+  MenuUB(name: "Veg Turnover", price: 45, category: "Bakery Items"),
+  MenuUB(name: "Chilly Cheese Plait", price: 50, category: "Bakery Items"),
+  MenuUB(name: "Paneer Pizza Burn", price: 50, category: "Bakery Items"),
+  MenuUB(name: "Veg Crispy Roll", price: 50, category: "Bakery Items"),
+  MenuUB(name: "Chicken Turnover", price: 50, category: "Bakery Items"),
+  MenuUB(name: "Chicken Pizza Bun", price: 50, category: "Bakery Items"),
+  MenuUB(name: "Chicken Sub Roll", price: 50, category: "Bakery Items"),
+  MenuUB(name: "Chicken Plait", price: 53, category: "Bakery Items"),
+  MenuUB(name: "Egg Turnover", price: 40, category: "Bakery Items"),
+  MenuUB(name: "Veg Noodles", price: 130, category: "Chinese"),
+  MenuUB(name: "Veg Fried Rice", price: 130, category: "Chinese"),
+  MenuUB(name: "Chicken Noodles", price: 150, category: "Chinese"),
+  MenuUB(name: "Chicken Fried Rice", price: 150, category: "Chinese"),
+  MenuUB(name: "Chicken Biryani", price: 190, category: "Chinese"),
+  MenuUB(name: "Jeera Rice", price: 130, category: "Chinese"),
+  MenuUB(name: "Veg Biryani", price: 160, category: "Chinese"),
+  MenuUB(name: "Veg Schezwan Noodles", price: 131, category: "Chinese"),
+  MenuUB(name: "Schezwan Veg Fried Rice", price: 131, category: "Chinese"),
+  MenuUB(name: "Schezwan Chicken Fried Rice", price: 152, category: "Chinese"),
+  MenuUB(name: "Paneer Fried Rice", price: 160, category: "Chinese"),
+  MenuUB(name: "Paneer Noodles", price: 160, category: "Chinese"),
+  MenuUB(name: "Schezwan Chicken Noodles", price: 152, category: "Chinese"),
+  MenuUB(name: "Egg Noodles", price: 142, category: "Chinese"),
+  MenuUB(name: "Egg Fried Rice", price: 142, category: "Chinese"),
+  MenuUB(name: 'Ginger Tea', price: 15, category: 'Hot'),
+  MenuUB(name: 'Coffee', price: 15, category: 'Hot'),
   MenuUB(name: 'Hot Chocolate', price: 40, category: 'Hot'),
-  MenuUB(name: 'Boiled Egg', price: 10, category: 'Non-Vegetarian'),
-  MenuUB(name: 'Paneer Tikka', price: 125, category: 'Vegetarian'),
-  MenuUB(name: 'Chicken Tikka', price: 130, category: 'Non-Vegetarian'),
-  MenuUB(name: 'Tandoori Chicken Full', price: 450, category: 'Non-Vegetarian'),
-  MenuUB(name: 'Tandoori Chicken Half', price: 225, category: 'Non-Vegetarian'),
+  MenuUB(name: 'Black Coffee', price: 30, category: 'Hot'),
+  MenuUB(name: 'Ginger Tea', price: 10, category: 'Hot'),
   MenuUB(
-      name: 'Tandoori Chicken Quarter', price: 115, category: 'Non-Vegetarian'),
-  MenuUB(name: 'Chicken 65', price: 100, category: 'Non-Vegetarian'),
-  MenuUB(name: 'Chilly Chicken', price: 130, category: 'Non-Vegetarian'),
-  MenuUB(name: 'Butter Chicken Masala', price: 150, category: 'Non-Vegetarian'),
-  MenuUB(name: 'Kadai Chicken Masala', price: 140, category: 'Non-Vegetarian'),
-  MenuUB(name: 'Chicken Masala', price: 140, category: 'Non-Vegetarian'),
-  MenuUB(name: 'Chicken Tikka Masala', price: 140, category: 'Non-Vegetarian'),
+      name: "Butterscotch Milkshake Small",
+      price: 50,
+      category: "Cold Beverages"),
   MenuUB(
-      name: 'Schezwan Chicken Noodles', price: 130, category: 'Non-Vegetarian'),
+      name: "Butterscotch Milkshake Large",
+      price: 80,
+      category: "Cold Beverages"),
+  MenuUB(
+      name: "Vanilla Milkshake Small", price: 50, category: "Cold Beverages"),
+  MenuUB(
+      name: "Vanilla Milkshake Large", price: 80, category: "Cold Beverages"),
+  MenuUB(
+      name: "Chocolate Milkshake Small", price: 50, category: "Cold Beverages"),
+  MenuUB(
+      name: "Chocolate Milkshake Large", price: 80, category: "Cold Beverages"),
+  MenuUB(name: "Oreo Milkshake Small", price: 50, category: "Cold Beverages"),
+  MenuUB(name: "Oreo Milkshake Large", price: 95, category: "Cold Beverages"),
+  MenuUB(name: "Kitkat Milkshake Small", price: 50, category: "Cold Beverages"),
+  MenuUB(name: "Kitkat Milkshake Large", price: 95, category: "Cold Beverages"),
+  MenuUB(
+      name: "Strawberry Milkshake Small",
+      price: 42,
+      category: "Cold Beverages"),
+  MenuUB(
+      name: "Strawberry Milkshake Large",
+      price: 79,
+      category: "Cold Beverages"),
+  MenuUB(
+      name: "Snickers Milkshake Small", price: 50, category: "Cold Beverages"),
+  MenuUB(
+      name: "Snickers Milkshake Large", price: 90, category: "Cold Beverages"),
+  MenuUB(name: "Cold Coffee Small", price: 50, category: "Cold Beverages"),
+  MenuUB(name: "Cold Coffee Large", price: 80, category: "Cold Beverages"),
+  MenuUB(name: "Orange Juice", price: 70, category: "Fresh Juice"),
+  MenuUB(name: "Sweet Lime Juice", price: 70, category: "Fresh Juice"),
+  MenuUB(name: "Pineapple Juice", price: 70, category: "Fresh Juice"),
+  MenuUB(name: "Mango Juice", price: 70, category: "Fresh Juice"),
+  MenuUB(name: "Lemon Ice Tea Small", price: 42, category: "Fresh Juice"),
+  MenuUB(name: "Lemon Ice Tea Large", price: 70, category: "Fresh Juice"),
+  MenuUB(name: "Lime Mint Cooler Small", price: 42, category: "Fresh Juice"),
+  MenuUB(name: "Lime Mint Cooler Large", price: 70, category: "Fresh Juice"),
+  MenuUB(name: "Masala Dosa", price: 80, category: "South Indian"),
+  MenuUB(name: "Butter Masala Dosa", price: 90, category: "South Indian"),
+  MenuUB(name: "Plain Dosa", price: 70, category: "South Indian"),
+  MenuUB(name: "Ghee Dosa", price: 79, category: "South Indian"),
+  MenuUB(name: "Butter Dosa", price: 80, category: "South Indian"),
+  MenuUB(name: "Podi Dosa", price: 80, category: "South Indian"),
+  MenuUB(name: "Mushroom Kheema Dosa", price: 100, category: "South Indian"),
+  MenuUB(name: "Paper Masala Dosa", price: 70, category: "South Indian"),
+  MenuUB(name: "Paneer Kheema Dosa", price: 105, category: "South Indian"),
+  MenuUB(name: "Cheese Masala Dosa", price: 100, category: "South Indian"),
+  MenuUB(
+      name: "Chilly Cheese Garlic Dosa", price: 130, category: "South Indian"),
+  MenuUB(
+      name: "Onion Cheese Garlic Dosa", price: 100, category: "South Indian"),
+  MenuUB(
+      name: "Chilly Garlic Paneer Dosa", price: 116, category: "South Indian"),
+  MenuUB(name: "Ghee Sambar Idlies", price: 60, category: "South Indian"),
+  MenuUB(name: "Tandoori Roti", price: 30, category: "Tandoori Items"),
+  MenuUB(name: "Tandoori Butter Roti", price: 35, category: "Tandoori Items"),
+  MenuUB(name: "Tandoori Aloo Paratha", price: 55, category: "Tandoori Items"),
+  MenuUB(
+      name: "Tandoori Lachha Paratha", price: 47, category: "Tandoori Items"),
+  MenuUB(name: "Naan", price: 37, category: "Tandoori Items"),
+  MenuUB(name: "Butter Naan", price: 42, category: "Tandoori Items"),
+  MenuUB(name: "Garlic Naan", price: 45, category: "Tandoori Items"),
+  MenuUB(name: "Chicken Nuggets", price: 152, category: "Non Veg Starters"),
+  MenuUB(name: "Chicken Wings", price: 152, category: "Non Veg Starters"),
+  MenuUB(name: "Chicken Tikka", price: 168, category: "Non Veg Starters"),
+  MenuUB(name: "Chicken Malai Kebab", price: 163, category: "Non Veg Starters"),
+  MenuUB(
+      name: "Tandoori Chicken Half", price: 210, category: "Non Veg Starters"),
+  MenuUB(
+      name: "Tandoori Chicken Full", price: 399, category: "Non Veg Starters"),
+  MenuUB(name: "Chilly Chicken Dry", price: 140, category: "Non Veg Starters"),
+  MenuUB(
+      name: "Chilly Chicken Gravy", price: 150, category: "Non Veg Starters"),
+  MenuUB(name: "Dragon Chicken", price: 152, category: "Non Veg Starters"),
+  MenuUB(name: "Chicken 65", price: 152, category: "Non Veg Starters"),
+  MenuUB(name: "Bread Omelette", price: 63, category: "Egg Varieties"),
+  MenuUB(name: "Masala Omelette", price: 37, category: "Egg Varieties"),
+  MenuUB(name: "Cheese Omelette", price: 53, category: "Egg Varieties"),
+  MenuUB(name: "Egg Bhurji", price: 37, category: "Egg Varieties"),
+  MenuUB(name: "Veg Momos", price: 110, category: "Momos"),
+  MenuUB(name: "Paneer Momos", price: 130, category: "Momos"),
+  MenuUB(name: "Chicken Momos", price: 140, category: "Momos"),
 ];
 
 const Map<String, Map<String, List<String>>> mess_1 = {
@@ -556,9 +656,9 @@ const Map<String, Map<String, List<String>>> mess_3 = {
       "Jeera Rice",
       "Roti",
       "Kadai Veg",
+      "Dal Tadka",
       "Rasam",
-      "Kheer",
-      "Dal Tadka"
+      "Kheer"
     ],
   },
   "Wednesday": {
@@ -573,7 +673,7 @@ const Map<String, Map<String, List<String>>> mess_3 = {
       "Salad",
       "Roti",
       "Jeera Rice",
-      "Aloo Cabbage Peas",
+      "Aloo Cabbage",
       "Dal Tadka",
       "Sambar",
       "Rasam",
@@ -584,7 +684,7 @@ const Map<String, Map<String, List<String>>> mess_3 = {
       "Rice",
       "Roti",
       "Dal Tadka",
-      "Pepper Chicken Dry",
+      "Chicken 65",
       "Rasam",
       "Mughali Paneer"
     ],
@@ -603,7 +703,7 @@ const Map<String, Map<String, List<String>>> mess_3 = {
       "Roti",
       "Plain Rice",
       "Masoor Dal",
-      "Aloo Gobi Day",
+      "Aloo Gobi Dry",
       "Sambar/Rasam",
       "Raw Banana Vegetable",
       "Plain Rice",
@@ -622,11 +722,11 @@ const Map<String, Map<String, List<String>>> mess_3 = {
   },
   "Friday": {
     "Breakfast": [
-      "Poha",
-      "Jalebi",
+      "Poha Jalebi / Chole Bhature",
       "Fruits",
       "Bread",
       "Butter/Jam",
+      "Rawa Upma/Chutney",
       "Tea, Coffee, Milk"
     ],
     "Lunch": [
@@ -700,7 +800,7 @@ const Map<String, Map<String, List<String>>> mess_3 = {
       "Paneer",
       "Boondi Raita"
     ],
-    "Snacks": ["Peanut Pakoda/Spring Roll", "Tea, Coffee, Milk"],
+    "Snacks": ["Peanut/Spring Roll", "Tea, Coffee, Milk"],
     "Dinner": [
       "Ghee Rice",
       "Roti",
