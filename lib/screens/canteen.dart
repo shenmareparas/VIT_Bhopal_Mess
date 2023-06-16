@@ -5,7 +5,7 @@ class Menu {
   final String name;
   int price;
   int quantity;
-  
+
   Menu({required this.name, required this.price, required this.quantity});
 }
 
@@ -39,32 +39,32 @@ class CanteenState extends State<Canteen> {
         child: Scaffold(
           body: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 16.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: TextField(
-                          onChanged: (value) {
-                            setState(() {
-                              searchQuery = value;
-                            });
-                          },
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Theme.of(context).cardColor,
-                            labelText: 'Search',
-                            prefixIcon: const Icon(Icons.search),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: TextField(
+                        onChanged: (value) {
+                          setState(() {
+                            searchQuery = value;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Theme.of(context).cardColor,
+                          labelText: 'Search',
+                          prefixIcon: const Icon(Icons.search),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
                       ),
                     ),
-                    PopupMenuButton(
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 16),
+                    child: PopupMenuButton(
                       itemBuilder: (BuildContext context) => <PopupMenuEntry>[
                         PopupMenuItem(
                           onTap: sortByAscending,
@@ -88,16 +88,13 @@ class CanteenState extends State<Canteen> {
                         child: Icon(Icons.filter_list),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               Expanded(
                 child: ListView.separated(
                   separatorBuilder: (BuildContext context, int index) =>
-                      const Divider(
-                    thickness: 1,
-                    height: 1,
-                  ),
+                      const Divider(thickness: 1, height: 1),
                   itemCount: filteredItems.length,
                   itemBuilder: (context, index) {
                     final item = filteredItems[index];
@@ -108,7 +105,12 @@ class CanteenState extends State<Canteen> {
                       ),
                       subtitle: Text(
                         '₹${item.price.toStringAsFixed(0)}',
-                        style: const TextStyle(fontSize: 14),
+                        style: TextStyle(
+                            fontSize: 15,
+                            color:
+                                Theme.of(context).brightness == Brightness.light
+                                    ? const Color(0xFF4E6700)
+                                    : const Color(0xFFD0EE82)),
                       ),
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -126,10 +128,13 @@ class CanteenState extends State<Canteen> {
                           ),
                           Text(
                             '${item.quantity}',
-                            style: const TextStyle(
-                                color: Color(0xFFB4D269),
+                            style: TextStyle(
+                                color: Theme.of(context).brightness ==
+                                        Brightness.light
+                                    ? const Color(0xFF4E6700)
+                                    : const Color(0xFFD0EE82),
                                 fontWeight: FontWeight.bold,
-                                fontSize: 15),
+                                fontSize: 18),
                           ),
                           IconButton(
                             icon: const Icon(Icons.add),
@@ -149,12 +154,16 @@ class CanteenState extends State<Canteen> {
             ],
           ),
           bottomNavigationBar: Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               border: Border(
-                  top: BorderSide(color: Color(0xFFB4D269), width: 3),
-                  bottom: BorderSide(width: 0),
-                  left: BorderSide(width: 0),
-                  right: BorderSide(width: 0)),
+                  top: BorderSide(
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? const Color(0xFF4E6700)
+                          : const Color(0xFFD0EE82),
+                      width: 3),
+                  bottom: const BorderSide(width: 0),
+                  left: const BorderSide(width: 0),
+                  right: const BorderSide(width: 0)),
             ),
             padding: const EdgeInsets.all(16.0),
             child: Row(

@@ -12,7 +12,7 @@ int minute = now.minute;
 String getMealTime(now) {
   if (hour < 9) {
     return 'Breakfast';
-  } else if (hour < 15 || (hour == 15 && minute <= 30)) {
+  } else if (hour < 14 || (hour == 14 && minute <= 30)) {
     return 'Lunch';
   } else if (hour < 18 || (hour == 18 && minute <= 30)) {
     return 'Snacks';

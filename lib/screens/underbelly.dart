@@ -38,32 +38,32 @@ class UnderBellyState extends State<UnderBelly> {
       child: Scaffold(
         body: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 16.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: TextField(
-                        onChanged: (value) {
-                          setState(() {
-                            searchQueryUB = value;
-                          });
-                        },
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Theme.of(context).cardColor,
-                          labelText: 'Search',
-                          prefixIcon: const Icon(Icons.search),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
+            Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: TextField(
+                      onChanged: (value) {
+                        setState(() {
+                          searchQueryUB = value;
+                        });
+                      },
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Theme.of(context).cardColor,
+                        labelText: 'Search',
+                        prefixIcon: const Icon(Icons.search),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                     ),
                   ),
-                  PopupMenuButton(
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 16),
+                  child: PopupMenuButton(
                     itemBuilder: (BuildContext context) => <PopupMenuEntry>[
                       PopupMenuItem(
                         onTap: sortByAscending,
@@ -87,36 +87,34 @@ class UnderBellyState extends State<UnderBelly> {
                       child: Icon(Icons.filter_list),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             Expanded(
               child: ListView.separated(
                 separatorBuilder: (BuildContext context, int index) =>
-                    const Divider(
-                  thickness: 1,
-                  height: 1,
-                ),
+                    const Divider(thickness: 1, height: 1),
                 itemCount: filteredItems.length,
                 itemBuilder: (context, index) {
                   final item = filteredItems[index];
-
                   // Check if the current item's category is different from the previous item's category
                   final bool showCategoryHeader = index == 0 ||
                       item.category != filteredItems[index - 1].category;
-
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       if (showCategoryHeader)
                         Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 8),
+                          padding: const EdgeInsets.only(top: 16, left: 16),
                           child: Text(
                             item.category,
-                            style: const TextStyle(
-                              fontSize: 18,
+                            style: TextStyle(
+                              fontSize: 20,
                               fontWeight: FontWeight.bold,
+                              color: Theme.of(context).brightness ==
+                                      Brightness.light
+                                  ? const Color(0xFF4E6700)
+                                  : const Color(0xFFD0EE82),
                             ),
                           ),
                         ),
@@ -127,7 +125,13 @@ class UnderBellyState extends State<UnderBelly> {
                         ),
                         trailing: Text(
                           '₹${item.price.toStringAsFixed(0)}',
-                          style: const TextStyle(fontSize: 14),
+                          style: TextStyle(
+                            fontSize: 15,
+                            color:
+                                Theme.of(context).brightness == Brightness.light
+                                    ? const Color(0xFF4E6700)
+                                    : const Color(0xFFD0EE82),
+                          ),
                         ),
                       ),
                     ],
