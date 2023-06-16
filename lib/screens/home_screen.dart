@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '/utils/floating_snackbar.dart';
@@ -88,9 +88,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: UpgradeAlert(
           upgrader: Upgrader(
-            dialogStyle: Platform.isIOS
-                ? UpgradeDialogStyle.cupertino
-                : UpgradeDialogStyle.material,
+            dialogStyle: kIsWeb
+                ? UpgradeDialogStyle.material
+                : (Platform.isAndroid
+                    ? UpgradeDialogStyle.material
+                    : UpgradeDialogStyle.cupertino),
             canDismissDialog: false,
             durationUntilAlertAgain: const Duration(days: 1),
           ),
