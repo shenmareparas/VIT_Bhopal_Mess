@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '/utils/floating_snackbar.dart';
+import 'package:upgrader/upgrader.dart';
 import 'settings.dart';
 import 'upcoming.dart';
 import 'about.dart';
@@ -83,8 +86,17 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-        body: const TabBarView(
-          children: [Upcoming(), Canteen(), UnderBelly()],
+        body: UpgradeAlert(
+          upgrader: Upgrader(
+            dialogStyle: Platform.isIOS
+                ? UpgradeDialogStyle.cupertino
+                : UpgradeDialogStyle.material,
+            canDismissDialog: false,
+            durationUntilAlertAgain: const Duration(days: 1),
+          ),
+          child: const TabBarView(
+            children: [Upcoming(), Canteen(), UnderBelly()],
+          ),
         ),
       ),
     );

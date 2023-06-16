@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
           theme: themeProvider.currentTheme,
           title: "VIT Bhopal Mess",
           home: EasySplashScreen(
-            logo: Image.asset('assets/images/icon circle.png'),
+            logo: Image.asset('assets/images/icon_circle.png'),
             logoWidth: 100,
             title: const Text(
               "VIT Bhopal Mess",
