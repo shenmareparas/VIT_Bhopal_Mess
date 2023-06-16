@@ -91,26 +91,47 @@ class UnderBellyState extends State<UnderBelly> {
               ],
             ),
             Expanded(
-              child: ListView.separated(
-                separatorBuilder: (BuildContext context, int index) =>
-                    const Divider(thickness: 1, height: 1),
-                itemCount: filteredItems.length,
-                itemBuilder: (context, index) {
-                  final item = filteredItems[index];
-                  // Check if the current item's category is different from the previous item's category
-                  final bool showCategoryHeader = index == 0 ||
-                      item.category != filteredItems[index - 1].category;
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (showCategoryHeader)
-                        Padding(
-                          padding: const EdgeInsets.only(top: 16, left: 16),
-                          child: Text(
-                            item.category,
+              child: Scrollbar(
+                radius: const Radius.circular(10),
+                thickness: 12,
+                interactive: true,
+                trackVisibility: true,
+                child: ListView.separated(
+                  separatorBuilder: (BuildContext context, int index) =>
+                      const Divider(thickness: 1, height: 1),
+                  itemCount: filteredItems.length,
+                  itemBuilder: (context, index) {
+                    final item = filteredItems[index];
+                    // Check if the current item's category is different from the previous item's category
+                    final bool showCategoryHeader = index == 0 ||
+                        item.category != filteredItems[index - 1].category;
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if (showCategoryHeader)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 16, left: 16),
+                            child: Text(
+                              item.category,
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).brightness ==
+                                        Brightness.light
+                                    ? const Color(0xFF4E6700)
+                                    : const Color(0xFFD0EE82),
+                              ),
+                            ),
+                          ),
+                        ListTile(
+                          title: Text(
+                            item.name,
+                            style: const TextStyle(fontSize: 17),
+                          ),
+                          trailing: Text(
+                            '₹${item.price.toStringAsFixed(0)}',
                             style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
                               color: Theme.of(context).brightness ==
                                       Brightness.light
                                   ? const Color(0xFF4E6700)
@@ -118,25 +139,10 @@ class UnderBellyState extends State<UnderBelly> {
                             ),
                           ),
                         ),
-                      ListTile(
-                        title: Text(
-                          item.name,
-                          style: const TextStyle(fontSize: 17),
-                        ),
-                        trailing: Text(
-                          '₹${item.price.toStringAsFixed(0)}',
-                          style: TextStyle(
-                            fontSize: 15,
-                            color:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? const Color(0xFF4E6700)
-                                    : const Color(0xFFD0EE82),
-                          ),
-                        ),
-                      ),
-                    ],
-                  );
-                },
+                      ],
+                    );
+                  },
+                ),
               ),
             ),
           ],

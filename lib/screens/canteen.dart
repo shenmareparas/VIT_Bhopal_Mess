@@ -92,63 +92,69 @@ class CanteenState extends State<Canteen> {
                 ],
               ),
               Expanded(
-                child: ListView.separated(
-                  separatorBuilder: (BuildContext context, int index) =>
-                      const Divider(thickness: 1, height: 1),
-                  itemCount: filteredItems.length,
-                  itemBuilder: (context, index) {
-                    final item = filteredItems[index];
-                    return ListTile(
-                      title: Text(
-                        item.name,
-                        style: const TextStyle(fontSize: 17),
-                      ),
-                      subtitle: Text(
-                        '₹${item.price.toStringAsFixed(0)}',
-                        style: TextStyle(
-                            fontSize: 15,
-                            color:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? const Color(0xFF4E6700)
-                                    : const Color(0xFFD0EE82)),
-                      ),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.remove),
-                            tooltip: 'Remove',
-                            onPressed: () {
-                              setState(() {
-                                if (item.quantity > 0) {
-                                  item.quantity--;
-                                }
-                              });
-                            },
-                          ),
-                          Text(
-                            '${item.quantity}',
-                            style: TextStyle(
-                                color: Theme.of(context).brightness ==
-                                        Brightness.light
-                                    ? const Color(0xFF4E6700)
-                                    : const Color(0xFFD0EE82),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18),
-                          ),
-                          IconButton(
-                            icon: const Icon(Icons.add),
-                            tooltip: 'Add',
-                            onPressed: () {
-                              setState(() {
-                                item.quantity++;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
-                    );
-                  },
+                child: Scrollbar(
+                  radius: const Radius.circular(10),
+                  thickness: 10,
+                  interactive: true,
+                  trackVisibility: true,
+                  child: ListView.separated(
+                    separatorBuilder: (BuildContext context, int index) =>
+                        const Divider(thickness: 1, height: 1),
+                    itemCount: filteredItems.length,
+                    itemBuilder: (context, index) {
+                      final item = filteredItems[index];
+                      return ListTile(
+                        title: Text(
+                          item.name,
+                          style: const TextStyle(fontSize: 17),
+                        ),
+                        subtitle: Text(
+                          '₹${item.price.toStringAsFixed(0)}',
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Theme.of(context).brightness ==
+                                      Brightness.light
+                                  ? const Color(0xFF4E6700)
+                                  : const Color(0xFFD0EE82)),
+                        ),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(
+                              icon: const Icon(Icons.remove),
+                              tooltip: 'Remove',
+                              onPressed: () {
+                                setState(() {
+                                  if (item.quantity > 0) {
+                                    item.quantity--;
+                                  }
+                                });
+                              },
+                            ),
+                            Text(
+                              '${item.quantity}',
+                              style: TextStyle(
+                                  color: Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? const Color(0xFF4E6700)
+                                      : const Color(0xFFD0EE82),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18),
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.add),
+                              tooltip: 'Add',
+                              onPressed: () {
+                                setState(() {
+                                  item.quantity++;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
             ],

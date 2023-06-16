@@ -229,6 +229,66 @@ List<MenuUB> itemsUB = [
   MenuUB(name: "Veg Momos", price: 110, category: "Momos"),
   MenuUB(name: "Paneer Momos", price: 130, category: "Momos"),
   MenuUB(name: "Chicken Momos", price: 140, category: "Momos"),
+  MenuUB(name: "Veg Mixed Nachos", price: 100, category: "Nachos"),
+  MenuUB(name: "Chicken Mixed Nachos", price: 120, category: "Nachos"),
+  MenuUB(name: "Penne Alfredo Pasta Small", price: 105, category: "Veg Pasta"),
+  MenuUB(name: "Penne Alfredo Pasta Large", price: 168, category: "Veg Pasta"),
+  MenuUB(name: "Penne Arablata Small", price: 105, category: "Veg Pasta"),
+  MenuUB(name: "Penne Arablata Large", price: 168, category: "Veg Pasta"),
+  MenuUB(name: "Pink Sauce Pasta Small", price: 105, category: "Veg Pasta"),
+  MenuUB(name: "Pink Sauce Pasta Large", price: 168, category: "Veg Pasta"),
+  MenuUB(name: "Basil Sauce Pasta Small", price: 105, category: "Veg Pasta"),
+  MenuUB(name: "Basil Sauce Pasta Large", price: 168, category: "Veg Pasta"),
+  MenuUB(
+      name: "Penne Alfredo Chicken Pasta Small",
+      price: 127,
+      category: " Non Veg Pasta"),
+  MenuUB(
+      name: "Penne Alfredo Chicken Pasta Large",
+      price: 179,
+      category: "Non Veg Pasta"),
+  MenuUB(
+      name: "Penne Arablata Chicken Pasta Small",
+      price: 127,
+      category: "Non Veg Pasta"),
+  MenuUB(
+      name: "Penne Arablata Chicken Pasta Large",
+      price: 179,
+      category: "Non Veg Pasta"),
+  MenuUB(
+      name: "Pink Sauce Chicken Pasta Small",
+      price: 127,
+      category: "Non Veg Pasta"),
+  MenuUB(
+      name: "Pink Sauce Chicken Pasta Large",
+      price: 179,
+      category: "Non Veg Pasta"),
+  MenuUB(
+      name: "Basil Sauce Chicken Pasta Small",
+      price: 127,
+      category: "Non Veg Pasta"),
+  MenuUB(
+      name: "Basil Sauce Chicken Pasta Large",
+      price: 179,
+      category: "Non Veg Pasta"),
+  MenuUB(name: "Oreo Pastry", price: 80, category: "Pastry"),
+  MenuUB(name: "Kitkat Pastry", price: 80, category: "Pastry"),
+  MenuUB(name: "Choco Truffle", price: 80, category: "Pastry"),
+  MenuUB(name: "Blue Berry", price: 80, category: "Pastry"),
+  MenuUB(name: "Swiss Roll", price: 74, category: "Pastry"),
+  MenuUB(name: "Walnut Brownle", price: 74, category: "Pastry"),
+  MenuUB(name: "Choco Dougnut", price: 42, category: "Pastry"),
+  MenuUB(name: "Choco Truffle 500gm", price: 550, category: "Birthday Cake"),
+  MenuUB(name: "Choco Truffle 1kg", price: 1000, category: "Birthday Cake"),
+  MenuUB(name: "Kitkat Cake 500gm", price: 600, category: "Birthday Cake"),
+  MenuUB(name: "Kitkat Cake 1kg", price: 1050, category: "Birthday Cake"),
+  MenuUB(name: "Oreo Cake 500gm", price: 600, category: "Birthday Cake"),
+  MenuUB(name: "Oreo Cake 1kg", price: 1050, category: "Birthday Cake"),
+  MenuUB(name: "Chocolate Cake 500gm", price: 500, category: "Birthday Cake"),
+  MenuUB(name: "Chocolate Cake 1kg", price: 900, category: "Birthday Cake"),
+  MenuUB(
+      name: "Butterscotch Cake 500gm", price: 500, category: "Birthday Cake"),
+  MenuUB(name: "Butterscotch Cake 1kg", price: 880, category: "Birthday Cake"),
 ];
 
 const Map<String, Map<String, List<String>>> mess_1 = {
