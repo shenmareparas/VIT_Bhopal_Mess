@@ -1,7 +1,7 @@
-<a href='https://play.google.com/store/apps/details?id=com.shenmareparas.vit_mess&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='App Icon' src="assets/images/icon squircle.png" width = 250/></a>
+<a href='https://play.google.com/store/apps/details?id=com.shenmareparas.vit_mess&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='App Icon' src="assets/images/icon_squircle.png" width = 250/></a>
  
 # VIT Bhopal Mess
-The "VIT Bhopal Mess" app 📱 & website 🌐 is designed to simplify the process of finding out the correct food item available at the mess 🍽️ based on the current day and time. It provides an intuitive and user-friendly interface for VIT Bhopal University students 👨‍🎓 to check the mess menu and make informed decisions about their meal choices 😋. It also provides the option to view the menu in the canteen and their respective prices 📋.
+The "VIT Bhopal Mess" app 📱 & website 🌐 is designed to simplify the process of finding out the correct food item available at the mess 🍽️ based on the current day and time. It provides an intuitive and user-friendly interface for VIT Bhopal University students 👨‍🎓 to check the mess menu and make informed decisions about their meal choices 😋. It also provides the option to view the menu in the Canteen as well as in UnderBelly with their respective prices 📋.
 
 <a href='https://play.google.com/store/apps/details?id=com.shenmareparas.vit_mess&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width ="300"/></a>
 
@@ -10,27 +10,25 @@ The "VIT Bhopal Mess" app 📱 & website 🌐 is designed to simplify the proces
 - **User-Friendly Interface:** The user interface is designed to be intuitive and easy to navigate, allowing users to quickly find the information they need.
 - **Search Functionality:** Users can search for specific Day or Meal time to get Food Items of it respectively.
 - **Canteen:** Users can view, search as well as sort the menu and its prices available in the canteen, it can also see the total price of the selected items by adding or removing items from the cart, enabling them to make informed decisions about their food choices outside the mess.
-- **Notifications:** The app will send push notifications to users to remind them about upcoming meals. (Coming Soon)
+- **UnderBelly:** Users can view and search the menu and its prices available in at UnderBelly, enabling them to make informed decisions about their food choices in between classes.
 
 ## Screenshots
-<div>
-  <div>
-    <img alt='Image 1' src="assets/playstore_images/1.jpg" width="250"/>
-    <img alt='Image 2' src="assets/playstore_images/2.jpg" width="250"/>
-  </div>
-  <div>
-    <img alt='Image 3' src="assets/playstore_images/3.jpg" width="250"/>
-    <img alt='Image 4' src="assets/playstore_images/4.jpg" width="250"/>
-  </div>
-  <div>
-    <img alt='Image 5' src="assets/playstore_images/5.jpg" width="250"/>
-    <img alt='Image 6' src="assets/playstore_images/6.jpg" width="250"/>
-  </div>
-  <div>
-    <img alt='Image 7' src="assets/playstore_images/7.jpg" width="250"/>
-    <img alt='Image 8' src="assets/playstore_images/8.jpg" width="250"/>
-  </div>
-</div>
+<table>
+  <tr>
+    <td><img alt='Image 1' src="assets/playstore_images/1.png" width="250"/></td>
+    <td><img alt='Image 2' src="assets/playstore_images/2.png" width="250"/></td>
+    <td><img alt='Image 3' src="assets/playstore_images/3.png" width="250"/></td>
+  </tr>
+  <tr>
+    <td><img alt='Image 4' src="assets/playstore_images/4.png" width="250"/></td>
+    <td><img alt='Image 5' src="assets/playstore_images/5.png" width="250"/></td>
+    <td><img alt='Image 6' src="assets/playstore_images/6.png" width="250"/></td>
+  </tr>
+  <tr>
+    <td><img alt='Image 7' src="assets/playstore_images/7.png" width="250"/></td>
+    <td><img alt='Image 8' src="assets/playstore_images/8.png" width="250"/></td>
+  </tr>
+</table>
 
 ## Technologies Used
 - Flutter and Dart for building the mobile app & website
