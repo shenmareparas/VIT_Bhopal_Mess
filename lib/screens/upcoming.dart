@@ -15,7 +15,6 @@ class UpcomingState extends State<Upcoming> {
   void resetValues() {
     setState(() {
       formattedDate = DateFormat('EEEE').format(DateTime.now());
-      // formattedDate = getformattedDate(now);
       mealTime = getMealTime(DateTime.now());
     });
   }

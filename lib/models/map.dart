@@ -242,7 +242,7 @@ List<MenuUB> itemsUB = [
   MenuUB(
       name: "Penne Alfredo Chicken Pasta Small",
       price: 127,
-      category: " Non Veg Pasta"),
+      category: "Non Veg Pasta"),
   MenuUB(
       name: "Penne Alfredo Chicken Pasta Large",
       price: 179,

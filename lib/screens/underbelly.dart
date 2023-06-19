@@ -19,6 +19,7 @@ class UnderBelly extends StatefulWidget {
 class UnderBellyState extends State<UnderBelly> {
   String searchQueryUB = '';
   final List<MenuUB> _originalItemsUB = itemsUB.toList();
+  final ScrollController _scrollController = ScrollController();
 
   List<MenuUB> get filteredItems {
     if (searchQueryUB.isEmpty) {
@@ -97,6 +98,7 @@ class UnderBellyState extends State<UnderBelly> {
                 interactive: true,
                 trackVisibility: true,
                 child: ListView.separated(
+                  controller: _scrollController,
                   separatorBuilder: (BuildContext context, int index) =>
                       const Divider(thickness: 1, height: 1),
                   itemCount: filteredItems.length,
@@ -111,15 +113,18 @@ class UnderBellyState extends State<UnderBelly> {
                         if (showCategoryHeader)
                           Padding(
                             padding: const EdgeInsets.only(top: 16, left: 16),
-                            child: Text(
-                              item.category,
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Theme.of(context).brightness ==
-                                        Brightness.light
-                                    ? const Color(0xFF4E6700)
-                                    : const Color(0xFFD0EE82),
+                            child: GestureDetector(
+                              onTap: () => showHeaderOptionsDialog(context),
+                              child: Text(
+                                item.category,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? const Color(0xFF4E6700)
+                                      : const Color(0xFFD0EE82),
+                                ),
                               ),
                             ),
                           ),
@@ -148,6 +153,54 @@ class UnderBellyState extends State<UnderBelly> {
           ],
         ),
       ),
+    );
+  }
+
+  void showHeaderOptionsDialog(BuildContext context) {
+    final Set<String> uniqueCategories =
+        Set<String>.from(_originalItemsUB.map((item) => item.category));
+    final List<String> categoriesList = uniqueCategories.toList();
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Categories', textAlign: TextAlign.center),
+          content: SingleChildScrollView(
+            child: Column(
+              children: List.generate(categoriesList.length, (index) {
+                final category = categoriesList[index];
+                return ListTile(
+                  title: Text(category),
+                  onTap: () {
+                    Navigator.pop(context);
+                    // Scroll to the selected category
+                    final categoryIndex = filteredItems
+                        .indexWhere((item) => item.category == category);
+                    if (categoryIndex != -1) {
+                      final headerIndex = _originalItemsUB
+                          .indexWhere((item) => item.category == category);
+                      if (headerIndex != -1) {
+                        _scrollController.animateTo(
+                          headerIndex * 60,
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeInOut,
+                        );
+                      }
+                    }
+                  },
+                );
+              }),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Close'),
+            ),
+          ],
+        );
+      },
     );
   }
 
