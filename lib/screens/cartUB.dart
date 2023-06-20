@@ -1,17 +1,19 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'canteen.dart';
+import 'underbelly.dart';
 
-class Cart extends StatefulWidget {
-  final List<Menu> selectedItems;
+class CartUB extends StatefulWidget {
+  final List<MenuUB> selectedItemsUB;
 
-  const Cart({Key? key, required this.selectedItems}) : super(key: key);
+  const CartUB({Key? key, required this.selectedItemsUB}) : super(key: key);
 
   @override
-  CartState createState() => CartState();
+  CartUBState createState() => CartUBState();
 }
 
-class CartState extends State<Cart> {
-  CanteenState canteenState = CanteenState();
+class CartUBState extends State<CartUB> {
+  UnderBellyState underBellyState = UnderBellyState();
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class CartState extends State<Cart> {
         padding: const EdgeInsets.all(4),
         child: Stack(
           children: [
-            widget.selectedItems.isEmpty
+            widget.selectedItemsUB.isEmpty
                 ? const Center(
                     child: Text(
                       'No items are selected',
@@ -37,9 +39,9 @@ class CartState extends State<Cart> {
                     interactive: true,
                     trackVisibility: true,
                     child: ListView.builder(
-                      itemCount: widget.selectedItems.length,
+                      itemCount: widget.selectedItemsUB.length,
                       itemBuilder: (context, index) {
-                        final item = widget.selectedItems[index];
+                        final item = widget.selectedItemsUB[index];
                         return ListTile(
                           title: Text(
                             item.name,
@@ -65,7 +67,7 @@ class CartState extends State<Cart> {
                                     if (item.quantity > 0) {
                                       item.quantity--;
                                       if (item.quantity == 0) {
-                                        widget.selectedItems.removeAt(index);
+                                        widget.selectedItemsUB.removeAt(index);
                                       }
                                     }
                                   });
@@ -115,11 +117,11 @@ class CartState extends State<Cart> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Selected Items: ${canteenState.getSelectedItemsCount()}',
+              'Selected Items: ${underBellyState.getSelectedItemsCount()}',
               style: const TextStyle(fontSize: 17),
             ),
             Text(
-              'Total Price: ₹ ${canteenState.getTotalPrice().toStringAsFixed(0)}',
+              'Total Price: ₹ ${underBellyState.getTotalPrice().toStringAsFixed(0)}',
               style: const TextStyle(fontSize: 17),
             ),
           ],

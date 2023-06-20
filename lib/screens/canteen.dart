@@ -3,11 +3,11 @@ import 'cart.dart';
 import '/models/map.dart';
 
 class Menu {
-  final String name;
+  String name;
   int price;
   int quantity;
 
-  Menu({required this.name, required this.price, required this.quantity});
+  Menu({required this.name, required this.price, this.quantity = 0});
 }
 
 class Canteen extends StatefulWidget {
@@ -77,7 +77,7 @@ class CanteenState extends State<Canteen> {
                               )
                             : null,
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(15),
                         ),
                       ),
                     ),
@@ -128,13 +128,14 @@ class CanteenState extends State<Canteen> {
                         style: const TextStyle(fontSize: 17),
                       ),
                       subtitle: Text(
-                        '₹${item.price.toStringAsFixed(0)}',
+                        '₹ ${item.price.toStringAsFixed(0)}',
                         style: TextStyle(
-                            fontSize: 15,
-                            color:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? const Color(0xFF4E6700)
-                                    : const Color(0xFFD0EE82)),
+                          fontSize: 15,
+                          color:
+                              Theme.of(context).brightness == Brightness.light
+                                  ? const Color(0xFF4E6700)
+                                  : const Color(0xFFD0EE82),
+                        ),
                       ),
                       trailing: item.quantity > 0
                           ? Row(
@@ -207,8 +208,8 @@ class CanteenState extends State<Canteen> {
                 style: const TextStyle(fontSize: 17),
               ),
               Text(
-                'Total Price: ₹${getTotalPrice().toStringAsFixed(0)}',
-                style: const TextStyle(fontSize: 18),
+                'Total Price: ₹ ${getTotalPrice().toStringAsFixed(0)}',
+                style: const TextStyle(fontSize: 17),
               ),
             ],
           ),

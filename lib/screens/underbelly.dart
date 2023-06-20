@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import '/models/map.dart';
+import 'cartUB.dart';
 
 class MenuUB {
-  final String name;
+  String name;
   int price;
   String category;
+  int quantity;
 
-  MenuUB({required this.name, required this.price, required this.category});
+  MenuUB(
+      {required this.name,
+      required this.price,
+      required this.category,
+      this.quantity = 0});
 }
 
 class UnderBelly extends StatefulWidget {
@@ -20,6 +26,7 @@ class UnderBellyState extends State<UnderBelly> {
   final TextEditingController _searchController = TextEditingController();
 
   String searchQueryUB = '';
+  List<MenuUB> selectedItemsUB = [];
   final List<MenuUB> _originalItemsUB = itemsUB.toList();
   final ScrollController _scrollController = ScrollController();
 
@@ -76,7 +83,7 @@ class UnderBellyState extends State<UnderBelly> {
                               )
                             : null,
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(15),
                         ),
                       ),
                     ),
@@ -117,10 +124,8 @@ class UnderBellyState extends State<UnderBelly> {
                 thickness: 12,
                 interactive: true,
                 trackVisibility: true,
-                child: ListView.separated(
+                child: ListView.builder(
                   controller: _scrollController,
-                  separatorBuilder: (BuildContext context, int index) =>
-                      const Divider(thickness: 1, height: 1),
                   itemCount: filteredItems.length,
                   itemBuilder: (context, index) {
                     final item = filteredItems[index];
@@ -153,8 +158,8 @@ class UnderBellyState extends State<UnderBelly> {
                             item.name,
                             style: const TextStyle(fontSize: 17),
                           ),
-                          trailing: Text(
-                            '₹${item.price.toStringAsFixed(0)}',
+                          subtitle: Text(
+                            '₹ ${item.price.toStringAsFixed(0)}',
                             style: TextStyle(
                               fontSize: 15,
                               color: Theme.of(context).brightness ==
@@ -163,6 +168,50 @@ class UnderBellyState extends State<UnderBelly> {
                                   : const Color(0xFFD0EE82),
                             ),
                           ),
+                          trailing: item.quantity > 0
+                              ? Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    IconButton(
+                                      icon: const Icon(Icons.remove),
+                                      tooltip: 'Remove',
+                                      onPressed: () {
+                                        setState(() {
+                                          item.quantity--;
+                                        });
+                                      },
+                                    ),
+                                    Text(
+                                      '${item.quantity}',
+                                      style: TextStyle(
+                                        color: Theme.of(context).brightness ==
+                                                Brightness.light
+                                            ? const Color(0xFF4E6700)
+                                            : const Color(0xFFD0EE82),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      icon: const Icon(Icons.add),
+                                      tooltip: 'Add',
+                                      onPressed: () {
+                                        setState(() {
+                                          item.quantity++;
+                                        });
+                                      },
+                                    ),
+                                  ],
+                                )
+                              : IconButton(
+                                  icon: const Icon(Icons.add_shopping_cart),
+                                  tooltip: 'Add to Cart',
+                                  onPressed: () {
+                                    setState(() {
+                                      item.quantity++;
+                                    });
+                                  },
+                                ),
                         ),
                       ],
                     );
@@ -171,6 +220,49 @@ class UnderBellyState extends State<UnderBelly> {
               ),
             ),
           ],
+        ),
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+            border: Border(
+              top: BorderSide(
+                color: Theme.of(context).brightness == Brightness.light
+                    ? const Color(0xFF4E6700)
+                    : const Color(0xFFD0EE82),
+                width: 3,
+              ),
+            ),
+          ),
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Selected Items: ${getSelectedItemsCount()}',
+                style: const TextStyle(fontSize: 17),
+              ),
+              Text(
+                'Total Price: ₹ ${getTotalPrice().toStringAsFixed(0)}',
+                style: const TextStyle(fontSize: 17),
+              ),
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          tooltip: "Cart",
+          onPressed: () {
+            List<MenuUB> selectedItemsUB =
+                itemsUB.where((item) => item.quantity > 0).toList();
+            for (var itemUB in selectedItemsUB) {
+              itemUB.quantity = itemUB.quantity;
+            }
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      CartUB(selectedItemsUB: selectedItemsUB)),
+            );
+          },
+          child: const Icon(Icons.shopping_cart),
         ),
       ),
     );
@@ -202,7 +294,7 @@ class UnderBellyState extends State<UnderBelly> {
                           .indexWhere((item) => item.category == category);
                       if (headerIndex != -1) {
                         _scrollController.animateTo(
-                          headerIndex * 60,
+                          headerIndex * 75,
                           duration: const Duration(milliseconds: 500),
                           curve: Curves.easeInOut,
                         );
@@ -244,5 +336,13 @@ class UnderBellyState extends State<UnderBelly> {
     setState(() {
       itemsUB = _originalItemsUB.toList();
     });
+  }
+
+  int getSelectedItemsCount() {
+    return itemsUB.where((item) => item.quantity > 0).length;
+  }
+
+  double getTotalPrice() {
+    return itemsUB.fold(0, (sum, item) => sum + (item.price * item.quantity));
   }
 }

@@ -117,10 +117,10 @@ packages:
     dependency: transitive
     description:
       name: dots_indicator
-      sha256: f1599baa429936ba87f06ae5f2adc920a367b16d08f74db58c3d0f6e93bcdb5c
+      sha256: "58b6a365744aa62aa1b70c4ea29e5106fbe064f5edaf7e9652e9b856edbfd9bb"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.2"
+    version: "3.0.0"
   easy_splash_screen:
     dependency: "direct main"
     description:
@@ -252,10 +252,10 @@ packages:
     dependency: "direct dev"
     description:
       name: icons_launcher
-      sha256: "8f81b295f5de3796e9662ac385c174ee5255f7c4cee1df031393c17c616cff57"
+      sha256: "71cf6baae0f0d1752e3c26035f9e6ea07bd297af72d389e907fb0119e9d56ba1"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.1"
+    version: "2.1.2"
   image:
     dependency: transitive
     description:
@@ -276,10 +276,10 @@ packages:
     dependency: "direct main"
     description:
       name: introduction_screen
-      sha256: f194ae655a84b945a2aedb7961d09948d789fc91088efb032666112923bcbc1e
+      sha256: f39be426026785b8fea4ed93e226e7fc28ef49a4c78c3f86c958bae26dabef00
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.8"
+    version: "3.1.9"
   js:
     dependency: transitive
     description:
@@ -609,10 +609,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_platform_interface
-      sha256: "6c9ca697a5ae218ce56cece69d46128169a58aa8653c1b01d26fcd4aad8c4370"
+      sha256: bfdfa402f1f3298637d71ca8ecfe840b4696698213d5346e9d12d4ab647ee2ea
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.2"
+    version: "2.1.3"
   url_launcher_web:
     dependency: transitive
     description:
@@ -649,10 +649,10 @@ packages:
     dependency: transitive
     description:
       name: win32
-      sha256: "7dacfda1edcca378031db9905ad7d7bd56b29fd1a90b0908b71a52a12c41e36b"
+      sha256: "1414f27dd781737e51afa9711f2ac2ace6ab4498ee98e20863fa5505aa00c58c"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.3"
+    version: "5.0.4"
   win32_registry:
     dependency: transitive
     description:
