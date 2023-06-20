@@ -17,6 +17,8 @@ class UnderBelly extends StatefulWidget {
 }
 
 class UnderBellyState extends State<UnderBelly> {
+  final TextEditingController _searchController = TextEditingController();
+
   String searchQueryUB = '';
   final List<MenuUB> _originalItemsUB = itemsUB.toList();
   final ScrollController _scrollController = ScrollController();
@@ -33,6 +35,12 @@ class UnderBellyState extends State<UnderBelly> {
   }
 
   @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
@@ -45,6 +53,7 @@ class UnderBellyState extends State<UnderBelly> {
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: TextField(
+                      controller: _searchController,
                       onChanged: (value) {
                         setState(() {
                           searchQueryUB = value;
@@ -55,6 +64,17 @@ class UnderBellyState extends State<UnderBelly> {
                         fillColor: Theme.of(context).cardColor,
                         labelText: 'Search',
                         prefixIcon: const Icon(Icons.search),
+                        suffixIcon: searchQueryUB.isNotEmpty
+                            ? IconButton(
+                                icon: const Icon(Icons.clear),
+                                onPressed: () {
+                                  setState(() {
+                                    searchQueryUB = '';
+                                  });
+                                  _searchController.clear();
+                                },
+                              )
+                            : null,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
