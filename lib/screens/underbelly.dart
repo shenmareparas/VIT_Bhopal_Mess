@@ -329,31 +329,37 @@ class UnderBellyState extends State<UnderBelly> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Categories', textAlign: TextAlign.center),
-          content: SingleChildScrollView(
-            child: Column(
-              children: List.generate(categoriesList.length, (index) {
-                final category = categoriesList[index];
-                return ListTile(
-                  title: Text(category),
-                  onTap: () {
-                    Navigator.pop(context);
-                    // Scroll to the selected category
-                    final categoryIndex = filteredItems
-                        .indexWhere((item) => item.category == category);
-                    if (categoryIndex != -1) {
-                      final headerIndex = _originalItemsUB
+          content: SizedBox(
+            width: double.maxFinite,
+            child: SingleChildScrollView(
+              child: Column(
+                children: List.generate(categoriesList.length, (index) {
+                  final category = categoriesList[index];
+                  return ListTile(
+                    title: Text(
+                      category,
+                      style: const TextStyle(fontSize: 18),
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                      // Scroll to the selected category
+                      final categoryIndex = filteredItems
                           .indexWhere((item) => item.category == category);
-                      if (headerIndex != -1) {
-                        _scrollController.animateTo(
-                          headerIndex * 76,
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.easeInOut,
-                        );
+                      if (categoryIndex != -1) {
+                        final headerIndex = _originalItemsUB
+                            .indexWhere((item) => item.category == category);
+                        if (headerIndex != -1) {
+                          _scrollController.animateTo(
+                            headerIndex * 76,
+                            duration: const Duration(milliseconds: 500),
+                            curve: Curves.easeInOut,
+                          );
+                        }
                       }
-                    }
-                  },
-                );
-              }),
+                    },
+                  );
+                }),
+              ),
             ),
           ),
           actions: [

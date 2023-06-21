@@ -53,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: [
             Builder(
               builder: (BuildContext context) => PopupMenuButton(
+                tooltip: "More Options",
                 itemBuilder: (BuildContext context) => [
                   const PopupMenuItem(
                     value: 'Settings',
