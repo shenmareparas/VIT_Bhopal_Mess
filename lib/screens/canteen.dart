@@ -22,6 +22,7 @@ class Canteen extends StatefulWidget {
 class CanteenState extends State<Canteen> {
   final TextEditingController _searchController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
+  final FocusNode _searchFocusNode = FocusNode();
 
   bool _isFabvisible = true;
   String searchQuery = '';
@@ -42,13 +43,18 @@ class CanteenState extends State<Canteen> {
   @override
   void dispose() {
     _searchController.dispose();
+    _searchFocusNode.dispose();
     super.dispose();
+  }
+
+  void unfocusSearchField() {
+    _searchFocusNode.unfocus();
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      onTap: () => unfocusSearchField(),
       child: Scaffold(
         body: Column(
           children: [
@@ -59,6 +65,7 @@ class CanteenState extends State<Canteen> {
                     padding: const EdgeInsets.all(16),
                     child: TextField(
                       controller: _searchController,
+                      focusNode: _searchFocusNode,
                       onChanged: (value) {
                         setState(() {
                           searchQuery = value;
@@ -125,97 +132,102 @@ class CanteenState extends State<Canteen> {
                       ScrollDirection.reverse) {
                     setState(() => _isFabvisible = false);
                   }
+                  unfocusSearchField();
                   return true;
                 },
-                child: DraggableScrollbar.semicircle(
-                  controller: _scrollController,
-                  scrollbarTimeToFade: const Duration(milliseconds: 1300),
-                  backgroundColor:
-                      Theme.of(context).brightness == Brightness.dark
-                          ? const Color(0xFF4E6700)
-                          : const Color(0xFFD0EE82),
-                  child: ListView.builder(
+                child: GestureDetector(
+                  onTap: () => unfocusSearchField(),
+                  child: DraggableScrollbar.semicircle(
                     controller: _scrollController,
-                    itemCount: filteredItems.isEmpty ? 1 : filteredItems.length,
-                    itemBuilder: (context, index) {
-                      if (filteredItems.isEmpty) {
-                        return const Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              height: 80,
+                    scrollbarTimeToFade: const Duration(milliseconds: 1300),
+                    backgroundColor:
+                        Theme.of(context).brightness == Brightness.dark
+                            ? const Color(0xFF4E6700)
+                            : const Color(0xFFD0EE82),
+                    child: ListView.builder(
+                      controller: _scrollController,
+                      itemCount:
+                          filteredItems.isEmpty ? 1 : filteredItems.length,
+                      itemBuilder: (context, index) {
+                        if (filteredItems.isEmpty) {
+                          return const Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                height: 80,
+                              ),
+                              Text(
+                                'Item not available',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            ],
+                          );
+                        } else {
+                          final item = filteredItems[index];
+                          return ListTile(
+                            title: Text(
+                              item.name,
+                              style: const TextStyle(fontSize: 17),
                             ),
-                            Text(
-                              'Item not available',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 20),
+                            subtitle: Text(
+                              '₹ ${item.price.toStringAsFixed(0)}',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Theme.of(context).brightness ==
+                                        Brightness.light
+                                    ? const Color(0xFF4E6700)
+                                    : const Color(0xFFD0EE82),
+                              ),
                             ),
-                          ],
-                        );
-                      } else {
-                        final item = filteredItems[index];
-                        return ListTile(
-                          title: Text(
-                            item.name,
-                            style: const TextStyle(fontSize: 17),
-                          ),
-                          subtitle: Text(
-                            '₹ ${item.price.toStringAsFixed(0)}',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Theme.of(context).brightness ==
-                                      Brightness.light
-                                  ? const Color(0xFF4E6700)
-                                  : const Color(0xFFD0EE82),
-                            ),
-                          ),
-                          trailing: item.quantity > 0
-                              ? Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    IconButton(
-                                      icon: const Icon(Icons.remove),
-                                      tooltip: 'Remove',
-                                      onPressed: () {
-                                        setState(() {
-                                          item.quantity--;
-                                        });
-                                      },
-                                    ),
-                                    Text(
-                                      '${item.quantity}',
-                                      style: TextStyle(
-                                        color: Theme.of(context).brightness ==
-                                                Brightness.light
-                                            ? const Color(0xFF4E6700)
-                                            : const Color(0xFFD0EE82),
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
+                            trailing: item.quantity > 0
+                                ? Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(Icons.remove),
+                                        tooltip: 'Remove',
+                                        onPressed: () {
+                                          setState(() {
+                                            item.quantity--;
+                                          });
+                                        },
                                       ),
-                                    ),
-                                    IconButton(
-                                      icon: const Icon(Icons.add),
-                                      tooltip: 'Add',
-                                      onPressed: () {
-                                        setState(() {
-                                          item.quantity++;
-                                        });
-                                      },
-                                    ),
-                                  ],
-                                )
-                              : IconButton(
-                                  icon: const Icon(Icons.add_shopping_cart),
-                                  tooltip: 'Add to Cart',
-                                  onPressed: () {
-                                    setState(() {
-                                      item.quantity++;
-                                    });
-                                  },
-                                ),
-                        );
-                      }
-                    },
+                                      Text(
+                                        '${item.quantity}',
+                                        style: TextStyle(
+                                          color: Theme.of(context).brightness ==
+                                                  Brightness.light
+                                              ? const Color(0xFF4E6700)
+                                              : const Color(0xFFD0EE82),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      IconButton(
+                                        icon: const Icon(Icons.add),
+                                        tooltip: 'Add',
+                                        onPressed: () {
+                                          setState(() {
+                                            item.quantity++;
+                                          });
+                                        },
+                                      ),
+                                    ],
+                                  )
+                                : IconButton(
+                                    icon: const Icon(Icons.add_shopping_cart),
+                                    tooltip: 'Add to Cart',
+                                    onPressed: () {
+                                      setState(() {
+                                        item.quantity++;
+                                      });
+                                    },
+                                  ),
+                          );
+                        }
+                      },
+                    ),
                   ),
                 ),
               ),
@@ -260,8 +272,8 @@ class CanteenState extends State<Canteen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            Cart(selectedItems: selectedItems)),
+                      builder: (context) => Cart(selectedItems: selectedItems),
+                    ),
                   );
                 },
                 child: const Icon(Icons.shopping_cart),
