@@ -141,95 +141,113 @@ class UnderBellyState extends State<UnderBelly> {
                           : const Color(0xFFD0EE82),
                   child: ListView.builder(
                     controller: _scrollController,
-                    itemCount: filteredItems.length,
+                    itemCount: filteredItems.isEmpty ? 1 : filteredItems.length,
                     itemBuilder: (context, index) {
-                      final item = filteredItems[index];
-                      // Check if the current item's category is different from the previous item's category
-                      final bool showCategoryHeader = index == 0 ||
-                          item.category != filteredItems[index - 1].category;
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          if (showCategoryHeader)
-                            Padding(
-                              padding: const EdgeInsets.only(top: 16, left: 16),
-                              child: GestureDetector(
-                                onTap: () => showHeaderOptionsDialog(context),
-                                child: Text(
-                                  item.category,
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Theme.of(context).brightness ==
-                                            Brightness.light
-                                        ? const Color(0xFF4E6700)
-                                        : const Color(0xFFD0EE82),
+                      if (filteredItems.isEmpty) {
+                        return const Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: 80,
+                            ),
+                            Text(
+                              'Item not available',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          ],
+                        );
+                      } else {
+                        final item = filteredItems[index];
+                        // Check if the current item's category is different from the previous item's category
+                        final bool showCategoryHeader = index == 0 ||
+                            item.category != filteredItems[index - 1].category;
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            if (showCategoryHeader)
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 16, left: 16),
+                                child: GestureDetector(
+                                  onTap: () => showHeaderOptionsDialog(context),
+                                  child: Text(
+                                    item.category,
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Theme.of(context).brightness ==
+                                              Brightness.light
+                                          ? const Color(0xFF4E6700)
+                                          : const Color(0xFFD0EE82),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ListTile(
-                            title: Text(
-                              item.name,
-                              style: const TextStyle(fontSize: 17),
-                            ),
-                            subtitle: Text(
-                              '₹ ${item.price.toStringAsFixed(0)}',
-                              style: TextStyle(
-                                fontSize: 15,
-                                color: Theme.of(context).brightness ==
-                                        Brightness.light
-                                    ? const Color(0xFF4E6700)
-                                    : const Color(0xFFD0EE82),
+                            ListTile(
+                              title: Text(
+                                item.name,
+                                style: const TextStyle(fontSize: 17),
                               ),
-                            ),
-                            trailing: item.quantity > 0
-                                ? Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      IconButton(
-                                        icon: const Icon(Icons.remove),
-                                        tooltip: 'Remove',
-                                        onPressed: () {
-                                          setState(() {
-                                            item.quantity--;
-                                          });
-                                        },
-                                      ),
-                                      Text(
-                                        '${item.quantity}',
-                                        style: TextStyle(
-                                          color: Theme.of(context).brightness ==
-                                                  Brightness.light
-                                              ? const Color(0xFF4E6700)
-                                              : const Color(0xFFD0EE82),
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
+                              subtitle: Text(
+                                '₹ ${item.price.toStringAsFixed(0)}',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? const Color(0xFF4E6700)
+                                      : const Color(0xFFD0EE82),
+                                ),
+                              ),
+                              trailing: item.quantity > 0
+                                  ? Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        IconButton(
+                                          icon: const Icon(Icons.remove),
+                                          tooltip: 'Remove',
+                                          onPressed: () {
+                                            setState(() {
+                                              item.quantity--;
+                                            });
+                                          },
                                         ),
-                                      ),
-                                      IconButton(
-                                        icon: const Icon(Icons.add),
-                                        tooltip: 'Add',
-                                        onPressed: () {
-                                          setState(() {
-                                            item.quantity++;
-                                          });
-                                        },
-                                      ),
-                                    ],
-                                  )
-                                : IconButton(
-                                    icon: const Icon(Icons.add_shopping_cart),
-                                    tooltip: 'Add to Cart',
-                                    onPressed: () {
-                                      setState(() {
-                                        item.quantity++;
-                                      });
-                                    },
-                                  ),
-                          ),
-                        ],
-                      );
+                                        Text(
+                                          '${item.quantity}',
+                                          style: TextStyle(
+                                            color:
+                                                Theme.of(context).brightness ==
+                                                        Brightness.light
+                                                    ? const Color(0xFF4E6700)
+                                                    : const Color(0xFFD0EE82),
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18,
+                                          ),
+                                        ),
+                                        IconButton(
+                                          icon: const Icon(Icons.add),
+                                          tooltip: 'Add',
+                                          onPressed: () {
+                                            setState(() {
+                                              item.quantity++;
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    )
+                                  : IconButton(
+                                      icon: const Icon(Icons.add_shopping_cart),
+                                      tooltip: 'Add to Cart',
+                                      onPressed: () {
+                                        setState(() {
+                                          item.quantity++;
+                                        });
+                                      },
+                                    ),
+                            ),
+                          ],
+                        );
+                      }
                     },
                   ),
                 ),
