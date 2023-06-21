@@ -92,7 +92,7 @@ List<MenuUB> itemsUB = [
       name: "Chocolate Milkshake Large", price: 80, category: "Cold Beverages"),
   MenuUB(name: "Oreo Milkshake Small", price: 50, category: "Cold Beverages"),
   MenuUB(name: "Oreo Milkshake Large", price: 95, category: "Cold Beverages"),
-  MenuUB(name: "Kitkat Milkshake Small", price: 50, category: "Cold Beverages"),
+  MenuUB(name: "Kitkat Milkshake Small", price: 60, category: "Cold Beverages"),
   MenuUB(name: "Kitkat Milkshake Large", price: 95, category: "Cold Beverages"),
   MenuUB(
       name: "Strawberry Milkshake Small",
@@ -474,7 +474,7 @@ const Map<String, Map<String, List<String>>> mess_1 = {
     "Snacks": ["Samosa", "Tea, Coffee, Milk"],
     "Dinner": [
       "Chapati",
-      "Fried Rice",
+      "Fried Rice/Noodles",
       "Dal Fry",
       "Gobi Manchurian",
       "Rice",
@@ -514,8 +514,8 @@ const Map<String, Map<String, List<String>>> mess_2 = {
   "Monday": {
     "Breakfast": [
       "Idly, Medu Vada",
-      "Red Chutney, Sambar",
-      "Fruit Salad",
+      "Sambar, Red Chutney",
+      "Fruit",
       "Bread",
       "Butter/Jam",
       "Tea, Coffee, Milk"
@@ -531,7 +531,7 @@ const Map<String, Map<String, List<String>>> mess_2 = {
       "Rasam",
       "Varieties of Juice"
     ],
-    "Snacks": ["Chivda/Vada Pav", "Chutney", "Tea, Coffee, Milk"],
+    "Snacks": ["Samosa/Dahi Vada", "Tea, Coffee, Milk"],
     "Dinner": [
       "Roti",
       "Kashmiri Aloo",
@@ -625,7 +625,7 @@ const Map<String, Map<String, List<String>>> mess_2 = {
       "Rasam",
       "Butter Milk"
     ],
-    "Snacks": ["Sweet Corn Salad/Chana Dal Fry", "Tea, Coffee, Milk"],
+    "Snacks": ["Sweet Corn Salad/Chana Chana Sundal", "Tea, Coffee, Milk"],
     "Dinner": [
       "Roti",
       "Green Peas Masala",
@@ -687,7 +687,7 @@ const Map<String, Map<String, List<String>>> mess_2 = {
       "Rasam",
       "Curd"
     ],
-    "Snacks": ["Samosa/Dahi Vada", "Tea, Coffee, Milk"],
+    "Snacks": ["Chivda/Vada Pav", "Chutney", "Tea, Coffee, Milk"],
     "Dinner": [
       "Chapati",
       "Fried Rice/Noodles",
