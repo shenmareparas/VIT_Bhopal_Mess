@@ -277,7 +277,7 @@ List<MenuUB> itemsUB = [
   MenuUB(name: "Blue Berry", price: 80, category: "Pastry"),
   MenuUB(name: "Swiss Roll", price: 74, category: "Pastry"),
   MenuUB(name: "Walnut Brownle", price: 74, category: "Pastry"),
-  MenuUB(name: "Choco Dougnut", price: 42, category: "Pastry"),
+  MenuUB(name: "Choco Doughnut", price: 42, category: "Pastry"),
   MenuUB(name: "Choco Truffle 500gm", price: 550, category: "Birthday Cake"),
   MenuUB(name: "Choco Truffle 1kg", price: 1000, category: "Birthday Cake"),
   MenuUB(name: "Kitkat Cake 500gm", price: 600, category: "Birthday Cake"),
