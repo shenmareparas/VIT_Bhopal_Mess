@@ -179,10 +179,10 @@ class UnderBellyState extends State<UnderBelly> {
                             children: [
                               if (showCategoryHeader)
                                 Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 16, left: 16),
-                                  child: GestureDetector(
-                                    onTap: () =>
+                                  padding: const EdgeInsets.only(
+                                      top: 15, left: 16, bottom: 5),
+                                  child: OutlinedButton(
+                                    onPressed: () =>
                                         showHeaderOptionsDialog(context),
                                     child: Text(
                                       item.category,
@@ -331,34 +331,37 @@ class UnderBellyState extends State<UnderBelly> {
           title: const Text('Categories', textAlign: TextAlign.center),
           content: SizedBox(
             width: double.maxFinite,
-            child: SingleChildScrollView(
-              child: Column(
-                children: List.generate(categoriesList.length, (index) {
-                  final category = categoriesList[index];
-                  return ListTile(
-                    title: Text(
-                      category,
-                      style: const TextStyle(fontSize: 18),
-                    ),
-                    onTap: () {
-                      Navigator.pop(context);
-                      // Scroll to the selected category
-                      final categoryIndex = filteredItems
-                          .indexWhere((item) => item.category == category);
-                      if (categoryIndex != -1) {
-                        final headerIndex = _originalItemsUB
+            child: Scrollbar(
+              thumbVisibility: true,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: List.generate(categoriesList.length, (index) {
+                    final category = categoriesList[index];
+                    return ListTile(
+                      title: Text(
+                        category,
+                        style: const TextStyle(fontSize: 18),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        // Scroll to the selected category
+                        final categoryIndex = filteredItems
                             .indexWhere((item) => item.category == category);
-                        if (headerIndex != -1) {
-                          _scrollController.animateTo(
-                            headerIndex * 76,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut,
-                          );
+                        if (categoryIndex != -1) {
+                          final headerIndex = _originalItemsUB
+                              .indexWhere((item) => item.category == category);
+                          if (headerIndex != -1) {
+                            _scrollController.animateTo(
+                              headerIndex * 77,
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.easeInOut,
+                            );
+                          }
                         }
-                      }
-                    },
-                  );
-                }),
+                      },
+                    );
+                  }),
+                ),
               ),
             ),
           ),
