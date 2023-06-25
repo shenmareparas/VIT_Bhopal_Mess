@@ -51,19 +51,19 @@ class SettingsState extends State<Settings> {
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 5),
-                    RadioListTile(
+                    RadioListTile.adaptive(
                       title: const Text('Boys Hostel 1 CRCL Mess'),
                       value: 1,
                       groupValue: selectedMess,
                       onChanged: handleMessSelection,
                     ),
-                    RadioListTile(
+                    RadioListTile.adaptive(
                       title: const Text('Boys Hostel 2 & 3 Mayuri Mess'),
                       value: 2,
                       groupValue: selectedMess,
                       onChanged: handleMessSelection,
                     ),
-                    RadioListTile(
+                    RadioListTile.adaptive(
                       title: const Text('Girls Hostel CRCL Mess'),
                       value: 3,
                       groupValue: selectedMess,
@@ -93,7 +93,7 @@ class SettingsState extends State<Settings> {
                     const SizedBox(height: 15),
                     ListTile(
                       title: const Text('Dark Mode'),
-                      trailing: Switch(
+                      trailing: Switch.adaptive(
                         value: themeProvider.currentThemeType == ThemeType.dark,
                         onChanged: (_) {
                           themeProvider.toggleTheme();
