@@ -39,7 +39,8 @@ List<Menu> items = [
   Menu(name: 'Masala Dosa', price: 60),
   Menu(name: 'Onion Dosa', price: 55),
   Menu(name: 'Ghee Dosa', price: 60),
-  Menu(name: 'Egg Dosa', price: 60)
+  Menu(name: 'Egg Dosa', price: 60),
+  Menu(name: 'Milk 1L', price: 57)
 ];
 
 List<MenuUB> itemsUB = [
