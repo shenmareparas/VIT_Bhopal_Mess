@@ -352,7 +352,7 @@ class UnderBellyState extends State<UnderBelly> {
                               .indexWhere((item) => item.category == category);
                           if (headerIndex != -1) {
                             _scrollController.animateTo(
-                              headerIndex * 77,
+                              headerIndex * 77.5,
                               duration: const Duration(milliseconds: 500),
                               curve: Curves.easeInOut,
                             );

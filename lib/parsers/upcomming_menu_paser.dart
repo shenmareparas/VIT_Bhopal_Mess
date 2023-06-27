@@ -58,8 +58,8 @@ var days = [
 
 var meal = ["Breakfast", "Lunch", "Snacks", "Dinner"];
 var mealShow = [
-  "Breakfast (7:30 to 9:00 AM)",
-  "Lunch (12:00 to 2:30 PM)",
-  "Snacks (5:00 to 6:30 PM)",
-  "Dinner (7:30 to 9:00 PM)"
+  "Breakfast (7:30 to 9:00)",
+  "Lunch (12:00 to 14:30)",
+  "Snacks (17:00 to 18:30)",
+  "Dinner (19:30 to 21:00)"
 ];

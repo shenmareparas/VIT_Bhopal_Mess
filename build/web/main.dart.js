@@ -97430,7 +97430,7 @@ A.e1(this.b,!1).xu(null)
 s=this.a
 r=this.c
 if(B.b.C8(s.gkn(),new A.amv(r))!==-1){q=B.b.C8(s.y,new A.amw(r))
-if(q!==-1)s.e.iv(q*77,B.fG,B.dh)}},
+if(q!==-1)s.e.iv(q*77.5,B.fG,B.dh)}},
 $S:0}
 A.amv.prototype={
 $1(a){return a.c===this.a},
@@ -104845,7 +104845,7 @@ $.aGA=null
 $.aGB=null
 $.aL6=A.a(["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],t.s)
 $.b0n=A.a(["Breakfast","Lunch","Snacks","Dinner"],t.s)
-$.b0o=A.a(["Breakfast (7:30 to 9:00 AM)","Lunch (12:00 to 2:30 PM)","Snacks (5:00 to 6:30 PM)","Dinner (7:30 to 9:00 PM)"],t.s)
+$.b0o=A.a(["Breakfast (7:30 to 9:00)","Lunch (12:00 to 14:30)","Snacks (17:00 to 18:30)","Dinner (19:30 to 21:00)"],t.s)
 $.JZ=1
 $.aDy=1})();(function lazyInitializers(){var s=hunkHelpers.lazyFinal,r=hunkHelpers.lazy
 s($,"b48","cv",()=>A.b_s(A.as(A.aFG(self.window),"vendor"),B.c.awK(A.aRw(A.aFG(self.window)))))
