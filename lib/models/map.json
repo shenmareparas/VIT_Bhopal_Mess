@@ -1,4 +1,6 @@
-[
+{
+  "items":  
+  [
     {
       "name": "Bread Omelette",
       "price": 45
@@ -155,5 +157,918 @@
       "name": "Milk 1L",
       "price": 57
     }
+  ],
+  "itemsUB":
+  [
+    {
+      "name": "Veg Plait",
+      "price": 45,
+      "category": "Bakery Items"
+    },
+    {
+      "name": "Veg Sub Roll",
+      "price": 42,
+      "category": "Bakery Items"
+    },
+    {
+      "name": "Veg Turnover",
+      "price": 45,
+      "category": "Bakery Items"
+    },
+    {
+      "name": "Chilly Cheese Plait",
+      "price": 50,
+      "category": "Bakery Items"
+    },
+    {
+      "name": "Paneer Pizza Burn",
+      "price": 50,
+      "category": "Bakery Items"
+    },
+    {
+      "name": "Veg Crispy Roll",
+      "price": 50,
+      "category": "Bakery Items"
+    },
+    {
+      "name": "Chicken Turnover",
+      "price": 50,
+      "category": "Bakery Items"
+    },
+    {
+      "name": "Chicken Pizza Bun",
+      "price": 50,
+      "category": "Bakery Items"
+    },
+    {
+      "name": "Chicken Sub Roll",
+      "price": 50,
+      "category": "Bakery Items"
+    },
+    {
+      "name": "Chicken Plait",
+      "price": 53,
+      "category": "Bakery Items"
+    },
+    {
+      "name": "Egg Turnover",
+      "price": 40,
+      "category": "Bakery Items"
+    },
+    {
+      "name": "Veg Noodles",
+      "price": 130,
+      "category": "Chinese"
+    },
+    {
+      "name": "Veg Fried Rice",
+      "price": 130,
+      "category": "Chinese"
+    },
+    {
+      "name": "Chicken Noodles",
+      "price": 150,
+      "category": "Chinese"
+    },
+    {
+      "name": "Chicken Fried Rice",
+      "price": 150,
+      "category": "Chinese"
+    },
+    {
+      "name": "Chicken Biryani",
+      "price": 190,
+      "category": "Chinese"
+    },
+    {
+      "name": "Jeera Rice",
+      "price": 130,
+      "category": "Chinese"
+    },
+    {
+      "name": "Veg Biryani",
+      "price": 160,
+      "category": "Chinese"
+    },
+    {
+      "name": "Veg Schezwan Noodles",
+      "price": 131,
+      "category": "Chinese"
+    },
+    {
+      "name": "Schezwan Veg Fried Rice",
+      "price": 131,
+      "category": "Chinese"
+    },
+    {
+      "name": "Schezwan Chicken Fried Rice",
+      "price": 152,
+      "category": "Chinese"
+    },
+    {
+      "name": "Paneer Fried Rice",
+      "price": 160,
+      "category": "Chinese"
+    },
+    {
+      "name": "Paneer Noodles",
+      "price": 160,
+      "category": "Chinese"
+    },
+    {
+      "name": "Schezwan Chicken Noodles",
+      "price": 152,
+      "category": "Chinese"
+    },
+    {
+      "name": "Egg Noodles",
+      "price": 142,
+      "category": "Chinese"
+    },
+    {
+      "name": "Egg Fried Rice",
+      "price": 142,
+      "category": "Chinese"
+    },
+    {
+      "name": "Ginger Tea",
+      "price": 15,
+      "category": "Hot"
+    },
+    {
+      "name": "Coffee",
+      "price": 15,
+      "category": "Hot"
+    },
+    {
+      "name": "Hot Chocolate",
+      "price": 40,
+      "category": "Hot"
+    },
+    {
+      "name": "Black Coffee",
+      "price": 30,
+      "category": "Hot"
+    },
+    {
+      "name": "Ginger Tea",
+      "price": 10,
+      "category": "Hot"
+    },
+    {
+      "name": "Butterscotch Milkshake Small",
+      "price": 50,
+      "category": "Cold Beverages"
+    },
+    {
+      "name": "Butterscotch Milkshake Large",
+      "price": 80,
+      "category": "Cold Beverages"
+    },
+    {
+      "name": "Vanilla Milkshake Small",
+      "price": 50,
+      "category": "Cold Beverages"
+    },
+    {
+      "name": "Vanilla Milkshake Large",
+      "price": 80,
+      "category": "Cold Beverages"
+    },
+    {
+      "name": "Chocolate Milkshake Small",
+      "price": 50,
+      "category": "Cold Beverages"
+    },
+    {
+      "name": "Chocolate Milkshake Large",
+      "price": 80,
+      "category": "Cold Beverages"
+    },
+    {
+      "name": "Oreo Milkshake Small",
+      "price": 50,
+      "category": "Cold Beverages"
+    },
+    {
+      "name": "Oreo Milkshake Large",
+      "price": 95,
+      "category": "Cold Beverages"
+    },
+    {
+      "name": "Kitkat Milkshake Small",
+      "price": 60,
+      "category": "Cold Beverages"
+    },
+    {
+      "name": "Kitkat Milkshake Large",
+      "price": 95,
+      "category": "Cold Beverages"
+    },
+    {
+      "name": "Strawberry Milkshake Small",
+      "price": 42,
+      "category": "Cold Beverages"
+    },
+    {
+      "name": "Strawberry Milkshake Large",
+      "price": 79,
+      "category": "Cold Beverages"
+    },
+    {
+      "name": "Snickers Milkshake Small",
+      "price": 50,
+      "category": "Cold Beverages"
+    },
+    {
+      "name": "Snickers Milkshake Large",
+      "price": 90,
+      "category": "Cold Beverages"
+    },
+    {
+      "name": "Cold Coffee Small",
+      "price": 50,
+      "category": "Cold Beverages"
+    },
+    {
+      "name": "Cold Coffee Large",
+      "price": 80,
+      "category": "Cold Beverages"
+    },
+    {
+      "name": "Orange Juice",
+      "price": 70,
+      "category": "Fresh Juice"
+    },
+    {
+      "name": "Sweet Lime Juice",
+      "price": 70,
+      "category": "Fresh Juice"
+    },
+    {
+      "name": "Pineapple Juice",
+      "price": 70,
+      "category": "Fresh Juice"
+    },
+    {
+      "name": "Mango Juice",
+      "price": 70,
+      "category": "Fresh Juice"
+    },
+    {
+      "name": "Lemon Ice Tea Small",
+      "price": 42,
+      "category": "Fresh Juice"
+    },
+    {
+      "name": "Lemon Ice Tea Large",
+      "price": 70,
+      "category": "Fresh Juice"
+    },
+    {
+      "name": "Lime Mint Cooler Small",
+      "price": 42,
+      "category": "Fresh Juice"
+    },
+    {
+      "name": "Lime Mint Cooler Large",
+      "price": 70,
+      "category": "Fresh Juice"
+    },
+    {
+      "name": "Masala Dosa",
+      "price": 80,
+      "category": "South Indian"
+    },
+    {
+      "name": "Butter Masala Dosa",
+      "price": 90,
+      "category": "South Indian"
+    },
+    {
+      "name": "Plain Dosa",
+      "price": 70,
+      "category": "South Indian"
+    },
+    {
+      "name": "Ghee Dosa",
+      "price": 79,
+      "category": "South Indian"
+    },
+    {
+      "name": "Butter Dosa",
+      "price": 80,
+      "category": "South Indian"
+    },
+    {
+      "name": "Podi Dosa",
+      "price": 80,
+      "category": "South Indian"
+    },
+    {
+      "name": "Mushroom Kheema Dosa",
+      "price": 100,
+      "category": "South Indian"
+    },
+    {
+      "name": "Paper Masala Dosa",
+      "price": 70,
+      "category": "South Indian"
+    },
+    {
+      "name": "Paneer Kheema Dosa",
+      "price": 105,
+      "category": "South Indian"
+    },
+    {
+      "name": "Cheese Masala Dosa",
+      "price": 100,
+      "category": "South Indian"
+    },
+    {
+      "name": "Chilly Cheese Garlic Dosa",
+      "price": 130,
+      "category": "South Indian"
+    },
+    {
+      "name": "Onion Cheese Garlic Dosa",
+      "price": 100,
+      "category": "South Indian"
+    },
+    {
+      "name": "Chilly Garlic Paneer Dosa",
+      "price": 116,
+      "category": "South Indian"
+    },
+    {
+      "name": "Ghee Sambar Idlies",
+      "price": 60,
+      "category": "South Indian"
+    },
+    {
+      "name": "Double Cheese Sandwich",
+      "price": 89,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Double Cheese Sandwich + \ud83c\udf5f",
+      "price": 137,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Sweet Corn Sandwich",
+      "price": 89,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Sweet Corn Sandwich + \ud83c\udf5f",
+      "price": 126,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Paneer Tikka Sandwich",
+      "price": 100,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Paneer Tikka Sandwich + \ud83c\udf5f",
+      "price": 152,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Chicken Tikka Sandwich",
+      "price": 121,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Chicken Tikka Sandwich + \ud83c\udf5f",
+      "price": 163,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Mushroom Cheese Sandwich",
+      "price": 100,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Mushroom Cheese Sandwich + \ud83c\udf5f",
+      "price": 152,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Classic Chicken Club Sandwich",
+      "price": 121,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Classic Chicken Club Sandwich + \ud83c\udf5f",
+      "price": 152,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Cheese Mayo Grilled Chicken Sandwich",
+      "price": 110,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Cheese Mayo Grilled Chicken Sandwich + \ud83c\udf5f",
+      "price": 152,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Bombay Grilled Sandwich",
+      "price": 68,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Bombay Grilled Sandwich + \ud83c\udf5f",
+      "price": 137,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Veg Cheese Burger",
+      "price": 95,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Veg Cheese Burger + \ud83c\udf5f",
+      "price": 152,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Chicken Burger",
+      "price": 116,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Chicken Burger + \ud83c\udf5f",
+      "price": 163,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Veg Wrap",
+      "price": 95,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Veg Wrap + \ud83c\udf5f",
+      "price": 147,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Chicken Wrap",
+      "price": 121,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Chicken Wrap + \ud83c\udf5f",
+      "price": 158,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Paneer Wrap",
+      "price": 100,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Paneer Wrap + \ud83c\udf5f",
+      "price": 152,
+      "category": "Sandwich"
+  },
+  {
+      "name": "Paneer Butter Masala",
+      "price": 158,
+      "category": "Indian Gravy"
+  },
+  {
+      "name": "Kadai Butter Masala",
+      "price": 147,
+      "category": "Indian Gravy"
+  },
+  {
+      "name": "Paneer Tikka Masala",
+      "price": 158,
+      "category": "Indian Gravy"
+  },
+  {
+      "name": "Shahi Paneer Masala",
+      "price": 147,
+      "category": "Indian Gravy"
+  },
+  {
+      "name": "Chicken Tikka Masala",
+      "price": 168,
+      "category": "Indian Gravy"
+  },
+  {
+      "name": "Schezwan Chicken Gravy",
+      "price": 168,
+      "category": "Indian Gravy"
+  },
+  {
+      "name": "Dal Makhani",
+      "price": 150,
+      "category": "Indian Gravy"
+  },
+  {
+      "name": "Dal Tadka",
+      "price": 130,
+      "category": "Indian Gravy"
+  },
+  {
+      "name": "Kadai Sabzi",
+      "price": 140,
+      "category": "Indian Gravy"
+  },
+  {
+      "name": "Punjabi Chicken Masala",
+      "price": 168,
+      "category": "Indian Gravy"
+  },
+  {
+      "name": "Hyderabadi Chicken Masala",
+      "price": 168,
+      "category": "Indian Gravy"
+  },
+  {
+      "name": "Butter Chicken Masala",
+      "price": 168,
+      "category": "Indian Gravy"
+  },
+  {
+      "name": "Chicken Lababdar",
+      "price": 168,
+      "category": "Indian Gravy"
+  },
+  {
+      "name": "Dhanya Murga Adraki Masala",
+      "price": 168,
+      "category": "Indian Gravy"
+  },
+  {
+      "name": "Chicken Keema Masala",
+      "price": 168,
+      "category": "Indian Gravy"
+  },
+  {
+      "name": "Dahi Murga",
+      "price": 168,
+      "category": "Indian Gravy"
+  },
+  {
+      "name": "Tandoori Roti",
+      "price": 30,
+      "category": "Tandoori Items"
+  },
+  {
+      "name": "Tandoori Butter Roti",
+      "price": 35,
+      "category": "Tandoori Items"
+  },
+  {
+      "name": "Tandoori Aloo Paratha",
+      "price": 55,
+      "category": "Tandoori Items"
+  },
+  {
+      "name": "Tandoori Lachha Paratha",
+      "price": 47,
+      "category": "Tandoori Items"
+  },
+  {
+      "name": "Naan",
+      "price": 37,
+      "category": "Tandoori Items"
+  },
+  {
+      "name": "Butter Naan",
+      "price": 42,
+      "category": "Tandoori Items"
+  },
+  {
+      "name": "Garlic Naan",
+      "price": 45,
+      "category": "Tandoori Items"
+  },
+  {
+      "name": "Classic French Fries \ud83c\udf5f",
+      "price": 95,
+      "category": "Veg Starters"
+  },
+  {
+      "name": "Masala French Fries \ud83c\udf5f",
+      "price": 105,
+      "category": "Veg Starters"
+  },
+  {
+      "name": "Veg Cheese Fingers",
+      "price": 115,
+      "category": "Veg Starters"
+  },
+  {
+      "name": "Paneer Tikka",
+      "price": 158,
+      "category": "Veg Starters"
+  },
+  {
+      "name": "Paneer Malai Tikka",
+      "price": 158,
+      "category": "Veg Starters"
+  },
+  {
+      "name": "Chilly Paneer Dry",
+      "price": 130,
+      "category": "Veg Starters"
+  },
+  {
+      "name": "Chilly Paneer Gravy",
+      "price": 131,
+      "category": "Veg Starters"
+  },
+  {
+      "name": "Veg Manchurian",
+      "price": 137,
+      "category": "Veg Starters"
+  },
+  {
+      "name": "Mushroom Chilly",
+      "price": 137,
+      "category": "Veg Starters"
+  },
+  {
+      "name": "Paneer 65",
+      "price": 140,
+      "category": "Veg Starters"
+  },
+  {
+      "name": "Mushroom 65",
+      "price": 140,
+      "category": "Veg Starters"
+  },
+  {
+      "name": "Honey Chilly Potato",
+      "price": 140,
+      "category": "Veg Starters"
+  },
+  {
+      "name": "Chicken Nuggets",
+      "price": 152,
+      "category": "Non Veg Starters"
+  },
+  {
+      "name": "Chicken Wings",
+      "price": 152,
+      "category": "Non Veg Starters"
+  },
+  {
+      "name": "Chicken Tikka",
+      "price": 168,
+      "category": "Non Veg Starters"
+  },
+  {
+      "name": "Chicken Malai Kebab",
+      "price": 163,
+      "category": "Non Veg Starters"
+  },
+  {
+      "name": "Tandoori Chicken Half",
+      "price": 210,
+      "category": "Non Veg Starters"
+  },
+  {
+      "name": "Tandoori Chicken Full",
+      "price": 399,
+      "category": "Non Veg Starters"
+  },
+  {
+      "name": "Chilly Chicken Dry",
+      "price": 140,
+      "category": "Non Veg Starters"
+  },
+  {
+      "name": "Chilly Chicken Gravy",
+      "price": 150,
+      "category": "Non Veg Starters"
+  },
+  {
+      "name": "Dragon Chicken",
+      "price": 152,
+      "category": "Non Veg Starters"
+  },
+  {
+      "name": "Chicken 65",
+      "price": 152,
+      "category": "Non Veg Starters"
+  },
+  {
+      "name": "Bread Omelette",
+      "price": 63,
+      "category": "Egg Varieties"
+  },
+  {
+      "name": "Masala Omelette",
+      "price": 37,
+      "category": "Egg Varieties"
+  },
+  {
+      "name": "Cheese Omelette",
+      "price": 53,
+      "category": "Egg Varieties"
+  },
+  {
+      "name": "Egg Bhurji",
+      "price": 37,
+      "category": "Egg Varieties"
+  },
+  {
+      "name": "Veg Momos",
+      "price": 110,
+      "category": "Momos"
+  },
+  {
+      "name": "Paneer Momos",
+      "price": 130,
+      "category": "Momos"
+  },
+  {
+      "name": "Chicken Momos",
+      "price": 140,
+      "category": "Momos"
+  },
+  {
+      "name": "Veg Mixed Nachos",
+      "price": 100,
+      "category": "Nachos"
+  },
+  {
+      "name": "Chicken Mixed Nachos",
+      "price": 120,
+      "category": "Nachos"
+  },
+  {
+      "name": "Penne Alfredo Pasta Small",
+      "price": 105,
+      "category": "Veg Pasta"
+  },
+  {
+      "name": "Penne Alfredo Pasta Large",
+      "price": 168,
+      "category": "Veg Pasta"
+  },
+  {
+      "name": "Penne Arablata Small",
+      "price": 105,
+      "category": "Veg Pasta"
+  },
+  {
+      "name": "Penne Arablata Large",
+      "price": 168,
+      "category": "Veg Pasta"
+  },
+  {
+      "name": "Pink Sauce Pasta Small",
+      "price": 105,
+      "category": "Veg Pasta"
+  },
+  {
+      "name": "Pink Sauce Pasta Large",
+      "price": 168,
+      "category": "Veg Pasta"
+  },
+  {
+      "name": "Basil Sauce Pasta Small",
+      "price": 105,
+      "category": "Veg Pasta"
+  },
+  {
+      "name": "Basil Sauce Pasta Large",
+      "price": 168,
+      "category": "Veg Pasta"
+  },
+  {
+      "name": "Penne Alfredo Chicken Pasta Small",
+      "price": 127,
+      "category": "Non Veg Pasta"
+  },
+  {
+      "name": "Penne Alfredo Chicken Pasta Large",
+      "price": 179,
+      "category": "Non Veg Pasta"
+  },
+  {
+      "name": "Penne Arablata Chicken Pasta Small",
+      "price": 127,
+      "category": "Non Veg Pasta"
+  },
+  {
+      "name": "Penne Arablata Chicken Pasta Large",
+      "price": 179,
+      "category": "Non Veg Pasta"
+  },
+  {
+      "name": "Pink Sauce Chicken Pasta Small",
+      "price": 127,
+      "category": "Non Veg Pasta"
+  },
+  {
+      "name": "Pink Sauce Chicken Pasta Large",
+      "price": 179,
+      "category": "Non Veg Pasta"
+  },
+  {
+      "name": "Basil Sauce Chicken Pasta Small",
+      "price": 127,
+      "category": "Non Veg Pasta"
+  },
+  {
+      "name": "Basil Sauce Chicken Pasta Large",
+      "price": 179,
+      "category": "Non Veg Pasta"
+  },
+  {
+      "name": "Oreo Pastry",
+      "price": 80,
+      "category": "Pastry"
+  },
+  {
+      "name": "Kitkat Pastry",
+      "price": 80,
+      "category": "Pastry"
+  },
+  {
+      "name": "Choco Truffle",
+      "price": 80,
+      "category": "Pastry"
+  },
+  {
+      "name": "Blue Berry",
+      "price": 80,
+      "category": "Pastry"
+  },
+  {
+      "name": "Swiss Roll",
+      "price": 74,
+      "category": "Pastry"
+  },
+  {
+      "name": "Walnut Brownle",
+      "price": 74,
+      "category": "Pastry"
+  },
+  {
+      "name": "Choco Doughnut",
+      "price": 42,
+      "category": "Pastry"
+  },
+  {
+      "name": "Choco Truffle 500gm",
+      "price": 550,
+      "category": "Birthday Cake"
+  },
+  {
+      "name": "Choco Truffle 1kg",
+      "price": 1000,
+      "category": "Birthday Cake"
+  },
+  {
+      "name": "Kitkat Cake 500gm",
+      "price": 600,
+      "category": "Birthday Cake"
+  },
+  {
+      "name": "Kitkat Cake 1kg",
+      "price": 1050,
+      "category": "Birthday Cake"
+  },
+  {
+      "name": "Oreo Cake 500gm",
+      "price": 600,
+      "category": "Birthday Cake"
+  },
+  {
+      "name": "Oreo Cake 1kg",
+      "price": 1050,
+      "category": "Birthday Cake"
+  },
+  {
+      "name": "Chocolate Cake 500gm",
+      "price": 500,
+      "category": "Birthday Cake"
+  },
+  {
+      "name": "Chocolate Cake 1kg",
+      "price": 900,
+      "category": "Birthday Cake"
+  },
+  {
+      "name": "Butterscotch Cake 500gm",
+      "price": 500,
+      "category": "Birthday Cake"
+  },
+  {
+      "name": "Butterscotch Cake 1kg",
+      "price": 880,
+      "category": "Birthday Cake"
+  }
   ]
-  
+}

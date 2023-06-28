@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import '/models/map.dart';
 import 'cartUB.dart';
@@ -29,7 +28,6 @@ class UnderBellyState extends State<UnderBelly> {
   final ScrollController _scrollController = ScrollController();
   final FocusNode _searchFocusNode = FocusNode();
 
-  bool _isFabvisible = true;
   String searchQueryUB = '';
   List<MenuUB> selectedItemsUB = [];
   final List<MenuUB> _originalItemsUB = itemsUB.toList();
@@ -131,12 +129,6 @@ class UnderBellyState extends State<UnderBelly> {
             Expanded(
               child: NotificationListener<UserScrollNotification>(
                 onNotification: (notification) {
-                  if (notification.direction == ScrollDirection.forward) {
-                    setState(() => _isFabvisible = true);
-                  } else if (notification.direction ==
-                      ScrollDirection.reverse) {
-                    setState(() => _isFabvisible = false);
-                  }
                   unfocusSearchField();
                   return true;
                 },
@@ -181,9 +173,16 @@ class UnderBellyState extends State<UnderBelly> {
                                 Padding(
                                   padding: const EdgeInsets.only(
                                       top: 15, left: 16, bottom: 5),
-                                  child: OutlinedButton(
+                                  child: ElevatedButton(
                                     onPressed: () =>
                                         showHeaderOptionsDialog(context),
+                                    style: ElevatedButton.styleFrom(
+                                      side: const BorderSide(
+                                          color: Color(0xFFD0EE82)),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
                                     child: Text(
                                       item.category,
                                       style: TextStyle(
@@ -203,7 +202,7 @@ class UnderBellyState extends State<UnderBelly> {
                                   style: const TextStyle(fontSize: 17),
                                 ),
                                 subtitle: Text(
-                                  '₹ ${item.price.toStringAsFixed(0)}',
+                                  '₹${item.price.toStringAsFixed(0)}',
                                   style: TextStyle(
                                     fontSize: 15,
                                     color: Theme.of(context).brightness ==
@@ -281,24 +280,15 @@ class UnderBellyState extends State<UnderBelly> {
               ),
             ),
           ),
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Selected Items: ${getSelectedItemsCount()}',
+                '${getSelectedItemsCount()} Item  |  ₹${getTotalPrice().toStringAsFixed(0)}',
                 style: const TextStyle(fontSize: 17),
               ),
-              Text(
-                'Total Price: ₹ ${getTotalPrice().toStringAsFixed(0)}',
-                style: const TextStyle(fontSize: 17),
-              ),
-            ],
-          ),
-        ),
-        floatingActionButton: _isFabvisible
-            ? FloatingActionButton(
-                tooltip: "Cart",
+              ElevatedButton(
                 onPressed: () {
                   List<MenuUB> selectedItemsUB =
                       itemsUB.where((item) => item.quantity > 0).toList();
@@ -312,9 +302,25 @@ class UnderBellyState extends State<UnderBelly> {
                             CartUB(selectedItemsUB: selectedItemsUB)),
                   );
                 },
-                child: const Icon(Icons.shopping_cart),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  side: const BorderSide(color: Color(0xFFD0EE82)),
+                ),
+                child: const Row(
+                  children: [
+                    Text(
+                      'View Cart  ',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                    Icon(Icons.shopping_cart),
+                  ],
+                ),
               )
-            : null,
+            ],
+          ),
+        ),
       ),
     );
   }

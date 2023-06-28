@@ -48,7 +48,7 @@ class CartUBState extends State<CartUB> {
                             style: const TextStyle(fontSize: 17),
                           ),
                           subtitle: Text(
-                            '₹ ${item.price.toStringAsFixed(0)}',
+                            '₹${item.price.toStringAsFixed(0)}',
                             style: TextStyle(
                                 fontSize: 15,
                                 color: Theme.of(context).brightness ==
@@ -117,11 +117,7 @@ class CartUBState extends State<CartUB> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Selected Items: ${underBellyState.getSelectedItemsCount()}',
-              style: const TextStyle(fontSize: 17),
-            ),
-            Text(
-              'Total Price: ₹ ${underBellyState.getTotalPrice().toStringAsFixed(0)}',
+              '${underBellyState.getSelectedItemsCount()} Item  |  ₹${underBellyState.getTotalPrice().toStringAsFixed(0)}',
               style: const TextStyle(fontSize: 17),
             ),
           ],

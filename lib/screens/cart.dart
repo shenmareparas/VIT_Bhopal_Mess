@@ -46,7 +46,7 @@ class CartState extends State<Cart> {
                             style: const TextStyle(fontSize: 17),
                           ),
                           subtitle: Text(
-                            '₹ ${item.price.toStringAsFixed(0)}',
+                            '₹${item.price.toStringAsFixed(0)}',
                             style: TextStyle(
                                 fontSize: 15,
                                 color: Theme.of(context).brightness ==
@@ -115,11 +115,7 @@ class CartState extends State<Cart> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Selected Items: ${canteenState.getSelectedItemsCount()}',
-              style: const TextStyle(fontSize: 17),
-            ),
-            Text(
-              'Total Price: ₹ ${canteenState.getTotalPrice().toStringAsFixed(0)}',
+              '${canteenState.getSelectedItemsCount()} Item  |  ₹${canteenState.getTotalPrice().toStringAsFixed(0)}',
               style: const TextStyle(fontSize: 17),
             ),
           ],
