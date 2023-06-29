@@ -71,7 +71,7 @@ class SettingsState extends State<Settings> {
                     ),
                     const SizedBox(height: 10),
                     const Text(
-                      'Note: After changing Mess,\nplease click Refresh or swipe down to Refresh',
+                      'Note: After changing Mess, please click Refresh\nor swipe down to Refresh',
                       style: TextStyle(fontSize: 13),
                       textAlign: TextAlign.center,
                     ),

@@ -372,9 +372,15 @@ class UnderBellyState extends State<UnderBelly> {
             ),
           ),
           actions: [
-            TextButton(
+            ElevatedButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('Close'),
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                side: const BorderSide(color: Color(0xFFD0EE82)),
+              ),
+              child: const Text('Close', style: TextStyle(fontSize: 17)),
             ),
           ],
         );
