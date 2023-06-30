@@ -194,7 +194,7 @@ class UpcomingState extends State<Upcoming> {
                                   ?.length,
                           itemBuilder: (BuildContext context, int index) {
                             return FadeInUp(
-                              duration: const Duration(milliseconds: 500),
+                              duration: const Duration(milliseconds: 400),
                               delay: Duration(milliseconds: 100 * index),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,

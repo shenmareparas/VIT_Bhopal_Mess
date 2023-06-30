@@ -27,7 +27,7 @@ class CartState extends State<Cart> {
           children: [
             widget.selectedItems.isEmpty
                 ? FadeInUp(
-                    duration: const Duration(milliseconds: 500),
+                    duration: const Duration(milliseconds: 400),
                     child: const Center(
                       child: Text(
                         'No items are selected',
@@ -45,7 +45,7 @@ class CartState extends State<Cart> {
                       itemBuilder: (context, index) {
                         final item = widget.selectedItems[index];
                         return FadeInUp(
-                          duration: const Duration(milliseconds: 500),
+                          duration: const Duration(milliseconds: 400),
                           delay: Duration(milliseconds: 100 * index),
                           child: ListTile(
                             title: Text(

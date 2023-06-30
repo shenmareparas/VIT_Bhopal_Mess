@@ -29,7 +29,7 @@ class CartUBState extends State<CartUB> {
           children: [
             widget.selectedItemsUB.isEmpty
                 ? FadeInUp(
-                    duration: const Duration(milliseconds: 500),
+                    duration: const Duration(milliseconds: 400),
                     child: const Center(
                       child: Text(
                         'No items are selected',
@@ -47,7 +47,7 @@ class CartUBState extends State<CartUB> {
                       itemBuilder: (context, index) {
                         final item = widget.selectedItemsUB[index];
                         return FadeInUp(
-                          duration: const Duration(milliseconds: 500),
+                          duration: const Duration(milliseconds: 400),
                           delay: Duration(milliseconds: 100 * index),
                           child: ListTile(
                             title: Text(

@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import "package:shared_preferences/shared_preferences.dart";
@@ -39,71 +40,79 @@ class SettingsState extends State<Settings> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Card(
-              elevation: 3,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 20, bottom: 20),
-                child: Column(
-                  children: [
-                    const Text(
-                      'Choose Mess',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 5),
-                    RadioListTile.adaptive(
-                      title: const Text('Boys Hostel 1 CRCL Mess'),
-                      value: 1,
-                      groupValue: selectedMess,
-                      onChanged: handleMessSelection,
-                    ),
-                    RadioListTile.adaptive(
-                      title: const Text('Boys Hostel 2 & 3 Mayuri Mess'),
-                      value: 2,
-                      groupValue: selectedMess,
-                      onChanged: handleMessSelection,
-                    ),
-                    RadioListTile.adaptive(
-                      title: const Text('Girls Hostel CRCL Mess'),
-                      value: 3,
-                      groupValue: selectedMess,
-                      onChanged: handleMessSelection,
-                    ),
-                    const SizedBox(height: 10),
-                    const Text(
-                      'Note: After changing Mess, please click Refresh\nor swipe down to Refresh',
-                      style: TextStyle(fontSize: 13),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
+            FadeInUp(
+              duration: const Duration(milliseconds: 400),
+              child: Card(
+                elevation: 3,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 20, bottom: 20),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Choose Mess',
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 5),
+                      RadioListTile.adaptive(
+                        title: const Text('Boys Hostel 1 CRCL Mess'),
+                        value: 1,
+                        groupValue: selectedMess,
+                        onChanged: handleMessSelection,
+                      ),
+                      RadioListTile.adaptive(
+                        title: const Text('Boys Hostel 2 & 3 Mayuri Mess'),
+                        value: 2,
+                        groupValue: selectedMess,
+                        onChanged: handleMessSelection,
+                      ),
+                      RadioListTile.adaptive(
+                        title: const Text('Girls Hostel CRCL Mess'),
+                        value: 3,
+                        groupValue: selectedMess,
+                        onChanged: handleMessSelection,
+                      ),
+                      const SizedBox(height: 10),
+                      const Text(
+                        'Note: After changing Mess, please click Refresh\nor swipe down to Refresh',
+                        style: TextStyle(fontSize: 13),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
             const SizedBox(height: 16),
-            Card(
-              elevation: 3,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    top: 20, bottom: 20, left: 16, right: 16),
-                child: Column(
-                  children: [
-                    const Text('App Theme',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold)),
-                    const SizedBox(height: 15),
-                    ListTile(
-                      title: const Text('Dark Mode'),
-                      trailing: Switch.adaptive(
-                        value: themeProvider.currentThemeType == ThemeType.dark,
-                        onChanged: (_) {
+            FadeInUp(
+              duration: const Duration(milliseconds: 400),
+              delay: const Duration(milliseconds: 200),
+              child: Card(
+                elevation: 3,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      top: 20, bottom: 20, left: 16, right: 16),
+                  child: Column(
+                    children: [
+                      const Text('App Theme',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold)),
+                      const SizedBox(height: 15),
+                      ListTile(
+                        title: const Text('Dark Mode'),
+                        trailing: Switch.adaptive(
+                          value:
+                              themeProvider.currentThemeType == ThemeType.dark,
+                          onChanged: (_) {
+                            themeProvider.toggleTheme();
+                          },
+                        ),
+                        onTap: () {
                           themeProvider.toggleTheme();
                         },
                       ),
-                      onTap: () {
-                        themeProvider.toggleTheme();
-                      },
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
