@@ -15,6 +15,13 @@ class CartUB extends StatefulWidget {
 
 class CartUBState extends State<CartUB> {
   UnderBellyState underBellyState = UnderBellyState();
+  late List<bool> _fadeOutList;
+
+  @override
+  void initState() {
+    super.initState();
+    _fadeOutList = List.generate(widget.selectedItemsUB.length, (_) => false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,64 +53,123 @@ class CartUBState extends State<CartUB> {
                       itemCount: widget.selectedItemsUB.length,
                       itemBuilder: (context, index) {
                         final item = widget.selectedItemsUB[index];
-                        return FadeInUp(
-                          duration: const Duration(milliseconds: 400),
-                          delay: Duration(milliseconds: 100 * index),
-                          child: ListTile(
-                            title: Text(
-                              item.name,
-                              style: const TextStyle(fontSize: 17),
-                            ),
-                            subtitle: Text(
-                              '₹${item.price.toStringAsFixed(0)}',
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  color: Theme.of(context).brightness ==
-                                          Brightness.light
-                                      ? const Color(0xFF4E6700)
-                                      : const Color(0xFFD0EE82)),
-                            ),
-                            trailing: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                IconButton(
-                                  icon: const Icon(Icons.remove),
-                                  tooltip: 'Remove',
-                                  onPressed: () {
-                                    setState(() {
-                                      if (item.quantity > 0) {
-                                        item.quantity--;
-                                        if (item.quantity == 0) {
-                                          widget.selectedItemsUB
-                                              .removeAt(index);
-                                        }
-                                      }
-                                    });
-                                  },
-                                ),
-                                Text(
-                                  '${item.quantity}',
-                                  style: TextStyle(
+                        return _fadeOutList[index]
+                            ? FadeOutRight(
+                                duration: const Duration(milliseconds: 400),
+                                child: ListTile(
+                                  title: Text(
+                                    item.name,
+                                    style: const TextStyle(fontSize: 17),
+                                  ),
+                                  subtitle: Text(
+                                    '₹${item.price.toStringAsFixed(0)}',
+                                    style: TextStyle(
+                                      fontSize: 15,
                                       color: Theme.of(context).brightness ==
                                               Brightness.light
                                           ? const Color(0xFF4E6700)
                                           : const Color(0xFFD0EE82),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18),
+                                    ),
+                                  ),
+                                  trailing: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(Icons.remove),
+                                        tooltip: 'Remove',
+                                        onPressed: () {},
+                                      ),
+                                      Text(
+                                        '${item.quantity}',
+                                        style: TextStyle(
+                                          color: Theme.of(context).brightness ==
+                                                  Brightness.light
+                                              ? const Color(0xFF4E6700)
+                                              : const Color(0xFFD0EE82),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      IconButton(
+                                        icon: const Icon(Icons.add),
+                                        tooltip: 'Add',
+                                        onPressed: () {},
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                                IconButton(
-                                  icon: const Icon(Icons.add),
-                                  tooltip: 'Add',
-                                  onPressed: () {
-                                    setState(() {
-                                      item.quantity++;
-                                    });
-                                  },
+                              )
+                            : FadeInUp(
+                                duration: const Duration(milliseconds: 400),
+                                delay: Duration(milliseconds: 100 * index),
+                                child: ListTile(
+                                  title: Text(
+                                    item.name,
+                                    style: const TextStyle(fontSize: 17),
+                                  ),
+                                  subtitle: Text(
+                                    '₹${item.price.toStringAsFixed(0)}',
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      color: Theme.of(context).brightness ==
+                                              Brightness.light
+                                          ? const Color(0xFF4E6700)
+                                          : const Color(0xFFD0EE82),
+                                    ),
+                                  ),
+                                  trailing: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(Icons.remove),
+                                        tooltip: 'Remove',
+                                        onPressed: () {
+                                          setState(() {
+                                            if (item.quantity > 0) {
+                                              item.quantity--;
+                                              if (item.quantity == 0) {
+                                                _fadeOutList[index] = true;
+                                                Future.delayed(
+                                                  const Duration(
+                                                      milliseconds: 400),
+                                                  () {
+                                                    setState(() {
+                                                      widget.selectedItemsUB
+                                                          .removeAt(index);
+                                                      _fadeOutList
+                                                          .removeAt(index);
+                                                    });
+                                                  },
+                                                );
+                                              }
+                                            }
+                                          });
+                                        },
+                                      ),
+                                      Text(
+                                        '${item.quantity}',
+                                        style: TextStyle(
+                                          color: Theme.of(context).brightness ==
+                                                  Brightness.light
+                                              ? const Color(0xFF4E6700)
+                                              : const Color(0xFFD0EE82),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      IconButton(
+                                        icon: const Icon(Icons.add),
+                                        tooltip: 'Add',
+                                        onPressed: () {
+                                          setState(() {
+                                            item.quantity++;
+                                          });
+                                        },
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ],
-                            ),
-                          ),
-                        );
+                              );
                       },
                     ),
                   ),
