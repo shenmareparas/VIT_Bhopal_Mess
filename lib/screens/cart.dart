@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'canteen.dart';
 
@@ -25,10 +26,13 @@ class CartState extends State<Cart> {
         child: Stack(
           children: [
             widget.selectedItems.isEmpty
-                ? const Center(
-                    child: Text(
-                      'No items are selected',
-                      style: TextStyle(fontSize: 18),
+                ? FadeInUp(
+                    duration: const Duration(milliseconds: 500),
+                    child: const Center(
+                      child: Text(
+                        'No items are selected',
+                        style: TextStyle(fontSize: 18),
+                      ),
                     ),
                   )
                 : Scrollbar(
@@ -40,57 +44,61 @@ class CartState extends State<Cart> {
                       itemCount: widget.selectedItems.length,
                       itemBuilder: (context, index) {
                         final item = widget.selectedItems[index];
-                        return ListTile(
-                          title: Text(
-                            item.name,
-                            style: const TextStyle(fontSize: 17),
-                          ),
-                          subtitle: Text(
-                            '₹${item.price.toStringAsFixed(0)}',
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: Theme.of(context).brightness ==
-                                        Brightness.light
-                                    ? const Color(0xFF4E6700)
-                                    : const Color(0xFFD0EE82)),
-                          ),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
-                                icon: const Icon(Icons.remove),
-                                tooltip: 'Remove',
-                                onPressed: () {
-                                  setState(() {
-                                    if (item.quantity > 0) {
-                                      item.quantity--;
-                                      if (item.quantity == 0) {
-                                        widget.selectedItems.removeAt(index);
+                        return FadeInUp(
+                          duration: const Duration(milliseconds: 500),
+                          delay: Duration(milliseconds: 100 * index),
+                          child: ListTile(
+                            title: Text(
+                              item.name,
+                              style: const TextStyle(fontSize: 17),
+                            ),
+                            subtitle: Text(
+                              '₹${item.price.toStringAsFixed(0)}',
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? const Color(0xFF4E6700)
+                                      : const Color(0xFFD0EE82)),
+                            ),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                IconButton(
+                                  icon: const Icon(Icons.remove),
+                                  tooltip: 'Remove',
+                                  onPressed: () {
+                                    setState(() {
+                                      if (item.quantity > 0) {
+                                        item.quantity--;
+                                        if (item.quantity == 0) {
+                                          widget.selectedItems.removeAt(index);
+                                        }
                                       }
-                                    }
-                                  });
-                                },
-                              ),
-                              Text(
-                                '${item.quantity}',
-                                style: TextStyle(
-                                    color: Theme.of(context).brightness ==
-                                            Brightness.light
-                                        ? const Color(0xFF4E6700)
-                                        : const Color(0xFFD0EE82),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18),
-                              ),
-                              IconButton(
-                                icon: const Icon(Icons.add),
-                                tooltip: 'Add',
-                                onPressed: () {
-                                  setState(() {
-                                    item.quantity++;
-                                  });
-                                },
-                              ),
-                            ],
+                                    });
+                                  },
+                                ),
+                                Text(
+                                  '${item.quantity}',
+                                  style: TextStyle(
+                                      color: Theme.of(context).brightness ==
+                                              Brightness.light
+                                          ? const Color(0xFF4E6700)
+                                          : const Color(0xFFD0EE82),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                                IconButton(
+                                  icon: const Icon(Icons.add),
+                                  tooltip: 'Add',
+                                  onPressed: () {
+                                    setState(() {
+                                      item.quantity++;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
                         );
                       },

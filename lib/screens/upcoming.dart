@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '/parsers/upcomming_menu_paser.dart';
 import 'settings.dart';
@@ -192,22 +193,26 @@ class UpcomingState extends State<Upcoming> {
                                       [mealTime]
                                   ?.length,
                           itemBuilder: (BuildContext context, int index) {
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  getMess(selectedMess)[getformattedDate(now)]![
-                                          mealTime]![index]
-                                      .toString(),
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500,
+                            return FadeInUp(
+                              duration: const Duration(milliseconds: 500),
+                              delay: Duration(milliseconds: 100 * index),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    getMess(selectedMess)[getformattedDate(
+                                            now)]![mealTime]![index]
+                                        .toString(),
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(
-                                  height: 15,
-                                ),
-                              ],
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                ],
+                              ),
                             );
                           },
                         ),

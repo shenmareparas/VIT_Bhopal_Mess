@@ -40,6 +40,7 @@ dependencies:
   confetti: ^0.7.0
   upgrader: ^7.1.0
   draggable_scrollbar: ^0.1.0
+  animate_do: ^3.0.2
 
 
 dev_dependencies:
