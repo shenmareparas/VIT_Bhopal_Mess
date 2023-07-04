@@ -41,6 +41,7 @@ dependencies:
   upgrader: ^7.1.0
   draggable_scrollbar: ^0.1.0
   animate_do: ^3.0.2
+  font_awesome_flutter: ^10.5.0
 
 
 dev_dependencies:

@@ -3,6 +3,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'underbelly.dart';
+import 'package:url_launcher/url_launcher_string.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CartUB extends StatefulWidget {
   final List<MenuUB> selectedItemsUB;
@@ -195,6 +197,27 @@ class CartUBState extends State<CartUB> {
               '${underBellyState.getSelectedItemsCount()} Item  |  ₹${underBellyState.getTotalPrice().toStringAsFixed(0)}',
               style: const TextStyle(fontSize: 17),
             ),
+            ElevatedButton(
+              onPressed: () {
+                String url = Uri.encodeFull('https://wa.me/918969073110');
+                launchUrlString(url);
+              },
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                side: const BorderSide(color: Color(0xFFD0EE82)),
+              ),
+              child: const Row(
+                children: [
+                  Text(
+                    'Send Order  ',
+                    style: TextStyle(fontSize: 17),
+                  ),
+                  Icon(FontAwesomeIcons.whatsapp),
+                ],
+              ),
+            )
           ],
         ),
       ),
