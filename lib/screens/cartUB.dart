@@ -2,8 +2,8 @@
 
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'underbelly.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'underbelly.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CartUB extends StatefulWidget {
