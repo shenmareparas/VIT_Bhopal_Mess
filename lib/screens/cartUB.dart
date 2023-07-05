@@ -198,9 +198,14 @@ class CartUBState extends State<CartUB> {
               style: const TextStyle(fontSize: 17),
             ),
             ElevatedButton(
-              onPressed: () {
-                String url = Uri.encodeFull('https://wa.me/918969073110');
-                launchUrlString(url);
+              onPressed: () async {
+                String phoneNumber = "918969073110";
+                String messageText =
+                    "Order x1\nOrder x2\nOrder x3\n${widget.selectedItemsUB}";
+                String url =
+                    'https://wa.me/$phoneNumber?text=${Uri.encodeComponent(messageText)}';
+                launchUrlString(url,
+                    mode: LaunchMode.externalNonBrowserApplication);
               },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
