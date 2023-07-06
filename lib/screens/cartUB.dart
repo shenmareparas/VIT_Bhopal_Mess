@@ -2,6 +2,7 @@
 
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'underbelly.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -16,6 +17,7 @@ class CartUB extends StatefulWidget {
 }
 
 class CartUBState extends State<CartUB> {
+  String telUB = "8969073110";
   UnderBellyState underBellyState = UnderBellyState();
   late List<bool> _fadeOutList;
 
@@ -31,6 +33,18 @@ class CartUBState extends State<CartUB> {
       appBar: AppBar(
         title: const Text('Cart', style: TextStyle(fontSize: 25)),
         centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () async {
+              final Uri call = Uri(
+                scheme: 'tel',
+                path: telUB,
+              );
+              await launchUrl(call);
+            },
+            icon: const Icon(Icons.call),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(4),
@@ -199,12 +213,11 @@ class CartUBState extends State<CartUB> {
             ),
             ElevatedButton(
               onPressed: () async {
-                String phoneNumber = "918969073110";
                 String messageText =
                     "Order x1\nOrder x2\nOrder x3\n${widget.selectedItemsUB}";
-                String url =
-                    'https://wa.me/$phoneNumber?text=${Uri.encodeComponent(messageText)}';
-                launchUrlString(url,
+                String whatsapp =
+                    'https://wa.me/$telUB?text=${Uri.encodeComponent(messageText)}';
+                launchUrlString(whatsapp,
                     mode: LaunchMode.externalNonBrowserApplication);
               },
               style: ElevatedButton.styleFrom(
@@ -222,7 +235,7 @@ class CartUBState extends State<CartUB> {
                   Icon(FontAwesomeIcons.whatsapp),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
