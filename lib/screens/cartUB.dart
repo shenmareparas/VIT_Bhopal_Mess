@@ -35,6 +35,7 @@ class CartUBState extends State<CartUB> {
         centerTitle: true,
         actions: [
           IconButton(
+            tooltip: "Call UnderBelly",
             onPressed: () async {
               final Uri call = Uri(
                 scheme: 'tel',
@@ -213,10 +214,9 @@ class CartUBState extends State<CartUB> {
             ),
             ElevatedButton(
               onPressed: () async {
-                String messageText =
-                    "Order x1\nOrder x2\nOrder x3\n${widget.selectedItemsUB}";
+                String messageText = "Order x1\n${widget.selectedItemsUB}";
                 String whatsapp =
-                    'https://wa.me/$telUB?text=${Uri.encodeComponent(messageText)}';
+                    'https://wa.me/91$telUB?text=${Uri.encodeComponent(messageText)}';
                 launchUrlString(whatsapp,
                     mode: LaunchMode.externalNonBrowserApplication);
               },
