@@ -16,20 +16,8 @@ String getMealTime(now) {
     return 'Lunch';
   } else if (hour < 18 || (hour == 18 && minute <= 30)) {
     return 'Snacks';
-  } else if (hour < 21) {
+  } else {
     return 'Dinner';
-  } else {
-    return 'Breakfast';
-  }
-}
-
-String getformattedDate(now) {
-  if (hour >= 21 && hour < 24) {
-    DateTime nextDay = DateTime.now().add(const Duration(days: 1));
-    String formattedDate = DateFormat('EEEE').format(nextDay);
-    return formattedDate;
-  } else {
-    return formattedDate;
   }
 }
 

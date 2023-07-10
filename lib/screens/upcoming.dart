@@ -105,7 +105,7 @@ class UpcomingState extends State<Upcoming> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15))),
                       child: Text(
-                        getformattedDate(now),
+                        formattedDate,
                         style: const TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w500,
@@ -188,10 +188,9 @@ class UpcomingState extends State<Upcoming> {
                         padding: const EdgeInsets.all(20.0),
                         child: ListView.builder(
                           shrinkWrap: true,
-                          itemCount:
-                              getMess(selectedMess)[getformattedDate(now)]
-                                      [mealTime]
-                                  ?.length,
+                          itemCount: getMess(selectedMess)[formattedDate]
+                                  [mealTime]
+                              ?.length,
                           itemBuilder: (BuildContext context, int index) {
                             return FadeInUp(
                               duration: const Duration(milliseconds: 400),
@@ -200,8 +199,8 @@ class UpcomingState extends State<Upcoming> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    getMess(selectedMess)[getformattedDate(
-                                            now)]![mealTime]![index]
+                                    getMess(selectedMess)[formattedDate]![
+                                            mealTime]![index]
                                         .toString(),
                                     style: const TextStyle(
                                       fontSize: 20,
