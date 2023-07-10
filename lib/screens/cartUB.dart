@@ -17,6 +17,7 @@ class CartUB extends StatefulWidget {
 }
 
 class CartUBState extends State<CartUB> {
+  List<String> itemNamesWithQuantities = [];
   String telUB = "8969073110";
   UnderBellyState underBellyState = UnderBellyState();
   late List<bool> _fadeOutList;
@@ -70,6 +71,9 @@ class CartUBState extends State<CartUB> {
                       itemCount: widget.selectedItemsUB.length,
                       itemBuilder: (context, index) {
                         final item = widget.selectedItemsUB[index];
+                        String itemNameWithQuantity =
+                            '• ${item.name} x${item.quantity}\n';
+                        itemNamesWithQuantities.add(itemNameWithQuantity);
                         return _fadeOutList[index]
                             ? FadeOutRight(
                                 duration: const Duration(milliseconds: 400),
@@ -214,7 +218,8 @@ class CartUBState extends State<CartUB> {
             ),
             ElevatedButton(
               onPressed: () async {
-                String messageText = "Order x1\n${widget.selectedItemsUB}";
+                String messageText =
+                    'Order:\n${itemNamesWithQuantities.join('')}';
                 String whatsapp =
                     'https://wa.me/91$telUB?text=${Uri.encodeComponent(messageText)}';
                 launchUrlString(whatsapp,

@@ -351,7 +351,7 @@ class UnderBellyState extends State<UnderBelly> {
                   children: List.generate(categoriesList.length, (index) {
                     final category = categoriesList[index];
                     return FadeInUp(
-                      duration: const Duration(milliseconds: 400),
+                      duration: const Duration(milliseconds: 300),
                       delay: Duration(milliseconds: 50 * index),
                       child: ListTile(
                         title: Text(
