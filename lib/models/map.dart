@@ -292,6 +292,7 @@ List<MenuUB> itemsUB = [
   MenuUB(name: "Butterscotch Cake 1kg", price: 880, category: "Birthday Cake"),
 ];
 
+// Boys Hostel 1 CRCL Mess
 const Map<String, Map<String, List<String>>> mess_1 = {
   "Monday": {
     "Breakfast": [
@@ -510,6 +511,7 @@ const Map<String, Map<String, List<String>>> mess_1 = {
   },
 };
 
+// Boys Hostel 2 & 3 Mayuri Mess
 const Map<String, Map<String, List<String>>> mess_2 = {
   "Monday": {
     "Breakfast": [
@@ -727,6 +729,7 @@ const Map<String, Map<String, List<String>>> mess_2 = {
   },
 };
 
+// Girls Hostel CRCL Mess
 const Map<String, Map<String, List<String>>> mess_3 = {
   "Monday": {
     "Breakfast": [

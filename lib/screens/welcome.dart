@@ -80,34 +80,46 @@ class _WelcomeState extends State<Welcome> {
                 ),
               ),
               decoration: pageDecoration,
-              footer: ListTile(
-                title: DropdownButton<int>(
-                  value: selectedMess,
-                  onChanged: handleMessSelection,
-                  isExpanded: true,
-                  items: const [
-                    DropdownMenuItem<int>(
-                      value: 1,
-                      child: Text(
-                        'Boys Hostel 1 CRCL Mess',
-                        style: TextStyle(fontSize: 18),
+              footer: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                child: Container(
+                  padding: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? const Color(0xFF4E6700).withOpacity(0.2)
+                        : const Color(0xFFD0EE82).withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: DropdownButton<int>(
+                    value: selectedMess,
+                    onChanged: handleMessSelection,
+                    isExpanded: true,
+                    underline: Container(),
+                    items: const [
+                      DropdownMenuItem<int>(
+                        value: 1,
+                        child: Text(
+                          'Boys Hostel 1 CRCL Mess',
+                          style: TextStyle(fontSize: 18),
+                        ),
                       ),
-                    ),
-                    DropdownMenuItem<int>(
-                      value: 2,
-                      child: Text(
-                        'Boys Hostel 2 & 3 Mayuri Mess',
-                        style: TextStyle(fontSize: 18),
+                      DropdownMenuItem<int>(
+                        value: 2,
+                        child: Text(
+                          'Boys Hostel 2 & 3 Mayuri Mess',
+                          style: TextStyle(fontSize: 18),
+                        ),
                       ),
-                    ),
-                    DropdownMenuItem<int>(
-                      value: 3,
-                      child: Text(
-                        'Girls Hostel CRCL Mess',
-                        style: TextStyle(fontSize: 18),
+                      DropdownMenuItem<int>(
+                        value: 3,
+                        child: Text(
+                          'Girls Hostel CRCL Mess',
+                          style: TextStyle(fontSize: 18),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -123,32 +135,42 @@ class _WelcomeState extends State<Welcome> {
               ),
               decoration: pageDecoration,
               footer: Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: ListTile(
-                  title: const Text('Dark Mode'),
-                  trailing: Switch(
-                    value: themeProvider.currentThemeType == ThemeType.dark,
-                    onChanged: (_) {
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                child: Container(
+                  padding: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? const Color(0xFF4E6700).withOpacity(0.2)
+                        : const Color(0xFFD0EE82).withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: ListTile(
+                    title: const Text('Dark Mode'),
+                    trailing: Switch(
+                      value: themeProvider.currentThemeType == ThemeType.dark,
+                      onChanged: (_) {
+                        themeProvider.toggleTheme();
+                      },
+                    ),
+                    onTap: () {
                       themeProvider.toggleTheme();
                     },
                   ),
-                  onTap: () {
-                    themeProvider.toggleTheme();
-                  },
                 ),
               ),
             )
           ],
           onDone: () => _onIntroEnd(context),
-          onSkip: () =>
-              _onIntroEnd(context), // You can override onSkip callback
-          showSkipButton: true,
+          // onSkip: () =>
+          //     _onIntroEnd(context),
+          showSkipButton: false,
           skipOrBackFlex: 0,
           nextFlex: 0,
-          showBackButton: false,
+          showBackButton: true,
           back: const Icon(Icons.arrow_back),
-          skip:
-              const Text('Skip', style: TextStyle(fontWeight: FontWeight.w600)),
+          // skip:
+          //     const Text('Skip', style: TextStyle(fontWeight: FontWeight.w600)),
           next: const Icon(Icons.arrow_forward),
           done: const Text('Let\'s Go',
               style: TextStyle(fontWeight: FontWeight.w600)),

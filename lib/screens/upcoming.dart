@@ -147,9 +147,11 @@ class UpcomingState extends State<Upcoming> {
                                             alignment: Alignment.centerLeft,
                                             child: Padding(
                                               padding: const EdgeInsets.all(10),
-                                              child: Text(mealShow[index],
-                                                  style: const TextStyle(
-                                                      fontSize: 18)),
+                                              child: Text(
+                                                mealShow[index],
+                                                style: const TextStyle(
+                                                    fontSize: 18),
+                                              ),
                                             ),
                                           ),
                                         )

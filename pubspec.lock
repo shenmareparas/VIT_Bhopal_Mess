@@ -125,10 +125,10 @@ packages:
     dependency: transitive
     description:
       name: dots_indicator
-      sha256: "58b6a365744aa62aa1b70c4ea29e5106fbe064f5edaf7e9652e9b856edbfd9bb"
+      sha256: f1599baa429936ba87f06ae5f2adc920a367b16d08f74db58c3d0f6e93bcdb5c
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0"
+    version: "2.1.2"
   draggable_scrollbar:
     dependency: "direct main"
     description:
@@ -276,10 +276,10 @@ packages:
     dependency: "direct dev"
     description:
       name: icons_launcher
-      sha256: "71cf6baae0f0d1752e3c26035f9e6ea07bd297af72d389e907fb0119e9d56ba1"
+      sha256: af05397792f6d82b93375a8a0253b8db0d3f816ef1dd1bf5c35cbab55321d327
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.2"
+    version: "2.1.3"
   image:
     dependency: transitive
     description:
@@ -300,10 +300,10 @@ packages:
     dependency: "direct main"
     description:
       name: introduction_screen
-      sha256: f39be426026785b8fea4ed93e226e7fc28ef49a4c78c3f86c958bae26dabef00
+      sha256: ef5a5479a8e06a84b9a7eff16c698b9b82f70cd1b6203b264bc3686f9bfb77e2
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.9"
+    version: "3.1.11"
   js:
     dependency: transitive
     description:
@@ -476,10 +476,10 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_foundation
-      sha256: "0dc5c49ad8a05ed358b991b60c7b0ba1a14e16dae58af9b420d6b9e82dc024ab"
+      sha256: b046999bf0ff58f04c364491bb803dcfa8f42e47b19c75478f53d323684a8cc1
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.0"
+    version: "2.3.1"
   shared_preferences_linux:
     dependency: transitive
     description:
@@ -593,10 +593,10 @@ packages:
     dependency: "direct main"
     description:
       name: url_launcher
-      sha256: eb1e00ab44303d50dd487aab67ebc575456c146c6af44422f9c13889984c00f3
+      sha256: "781bd58a1eb16069412365c98597726cd8810ae27435f04b3b4d3a470bacd61e"
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.11"
+    version: "6.1.12"
   url_launcher_android:
     dependency: transitive
     description:
@@ -641,18 +641,18 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_web
-      sha256: "6bb1e5d7fe53daf02a8fee85352432a40b1f868a81880e99ec7440113d5cfcab"
+      sha256: cc26720eefe98c1b71d85f9dc7ef0cada5132617046369d9dc296b3ecaa5cbb4
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.17"
+    version: "2.0.18"
   url_launcher_windows:
     dependency: transitive
     description:
       name: url_launcher_windows
-      sha256: "254708f17f7c20a9c8c471f67d86d76d4a3f9c1591aad1e15292008aceb82771"
+      sha256: "7967065dd2b5fccc18c653b97958fdf839c5478c28e767c61ee879f4e7882422"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.6"
+    version: "3.0.7"
   vector_math:
     dependency: transitive
     description:
