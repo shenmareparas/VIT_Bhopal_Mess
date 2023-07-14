@@ -26,7 +26,7 @@ Future<Widget> firstScreen() async {
   bool isFirstLaunch = prefs.getBool('firstLaunch') ?? true;
 
   await prefs.setBool('firstLaunch', false);
-  return isFirstLaunch ? const Welcome() : const Welcome();
+  return isFirstLaunch ? const Welcome() : const HomeScreen();
 }
 
 class MyApp extends StatelessWidget {
