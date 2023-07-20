@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '/utils/floating_snackbar.dart';
 import 'package:upgrader/upgrader.dart';
+import 'mayuri.dart';
 import 'settings.dart';
 import 'upcoming.dart';
 import 'about.dart';
@@ -37,15 +38,16 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           bottom: TabBar(
             onTap: (_) => FocusManager.instance.primaryFocus?.unfocus(),
             tabs: const [
               Tab(text: "Upcoming", icon: Icon(Icons.restaurant_rounded)),
+              Tab(text: "UB", icon: Icon(Icons.lunch_dining)),
+              Tab(text: "Mayuri", icon: Icon(Icons.fastfood_rounded)),
               Tab(text: "Canteen", icon: Icon(Icons.storefront)),
-              Tab(text: "UnderBelly", icon: Icon(Icons.fastfood_rounded)),
             ],
           ),
           centerTitle: true,
@@ -98,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
             durationUntilAlertAgain: const Duration(days: 1),
           ),
           child: const TabBarView(
-            children: [Upcoming(), Canteen(), UnderBelly()],
+            children: [Upcoming(), UnderBelly(), Mayuri(), Canteen()],
           ),
         ),
       ),

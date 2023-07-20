@@ -50,14 +50,14 @@ class _AboutState extends State<About> {
                       ),
                     ),
                     const Text(
-                      'v1.0.8',
+                      'v1.0.9',
                       style: TextStyle(
                         fontSize: 14,
                       ),
                     ),
                     const SizedBox(height: 25),
                     const Text(
-                      "This app aims to make it easier for\nVIT Bhopal University Students\nto find the correct food item\navailable at the mess based on\nthe current day and time",
+                      "App aims to make it easier for\nVIT Bhopal University Students\nto find the correct food item\navailable at the mess based on\nthe current day and time",
                       style: TextStyle(
                         fontSize: 17,
                       ),
@@ -102,7 +102,7 @@ class _AboutState extends State<About> {
                       child: const IntrinsicWidth(
                         child: Row(
                           children: [
-                            Text('800+ Downloads  '),
+                            Text('1K+ Downloads  '),
                             Icon(Icons.celebration_rounded)
                           ],
                         ),
