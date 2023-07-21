@@ -102,7 +102,7 @@ class _AboutState extends State<About> {
                       child: const IntrinsicWidth(
                         child: Row(
                           children: [
-                            Text('1K+ Downloads  '),
+                            Text('1 K+ Downloads  '),
                             Icon(Icons.celebration_rounded)
                           ],
                         ),

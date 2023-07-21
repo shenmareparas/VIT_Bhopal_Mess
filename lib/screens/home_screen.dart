@@ -6,7 +6,7 @@ import '/utils/floating_snackbar.dart';
 import 'package:upgrader/upgrader.dart';
 import 'mayuri.dart';
 import 'settings.dart';
-import 'upcoming.dart';
+import 'mess.dart';
 import 'about.dart';
 import 'canteen.dart';
 import 'underbelly.dart';
@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
           bottom: TabBar(
             onTap: (_) => FocusManager.instance.primaryFocus?.unfocus(),
             tabs: const [
-              Tab(text: "Upcoming", icon: Icon(Icons.restaurant_rounded)),
+              Tab(text: "Mess", icon: Icon(Icons.restaurant_rounded)),
               Tab(text: "UB", icon: Icon(Icons.lunch_dining)),
               Tab(text: "Mayuri", icon: Icon(Icons.fastfood_rounded)),
               Tab(text: "Canteen", icon: Icon(Icons.storefront)),
@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
             durationUntilAlertAgain: const Duration(days: 1),
           ),
           child: const TabBarView(
-            children: [Upcoming(), UnderBelly(), Mayuri(), Canteen()],
+            children: [Mess(), UnderBelly(), Mayuri(), Canteen()],
           ),
         ),
       ),

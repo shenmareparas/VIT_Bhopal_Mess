@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '/parsers/upcomming_menu_paser.dart';
+import '/parsers/mess_menu_paser.dart';
 import 'settings.dart';
 
-class Upcoming extends StatefulWidget {
-  const Upcoming({super.key});
+class Mess extends StatefulWidget {
+  const Mess({super.key});
 
   @override
-  State<Upcoming> createState() => UpcomingState();
+  State<Mess> createState() => MessState();
 }
 
-class UpcomingState extends State<Upcoming> {
+class MessState extends State<Mess> {
   void resetValues() {
     setState(() {
       formattedDate = DateFormat('EEEE').format(DateTime.now());
