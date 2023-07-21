@@ -216,31 +216,33 @@ class CartUBState extends State<CartUB> {
               '${underBellyState.getSelectedItemsCount()} Item  |  ₹${underBellyState.getTotalPrice().toStringAsFixed(0)}',
               style: const TextStyle(fontSize: 17),
             ),
-            ElevatedButton(
-              onPressed: () async {
-                String messageText =
-                    'Order:\n${itemNamesWithQuantities.join('')}';
-                String whatsapp =
-                    'https://wa.me/91$telUB?text=${Uri.encodeComponent(messageText)}';
-                launchUrlString(whatsapp,
-                    mode: LaunchMode.externalNonBrowserApplication);
-              },
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                side: const BorderSide(color: Color(0xFFD0EE82)),
-              ),
-              child: const Row(
-                children: [
-                  Text(
-                    'Send Order  ',
-                    style: TextStyle(fontSize: 17),
+            widget.selectedItemsUB.isEmpty
+                ? const SizedBox()
+                : ElevatedButton(
+                    onPressed: () async {
+                      String messageText =
+                          'Order:\n${itemNamesWithQuantities.join('')}';
+                      String whatsapp =
+                          'https://wa.me/91$telUB?text=${Uri.encodeComponent(messageText)}';
+                      launchUrlString(whatsapp,
+                          mode: LaunchMode.externalNonBrowserApplication);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      side: const BorderSide(color: Color(0xFFD0EE82)),
+                    ),
+                    child: const Row(
+                      children: [
+                        Text(
+                          'Send Order  ',
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        Icon(FontAwesomeIcons.whatsapp),
+                      ],
+                    ),
                   ),
-                  Icon(FontAwesomeIcons.whatsapp),
-                ],
-              ),
-            ),
           ],
         ),
       ),

@@ -41,7 +41,7 @@ class _AboutState extends State<About> {
                       radius: 130,
                       backgroundImage: AssetImage('assets/images/icon.png'),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 15),
                     const Text(
                       'VITB Mess',
                       style: TextStyle(
@@ -55,7 +55,7 @@ class _AboutState extends State<About> {
                         fontSize: 14,
                       ),
                     ),
-                    const SizedBox(height: 25),
+                    const SizedBox(height: 15),
                     const Text(
                       "App aims to make it easier for\nVIT Bhopal University Students\nto find the correct food item\navailable at the mess based on\nthe current day and time",
                       style: TextStyle(
@@ -102,7 +102,7 @@ class _AboutState extends State<About> {
                       child: const IntrinsicWidth(
                         child: Row(
                           children: [
-                            Text('1 K+ Downloads  '),
+                            Text('1K+ Downloads  '),
                             Icon(Icons.celebration_rounded)
                           ],
                         ),

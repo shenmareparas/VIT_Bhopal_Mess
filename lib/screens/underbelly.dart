@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '/models/map.dart';
 import 'cartUB.dart';
 
@@ -121,7 +122,7 @@ class UnderBellyState extends State<UnderBelly> {
                     child: const FloatingActionButton(
                       elevation: 5,
                       onPressed: null,
-                      child: Icon(Icons.filter_list),
+                      child: Icon(FontAwesomeIcons.arrowDownShortWide),
                     ),
                   ),
                 ),

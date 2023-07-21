@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '/utils/floating_snackbar.dart';
 import 'package:upgrader/upgrader.dart';
@@ -44,10 +45,10 @@ class _HomeScreenState extends State<HomeScreen> {
           bottom: TabBar(
             onTap: (_) => FocusManager.instance.primaryFocus?.unfocus(),
             tabs: const [
-              Tab(text: "Mess", icon: Icon(Icons.restaurant_rounded)),
-              Tab(text: "UB", icon: Icon(Icons.lunch_dining)),
-              Tab(text: "Mayuri", icon: Icon(Icons.fastfood_rounded)),
-              Tab(text: "Canteen", icon: Icon(Icons.storefront)),
+              Tab(text: "Mess", icon: Icon(FontAwesomeIcons.utensils)),
+              Tab(text: "UB", icon: Icon(FontAwesomeIcons.burger)),
+              Tab(text: "Mayuri's", icon: Icon(FontAwesomeIcons.store)),
+              Tab(text: "Canteen", icon: Icon(FontAwesomeIcons.hotel)),
             ],
           ),
           centerTitle: true,
@@ -56,6 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Builder(
               builder: (BuildContext context) => PopupMenuButton(
                 tooltip: "More Options",
+                icon: const Icon(FontAwesomeIcons.ellipsisVertical),
                 itemBuilder: (BuildContext context) => [
                   const PopupMenuItem(
                     value: 'Settings',
