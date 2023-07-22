@@ -114,7 +114,7 @@ class _WelcomeState extends State<Welcome> {
                       DropdownMenuItem<int>(
                         value: 3,
                         child: Text(
-                          'Girls Hostel CRCL Mess',
+                          'Girls Hostel AB Mess',
                           style: TextStyle(fontSize: 18),
                         ),
                       ),
