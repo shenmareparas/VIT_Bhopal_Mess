@@ -60,9 +60,9 @@ class _WelcomeState extends State<Welcome> {
               title: "VIT Bhopal Mess",
               body:
                   "Designed to simplify the process of finding out the correct food item available at the mess based on the current day and time.",
-              image: Image.asset(
-                'assets/images/icon_circle.png',
-                width: 350,
+              image: const CircleAvatar(
+                radius: 150,
+                backgroundImage: AssetImage('assets/images/icon_new.png'),
               ),
               decoration: pageDecoration,
             ),

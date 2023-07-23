@@ -39,7 +39,7 @@ class _AboutState extends State<About> {
                   children: [
                     const CircleAvatar(
                       radius: 130,
-                      backgroundImage: AssetImage('assets/images/icon.png'),
+                      backgroundImage: AssetImage('assets/images/icon_new.png'),
                     ),
                     const SizedBox(height: 15),
                     const Text(
@@ -50,7 +50,7 @@ class _AboutState extends State<About> {
                       ),
                     ),
                     const Text(
-                      'v1.1.0',
+                      'v1.1.1',
                       style: TextStyle(
                         fontSize: 14,
                       ),
