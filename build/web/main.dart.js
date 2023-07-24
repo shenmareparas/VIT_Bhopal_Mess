@@ -97207,7 +97207,7 @@ var s=this.d
 s.am$=$.aR()
 s.a3$=0},
 H(a){var s=null,r=t.p
-return A.hG(B.fp,A.a([A.iR(A.z7(s,s,!0,B.a1a),s,A.kq(A.rY(new A.be(B.fK,A.d1(A.a([B.EQ,B.dK,B.a1n,B.a1_,B.dK,B.a17,B.dK,B.a1i,B.dK,A.jn(B.Jr,new A.apb(),s),B.B3,A.jn(B.Js,new A.apc(this),s)],r),B.y,B.dr,B.F),s),s,B.R,s,s,B.ac),s,s),s,s),new A.zO(this.d,1.5707963267948966,0.01,0.07,B.N9,s)],r),B.X,B.b3,s)}}
+return A.hG(B.fp,A.a([A.iR(A.z7(s,s,!0,B.a1a),s,A.kq(A.rY(new A.be(B.fK,A.d1(A.a([B.EP,B.dK,B.a1n,B.a1_,B.dK,B.a17,B.dK,B.a1i,B.dK,A.jn(B.Jr,new A.apb(),s),B.B3,A.jn(B.Js,new A.apc(this),s)],r),B.y,B.dr,B.F),s),s,B.R,s,s,B.ac),s,s),s,s),new A.zO(this.d,1.5707963267948966,0.01,0.07,B.N9,s)],r),B.X,B.b3,s)}}
 A.apb.prototype={
 $0(){A.aAw(A.tA(B.h7,"mailto:shenmareparas+vitbmess@gmail.com?subject=VIT Bhopal Mess Feedback",B.a5,!1),B.k_)},
 $S:0}
@@ -98098,11 +98098,11 @@ case 3:s=2
 return A.V(c.oD("Int","selectedMess",$.aEJ),$async$ko)
 case 2:return A.R(null,r)}})
 return A.S($async$ko,r)},
-H(a){var s,r=null,q=A.aCW(a,t.eC),p=A.aCL("Designed to simplify the process of finding out the correct food item available at the mess based on the current day and time.",B.kM,r,B.ER,"VIT Bhopal Mess"),o=A.w(a).ax.a===B.x?A.I(51,78,103,0):A.I(51,208,238,130),n=A.dH(15)
+H(a){var s,r=null,q=A.aCW(a,t.eC),p=A.aCL("Designed to simplify the process of finding out the correct food item available at the mess based on the current day and time.",B.kM,r,B.EQ,"VIT Bhopal Mess"),o=A.w(a).ax.a===B.x?A.I(51,78,103,0):A.I(51,208,238,130),n=A.dH(15)
 n=A.aCL("Select your preferred Mess",B.kM,new A.be(B.or,A.bF(r,new A.uG(B.MF,$.aEJ,this.gK2(),A.bF(r,r,B.j,r,r,r,r,r,r,r,r,r,r),!0,r,t.CB),B.j,r,r,new A.d5(o,r,r,n,r,r,B.av),r,r,r,B.cN,r,r,r),r),B.EO,"Choose Mess")
 o=A.w(a).ax.a===B.x?A.I(51,78,103,0):A.I(51,208,238,130)
 s=A.dH(15)
-return A.iR(r,r,A.we(!0,new A.Bh(A.a([p,n,A.aCL("Default is set to Light Theme,\nswitch to change it to Dark Theme.",B.kM,new A.be(B.or,A.bF(r,A.i5(!1,r,r,r,!0,r,!1,r,r,new A.ayb(q),!1,r,r,r,r,r,B.Bs,new A.Ex(q.b===B.i5,new A.ayc(q),B.a4y,!1,r),r),B.j,r,r,new A.d5(o,r,r,s,r,r,B.av),r,r,r,B.cN,r,r,r),r),B.EP,"App Theme")],t.bR),new A.ayd(this,a),B.a19,B.IQ,B.IZ,!1,!0,B.Hh,B.VN,0,0,B.ji,B.bQ,B.jz,r),!0,B.ah,!0,!0),r,r)}}
+return A.iR(r,r,A.we(!0,new A.Bh(A.a([p,n,A.aCL("Default is set to Light Theme,\nswitch to change it to Dark Theme.",B.kM,new A.be(B.or,A.bF(r,A.i5(!1,r,r,r,!0,r,!1,r,r,new A.ayb(q),!1,r,r,r,r,r,B.Bs,new A.Ex(q.b===B.i5,new A.ayc(q),B.a4y,!1,r),r),B.j,r,r,new A.d5(o,r,r,s,r,r,B.av),r,r,r,B.cN,r,r,r),r),B.ER,"App Theme")],t.bR),new A.ayd(this,a),B.a19,B.IQ,B.IZ,!1,!0,B.Hh,B.VN,0,0,B.ji,B.bQ,B.jz,r),!0,B.ah,!0,!0),r,r)}}
 A.aya.prototype={
 $1(a){return B.oO},
 $S:544}
@@ -101997,12 +101997,12 @@ B.ny=new A.q(4284322324)
 B.IS=new A.dn(B.IA,250,100,B.ny,null,null)
 B.k=new A.q(4294967295)
 B.EO=new A.nE(B.IS,B.k,null,350,null)
+B.mB=new A.tS("assets/images/icon.png",null,null)
+B.EP=new A.nE(null,null,B.mB,130,null)
+B.EQ=new A.nE(null,null,B.mB,150,null)
 B.ID=new A.dS(57608,"MaterialIcons",null,!1)
 B.IY=new A.dn(B.ID,250,null,B.ny,null,null)
-B.EP=new A.nE(B.IY,B.k,null,300,null)
-B.mB=new A.tS("assets/images/icon_new.png",null,null)
-B.EQ=new A.nE(null,null,B.mB,130,null)
-B.ER=new A.nE(null,null,B.mB,150,null)
+B.ER=new A.nE(B.IY,B.k,null,300,null)
 B.dX=new A.es(0,B.m)
 B.ES=new A.zF(B.kY)
 B.na=new A.zF(null)

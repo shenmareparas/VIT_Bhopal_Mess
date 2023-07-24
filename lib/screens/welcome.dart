@@ -62,7 +62,7 @@ class _WelcomeState extends State<Welcome> {
                   "Designed to simplify the process of finding out the correct food item available at the mess based on the current day and time.",
               image: const CircleAvatar(
                 radius: 150,
-                backgroundImage: AssetImage('assets/images/icon_new.png'),
+                backgroundImage: AssetImage('assets/images/icon.png'),
               ),
               decoration: pageDecoration,
             ),
