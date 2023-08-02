@@ -50,7 +50,7 @@ class _AboutState extends State<About> {
                       ),
                     ),
                     const Text(
-                      'v1.1.1',
+                      'v1.1.2',
                       style: TextStyle(
                         fontSize: 14,
                       ),
