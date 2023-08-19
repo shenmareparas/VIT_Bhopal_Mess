@@ -425,8 +425,8 @@ const Map<String, Map<String, List<String>>> mess_1 = {
   },
   "Tuesday": {
     "Breakfast": [
-      "Paratha/Poori",
-      "Sabji",
+      "Paratha",
+      "Veg Sabji",
       "Banana/Fruit Salad",
       "Bread",
       "Butter/Jam",
@@ -519,7 +519,7 @@ const Map<String, Map<String, List<String>>> mess_1 = {
   },
   "Friday": {
     "Breakfast": [
-      "Pav Bhaji",
+      "Poori/Veg Sabji",
       "Upma",
       "Chutney",
       "Fruit",
@@ -537,7 +537,7 @@ const Map<String, Map<String, List<String>>> mess_1 = {
       "Rasam",
       "Fryums"
     ],
-    "Snacks": ["Cake/Patties", "Tea, Coffee, Milk"],
+    "Snacks": ["Patties", "Tea, Coffee, Milk"],
     "Dinner": [
       "Roti",
       "Rice",
@@ -561,7 +561,7 @@ const Map<String, Map<String, List<String>>> mess_1 = {
       "Salad",
       "Roti",
       "Chana Dal",
-      "Khichdi/Tamarind Bhat",
+      "Khichdi/Tamarind Rice",
       "Meal Maker Masala",
       "Simla Aloo",
       "Rice",
@@ -569,10 +569,10 @@ const Map<String, Map<String, List<String>>> mess_1 = {
       "Rasam",
       "Butter Milk"
     ],
-    "Snacks": ["Samosa/Mirchi Bhaji", "Tea, Coffee, Milk"],
+    "Snacks": ["Samosa", "Tea, Coffee, Milk"],
     "Dinner": [
       "Chapati",
-      "Fried Rice/Noodles",
+      "Fried Rice",
       "Dal Fry",
       "Veg Manchurian",
       "Rice",
@@ -596,7 +596,7 @@ const Map<String, Map<String, List<String>>> mess_1 = {
       "Masala Dal/Butter Paneer",
       "Mint Lemon Juice"
     ],
-    "Snacks": ["Dhokla/Pasta", "Sauce", "Tea, Coffee, Milk"],
+    "Snacks": ["Dhokla/Pasta", "Green Chutney", "Tea, Coffee, Milk"],
     "Dinner": [
       "Chapati",
       "Rice",

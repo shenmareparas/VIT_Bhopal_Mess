@@ -50,7 +50,7 @@ class _AboutState extends State<About> {
                       ),
                     ),
                     const Text(
-                      'v1.1.2',
+                      'v1.1.3',
                       style: TextStyle(
                         fontSize: 14,
                       ),
@@ -102,7 +102,7 @@ class _AboutState extends State<About> {
                       child: const IntrinsicWidth(
                         child: Row(
                           children: [
-                            Text('1K+ Downloads  '),
+                            Text('1.5K+ Downloads  '),
                             Icon(Icons.celebration_rounded)
                           ],
                         ),
