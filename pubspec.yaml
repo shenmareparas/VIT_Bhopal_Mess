@@ -70,6 +70,10 @@ flutter:
     assets:
         - assets/images/icon.png
         - assets/images/icon_circle.png
+        - assets/images/paras_shenmare.jpg
+        - assets/images/aman_singh.jpg
+        - assets/images/shreya_saha.jpg
+        - assets/images/spelldrake.jpg
 
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware

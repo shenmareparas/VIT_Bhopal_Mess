@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import '/utils/floating_snackbar.dart';
 import 'package:upgrader/upgrader.dart';
+import 'developer.dart';
 import 'mayuri.dart';
 import 'settings.dart';
 import 'mess.dart';
@@ -95,6 +96,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   const PopupMenuItem(
+                    value: 'Developer',
+                    child: Row(
+                      children: [
+                        Icon(Icons.android),
+                        SizedBox(width: 10),
+                        Text('Developer', style: TextStyle(fontSize: 17)),
+                      ],
+                    ),
+                  ),
+                  const PopupMenuItem(
                     value: 'About',
                     child: Row(
                       children: [
@@ -114,12 +125,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             builder: (context) => const Settings()),
                       );
                       break;
-                    case 'About':
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const About()),
-                      );
-                      break;
                     case 'Share':
                       Share.share(
                           '"VIT Bhopal Mess" App and website, specifically designed to enhance the dining experience for VIT Bhopal students 🍽\n\n(Google Play Store)\nhttps://play.google.com/store/apps/details?id=com.shenmareparas.vit_mess\n☝☝☝\n\n(Website)\nvitbmess.vercel.app\n☝☝☝');
@@ -128,6 +133,19 @@ class _HomeScreenState extends State<HomeScreen> {
                       launchUrlString(
                           mode: LaunchMode.externalNonBrowserApplication,
                           "https://play.google.com/store/apps/details?id=com.shenmareparas.vit_mess");
+                      break;
+                    case 'Developer':
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Developer()),
+                      );
+                      break;
+                    case 'About':
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const About()),
+                      );
                       break;
                     default:
                       showFloatingSnackbar(context, 'Error Case not Found');
