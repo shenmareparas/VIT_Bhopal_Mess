@@ -272,47 +272,6 @@ class _DeveloperState extends State<Developer> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10),
-                  FadeInUp(
-                    duration: const Duration(milliseconds: 400),
-                    delay: const Duration(milliseconds: 600),
-                    child: const Card(
-                      elevation: 3,
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                            top: 15, bottom: 10, left: 5, right: 5),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Spelldrake',
-                                      style: TextStyle(
-                                          fontSize: 25,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      '? | Unknown',
-                                      style: TextStyle(fontSize: 13),
-                                    ),
-                                  ],
-                                ),
-                                CircleAvatar(
-                                  radius: 55,
-                                  backgroundImage: AssetImage(
-                                      'assets/images/spelldrake.jpg'),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
