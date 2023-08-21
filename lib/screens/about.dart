@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:confetti/confetti.dart';
@@ -37,9 +38,11 @@ class _AboutState extends State<About> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const CircleAvatar(
-                      radius: 130,
-                      backgroundImage: AssetImage('assets/images/icon.png'),
+                    ZoomIn(
+                      child: const CircleAvatar(
+                        radius: 130,
+                        backgroundImage: AssetImage('assets/images/icon.png'),
+                      ),
                     ),
                     const SizedBox(height: 15),
                     const Text(

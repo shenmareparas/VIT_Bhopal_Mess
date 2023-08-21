@@ -43,6 +43,7 @@ dependencies:
     animate_do: ^3.0.2
     font_awesome_flutter: ^10.5.0
     share_plus: ^7.1.0
+    flutter_animate: ^4.2.0+1
 
 dev_dependencies:
     flutter_test:

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:easy_splash_screen/easy_splash_screen.dart';
@@ -65,7 +66,7 @@ class MyApp extends StatelessWidget {
               },
             ),
           ),
-        );
+        ).animate().fadeIn(duration: 400.ms);
       },
     );
   }

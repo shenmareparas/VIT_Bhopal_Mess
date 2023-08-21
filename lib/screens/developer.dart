@@ -117,11 +117,14 @@ class _DeveloperState extends State<Developer> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const Text(
-                    'Contributor :',
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
+                  const Padding(
+                    padding: EdgeInsets.only(left: 8),
+                    child: Text(
+                      'Contributor',
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 10),
