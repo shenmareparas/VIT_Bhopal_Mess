@@ -1,7 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:vit_bhopal_mess/widgets/dev_card.dart';
 
 class Developer extends StatefulWidget {
   const Developer({super.key});
@@ -30,90 +30,37 @@ class _DeveloperState extends State<Developer> {
                 children: [
                   FadeInUp(
                     duration: const Duration(milliseconds: 400),
-                    child: Card(
-                      elevation: 3,
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            top: 15, bottom: 10, left: 5, right: 5),
-                        child: Column(
-                          children: [
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Paras Shenmare',
-                                      style: TextStyle(
-                                          fontSize: 25,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      '20 | Yavatmal, Maharashtra',
-                                      style: TextStyle(fontSize: 13),
-                                    ),
-                                  ],
-                                ),
-                                CircleAvatar(
-                                  radius: 55,
-                                  backgroundImage: AssetImage(
-                                      'assets/images/paras_shenmare.jpg'),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 5),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                IconButton(
-                                    tooltip: "Github",
-                                    iconSize: 40,
-                                    onPressed: () {
-                                      launchUrlString(
-                                          mode: LaunchMode
-                                              .externalNonBrowserApplication,
-                                          "https://github.com/shenmareparas");
-                                    },
-                                    icon: const Icon(FontAwesomeIcons.github)),
-                                IconButton(
-                                    tooltip: "LinkedIn",
-                                    iconSize: 40,
-                                    onPressed: () {
-                                      launchUrlString(
-                                          mode: LaunchMode
-                                              .externalNonBrowserApplication,
-                                          "https://www.linkedin.com/in/parasshenmare");
-                                    },
-                                    icon:
-                                        const Icon(FontAwesomeIcons.linkedin)),
-                                IconButton(
-                                    tooltip: "Instagram",
-                                    iconSize: 40,
-                                    onPressed: () {
-                                      launchUrlString(
-                                          mode: LaunchMode
-                                              .externalNonBrowserApplication,
-                                          "https://www.instagram.com/paras_shenmare");
-                                    },
-                                    icon:
-                                        const Icon(FontAwesomeIcons.instagram)),
-                                IconButton(
-                                    tooltip: "Google Play",
-                                    iconSize: 33,
-                                    onPressed: () {
-                                      launchUrlString(
-                                          mode: LaunchMode
-                                              .externalNonBrowserApplication,
-                                          "https://play.google.com/store/apps/dev?id=5625933656259473047");
-                                    },
-                                    icon: const Icon(
-                                        FontAwesomeIcons.googlePlay)),
-                              ],
-                            ),
-                          ],
+                    child: DevCard(
+                      name: "Paras Shenmare",
+                      description: "20 | Yavatmal, Maharashtra",
+                      image: "assets/images/paras_shenmare.jpg",
+                      socials: [
+                        Socials(
+                          tooltip: "Github",
+                          iconSize: 40,
+                          icon: const Icon(FontAwesomeIcons.github),
+                          link: "https://github.com/shenmareparas",
                         ),
-                      ),
+                        Socials(
+                          tooltip: "LinkedIn",
+                          iconSize: 40,
+                          icon: const Icon(FontAwesomeIcons.linkedin),
+                          link: "https://www.linkedin.com/in/parasshenmare",
+                        ),
+                        Socials(
+                          tooltip: "Instagram",
+                          iconSize: 40,
+                          icon: const Icon(FontAwesomeIcons.instagram),
+                          link: "https://www.instagram.com/paras_shenmare",
+                        ),
+                        Socials(
+                          tooltip: "Google Play",
+                          iconSize: 33,
+                          icon: const Icon(FontAwesomeIcons.googlePlay),
+                          link:
+                              "https://play.google.com/store/apps/dev?id=5625933656259473047",
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -131,149 +78,50 @@ class _DeveloperState extends State<Developer> {
                   FadeInUp(
                     duration: const Duration(milliseconds: 400),
                     delay: const Duration(milliseconds: 200),
-                    child: Card(
-                      elevation: 3,
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            top: 15, bottom: 10, left: 5, right: 5),
-                        child: Column(
-                          children: [
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Aman Singh',
-                                      style: TextStyle(
-                                          fontSize: 25,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      '21 | Meerut, Uttar Pradesh',
-                                      style: TextStyle(fontSize: 13),
-                                    ),
-                                  ],
-                                ),
-                                CircleAvatar(
-                                  radius: 55,
-                                  backgroundImage: AssetImage(
-                                      'assets/images/aman_singh.jpg'),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 5),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                IconButton(
-                                    tooltip: "Instagram",
-                                    iconSize: 40,
-                                    onPressed: () {
-                                      launchUrlString(
-                                          mode: LaunchMode
-                                              .externalNonBrowserApplication,
-                                          "https://www.instagram.com/aman_1311_");
-                                    },
-                                    icon:
-                                        const Icon(FontAwesomeIcons.instagram)),
-                                IconButton(
-                                    tooltip: "LinkedIn",
-                                    iconSize: 40,
-                                    onPressed: () {
-                                      launchUrlString(
-                                          mode: LaunchMode
-                                              .externalNonBrowserApplication,
-                                          "https://www.linkedin.com/in/amankumarsingh1311");
-                                    },
-                                    icon:
-                                        const Icon(FontAwesomeIcons.linkedin)),
-                                IconButton(
-                                    tooltip: "Twitter",
-                                    iconSize: 40,
-                                    onPressed: () {
-                                      launchUrlString(
-                                          mode: LaunchMode
-                                              .externalNonBrowserApplication,
-                                          "https://twitter.com/Aman_Kumar_1311");
-                                    },
-                                    icon: const Icon(FontAwesomeIcons.twitter)),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    child: DevCard(
+                        name: "Aman Kumar",
+                        description: "21 | Meerut, Uttar Pradesh",
+                        image: "assets/images/aman_singh.jpg",
+                        socials: [
+                          Socials(
+                              tooltip: "Instagram",
+                              iconSize: 40,
+                              icon: const Icon(FontAwesomeIcons.instagram),
+                              link: "https://www.instagram.com/aman_1311_"),
+                          Socials(
+                              tooltip: "LinkedIn",
+                              iconSize: 40,
+                              icon: const Icon(FontAwesomeIcons.linkedin),
+                              link:
+                                  "https://www.linkedin.com/in/amankumarsingh1311"),
+                          Socials(
+                              tooltip: "Twitter",
+                              iconSize: 40,
+                              icon: const Icon(FontAwesomeIcons.twitter),
+                              link: "https://twitter.com/Aman_Kumar_1311"),
+                        ]),
                   ),
                   const SizedBox(height: 10),
                   FadeInUp(
                     duration: const Duration(milliseconds: 400),
                     delay: const Duration(milliseconds: 400),
-                    child: Card(
-                      elevation: 3,
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            top: 15, bottom: 10, left: 5, right: 5),
-                        child: Column(
-                          children: [
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Shreya Saha',
-                                      style: TextStyle(
-                                          fontSize: 25,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      '20 | Thane, Maharashtra',
-                                      style: TextStyle(fontSize: 13),
-                                    ),
-                                  ],
-                                ),
-                                CircleAvatar(
-                                  radius: 55,
-                                  backgroundImage: AssetImage(
-                                      'assets/images/shreya_saha.jpg'),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 5),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                IconButton(
-                                    tooltip: "Instagram",
-                                    iconSize: 40,
-                                    onPressed: () {
-                                      launchUrlString(
-                                          mode: LaunchMode
-                                              .externalNonBrowserApplication,
-                                          "https://instagram.com/shreya.sahahaha");
-                                    },
-                                    icon:
-                                        const Icon(FontAwesomeIcons.instagram)),
-                                IconButton(
-                                    tooltip: "E-mail",
-                                    iconSize: 40,
-                                    onPressed: () {
-                                      String email = 'shreyruby@gmail.com';
-                                      String subject = 'VIT Bhopal Mess';
-                                      String mailto = Uri.encodeFull(
-                                          'mailto:$email?subject=$subject');
-                                      launchUrlString(mailto);
-                                    },
-                                    icon: const Icon(Icons.mail_rounded)),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    child: DevCard(
+                        name: "Shreya Saha",
+                        description: "20 | Thane, Maharashtra",
+                        image: "assets/images/shreya_saha.jpg",
+                        socials: [
+                          Socials(
+                              tooltip: "Instagram",
+                              iconSize: 40,
+                              icon: const Icon(FontAwesomeIcons.instagram),
+                              link: "https://instagram.com/shreya.sahahaha"),
+                          Socials(
+                              tooltip: "E-mail",
+                              iconSize: 45,
+                              icon: const Icon(Icons.mail_rounded),
+                              link:
+                                  "mailto:shreyruby@gmail.com?subject=VIT%20Bhopal%20Mess"),
+                        ]),
                   ),
                 ],
               ),

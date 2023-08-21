@@ -77,11 +77,8 @@ class _AboutState extends State<About> {
                     const SizedBox(height: 15),
                     ElevatedButton(
                       onPressed: () {
-                        String email = 'shenmareparas+vitbmess@gmail.com';
-                        String subject = 'VIT Bhopal Mess Feedback';
-                        String mailto =
-                            Uri.encodeFull('mailto:$email?subject=$subject');
-                        launchUrlString(mailto);
+                        launchUrlString(
+                            "mailto:shenmareparas+vitbmess@gmail.com?subject=VIT%20Bhopal%20Mess%20Feedback");
                       },
                       child: const IntrinsicWidth(
                         child: Row(
