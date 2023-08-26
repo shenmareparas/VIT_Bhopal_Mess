@@ -3,14 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vit_bhopal_mess/widgets/dev_card.dart';
 
-class Developer extends StatefulWidget {
+class Developer extends StatelessWidget {
   const Developer({super.key});
 
-  @override
-  State<Developer> createState() => _DeveloperState();
-}
-
-class _DeveloperState extends State<Developer> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -105,6 +100,28 @@ class _DeveloperState extends State<Developer> {
                   FadeInUp(
                     duration: const Duration(milliseconds: 400),
                     delay: const Duration(milliseconds: 400),
+                    child: DevCard(
+                        name: "Parth Mittal",
+                        description: "18 | Faridabad, Haryana",
+                        image: "assets/images/parth_mittal.jpg",
+                        socials: [
+                          Socials(
+                              tooltip: "Instagram",
+                              iconSize: 40,
+                              icon: const Icon(FontAwesomeIcons.instagram),
+                              link: "https://www.instagram.com/pa_rth_02"),
+                          Socials(
+                              tooltip: "E-mail",
+                              iconSize: 45,
+                              icon: const Icon(Icons.mail_rounded),
+                              link:
+                                  "mailto:parth.mittal021@gmail.com?subject=VIT%20Bhopal%20Mess"),
+                        ]),
+                  ),
+                  const SizedBox(height: 10),
+                  FadeInUp(
+                    duration: const Duration(milliseconds: 400),
+                    delay: const Duration(milliseconds: 600),
                     child: DevCard(
                         name: "Shreya Saha",
                         description: "20 | Thane, Maharashtra",
