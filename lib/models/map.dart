@@ -803,7 +803,7 @@ const Map<String, Map<String, List<String>>> mess_2 = {
       "Masala Dal",
       "Matar Paneer",
     ],
-    "Snacks": ["Dhokla/Pasta","Sauce", "Tea, Coffee, Milk"],
+    "Snacks": ["Dhokla/Pasta", "Sauce", "Tea, Coffee, Milk"],
     "Dinner": [
       "Chapati",
       "Rice",
@@ -819,10 +819,10 @@ const Map<String, Map<String, List<String>>> mess_2 = {
 const Map<String, Map<String, List<String>>> mess_3 = {
   "Monday": {
     "Breakfast": [
-      "Idly",
-      "Midhu Vada",
-      "Sambhar, Chutney",
-      "Banana/Fruits Salad",
+      "Aloo Paratha",
+      "Pudina Chutney/ Tomato Chutney",
+      "Cure",
+      "Banana",
       "Bread + Butter/Jam",
       "Tea, Coffee, Milk"
     ],
@@ -838,7 +838,7 @@ const Map<String, Map<String, List<String>>> mess_3 = {
       "Butter Milk",
       "Papad",
     ],
-    "Snacks": ["Kachori/Samosa", "Tea, Coffee, Milk"],
+    "Snacks": ["Samosa", "Tea, Coffee, Milk"],
     "Dinner": [
       "Methi Chapati",
       "Kadi Pakoda",
@@ -852,14 +852,14 @@ const Map<String, Map<String, List<String>>> mess_3 = {
   "Tuesday": {
     "Breakfast": [
       "Poori",
-      "Veg Bhaji",
+      "Veg Sabji/ Aloo Sabji",
       "Fruit Salad",
       "Bread + Butter/Jam",
       "Tea, Coffee, Milk",
     ],
     "Lunch": [
       "Chapati",
-      "Chana Masala",
+      "Channa Masala",
       "Kaju Rice",
       "Dal Tadka",
       "White Rice",
@@ -870,7 +870,7 @@ const Map<String, Map<String, List<String>>> mess_3 = {
       "Fresh Juice",
       "Salad",
     ],
-    "Snacks": ["Papdi Chat/Chole Chat", "Tea, Coffee, Milk"],
+    "Snacks": ["Pani Poori/ Aloo Bonda", "Tea, Coffee, Milk"],
     "Dinner": [
       "Coriander Chapati",
       "Peas Pulav",
@@ -879,14 +879,15 @@ const Map<String, Map<String, List<String>>> mess_3 = {
       "White Rice",
       "Rasam",
       "Pickle",
-      "Fruit Custard",
+      "Fruit Custard/ Vermicelli Kheer",
     ],
   },
   "Wednesday": {
     "Breakfast": [
-      "Aloo Paratha",
-      "Pudina Chutney",
-      "Banana",
+      "Idli",
+      "Medhu Vada/ Masala Vada",
+      "Sambar, Coconut Chutney",
+      "Banana/ Fruits Salad",
       "Bread + Butter/Jam",
       "Tea, Coffee, Milk"
     ],
@@ -900,23 +901,24 @@ const Map<String, Map<String, List<String>>> mess_3 = {
       "Rasam",
       "Pickel",
       "Salad",
-      "Curd",
+      "Butter Milk",
       "Payasam",
     ],
-    "Snacks": ["Pani Poori/Aloo Bonda", "Tea, Coffee, Milk"],
+    "Snacks": ["Bhel Puri/ Chole Chat", "Tea, Coffee, Milk"],
     "Dinner": [
       "Chapati",
       "Plain Dal",
       "White Rice",
-      "Chicken Masala",
-      "Paneer Masala",
+      "Butter Chicken",
+      "Aloo 65",
       "Rasam",
       "Pickle",
     ],
   },
   "Thursday": {
     "Breakfast": [
-      "Poha, Pongal",
+      "Pongal",
+      "Vermicelli",
       "Jalebi",
       "Fruit Salad",
       "Sambhar",
@@ -938,8 +940,8 @@ const Map<String, Map<String, List<String>>> mess_3 = {
     "Dinner": [
       "Palak Chapati",
       "Dal Makhani",
-      "Rosted Egg Gravy",
-      "Idayapam Biryani",
+      "kushka"
+          "Rosted Egg Gravy",
       "Veg Khurma",
       "White Rice",
       "Rasam",
@@ -958,18 +960,18 @@ const Map<String, Map<String, List<String>>> mess_3 = {
     "Lunch": [
       "Phulka",
       "Bhindi Masala",
-      "Kashmiri Pulao",
-      "Chana Dal",
+      "Coconut Rice",
+      "Channa Dal",
       "Plain Rice",
-      "Mor Kuzhambu",
+      "More Kulambu",
       "Mix Veg Poriyanl",
       "Hot & Sour Soup",
       "Fryums",
       "Rasam",
       "Cucumber Salad",
-      "Seasonal Juice"
+      "Butter Milk",
     ],
-    "Snacks": ["Dhokla", "Green Chutney", "Tea, Coffee, Milk"],
+    "Snacks": ["Dhokla/ Masala Peanut", "Green Chutney", "Tea, Coffee, Milk"],
     "Dinner": [
       "Roti",
       "Dal Tadka",
@@ -990,7 +992,7 @@ const Map<String, Map<String, List<String>>> mess_3 = {
     ],
     "Lunch": [
       "Chapati",
-      "Corn Cpasicum Masala",
+      "Aloo Cpasicum Masala",
       "Tomato Rice",
       "Toor Dal",
       "Simla Aloo",
@@ -1000,7 +1002,7 @@ const Map<String, Map<String, List<String>>> mess_3 = {
       "Pickle",
       "Curd",
     ],
-    "Snacks": ["Peanut Pakoda/Onion Pakoda", "Tea, Coffee, Milk"],
+    "Snacks": ["Spring Roll","Tomato Sauce", "Tea, Coffee, Milk"],
     "Dinner": [
       "Jeera Chapati",
       "Fried Rice/Noodles",
@@ -1023,17 +1025,19 @@ const Map<String, Map<String, List<String>>> mess_3 = {
     "Lunch": [
       "Phukla",
       "Masala Dal",
-      "Chicken Biriyani",
+      "Chicken Dum Biryani",
       "Veg Biryani",
       "Onion Cucumber Raita",
       "Paneer Masala",
+      "White Rice",
       "Egg Bhurji",
       "Mint Lemon Juice",
+      "Rasam",
+      "Pickle",
     ],
     "Snacks": [
-      "Bread Bajji/Chilli Bajji",
+      "Mix Veg Pakoda",
       "Coriander Chutney",
-      "Coconut Milk",
       "Tea, Coffee, Milk"
     ],
     "Dinner": [
@@ -1043,7 +1047,7 @@ const Map<String, Map<String, List<String>>> mess_3 = {
       "Plain Dal",
       "Rasam",
       "Pickle",
-      "Gulab Jamun/Halwa",
+      "Gulab Jamun/Dry Jamun",
     ],
   },
 };
