@@ -9,12 +9,12 @@ class DevCard extends StatelessWidget {
   final List<Socials> socials;
 
   const DevCard({
-    Key? key,
+    super.key,
     required this.name,
     required this.description,
     required this.image,
     required this.socials,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

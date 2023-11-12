@@ -7,7 +7,7 @@ import 'mayuri.dart';
 class CartM extends StatefulWidget {
   final List<MenuM> selectedItemsM;
 
-  const CartM({Key? key, required this.selectedItemsM}) : super(key: key);
+  const CartM({super.key, required this.selectedItemsM});
 
   @override
   CartMState createState() => CartMState();

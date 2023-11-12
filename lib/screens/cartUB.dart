@@ -10,7 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class CartUB extends StatefulWidget {
   final List<MenuUB> selectedItemsUB;
 
-  const CartUB({Key? key, required this.selectedItemsUB}) : super(key: key);
+  const CartUB({super.key, required this.selectedItemsUB});
 
   @override
   CartUBState createState() => CartUBState();
