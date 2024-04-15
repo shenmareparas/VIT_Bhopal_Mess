@@ -67,6 +67,12 @@ class SettingsState extends State<Settings> {
                         onChanged: handleMessSelection,
                       ),
                       RadioListTile.adaptive(
+                        title: const Text('Boys Hostel 6 Safal Mess'),
+                        value: 4,
+                        groupValue: selectedMess,
+                        onChanged: handleMessSelection,
+                      ),
+                      RadioListTile.adaptive(
                         title: const Text('Girls Hostel AB Mess'),
                         value: 3,
                         groupValue: selectedMess,
