@@ -27,7 +27,7 @@ class Developer extends StatelessWidget {
                     duration: const Duration(milliseconds: 400),
                     child: DevCard(
                       name: "Paras Shenmare",
-                      description: "20 | Yavatmal, Maharashtra",
+                      description: "21 | Yavatmal, Maharashtra",
                       image: "assets/images/paras_shenmare.jpg",
                       socials: [
                         Socials(
@@ -43,17 +43,17 @@ class Developer extends StatelessWidget {
                           link: "https://www.linkedin.com/in/parasshenmare",
                         ),
                         Socials(
-                          tooltip: "Instagram",
-                          iconSize: 40,
-                          icon: const Icon(FontAwesomeIcons.instagram),
-                          link: "https://www.instagram.com/paras_shenmare",
-                        ),
-                        Socials(
                           tooltip: "Google Play",
                           iconSize: 33,
                           icon: const Icon(FontAwesomeIcons.googlePlay),
                           link:
                               "https://play.google.com/store/apps/dev?id=5625933656259473047",
+                        ),
+                        Socials(
+                          tooltip: "Instagram",
+                          iconSize: 40,
+                          icon: const Icon(FontAwesomeIcons.instagram),
+                          link: "https://www.instagram.com/paras_shenmare",
                         ),
                       ],
                     ),
@@ -75,7 +75,7 @@ class Developer extends StatelessWidget {
                     delay: const Duration(milliseconds: 200),
                     child: DevCard(
                         name: "Aman Kumar",
-                        description: "21 | Meerut, Uttar Pradesh",
+                        description: "22 | Meerut, Uttar Pradesh",
                         image: "assets/images/aman_singh.jpg",
                         socials: [
                           Socials(
@@ -94,50 +94,6 @@ class Developer extends StatelessWidget {
                               iconSize: 40,
                               icon: const Icon(FontAwesomeIcons.twitter),
                               link: "https://twitter.com/Aman_Kumar_1311"),
-                        ]),
-                  ),
-                  const SizedBox(height: 10),
-                  FadeInUp(
-                    duration: const Duration(milliseconds: 400),
-                    delay: const Duration(milliseconds: 400),
-                    child: DevCard(
-                        name: "Parth Mittal",
-                        description: "18 | Faridabad, Haryana",
-                        image: "assets/images/parth_mittal.jpg",
-                        socials: [
-                          Socials(
-                              tooltip: "Instagram",
-                              iconSize: 40,
-                              icon: const Icon(FontAwesomeIcons.instagram),
-                              link: "https://www.instagram.com/pa_rth_02"),
-                          Socials(
-                              tooltip: "E-mail",
-                              iconSize: 45,
-                              icon: const Icon(Icons.mail_rounded),
-                              link:
-                                  "mailto:parth.mittal021@gmail.com?subject=VIT%20Bhopal%20Mess"),
-                        ]),
-                  ),
-                  const SizedBox(height: 10),
-                  FadeInUp(
-                    duration: const Duration(milliseconds: 400),
-                    delay: const Duration(milliseconds: 600),
-                    child: DevCard(
-                        name: "Shreya Saha",
-                        description: "20 | Thane, Maharashtra",
-                        image: "assets/images/shreya_saha.jpg",
-                        socials: [
-                          Socials(
-                              tooltip: "Instagram",
-                              iconSize: 40,
-                              icon: const Icon(FontAwesomeIcons.instagram),
-                              link: "https://instagram.com/shreya.sahahaha"),
-                          Socials(
-                              tooltip: "E-mail",
-                              iconSize: 45,
-                              icon: const Icon(Icons.mail_rounded),
-                              link:
-                                  "mailto:shreyruby@gmail.com?subject=VIT%20Bhopal%20Mess"),
                         ]),
                   ),
                 ],

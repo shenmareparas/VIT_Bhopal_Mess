@@ -156,13 +156,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         body: UpgradeAlert(
+          dialogStyle: kIsWeb
+              ? UpgradeDialogStyle.material
+              : (Platform.isAndroid
+                  ? UpgradeDialogStyle.material
+                  : UpgradeDialogStyle.cupertino),
+          barrierDismissible: false,
           upgrader: Upgrader(
-            dialogStyle: kIsWeb
-                ? UpgradeDialogStyle.material
-                : (Platform.isAndroid
-                    ? UpgradeDialogStyle.material
-                    : UpgradeDialogStyle.cupertino),
-            canDismissDialog: false,
             durationUntilAlertAgain: const Duration(days: 1),
           ),
           child: const TabBarView(

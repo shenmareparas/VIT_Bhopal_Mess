@@ -37,10 +37,10 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = null;
+    const flutter_service_worker_version = null;
   </script>
   <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
+  <script src="flutter_bootstrap.js" async></script>
 
   <!-- vercel analytics -->
   <script>
@@ -137,9 +137,9 @@
       var loaderContent = document.querySelector('#loader-content');
 
       // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
+      _flutter.loader.load({
         serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
+          flutter_service_worker_version: flutter_service_worker_version,
         },
         onEntrypointLoaded: function (engineInitializer) {
           engineInitializer.initializeEngine().then(async function (appRunner) {
