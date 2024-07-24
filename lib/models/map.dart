@@ -1080,7 +1080,7 @@ const Map<String, Map<String, List<String>>> mess_4 = {
     "Lunch": [
       "Roti",
       "Chana Dal",
-      "Vegitable Khichdi/LemonRice",
+      "Vegitable Khichdi/Lemon Rice",
       "Aloo Cabbage Masala",
       "Rice",
       "Veg Karakujambu",
@@ -1102,13 +1102,13 @@ const Map<String, Map<String, List<String>>> mess_4 = {
     "Breakfast": [
       "Paratha",
       "Bhaji",
-      "Fruit Salad",
+      "Banana/Fruits Salad",
       "Bread",
       "Butter/Jam",
       "Tea, Coffee, Milk",
     ],
     "Lunch": [
-      "Curd/Juice",
+      "Juice",
       "Aloo Mutter Masala/Chana Masala",
       "Ghee Rice",
       "Plain Rice",
@@ -1142,12 +1142,12 @@ const Map<String, Map<String, List<String>>> mess_4 = {
       "Tea, Coffee, Milk"
     ],
     "Lunch": [
-      "Veg Raita",
+      "Curd",
       "Roti",
       "Black Chana Masala/Cabbage Mutter",
       "Rice",
       "Mix Dal",
-      "Rasam",
+      "Puli Kuzhambu/Avial Garlic Rasam",
       "Pickle",
       "Payasum/Bundi",
       "Salad",
@@ -1175,7 +1175,7 @@ const Map<String, Map<String, List<String>>> mess_4 = {
       "Tea, Coffee, Milk"
     ],
     "Lunch": [
-      "Curd/Juice",
+      "Juice",
       "Roti",
       "Veg Kofta",
       "Tomato Dal",
@@ -1184,7 +1184,7 @@ const Map<String, Map<String, List<String>>> mess_4 = {
       "Sambar/Rasam",
       "Beetroot Poriyal",
     ],
-    "Snacks": ["Sweet Corn Salad/Burger", "Tea, Coffee, Milk"],
+    "Snacks": ["Sweet Corn/Burger", "Tea, Coffee, Milk"],
     "Dinner": [
       "Roti",
       "Rice",
@@ -1236,12 +1236,11 @@ const Map<String, Map<String, List<String>>> mess_4 = {
       "Tea, Coffee, Milk",
     ],
     "Lunch": [
-      "Butter Milk/Juice"
-          "Roti",
+      "Butter Milk/Juice",
+      "Roti",
       "Rajma",
-      "Jeera Rice",
+      "Jeera Rice/Rice",
       "Aloo Gobi Sabji",
-      "Rice",
       "Veg Karakujambu",
       "Pepper Rasam/Potato Poriyal",
       "Salad",
@@ -1272,8 +1271,7 @@ const Map<String, Map<String, List<String>>> mess_4 = {
       "Roti",
       "Chicken Biriyani",
       "Veg Biryani",
-      "Masala Dal",
-      "Mutter Paneer"
+      "Masala Dal/Mutter Paneer"
     ],
     "Snacks": ["Dabeli/Bhel Puri", "Sauce", "Tea, Coffee, Milk"],
     "Dinner": [
