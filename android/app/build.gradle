@@ -29,6 +29,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
+    namespace "com.example.vit_mess"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
