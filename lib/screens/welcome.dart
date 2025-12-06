@@ -18,7 +18,7 @@ class Welcome extends StatefulWidget {
 class _WelcomeState extends State<Welcome> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
-  void _onIntroEnd(context) {
+  void _onIntroEnd(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(builder: (_) => const HomeScreen()),
     );

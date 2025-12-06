@@ -9,7 +9,7 @@ String formattedTime = DateFormat('HH:mm').format(now);
 int hour = now.hour;
 int minute = now.minute;
 
-String getMealTime(now) {
+String getMealTime(DateTime now) {
   if (hour < 9) {
     return 'Breakfast';
   } else if (hour < 14 || (hour == 14 && minute <= 30)) {

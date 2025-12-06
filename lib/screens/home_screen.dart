@@ -126,8 +126,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                       break;
                     case 'Share':
-                      Share.share(
-                          '"VIT Bhopal Mess" App and website, specifically designed to enhance the dining experience for VIT Bhopal students 🍽\n\n(Google Play Store)\nhttps://play.google.com/store/apps/details?id=com.shenmareparas.vit_mess\n☝☝☝\n\n(Website)\nvitbmess.vercel.app\n☝☝☝');
+                      SharePlus.instance.share(
+                        ShareParams(
+                          text:
+                              '"VIT Bhopal Mess" App and website, specifically designed to enhance the dining experience for VIT Bhopal students 🍽\n\n(Google Play Store)\nhttps://play.google.com/store/apps/details?id=com.shenmareparas.vit_mess\n☝☝☝\n\n(Website)\nvitbmess.vercel.app\n☝☝☝',
+                        ),
+                      );
                       break;
                     case 'Rate Us':
                       launchUrlString(
