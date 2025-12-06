@@ -87,8 +87,8 @@ class _WelcomeState extends State<Welcome> {
                   padding: const EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
                     color: Theme.of(context).brightness == Brightness.light
-                        ? const Color(0xFF4E6700).withOpacity(0.2)
-                        : const Color(0xFFD0EE82).withOpacity(0.2),
+                        ? const Color(0xFF4E6700).withValues(alpha: 0.2)
+                        : const Color(0xFFD0EE82).withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: DropdownButton<int>(
@@ -148,8 +148,8 @@ class _WelcomeState extends State<Welcome> {
                   padding: const EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
                     color: Theme.of(context).brightness == Brightness.light
-                        ? const Color(0xFF4E6700).withOpacity(0.2)
-                        : const Color(0xFFD0EE82).withOpacity(0.2),
+                        ? const Color(0xFF4E6700).withValues(alpha: 0.2)
+                        : const Color(0xFFD0EE82).withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: ListTile(

@@ -46,45 +46,41 @@ class SettingsState extends State<Settings> {
                 elevation: 3,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 20, bottom: 20),
-                  child: Column(
-                    children: [
-                      const Text(
-                        'Choose Mess',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(height: 5),
-                      RadioListTile.adaptive(
-                        title: const Text('Boys Hostel 1 CRCL Mess'),
-                        value: 1,
-                        groupValue: selectedMess,
-                        onChanged: handleMessSelection,
-                      ),
-                      RadioListTile.adaptive(
-                        title: const Text('Boys Hostel 2 & 3 Mayuri Mess'),
-                        value: 2,
-                        groupValue: selectedMess,
-                        onChanged: handleMessSelection,
-                      ),
-                      RadioListTile.adaptive(
-                        title: const Text('Boys Hostel 6 Safal Mess'),
-                        value: 4,
-                        groupValue: selectedMess,
-                        onChanged: handleMessSelection,
-                      ),
-                      RadioListTile.adaptive(
-                        title: const Text('Girls Hostel AB Mess'),
-                        value: 3,
-                        groupValue: selectedMess,
-                        onChanged: handleMessSelection,
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        'Note: After changing Mess, please click Refresh\nor swipe down to Refresh',
-                        style: TextStyle(fontSize: 13),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
+                  child: RadioGroup<int>(
+                    groupValue: selectedMess,
+                    onChanged: handleMessSelection,
+                    child: const Column(
+                      children: [
+                        Text(
+                          'Choose Mess',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(height: 5),
+                        RadioListTile.adaptive(
+                          title: Text('Boys Hostel 1 CRCL Mess'),
+                          value: 1,
+                        ),
+                        RadioListTile.adaptive(
+                          title: Text('Boys Hostel 2 & 3 Mayuri Mess'),
+                          value: 2,
+                        ),
+                        RadioListTile.adaptive(
+                          title: Text('Boys Hostel 6 Safal Mess'),
+                          value: 4,
+                        ),
+                        RadioListTile.adaptive(
+                          title: Text('Girls Hostel AB Mess'),
+                          value: 3,
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          'Note: After changing Mess, please click Refresh\nor swipe down to Refresh',
+                          style: TextStyle(fontSize: 13),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
