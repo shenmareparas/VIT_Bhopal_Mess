@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class DevCard extends StatelessWidget {
@@ -75,7 +75,7 @@ class DevCard extends StatelessWidget {
 class Socials {
   final String tooltip;
   final double iconSize;
-  final Icon icon;
+  final Widget icon;
   final String link;
 
   Socials({

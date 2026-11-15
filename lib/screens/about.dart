@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:animate_do/animate_do.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:confetti/confetti.dart';
 
@@ -53,7 +53,7 @@ class _AboutState extends State<About> {
                       ),
                     ),
                     const Text(
-                      'v1.1.3',
+                      'v1.1.4',
                       style: TextStyle(
                         fontSize: 14,
                       ),

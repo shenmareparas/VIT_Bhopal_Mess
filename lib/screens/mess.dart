@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:animate_do/animate_do.dart';
@@ -230,7 +230,7 @@ class MessState extends State<Mess> {
                   elevation: 5,
                   onPressed: resetValues,
                   tooltip: 'Reset',
-                  child: const Icon(FontAwesomeIcons.rotateRight),
+                  child: const FaIcon(FontAwesomeIcons.rotateRight),
                 ),
               ),
             ],

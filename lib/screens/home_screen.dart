@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -48,10 +48,10 @@ class _HomeScreenState extends State<HomeScreen> {
           bottom: TabBar(
             onTap: (_) => FocusManager.instance.primaryFocus?.unfocus(),
             tabs: const [
-              Tab(text: "Mess", icon: Icon(FontAwesomeIcons.utensils)),
-              Tab(text: "UB", icon: Icon(FontAwesomeIcons.burger)),
-              Tab(text: "Mayuri's", icon: Icon(FontAwesomeIcons.store)),
-              Tab(text: "Canteen", icon: Icon(FontAwesomeIcons.hotel)),
+              Tab(text: "Mess", icon: FaIcon(FontAwesomeIcons.utensils)),
+              Tab(text: "UB", icon: FaIcon(FontAwesomeIcons.burger)),
+              Tab(text: "Mayuri's", icon: FaIcon(FontAwesomeIcons.store)),
+              Tab(text: "Canteen", icon: FaIcon(FontAwesomeIcons.hotel)),
             ],
           ),
           centerTitle: true,
@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(15))),
                 tooltip: "More Options",
-                icon: const Icon(FontAwesomeIcons.ellipsisVertical),
+                icon: const FaIcon(FontAwesomeIcons.ellipsisVertical),
                 itemBuilder: (BuildContext context) => [
                   const PopupMenuItem(
                     value: 'Settings',

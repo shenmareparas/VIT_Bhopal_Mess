@@ -32,6 +32,8 @@ The "VIT Bhopal Mess" app 📱 & website 🌐 is designed to simplify the proces
 
 ## Technologies Used
 - Flutter and Dart for building the mobile app & website
+- Swift Package Manager (SPM) for iOS native dependencies
+- WebAssembly (WasmGC) support for modern high-performance web deployment
 - Material UI 3 (Light Theme & Dark Theme)
 - Shared Preferences
 - Provider

@@ -1,5 +1,5 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '/models/map.dart';
@@ -122,7 +122,7 @@ class UnderBellyState extends State<UnderBelly> {
                     child: const FloatingActionButton(
                       elevation: 5,
                       onPressed: null,
-                      child: Icon(FontAwesomeIcons.arrowDownShortWide),
+                      child: FaIcon(FontAwesomeIcons.arrowDownShortWide),
                     ),
                   ),
                 ),

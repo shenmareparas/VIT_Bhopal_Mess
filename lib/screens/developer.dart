@@ -1,5 +1,5 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vit_bhopal_mess/widgets/dev_card.dart';
 
@@ -33,26 +33,26 @@ class Developer extends StatelessWidget {
                         Socials(
                           tooltip: "Github",
                           iconSize: 40,
-                          icon: const Icon(FontAwesomeIcons.github),
+                          icon: const FaIcon(FontAwesomeIcons.github),
                           link: "https://github.com/shenmareparas",
                         ),
                         Socials(
                           tooltip: "LinkedIn",
                           iconSize: 40,
-                          icon: const Icon(FontAwesomeIcons.linkedin),
+                          icon: const FaIcon(FontAwesomeIcons.linkedin),
                           link: "https://www.linkedin.com/in/parasshenmare",
                         ),
                         Socials(
                           tooltip: "Google Play",
                           iconSize: 33,
-                          icon: const Icon(FontAwesomeIcons.googlePlay),
+                          icon: const FaIcon(FontAwesomeIcons.googlePlay),
                           link:
                               "https://play.google.com/store/apps/dev?id=5625933656259473047",
                         ),
                         Socials(
                           tooltip: "Instagram",
                           iconSize: 40,
-                          icon: const Icon(FontAwesomeIcons.instagram),
+                          icon: const FaIcon(FontAwesomeIcons.instagram),
                           link: "https://www.instagram.com/paras_shenmare",
                         ),
                       ],
@@ -81,18 +81,18 @@ class Developer extends StatelessWidget {
                           Socials(
                               tooltip: "Instagram",
                               iconSize: 40,
-                              icon: const Icon(FontAwesomeIcons.instagram),
+                              icon: const FaIcon(FontAwesomeIcons.instagram),
                               link: "https://www.instagram.com/aman_1311_"),
                           Socials(
                               tooltip: "LinkedIn",
                               iconSize: 40,
-                              icon: const Icon(FontAwesomeIcons.linkedin),
+                              icon: const FaIcon(FontAwesomeIcons.linkedin),
                               link:
                                   "https://www.linkedin.com/in/amankumarsingh1311"),
                           Socials(
                               tooltip: "Twitter",
                               iconSize: 40,
-                              icon: const Icon(FontAwesomeIcons.twitter),
+                              icon: const FaIcon(FontAwesomeIcons.twitter),
                               link: "https://twitter.com/Aman_Kumar_1311"),
                         ]),
                   ),

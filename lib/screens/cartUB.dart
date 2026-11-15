@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:animate_do/animate_do.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'underbelly.dart';
@@ -239,7 +239,7 @@ class CartUBState extends State<CartUB> {
                           'Send Order  ',
                           style: TextStyle(fontSize: 17),
                         ),
-                        Icon(FontAwesomeIcons.whatsapp),
+                        FaIcon(FontAwesomeIcons.whatsapp),
                       ],
                     ),
                   ),
