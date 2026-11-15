@@ -2,21 +2,9 @@ import 'package:animate_do/animate_do.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:vit_bhopal_mess/models/menu_item.dart';
 import '/models/map.dart';
 import 'cartM.dart';
-
-class MenuM {
-  String name;
-  int price;
-  String category;
-  int quantity;
-
-  MenuM(
-      {required this.name,
-      required this.price,
-      required this.category,
-      this.quantity = 0});
-}
 
 class Mayuri extends StatefulWidget {
   const Mayuri({super.key});
@@ -31,10 +19,9 @@ class MayuriState extends State<Mayuri> {
   final FocusNode _searchFocusNode = FocusNode();
 
   String searchQueryM = '';
-  List<MenuM> selectedItemsM = [];
-  final List<MenuM> _originalItemsM = itemsM.toList();
+  final List<MenuItem> _originalItemsM = itemsM.toList();
 
-  List<MenuM> get filteredItems {
+  List<MenuItem> get filteredItems {
     if (searchQueryM.isEmpty) {
       return itemsM;
     } else {
@@ -49,6 +36,7 @@ class MayuriState extends State<Mayuri> {
   void dispose() {
     _searchController.dispose();
     _searchFocusNode.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -117,7 +105,8 @@ class MayuriState extends State<Mayuri> {
                       ),
                     ],
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15)),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
                     tooltip: 'Sort',
                     child: const FloatingActionButton(
                       elevation: 5,
@@ -154,9 +143,7 @@ class MayuriState extends State<Mayuri> {
                             child: const Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                SizedBox(
-                                  height: 80,
-                                ),
+                                SizedBox(height: 80),
                                 Text(
                                   'Item not available',
                                   textAlign: TextAlign.center,
@@ -167,29 +154,32 @@ class MayuriState extends State<Mayuri> {
                           );
                         } else {
                           final item = filteredItems[index];
-                          // Check if the current item's category is different from the previous item's category
                           final bool showCategoryHeader = index == 0 ||
                               item.category !=
                                   filteredItems[index - 1].category;
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              if (showCategoryHeader)
+                              if (showCategoryHeader && item.category != null)
                                 Padding(
                                   padding: const EdgeInsets.only(
-                                      top: 15, left: 16, bottom: 5),
+                                    top: 15,
+                                    left: 16,
+                                    bottom: 5,
+                                  ),
                                   child: ElevatedButton(
                                     onPressed: () =>
                                         showHeaderOptionsDialog(context),
                                     style: ElevatedButton.styleFrom(
                                       side: const BorderSide(
-                                          color: Color(0xFFD0EE82)),
+                                        color: Color(0xFFD0EE82),
+                                      ),
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                     ),
                                     child: Text(
-                                      item.category,
+                                      item.category!,
                                       style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
@@ -256,7 +246,8 @@ class MayuriState extends State<Mayuri> {
                                         )
                                       : IconButton(
                                           icon: const Icon(
-                                              Icons.add_shopping_cart),
+                                            Icons.add_shopping_cart,
+                                          ),
                                           tooltip: 'Add to Cart',
                                           onPressed: () {
                                             setState(() {
@@ -298,17 +289,17 @@ class MayuriState extends State<Mayuri> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  List<MenuM> selectedItemsM =
+                  List<MenuItem> selectedItemsM =
                       itemsM.where((item) => item.quantity > 0).toList();
-                  for (var itemM in selectedItemsM) {
-                    itemM.quantity = itemM.quantity;
-                  }
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            CartM(selectedItemsM: selectedItemsM)),
-                  );
+                      builder: (context) =>
+                          CartM(selectedItemsM: selectedItemsM),
+                    ),
+                  ).then((_) {
+                    setState(() {});
+                  });
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -334,13 +325,14 @@ class MayuriState extends State<Mayuri> {
   }
 
   void showHeaderOptionsDialog(BuildContext context) {
-    final Set<String> uniqueCategories =
-        Set<String>.from(_originalItemsM.map((item) => item.category));
+    final Set<String> uniqueCategories = Set<String>.from(
+      _originalItemsM.map((item) => item.category ?? ''),
+    )..remove('');
     final List<String> categoriesList = uniqueCategories.toList();
 
     showDialog(
       context: context,
-      builder: (BuildContext context) {
+      builder: (BuildContext dialogContext) {
         return AlertDialog(
           title: const Text('Categories', textAlign: TextAlign.center),
           content: SizedBox(
@@ -353,20 +345,19 @@ class MayuriState extends State<Mayuri> {
                     final category = categoriesList[index];
                     return FadeInUp(
                       duration: const Duration(milliseconds: 300),
-                      delay: Duration(milliseconds: 50 * index),
                       child: ListTile(
                         title: Text(
                           category,
                           style: const TextStyle(fontSize: 18),
                         ),
                         onTap: () {
-                          Navigator.pop(context);
-                          // Scroll to the selected category
+                          Navigator.pop(dialogContext);
                           final categoryIndex = filteredItems
                               .indexWhere((item) => item.category == category);
                           if (categoryIndex != -1) {
                             final headerIndex = _originalItemsM.indexWhere(
-                                (item) => item.category == category);
+                              (item) => item.category == category,
+                            );
                             if (headerIndex != -1) {
                               _scrollController.animateTo(
                                 headerIndex * 77.5,
@@ -385,7 +376,7 @@ class MayuriState extends State<Mayuri> {
           ),
           actions: [
             ElevatedButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () => Navigator.pop(dialogContext),
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -401,7 +392,7 @@ class MayuriState extends State<Mayuri> {
   }
 
   void sortByAscending() {
-    List<MenuM> sortedItemsM = List.from(itemsM);
+    List<MenuItem> sortedItemsM = List.from(itemsM);
     sortedItemsM.sort((a, b) => a.price.compareTo(b.price));
     setState(() {
       itemsM = sortedItemsM;
@@ -409,7 +400,7 @@ class MayuriState extends State<Mayuri> {
   }
 
   void sortByDescending() {
-    List<MenuM> sortedItemsM = List.from(itemsM);
+    List<MenuItem> sortedItemsM = List.from(itemsM);
     sortedItemsM.sort((a, b) => b.price.compareTo(a.price));
     setState(() {
       itemsM = sortedItemsM;
@@ -427,6 +418,6 @@ class MayuriState extends State<Mayuri> {
   }
 
   double getTotalPrice() {
-    return itemsM.fold(0, (sum, item) => sum + (item.price * item.quantity));
+    return itemsM.fold(0.0, (sum, item) => sum + (item.price * item.quantity));
   }
 }

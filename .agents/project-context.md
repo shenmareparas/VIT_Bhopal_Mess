@@ -24,25 +24,28 @@ VIT_Bhopal_Mess/
 ├── assets/                     # Images, developer avatars, playstore assets
 ├── ios/                        # iOS host project (Swift Package Manager, iOS 15.0+ deployment target)
 ├── lib/
-│   ├── main.dart               # Entry point, app theme initialization, routing
+│   ├── main.dart               # Entry point, MultiProvider setup, theme & mess initialization, routing
 │   ├── models/
-│   │   ├── map.dart            # Data models for canteen, UnderBelly, and Mayuri items
-│   │   └── map.json            # Static canteen menu data
+│   │   ├── menu_item.dart      # Unified MenuItem entity model
+│   │   └── map.dart            # Schedule catalogs and eatery food lists
 │   ├── parsers/
-│   │   └── mess_menu_paser.dart # Mess timing and menu parsing logic
+│   │   └── mess_menu_paser.dart # Mess schedule and helper accessor functions
 │   ├── provider/
-│   │   └── theme_provider.dart # Dynamic theme state management (Light/Dark/System)
+│   │   ├── theme_provider.dart # Dynamic theme state management (Light/Dark)
+│   │   ├── mess_provider.dart  # Mess schedule, selected day/meal, and SharedPreferences persistence
+│   │   └── canteen_view_model.dart # Eatery catalog, search, filter, and cart state management
 │   ├── screens/
 │   │   ├── about.dart          # About page, app info, confetti celebration
 │   │   ├── canteen.dart        # Canteen menu, search, filtering, and cart trigger
-│   │   ├── cart.dart           # Canteen cart and total calculation
-│   │   ├── cartM.dart          # Mayuri cart
-│   │   ├── cartUB.dart         # UnderBelly cart and WhatsApp order composer
+│   │   ├── cart.dart           # Canteen cart route (wrapper for GenericCartScreen)
+│   │   ├── cartM.dart          # Mayuri cart route (wrapper for GenericCartScreen)
+│   │   ├── cartUB.dart         # UnderBelly cart route with WhatsApp order composer
+│   │   ├── generic_cart_screen.dart # Unified cart UI with animations and dynamic call/order actions
 │   │   ├── developer.dart      # Contributor profiles and social links
 │   │   ├── home_screen.dart    # Main screen holding the four primary tabs
 │   │   ├── mayuri.dart         # Mayuri eatery menu and search
-│   │   ├── mess.dart           # Mess menu display with time detection and search
-│   │   ├── settings.dart       # App settings and theme switching
+│   │   ├── mess.dart           # Mess menu display with time detection and reactive day/meal picker
+│   │   ├── settings.dart       # App settings, mess selection, and theme switching
 │   │   ├── underbelly.dart     # UnderBelly eatery menu and search
 │   │   └── welcome.dart        # Onboarding introduction screen
 │   ├── utils/
@@ -58,8 +61,9 @@ VIT_Bhopal_Mess/
 
 - **Framework**: Flutter 3.50+ / Dart 3.14+
 - **Design System**: `package:material_ui/material_ui.dart` (Modular Material UI 3)
-- **State Management**: `provider` (Theme and application state)
-- **Persistent Storage**: `shared_preferences` (Persisting user preferences and themes)
+- **Architecture**: Model-View-ViewModel (MVVM) powered by `provider`
+- **State Management**: `provider` (Theme, Mess, and Canteen ViewModels)
+- **Persistent Storage**: `shared_preferences` (Persisting user preferences, selected mess, and themes)
 - **Animations and UI**: `animate_do`, `flutter_animate`, `confetti`, `introduction_screen`
 - **Iconography**: `cupertino_icons`, `font_awesome_flutter`
 - **Utilities**: `intl`, `url_launcher`, `share_plus`, `upgrader`

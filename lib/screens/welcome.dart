@@ -2,11 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:provider/provider.dart';
-import "package:shared_preferences/shared_preferences.dart";
+import 'package:vit_bhopal_mess/provider/mess_provider.dart';
 import '/provider/theme_provider.dart';
 import 'home_screen.dart';
-
-int selectedMess = 1;
 
 class Welcome extends StatefulWidget {
   const Welcome({super.key});
@@ -24,22 +22,10 @@ class _WelcomeState extends State<Welcome> {
     );
   }
 
-  void handleMessSelection(int? value) async {
-    setState(() {
-      selectedMess = value!;
-    });
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setInt("selectedMess", selectedMess);
-  }
-
-  void saveselectedMess() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setInt("selectedMess", selectedMess);
-  }
-
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
+    final messProvider = Provider.of<MessProvider>(context);
     const bodyStyle = TextStyle(fontSize: 19);
 
     const pageDecoration = PageDecoration(
@@ -48,35 +34,45 @@ class _WelcomeState extends State<Welcome> {
       safeArea: 80,
       titleTextStyle: TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
       bodyTextStyle: bodyStyle,
-      bodyPadding: EdgeInsets.fromLTRB(16, 0, 16, 16),
-      imagePadding: EdgeInsets.all(16),
+      bodyPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+      pageColor: Colors.transparent,
+      imagePadding: EdgeInsets.zero,
     );
 
     return Scaffold(
       body: SafeArea(
         child: IntroductionScreen(
+          key: introKey,
+          globalBackgroundColor: Colors.transparent,
+          allowImplicitScrolling: true,
+          autoScrollDuration: 300000,
+          infiniteAutoScroll: true,
           pages: [
             PageViewModel(
-              title: "VIT Bhopal Mess",
+              title: "Welcome to\nVIT Bhopal Mess",
               body:
-                  "Designed to simplify the process of finding out the correct food item available at the mess based on the current day and time.",
+                  "Easily track what meal is being served right now at VIT Bhopal.",
               image: const CircleAvatar(
-                radius: 150,
-                backgroundImage: AssetImage('assets/images/icon.png'),
+                radius: 300,
+                backgroundColor: Colors.white,
+                child: Icon(
+                  Icons.restaurant_menu,
+                  color: Color(0xFF5D9214),
+                  size: 250,
+                ),
               ),
               decoration: pageDecoration,
             ),
             PageViewModel(
-              title: "Choose Mess",
-              body: "Select your preferred Mess",
+              title: "Choose Your Mess",
+              body: "Select the mess caterer according to your hostel block.",
               image: const CircleAvatar(
-                radius: 350,
+                radius: 300,
                 backgroundColor: Colors.white,
                 child: Icon(
-                  Icons.apartment,
+                  Icons.food_bank_outlined,
                   color: Color(0xFF5D9214),
                   size: 250,
-                  weight: 100,
                 ),
               ),
               decoration: pageDecoration,
@@ -92,8 +88,12 @@ class _WelcomeState extends State<Welcome> {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: DropdownButton<int>(
-                    value: selectedMess,
-                    onChanged: handleMessSelection,
+                    value: messProvider.selectedMess,
+                    onChanged: (value) {
+                      if (value != null) {
+                        messProvider.setSelectedMess(value);
+                      }
+                    },
                     isExpanded: true,
                     underline: Container(),
                     items: const [
@@ -137,8 +137,11 @@ class _WelcomeState extends State<Welcome> {
               image: const CircleAvatar(
                 radius: 300,
                 backgroundColor: Colors.white,
-                child: Icon(Icons.brightness_4,
-                    color: Color(0xFF5D9214), size: 250),
+                child: Icon(
+                  Icons.brightness_4,
+                  color: Color(0xFF5D9214),
+                  size: 250,
+                ),
               ),
               decoration: pageDecoration,
               footer: Padding(
@@ -169,18 +172,16 @@ class _WelcomeState extends State<Welcome> {
             )
           ],
           onDone: () => _onIntroEnd(context),
-          // onSkip: () =>
-          //     _onIntroEnd(context),
           showSkipButton: false,
           skipOrBackFlex: 0,
           nextFlex: 0,
           showBackButton: true,
           back: const Icon(Icons.arrow_back),
-          // skip:
-          //     const Text('Skip', style: TextStyle(fontWeight: FontWeight.w600)),
           next: const Icon(Icons.arrow_forward),
-          done: const Text('Let\'s Go',
-              style: TextStyle(fontWeight: FontWeight.w600)),
+          done: const Text(
+            'Let\'s Go',
+            style: TextStyle(fontWeight: FontWeight.w600),
+          ),
           curve: Curves.fastLinearToSlowEaseIn,
           controlsMargin: const EdgeInsets.all(16),
           controlsPadding: kIsWeb

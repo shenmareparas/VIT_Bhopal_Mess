@@ -1,24 +1,11 @@
-import 'package:intl/intl.dart';
-import '/models/map.dart';
+import 'package:vit_bhopal_mess/models/map.dart';
+import 'package:vit_bhopal_mess/provider/mess_provider.dart';
 
-DateTime now = DateTime.now();
-String mealTime = getMealTime(now);
-String formattedDate = DateFormat('EEEE').format(now);
-String formattedTime = DateFormat('HH:mm').format(now);
-
-int hour = now.hour;
-int minute = now.minute;
+DateTime get now => DateTime.now();
+String get mealTime => MessProvider.calculateMealTime(DateTime.now());
 
 String getMealTime(DateTime now) {
-  if (hour < 9) {
-    return 'Breakfast';
-  } else if (hour < 14 || (hour == 14 && minute <= 30)) {
-    return 'Lunch';
-  } else if (hour < 18 || (hour == 18 && minute <= 30)) {
-    return 'Snacks';
-  } else {
-    return 'Dinner';
-  }
+  return MessProvider.calculateMealTime(now);
 }
 
 Map getMess(int selectedMess) {
@@ -29,25 +16,13 @@ Map getMess(int selectedMess) {
       return mess_2;
     case 3:
       return mess_3;
+    case 4:
+      return mess_4;
     default:
       return mess_1;
   }
 }
 
-var days = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday"
-];
-
-var meal = ["Breakfast", "Lunch", "Snacks", "Dinner"];
-var mealShow = [
-  "Breakfast (7:30 to 9:00)",
-  "Lunch (12:00 to 14:30)",
-  "Snacks (17:00 to 18:30)",
-  "Dinner (19:30 to 21:00)"
-];
+const List<String> days = MessProvider.days;
+const List<String> meal = MessProvider.mealTypes;
+const List<String> mealShow = MessProvider.mealDescriptions;

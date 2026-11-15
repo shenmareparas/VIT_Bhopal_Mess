@@ -1,35 +1,17 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
-import "package:shared_preferences/shared_preferences.dart";
-import '/provider/theme_provider.dart';
+import 'package:vit_bhopal_mess/provider/mess_provider.dart';
+import 'package:vit_bhopal_mess/provider/theme_provider.dart';
 
-int selectedMess = 1;
-
-class Settings extends StatefulWidget {
+class Settings extends StatelessWidget {
   const Settings({super.key});
-
-  @override
-  State<Settings> createState() => SettingsState();
-}
-
-class SettingsState extends State<Settings> {
-  void handleMessSelection(int? value) async {
-    setState(() {
-      selectedMess = value!;
-    });
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setInt("selectedMess", selectedMess);
-  }
-
-  void saveselectedMess() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setInt("selectedMess", selectedMess);
-  }
 
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
+    final messProvider = Provider.of<MessProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings', style: TextStyle(fontSize: 25)),
@@ -45,16 +27,22 @@ class SettingsState extends State<Settings> {
               child: Card(
                 elevation: 3,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 20, bottom: 20),
+                  padding: const EdgeInsets.symmetric(vertical: 20),
                   child: RadioGroup<int>(
-                    groupValue: selectedMess,
-                    onChanged: handleMessSelection,
+                    groupValue: messProvider.selectedMess,
+                    onChanged: (value) {
+                      if (value != null) {
+                        messProvider.setSelectedMess(value);
+                      }
+                    },
                     child: const Column(
                       children: [
                         Text(
                           'Choose Mess',
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         SizedBox(height: 5),
                         RadioListTile.adaptive(
@@ -75,7 +63,7 @@ class SettingsState extends State<Settings> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Note: After changing Mess, please click Refresh\nor swipe down to Refresh',
+                          'Note: Mess menu updates automatically',
                           style: TextStyle(fontSize: 13),
                           textAlign: TextAlign.center,
                         ),
@@ -92,13 +80,19 @@ class SettingsState extends State<Settings> {
               child: Card(
                 elevation: 3,
                 child: Padding(
-                  padding: const EdgeInsets.only(
-                      top: 20, bottom: 20, left: 16, right: 16),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 20,
+                    horizontal: 16,
+                  ),
                   child: Column(
                     children: [
-                      const Text('App Theme',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
+                      const Text(
+                        'App Theme',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       const SizedBox(height: 15),
                       ListTile(
                         title: const Text('Dark Mode'),

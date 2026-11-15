@@ -26,10 +26,10 @@ VIT Bhopal Mess is a Flutter application designed for VIT Bhopal University stud
 ## Code Standards
 
 - **Architecture**:
-  - Adhere to Model-View-ViewModel (MVVM) patterns.
-  - Models: Data classes and JSON parsing in `lib/models/` and `lib/parsers/`.
-  - ViewModels / State: State holders and theme providers in `lib/provider/`.
-  - Views: Modular screens in `lib/screens/` and reusable widgets in `lib/widgets/`.
+  - Strictly adhere to Model-View-ViewModel (MVVM) patterns.
+  - Models: Data classes and models in `lib/models/` (e.g., `MenuItem`, `map.dart`). No UI imports allowed in model files.
+  - ViewModels / State: State holders, business logic, and providers in `lib/provider/` (e.g., `MessProvider`, `CanteenViewModel`, `ThemeProvider`).
+  - Views: Modular screens in `lib/screens/` and reusable widgets in `lib/widgets/`. Views must consume ViewModels/Providers and avoid direct business logic or arbitrary State class instantiations.
 - **Code Completeness**:
   - Write complete, production-ready code. Do not introduce placeholder comments or unhandled `TODO` stubs.
 - **Icon Usage**:

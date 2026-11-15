@@ -2,16 +2,9 @@ import 'package:animate_do/animate_do.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:vit_bhopal_mess/models/menu_item.dart';
 import 'cart.dart';
 import '/models/map.dart';
-
-class Menu {
-  String name;
-  int price;
-  int quantity;
-
-  Menu({required this.name, required this.price, this.quantity = 0});
-}
 
 class Canteen extends StatefulWidget {
   const Canteen({super.key});
@@ -26,10 +19,9 @@ class CanteenState extends State<Canteen> {
   final FocusNode _searchFocusNode = FocusNode();
 
   String searchQuery = '';
-  List<Menu> selectedItems = [];
-  final List<Menu> _originalItems = items.toList();
+  final List<MenuItem> _originalItems = items.toList();
 
-  List<Menu> get filteredItems {
+  List<MenuItem> get filteredItems {
     if (searchQuery.isEmpty) {
       return items;
     } else {
@@ -44,6 +36,7 @@ class CanteenState extends State<Canteen> {
   void dispose() {
     _searchController.dispose();
     _searchFocusNode.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -112,7 +105,8 @@ class CanteenState extends State<Canteen> {
                       ),
                     ],
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15)),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
                     tooltip: 'Sort',
                     child: const FloatingActionButton(
                       elevation: 5,
@@ -146,19 +140,14 @@ class CanteenState extends State<Canteen> {
                         if (filteredItems.isEmpty) {
                           return FadeInUp(
                             duration: const Duration(milliseconds: 400),
-                            child: Column(
+                            child: const Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                const SizedBox(
-                                  height: 80,
-                                ),
-                                FadeInUp(
-                                  duration: const Duration(milliseconds: 400),
-                                  child: const Text(
-                                    'Item not available',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 20),
-                                  ),
+                                SizedBox(height: 80),
+                                Text(
+                                  'Item not available',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 20),
                                 ),
                               ],
                             ),
@@ -259,17 +248,16 @@ class CanteenState extends State<Canteen> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  List<Menu> selectedItems =
+                  List<MenuItem> selectedItems =
                       items.where((item) => item.quantity > 0).toList();
-                  for (var item in selectedItems) {
-                    item.quantity = item.quantity;
-                  }
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => Cart(selectedItems: selectedItems),
                     ),
-                  );
+                  ).then((_) {
+                    setState(() {});
+                  });
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -295,7 +283,7 @@ class CanteenState extends State<Canteen> {
   }
 
   void sortByAscending() {
-    List<Menu> sortedItems = List.from(items);
+    List<MenuItem> sortedItems = List.from(items);
     sortedItems.sort((a, b) => a.price.compareTo(b.price));
     setState(() {
       items = sortedItems;
@@ -303,7 +291,7 @@ class CanteenState extends State<Canteen> {
   }
 
   void sortByDescending() {
-    List<Menu> sortedItems = List.from(items);
+    List<MenuItem> sortedItems = List.from(items);
     sortedItems.sort((a, b) => b.price.compareTo(a.price));
     setState(() {
       items = sortedItems;
@@ -321,6 +309,6 @@ class CanteenState extends State<Canteen> {
   }
 
   double getTotalPrice() {
-    return items.fold(0, (sum, item) => sum + (item.price * item.quantity));
+    return items.fold(0.0, (sum, item) => sum + (item.price * item.quantity));
   }
 }

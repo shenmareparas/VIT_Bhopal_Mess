@@ -2,21 +2,9 @@ import 'package:animate_do/animate_do.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:vit_bhopal_mess/models/menu_item.dart';
 import '/models/map.dart';
 import 'cartUB.dart';
-
-class MenuUB {
-  String name;
-  int price;
-  String category;
-  int quantity;
-
-  MenuUB(
-      {required this.name,
-      required this.price,
-      required this.category,
-      this.quantity = 0});
-}
 
 class UnderBelly extends StatefulWidget {
   const UnderBelly({super.key});
@@ -31,10 +19,9 @@ class UnderBellyState extends State<UnderBelly> {
   final FocusNode _searchFocusNode = FocusNode();
 
   String searchQueryUB = '';
-  List<MenuUB> selectedItemsUB = [];
-  final List<MenuUB> _originalItemsUB = itemsUB.toList();
+  final List<MenuItem> _originalItemsUB = itemsUB.toList();
 
-  List<MenuUB> get filteredItems {
+  List<MenuItem> get filteredItems {
     if (searchQueryUB.isEmpty) {
       return itemsUB;
     } else {
@@ -49,6 +36,7 @@ class UnderBellyState extends State<UnderBelly> {
   void dispose() {
     _searchController.dispose();
     _searchFocusNode.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -117,7 +105,8 @@ class UnderBellyState extends State<UnderBelly> {
                       ),
                     ],
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15)),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
                     tooltip: 'Sort',
                     child: const FloatingActionButton(
                       elevation: 5,
@@ -154,9 +143,7 @@ class UnderBellyState extends State<UnderBelly> {
                             child: const Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                SizedBox(
-                                  height: 80,
-                                ),
+                                SizedBox(height: 80),
                                 Text(
                                   'Item not available',
                                   textAlign: TextAlign.center,
@@ -167,29 +154,32 @@ class UnderBellyState extends State<UnderBelly> {
                           );
                         } else {
                           final item = filteredItems[index];
-                          // Check if the current item's category is different from the previous item's category
                           final bool showCategoryHeader = index == 0 ||
                               item.category !=
                                   filteredItems[index - 1].category;
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              if (showCategoryHeader)
+                              if (showCategoryHeader && item.category != null)
                                 Padding(
                                   padding: const EdgeInsets.only(
-                                      top: 15, left: 16, bottom: 5),
+                                    top: 15,
+                                    left: 16,
+                                    bottom: 5,
+                                  ),
                                   child: ElevatedButton(
                                     onPressed: () =>
                                         showHeaderOptionsDialog(context),
                                     style: ElevatedButton.styleFrom(
                                       side: const BorderSide(
-                                          color: Color(0xFFD0EE82)),
+                                        color: Color(0xFFD0EE82),
+                                      ),
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                     ),
                                     child: Text(
-                                      item.category,
+                                      item.category!,
                                       style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
@@ -256,7 +246,8 @@ class UnderBellyState extends State<UnderBelly> {
                                         )
                                       : IconButton(
                                           icon: const Icon(
-                                              Icons.add_shopping_cart),
+                                            Icons.add_shopping_cart,
+                                          ),
                                           tooltip: 'Add to Cart',
                                           onPressed: () {
                                             setState(() {
@@ -298,17 +289,17 @@ class UnderBellyState extends State<UnderBelly> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  List<MenuUB> selectedItemsUB =
+                  List<MenuItem> selectedItemsUB =
                       itemsUB.where((item) => item.quantity > 0).toList();
-                  for (var itemUB in selectedItemsUB) {
-                    itemUB.quantity = itemUB.quantity;
-                  }
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            CartUB(selectedItemsUB: selectedItemsUB)),
-                  );
+                      builder: (context) =>
+                          CartUB(selectedItemsUB: selectedItemsUB),
+                    ),
+                  ).then((_) {
+                    setState(() {});
+                  });
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -334,13 +325,14 @@ class UnderBellyState extends State<UnderBelly> {
   }
 
   void showHeaderOptionsDialog(BuildContext context) {
-    final Set<String> uniqueCategories =
-        Set<String>.from(_originalItemsUB.map((item) => item.category));
+    final Set<String> uniqueCategories = Set<String>.from(
+      _originalItemsUB.map((item) => item.category ?? ''),
+    )..remove('');
     final List<String> categoriesList = uniqueCategories.toList();
 
     showDialog(
       context: context,
-      builder: (BuildContext context) {
+      builder: (BuildContext dialogContext) {
         return AlertDialog(
           title: const Text('Categories', textAlign: TextAlign.center),
           content: SizedBox(
@@ -353,20 +345,19 @@ class UnderBellyState extends State<UnderBelly> {
                     final category = categoriesList[index];
                     return FadeInUp(
                       duration: const Duration(milliseconds: 300),
-                      delay: Duration(milliseconds: 50 * index),
                       child: ListTile(
                         title: Text(
                           category,
                           style: const TextStyle(fontSize: 18),
                         ),
                         onTap: () {
-                          Navigator.pop(context);
-                          // Scroll to the selected category
+                          Navigator.pop(dialogContext);
                           final categoryIndex = filteredItems
                               .indexWhere((item) => item.category == category);
                           if (categoryIndex != -1) {
                             final headerIndex = _originalItemsUB.indexWhere(
-                                (item) => item.category == category);
+                              (item) => item.category == category,
+                            );
                             if (headerIndex != -1) {
                               _scrollController.animateTo(
                                 headerIndex * 77.5,
@@ -385,7 +376,7 @@ class UnderBellyState extends State<UnderBelly> {
           ),
           actions: [
             ElevatedButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () => Navigator.pop(dialogContext),
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -401,7 +392,7 @@ class UnderBellyState extends State<UnderBelly> {
   }
 
   void sortByAscending() {
-    List<MenuUB> sortedItemsUB = List.from(itemsUB);
+    List<MenuItem> sortedItemsUB = List.from(itemsUB);
     sortedItemsUB.sort((a, b) => a.price.compareTo(b.price));
     setState(() {
       itemsUB = sortedItemsUB;
@@ -409,7 +400,7 @@ class UnderBellyState extends State<UnderBelly> {
   }
 
   void sortByDescending() {
-    List<MenuUB> sortedItemsUB = List.from(itemsUB);
+    List<MenuItem> sortedItemsUB = List.from(itemsUB);
     sortedItemsUB.sort((a, b) => b.price.compareTo(a.price));
     setState(() {
       itemsUB = sortedItemsUB;
@@ -427,6 +418,6 @@ class UnderBellyState extends State<UnderBelly> {
   }
 
   double getTotalPrice() {
-    return itemsUB.fold(0, (sum, item) => sum + (item.price * item.quantity));
+    return itemsUB.fold(0.0, (sum, item) => sum + (item.price * item.quantity));
   }
 }

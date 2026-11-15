@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:material_ui/material_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import '/utils/floating_snackbar.dart';
 import 'package:upgrader/upgrader.dart';
@@ -15,29 +14,8 @@ import 'canteen.dart';
 import 'underbelly.dart';
 import 'package:share_plus/share_plus.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  void readselectedMess() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    int? savedselectedMess = prefs.getInt("selectedMess");
-    if (savedselectedMess != null) {
-      setState(() {
-        selectedMess = savedselectedMess;
-      });
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    readselectedMess();
-  }
 
   @override
   Widget build(BuildContext context) {

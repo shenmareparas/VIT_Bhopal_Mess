@@ -1,51 +1,24 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:intl/intl.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import '/parsers/mess_menu_paser.dart';
-import 'settings.dart';
+import 'package:provider/provider.dart';
+import 'package:vit_bhopal_mess/provider/mess_provider.dart';
 
-class Mess extends StatefulWidget {
+class Mess extends StatelessWidget {
   const Mess({super.key});
 
   @override
-  State<Mess> createState() => MessState();
-}
-
-class MessState extends State<Mess> {
-  void resetValues() {
-    setState(() {
-      formattedDate = DateFormat('EEEE').format(DateTime.now());
-      mealTime = getMealTime(DateTime.now());
-    });
-  }
-
-  void readselectedMess() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    int? selectedMess = prefs.getInt("selectedMess");
-    if (selectedMess != null) {
-      setState(() {
-        selectedMess = selectedMess;
-      });
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    readselectedMess();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final messProvider = Provider.of<MessProvider>(context);
+    final currentMealItems = messProvider.currentMealItems;
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: RefreshIndicator(
           edgeOffset: 150,
           onRefresh: () async {
-            resetValues();
+            messProvider.resetToCurrentDateTime();
           },
           child: Stack(
             children: [
@@ -58,39 +31,38 @@ class MessState extends State<Mess> {
                       onPressed: () {
                         showDialog(
                           context: context,
-                          builder: (BuildContext context) {
+                          builder: (BuildContext dialogContext) {
                             return AlertDialog(
-                              title: const Text('Select Day',
-                                  textAlign: TextAlign.center),
+                              title: const Text(
+                                'Select Day',
+                                textAlign: TextAlign.center,
+                              ),
                               content: SizedBox(
                                 width: double.maxFinite,
                                 child: ListView.builder(
                                   shrinkWrap: true,
                                   physics: const NeverScrollableScrollPhysics(),
-                                  itemCount: days.length,
+                                  itemCount: MessProvider.days.length,
                                   itemBuilder: (context, index) {
-                                    return Column(
-                                      children: [
-                                        InkWell(
-                                          borderRadius:
-                                              BorderRadius.circular(15),
-                                          onTap: () => {
-                                            setState(() {
-                                              formattedDate = days[index];
-                                            }),
-                                            Navigator.of(context).pop(),
-                                          },
-                                          child: Align(
-                                            alignment: Alignment.centerLeft,
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(10),
-                                              child: Text(days[index],
-                                                  style: const TextStyle(
-                                                      fontSize: 18)),
+                                    final day = MessProvider.days[index];
+                                    return InkWell(
+                                      borderRadius: BorderRadius.circular(15),
+                                      onTap: () {
+                                        messProvider.setDate(day);
+                                        Navigator.of(dialogContext).pop();
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10),
+                                          child: Text(
+                                            day,
+                                            style: const TextStyle(
+                                              fontSize: 18,
                                             ),
                                           ),
                                         ),
-                                      ],
+                                      ),
                                     );
                                   },
                                 ),
@@ -100,13 +72,17 @@ class MessState extends State<Mess> {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                          elevation: 5,
-                          side: const BorderSide(
-                              width: 2, color: Color(0xFFD0EE82)),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15))),
+                        elevation: 5,
+                        side: const BorderSide(
+                          width: 2,
+                          color: Color(0xFFD0EE82),
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                      ),
                       child: Text(
-                        formattedDate,
+                        messProvider.formattedDate,
                         style: const TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w500,
@@ -122,41 +98,41 @@ class MessState extends State<Mess> {
                       onPressed: () {
                         showDialog(
                           context: context,
-                          builder: (BuildContext context) {
+                          builder: (BuildContext dialogContext) {
                             return AlertDialog(
-                              title: const Text('Select Meal Time',
-                                  textAlign: TextAlign.center),
+                              title: const Text(
+                                'Select Meal Time',
+                                textAlign: TextAlign.center,
+                              ),
                               content: SizedBox(
                                 width: double.maxFinite,
                                 child: ListView.builder(
                                   shrinkWrap: true,
                                   physics: const NeverScrollableScrollPhysics(),
-                                  itemCount: meal.length,
+                                  itemCount: MessProvider.mealTypes.length,
                                   itemBuilder: (context, index) {
-                                    return Column(
-                                      children: [
-                                        InkWell(
-                                          borderRadius:
-                                              BorderRadius.circular(15),
-                                          onTap: () => {
-                                            setState(() {
-                                              mealTime = meal[index];
-                                            }),
-                                            Navigator.of(context).pop(),
-                                          },
-                                          child: Align(
-                                            alignment: Alignment.centerLeft,
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(10),
-                                              child: Text(
-                                                mealShow[index],
-                                                style: const TextStyle(
-                                                    fontSize: 18),
-                                              ),
+                                    final mealType =
+                                        MessProvider.mealTypes[index];
+                                    final mealDesc =
+                                        MessProvider.mealDescriptions[index];
+                                    return InkWell(
+                                      borderRadius: BorderRadius.circular(15),
+                                      onTap: () {
+                                        messProvider.setMealTime(mealType);
+                                        Navigator.of(dialogContext).pop();
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10),
+                                          child: Text(
+                                            mealDesc,
+                                            style: const TextStyle(
+                                              fontSize: 18,
                                             ),
                                           ),
-                                        )
-                                      ],
+                                        ),
+                                      ),
                                     );
                                   },
                                 ),
@@ -166,13 +142,17 @@ class MessState extends State<Mess> {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                          elevation: 5,
-                          side: const BorderSide(
-                              width: 2, color: Color(0xFFD0EE82)),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15))),
+                        elevation: 5,
+                        side: const BorderSide(
+                          width: 2,
+                          color: Color(0xFFD0EE82),
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                      ),
                       child: Text(
-                        mealTime,
+                        messProvider.mealTime,
                         style: const TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w500,
@@ -191,20 +171,15 @@ class MessState extends State<Mess> {
                         padding: const EdgeInsets.all(20.0),
                         child: ListView.builder(
                           shrinkWrap: true,
-                          itemCount: getMess(selectedMess)[formattedDate]
-                                  [mealTime]
-                              ?.length,
+                          itemCount: currentMealItems.length,
                           itemBuilder: (BuildContext context, int index) {
                             return FadeInUp(
-                              duration: const Duration(milliseconds: 400),
-                              delay: Duration(milliseconds: 100 * index),
+                              duration: const Duration(milliseconds: 300),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    getMess(selectedMess)[formattedDate]![
-                                            mealTime]![index]
-                                        .toString(),
+                                    currentMealItems[index],
                                     style: const TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w500,
@@ -228,7 +203,7 @@ class MessState extends State<Mess> {
                 right: 20,
                 child: FloatingActionButton(
                   elevation: 5,
-                  onPressed: resetValues,
+                  onPressed: () => messProvider.resetToCurrentDateTime(),
                   tooltip: 'Reset',
                   child: const FaIcon(FontAwesomeIcons.rotateRight),
                 ),

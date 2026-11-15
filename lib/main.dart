@@ -4,6 +4,9 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:easy_splash_screen/easy_splash_screen.dart';
+import 'package:vit_bhopal_mess/models/map.dart';
+import 'package:vit_bhopal_mess/provider/canteen_view_model.dart';
+import 'package:vit_bhopal_mess/provider/mess_provider.dart';
 import '/provider/theme_provider.dart';
 import '/screens/home_screen.dart';
 import '/screens/welcome.dart';
@@ -14,9 +17,19 @@ void main() async {
 
   ThemeProvider themeProvider = ThemeProvider();
   await themeProvider.initializeTheme();
+
+  MessProvider messProvider = MessProvider();
+  await messProvider.loadSelectedMess();
+
   runApp(
-    ChangeNotifierProvider<ThemeProvider>.value(
-      value: themeProvider,
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ThemeProvider>.value(value: themeProvider),
+        ChangeNotifierProvider<MessProvider>.value(value: messProvider),
+        ChangeNotifierProvider<CanteenViewModel>(
+          create: (_) => CanteenViewModel(catalogItems: items),
+        ),
+      ],
       child: const MyApp(),
     ),
   );
