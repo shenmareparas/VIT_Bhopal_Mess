@@ -43,199 +43,302 @@ class _GenericCartScreenState extends State<GenericCartScreen> {
       .map((item) => '${item.name} (${item.quantity})\n')
       .toList();
 
+  void _clearCart() {
+    setState(() {
+      for (final item in widget.selectedItems) {
+        item.quantity = 0;
+      }
+      widget.selectedItems.clear();
+      _fadeOutList.clear();
+      widget.onCartUpdated?.call();
+    });
+  }
+
+  void _confirmResetCart() {
+    showDialog(
+      context: context,
+      builder: (BuildContext dialogContext) {
+        return AlertDialog(
+          title: const Text('Reset Cart?'),
+          content: const Text(
+            'Are you sure you want to remove all items from your cart?',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(),
+              child: const Text('Cancel'),
+            ),
+            FilledButton(
+              onPressed: () {
+                Navigator.of(dialogContext).pop();
+                _clearCart();
+              },
+              child: const Text('Empty Cart'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
     final hasPhone =
         widget.phoneNumber != null && widget.phoneNumber!.isNotEmpty;
+    final hasItems = widget.selectedItems.isNotEmpty;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title, style: const TextStyle(fontSize: 25)),
+        title: Text(widget.title),
         centerTitle: true,
-        actions: hasPhone
-            ? [
-                IconButton(
-                  tooltip: 'Call',
-                  onPressed: () async {
-                    final Uri call = Uri(
-                      scheme: 'tel',
-                      path: widget.phoneNumber,
-                    );
-                    await launchUrl(call);
-                  },
-                  icon: const Icon(Icons.call),
-                ),
-              ]
-            : null,
+        actions: [
+          if (hasPhone)
+            IconButton(
+              tooltip: 'Call Caterer',
+              onPressed: () async {
+                final Uri call = Uri(
+                  scheme: 'tel',
+                  path: widget.phoneNumber,
+                );
+                await launchUrl(call);
+              },
+              icon: const Icon(Icons.call_rounded),
+            ),
+          if (hasItems)
+            IconButton(
+              tooltip: 'Empty Cart',
+              onPressed: _confirmResetCart,
+              icon: const Icon(Icons.delete_sweep_rounded),
+            ),
+        ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(4),
-        child: Stack(
-          children: [
-            widget.selectedItems.isEmpty
-                ? FadeInUp(
-                    duration: const Duration(milliseconds: 400),
-                    child: const Center(
-                      child: Text(
-                        'No items are selected',
-                        style: TextStyle(fontSize: 18),
+      body: widget.selectedItems.isEmpty
+          ? FadeInUp(
+              duration: const Duration(milliseconds: 300),
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.remove_shopping_cart_outlined,
+                      size: 64,
+                      color: colorScheme.onSurfaceVariant,
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      'Your cart is empty',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: colorScheme.onSurface,
                       ),
                     ),
-                  )
-                : Scrollbar(
-                    radius: const Radius.circular(10),
-                    thickness: 10,
-                    interactive: true,
-                    trackVisibility: true,
-                    child: ListView.builder(
-                      itemCount: widget.selectedItems.length,
-                      itemBuilder: (context, index) {
-                        final item = widget.selectedItems[index];
-                        return _fadeOutList[index]
-                            ? FadeOutRight(
-                                duration: const Duration(milliseconds: 400),
-                                child: ListTile(
-                                  title: Text(
-                                    item.name,
-                                    style: const TextStyle(fontSize: 17),
-                                  ),
-                                  subtitle: Text(
-                                    '₹${(item.price * item.quantity).toStringAsFixed(0)}',
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      color: Theme.of(context).brightness ==
-                                              Brightness.light
-                                          ? const Color(0xFF4E6700)
-                                          : const Color(0xFFD0EE82),
-                                    ),
-                                  ),
-                                ),
-                              )
-                            : FadeInUp(
-                                duration: const Duration(milliseconds: 400),
-                                child: ListTile(
-                                  title: Text(
-                                    item.name,
-                                    style: const TextStyle(fontSize: 17),
-                                  ),
-                                  subtitle: Text(
-                                    '₹${(item.price * item.quantity).toStringAsFixed(0)}',
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      color: Theme.of(context).brightness ==
-                                              Brightness.light
-                                          ? const Color(0xFF4E6700)
-                                          : const Color(0xFFD0EE82),
-                                    ),
-                                  ),
-                                  trailing: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      IconButton(
-                                        icon: const Icon(Icons.remove),
-                                        tooltip: 'Remove',
-                                        onPressed: () {
-                                          setState(() {
-                                            if (item.quantity > 0) {
-                                              item.quantity--;
-                                              widget.onCartUpdated?.call();
-                                              if (item.quantity == 0) {
-                                                _fadeOutList[index] = true;
-                                                Future.delayed(
-                                                  const Duration(
-                                                      milliseconds: 400),
-                                                  () {
-                                                    setState(() {
-                                                      widget.selectedItems
-                                                          .removeAt(index);
-                                                      _fadeOutList
-                                                          .removeAt(index);
-                                                    });
-                                                  },
-                                                );
-                                              }
-                                            }
-                                          });
-                                        },
-                                      ),
-                                      Text(
-                                        '${item.quantity}',
-                                        style: TextStyle(
-                                          color: Theme.of(context).brightness ==
-                                                  Brightness.light
-                                              ? const Color(0xFF4E6700)
-                                              : const Color(0xFFD0EE82),
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
-                                        ),
-                                      ),
-                                      IconButton(
-                                        icon: const Icon(Icons.add),
-                                        tooltip: 'Add',
-                                        onPressed: () {
-                                          setState(() {
-                                            item.quantity++;
-                                            widget.onCartUpdated?.call();
-                                          });
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                      },
-                    ),
-                  ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          border: Border(
-            top: BorderSide(
-              color: Theme.of(context).brightness == Brightness.light
-                  ? const Color(0xFF4E6700)
-                  : const Color(0xFFD0EE82),
-              width: 3,
-            ),
-          ),
-        ),
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              '$selectedItemsCount Item  |  ₹${totalPrice.toStringAsFixed(0)}',
-              style: const TextStyle(fontSize: 17),
-            ),
-            if (hasPhone && widget.selectedItems.isNotEmpty)
-              ElevatedButton(
-                onPressed: () async {
-                  final messageText = 'Order:\n${formattedOrderLines.join('')}';
-                  final whatsapp =
-                      'https://wa.me/91${widget.phoneNumber}?text=${Uri.encodeComponent(messageText)}';
-                  launchUrlString(
-                    whatsapp,
-                    mode: LaunchMode.externalNonBrowserApplication,
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  side: const BorderSide(color: Color(0xFFD0EE82)),
-                ),
-                child: const Row(
-                  children: [
+                    const SizedBox(height: 6),
                     Text(
-                      'Send Order  ',
-                      style: TextStyle(fontSize: 17),
+                      'Add items from the menu to see them here',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: colorScheme.onSurfaceVariant,
+                      ),
                     ),
-                    FaIcon(FontAwesomeIcons.whatsapp),
                   ],
                 ),
               ),
-          ],
+            )
+          : Scrollbar(
+              radius: const Radius.circular(10),
+              thickness: 6,
+              interactive: true,
+              child: ListView.separated(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                itemCount: widget.selectedItems.length,
+                separatorBuilder: (_, __) => const SizedBox(height: 8),
+                itemBuilder: (context, index) {
+                  final item = widget.selectedItems[index];
+                  final widgetContent = Card(
+                    elevation: 0,
+                    color: colorScheme.surfaceContainerLow,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      side: BorderSide(
+                        color:
+                            colorScheme.outlineVariant.withValues(alpha: 0.35),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 14, vertical: 12),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  item.name,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: colorScheme.onSurface,
+                                  ),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  '₹${(item.price * item.quantity).toStringAsFixed(0)} (${item.quantity} × ₹${item.price.toStringAsFixed(0)})',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    color: colorScheme.primary,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: colorScheme.surfaceContainerHigh,
+                              borderRadius: BorderRadius.circular(24),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                IconButton(
+                                  iconSize: 18,
+                                  visualDensity: VisualDensity.compact,
+                                  icon: const Icon(Icons.remove_rounded),
+                                  tooltip: 'Remove',
+                                  onPressed: () {
+                                    setState(() {
+                                      if (item.quantity > 0) {
+                                        item.quantity--;
+                                        widget.onCartUpdated?.call();
+                                        if (item.quantity == 0) {
+                                          _fadeOutList[index] = true;
+                                          Future.delayed(
+                                            const Duration(milliseconds: 300),
+                                            () {
+                                              setState(() {
+                                                widget.selectedItems
+                                                    .removeAt(index);
+                                                _fadeOutList.removeAt(index);
+                                              });
+                                            },
+                                          );
+                                        }
+                                      }
+                                    });
+                                  },
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 4),
+                                  child: Text(
+                                    '${item.quantity}',
+                                    style: TextStyle(
+                                      color: colorScheme.primary,
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ),
+                                IconButton(
+                                  iconSize: 18,
+                                  visualDensity: VisualDensity.compact,
+                                  icon: const Icon(Icons.add_rounded),
+                                  tooltip: 'Add',
+                                  onPressed: () {
+                                    setState(() {
+                                      item.quantity++;
+                                      widget.onCartUpdated?.call();
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+
+                  return _fadeOutList[index]
+                      ? FadeOutRight(
+                          duration: const Duration(milliseconds: 300),
+                          child: widgetContent,
+                        )
+                      : FadeInUp(
+                          duration: const Duration(milliseconds: 250),
+                          child: widgetContent,
+                        );
+                },
+              ),
+            ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: colorScheme.surfaceContainer,
+          border: Border(
+            top: BorderSide(
+              color: colorScheme.outlineVariant.withValues(alpha: 0.4),
+              width: 1,
+            ),
+          ),
+        ),
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+        child: SafeArea(
+          top: false,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '$selectedItemsCount ${selectedItemsCount == 1 ? "Item" : "Items"} in cart',
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: colorScheme.onSurfaceVariant,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    '₹${totalPrice.toStringAsFixed(0)}',
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w800,
+                      color: colorScheme.primary,
+                    ),
+                  ),
+                ],
+              ),
+              if (hasPhone && widget.selectedItems.isNotEmpty)
+                FilledButton.icon(
+                  onPressed: () async {
+                    final messageText =
+                        'Order:\n${formattedOrderLines.join('')}Total: ₹${totalPrice.toStringAsFixed(0)}';
+                    final whatsapp =
+                        'https://wa.me/91${widget.phoneNumber}?text=${Uri.encodeComponent(messageText)}';
+                    launchUrlString(
+                      whatsapp,
+                      mode: LaunchMode.externalNonBrowserApplication,
+                    );
+                  },
+                  icon: const FaIcon(FontAwesomeIcons.whatsapp, size: 18),
+                  label: const Text('Send Order'),
+                  style: FilledButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 12),
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );

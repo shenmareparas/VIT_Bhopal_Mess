@@ -11,6 +11,7 @@ VIT Bhopal Mess is a Flutter application designed for VIT Bhopal University stud
   - Flutter SDK: `3.50.x` or later (installed at `~/Developer/flutter`)
   - Dart SDK: `3.14.x` or later
   - Use `package:material_ui/material_ui.dart` instead of the legacy deprecated `package:flutter/material.dart`.
+  - Use `package:cupertino_ui/cupertino_ui.dart` for Cupertino components instead of deprecated `package:flutter/cupertino.dart`.
   - Swift Package Manager (SPM): Enabled (`flutter config --enable-swift-package-manager`). CocoaPods has been deintegrated.
   - WebAssembly (Wasm): Fully supported and verified (`flutter build web --wasm`).
 - **Package Management and Tooling**:
@@ -30,10 +31,14 @@ VIT Bhopal Mess is a Flutter application designed for VIT Bhopal University stud
   - Models: Data classes and models in `lib/models/` (e.g., `MenuItem`, `map.dart`). No UI imports allowed in model files.
   - ViewModels / State: State holders, business logic, and providers in `lib/provider/` (e.g., `MessProvider`, `CanteenViewModel`, `ThemeProvider`).
   - Views: Modular screens in `lib/screens/` and reusable widgets in `lib/widgets/`. Views must consume ViewModels/Providers and avoid direct business logic or arbitrary State class instantiations.
+- **Design System & Theme**:
+  - Material 3 Expressive: All UI components (cards, dialogs, buttons, search bars, navigation tabs) follow M3 Expressive design specifications with tonal elevations and container palettes.
+  - Theme Selection: Three options (System Default, Light Theme, Dark Theme) with System Default as default.
+  - iOS Adaptations: Platform-aware segmented inset grouped section styling, `CupertinoSwitch`, tactile haptic feedback (`HapticFeedback.selectionClick()`, `HapticFeedback.lightImpact()`), and iOS query scheme compatibility in `Info.plist`.
 - **Code Completeness**:
   - Write complete, production-ready code. Do not introduce placeholder comments or unhandled `TODO` stubs.
 - **Icon Usage**:
-  - Use `FaIcon(FontAwesomeIcons.<iconName>)` for Font Awesome icons (due to `font_awesome_flutter` 11+ requirements). Standard `Icon` should only be used with `Icons.<iconName>`.
+  - Use `FaIcon(FontAwesomeIcons.<iconName>)` for Font Awesome icons (due to `font_awesome_flutter` 11+ requirements). Standard `Icon` should only be used with `Icons.<iconName>` or `CupertinoIcons.<iconName>`.
 - **Formatting and Quality Gate**:
   - Always execute `dart format .` after updating Dart code.
   - Always execute `flutter analyze` and confirm 0 errors and 0 warnings before concluding any task.

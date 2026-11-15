@@ -25,6 +25,9 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           bottom: TabBar(
             onTap: (_) => FocusManager.instance.primaryFocus?.unfocus(),
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorWeight: 3,
+            labelPadding: const EdgeInsets.symmetric(horizontal: 12),
             tabs: const [
               Tab(text: "Mess", icon: FaIcon(FontAwesomeIcons.utensils)),
               Tab(text: "UB", icon: FaIcon(FontAwesomeIcons.burger)),
@@ -33,63 +36,93 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           centerTitle: true,
-          title: const Text('VIT Bhopal Mess', style: TextStyle(fontSize: 25)),
+          title: Text(
+            'VIT Bhopal Mess',
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.w700,
+              letterSpacing: -0.2,
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
+          ),
           actions: [
             Builder(
               builder: (BuildContext context) => PopupMenuButton(
                 position: PopupMenuPosition.under,
-                shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  side: BorderSide(
+                    color: Theme.of(context)
+                        .colorScheme
+                        .outlineVariant
+                        .withValues(alpha: 0.4),
+                  ),
+                ),
                 tooltip: "More Options",
                 icon: const FaIcon(FontAwesomeIcons.ellipsisVertical),
                 itemBuilder: (BuildContext context) => [
-                  const PopupMenuItem(
+                  PopupMenuItem(
                     value: 'Settings',
                     child: Row(
                       children: [
-                        Icon(Icons.settings),
-                        SizedBox(width: 10),
-                        Text('Settings', style: TextStyle(fontSize: 17)),
+                        Icon(Icons.settings_outlined,
+                            color: Theme.of(context).colorScheme.primary),
+                        const SizedBox(width: 12),
+                        const Text('Settings',
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                       ],
                     ),
                   ),
-                  const PopupMenuItem(
+                  PopupMenuItem(
                     value: 'Share',
                     child: Row(
                       children: [
-                        Icon(Icons.share),
-                        SizedBox(width: 10),
-                        Text('Share', style: TextStyle(fontSize: 17)),
+                        Icon(Icons.share_outlined,
+                            color: Theme.of(context).colorScheme.primary),
+                        const SizedBox(width: 12),
+                        const Text('Share',
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                       ],
                     ),
                   ),
-                  const PopupMenuItem(
+                  PopupMenuItem(
                     value: 'Rate Us',
                     child: Row(
                       children: [
-                        Icon(Icons.star),
-                        SizedBox(width: 10),
-                        Text('Rate Us', style: TextStyle(fontSize: 17)),
+                        Icon(Icons.star_outline_rounded,
+                            color: Theme.of(context).colorScheme.primary),
+                        const SizedBox(width: 12),
+                        const Text('Rate Us',
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                       ],
                     ),
                   ),
-                  const PopupMenuItem(
+                  PopupMenuItem(
                     value: 'Developer',
                     child: Row(
                       children: [
-                        Icon(Icons.android),
-                        SizedBox(width: 10),
-                        Text('Developer', style: TextStyle(fontSize: 17)),
+                        Icon(Icons.code_rounded,
+                            color: Theme.of(context).colorScheme.primary),
+                        const SizedBox(width: 12),
+                        const Text('Developer',
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                       ],
                     ),
                   ),
-                  const PopupMenuItem(
+                  PopupMenuItem(
                     value: 'About',
                     child: Row(
                       children: [
-                        Icon(Icons.info),
-                        SizedBox(width: 10),
-                        Text('About', style: TextStyle(fontSize: 17)),
+                        Icon(Icons.info_outline_rounded,
+                            color: Theme.of(context).colorScheme.primary),
+                        const SizedBox(width: 12),
+                        const Text('About',
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                       ],
                     ),
                   ),

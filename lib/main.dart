@@ -50,22 +50,29 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<ThemeProvider>(
       builder: (context, themeProvider, _) {
+        final activeTheme = themeProvider.currentTheme;
+        final colorScheme = activeTheme.colorScheme;
+        final isDark = colorScheme.brightness == Brightness.dark;
+
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          theme: themeProvider.currentTheme,
+          theme: themeProvider.lightThemeData,
+          darkTheme: themeProvider.darkThemeData,
+          themeMode: themeProvider.themeMode,
           title: "VIT Bhopal Mess",
           home: EasySplashScreen(
             logo: Image.asset('assets/images/icon_circle.png'),
-            logoWidth: 100,
-            title: const Text(
+            logoWidth: 90,
+            title: Text(
               "VIT Bhopal Mess",
               style: TextStyle(
-                fontSize: 30,
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
+                fontSize: 28,
+                color: isDark ? colorScheme.onSurface : colorScheme.primary,
+                fontWeight: FontWeight.w700,
+                letterSpacing: -0.5,
               ),
             ),
-            backgroundColor: const Color(0xFF14322E),
+            backgroundColor: colorScheme.surface,
             showLoader: false,
             durationInSeconds: 1,
             navigator: FutureBuilder<Widget>(

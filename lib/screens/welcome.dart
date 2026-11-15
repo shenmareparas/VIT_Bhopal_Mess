@@ -26,15 +26,26 @@ class _WelcomeState extends State<Welcome> {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     final messProvider = Provider.of<MessProvider>(context);
-    const bodyStyle = TextStyle(fontSize: 19);
+    final colorScheme = Theme.of(context).colorScheme;
 
-    const pageDecoration = PageDecoration(
+    final bodyStyle = TextStyle(
+      fontSize: 16,
+      color: colorScheme.onSurfaceVariant,
+      height: 1.4,
+    );
+
+    final pageDecoration = PageDecoration(
       bodyFlex: 3,
       imageFlex: 4,
       safeArea: 80,
-      titleTextStyle: TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
+      titleTextStyle: TextStyle(
+        fontSize: 26,
+        fontWeight: FontWeight.w800,
+        letterSpacing: -0.5,
+        color: colorScheme.onSurface,
+      ),
       bodyTextStyle: bodyStyle,
-      bodyPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+      bodyPadding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
       pageColor: Colors.transparent,
       imagePadding: EdgeInsets.zero,
     );
@@ -52,13 +63,16 @@ class _WelcomeState extends State<Welcome> {
               title: "Welcome to\nVIT Bhopal Mess",
               body:
                   "Easily track what meal is being served right now at VIT Bhopal.",
-              image: const CircleAvatar(
-                radius: 300,
-                backgroundColor: Colors.white,
+              image: Container(
+                padding: const EdgeInsets.all(24),
+                decoration: BoxDecoration(
+                  color: colorScheme.primary.withValues(alpha: 0.15),
+                  shape: BoxShape.circle,
+                ),
                 child: Icon(
-                  Icons.restaurant_menu,
-                  color: Color(0xFF5D9214),
-                  size: 250,
+                  Icons.restaurant_rounded,
+                  color: colorScheme.primary,
+                  size: 140,
                 ),
               ),
               decoration: pageDecoration,
@@ -66,26 +80,31 @@ class _WelcomeState extends State<Welcome> {
             PageViewModel(
               title: "Choose Your Mess",
               body: "Select the mess caterer according to your hostel block.",
-              image: const CircleAvatar(
-                radius: 300,
-                backgroundColor: Colors.white,
+              image: Container(
+                padding: const EdgeInsets.all(24),
+                decoration: BoxDecoration(
+                  color: colorScheme.primary.withValues(alpha: 0.15),
+                  shape: BoxShape.circle,
+                ),
                 child: Icon(
-                  Icons.food_bank_outlined,
-                  color: Color(0xFF5D9214),
-                  size: 250,
+                  Icons.food_bank_rounded,
+                  color: colorScheme.primary,
+                  size: 140,
                 ),
               ),
               decoration: pageDecoration,
               footer: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
                 child: Container(
-                  padding: const EdgeInsets.all(8.0),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
                   decoration: BoxDecoration(
-                    color: Theme.of(context).brightness == Brightness.light
-                        ? const Color(0xFF4E6700).withValues(alpha: 0.2)
-                        : const Color(0xFFD0EE82).withValues(alpha: 0.2),
-                    borderRadius: BorderRadius.circular(15),
+                    color: colorScheme.surfaceContainerHigh,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                      color: colorScheme.outlineVariant.withValues(alpha: 0.4),
+                    ),
                   ),
                   child: DropdownButton<int>(
                     value: messProvider.selectedMess,
@@ -95,34 +114,40 @@ class _WelcomeState extends State<Welcome> {
                       }
                     },
                     isExpanded: true,
-                    underline: Container(),
+                    underline: const SizedBox.shrink(),
+                    icon: Icon(Icons.arrow_drop_down_rounded,
+                        color: colorScheme.primary),
                     items: const [
                       DropdownMenuItem<int>(
                         value: 1,
                         child: Text(
                           'Boys Hostel 1 CRCL Mess',
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
                         ),
                       ),
                       DropdownMenuItem<int>(
                         value: 2,
                         child: Text(
                           'Boys Hostel 2 & 3 Mayuri Mess',
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
                         ),
                       ),
                       DropdownMenuItem<int>(
                         value: 4,
                         child: Text(
                           'Boys Hostel 6 Safal Mess',
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
                         ),
                       ),
                       DropdownMenuItem<int>(
                         value: 3,
                         child: Text(
                           'Girls Hostel AB Mess',
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
                         ),
                       ),
                     ],
@@ -133,39 +158,70 @@ class _WelcomeState extends State<Welcome> {
             PageViewModel(
               title: "App Theme",
               body:
-                  "Default is set to Light Theme,\nswitch to change it to Dark Theme.",
-              image: const CircleAvatar(
-                radius: 300,
-                backgroundColor: Colors.white,
+                  "Choose between System Default, Light, and Dark themes anytime.",
+              image: Container(
+                padding: const EdgeInsets.all(24),
+                decoration: BoxDecoration(
+                  color: colorScheme.primary.withValues(alpha: 0.15),
+                  shape: BoxShape.circle,
+                ),
                 child: Icon(
-                  Icons.brightness_4,
-                  color: Color(0xFF5D9214),
-                  size: 250,
+                  Icons.palette_rounded,
+                  color: colorScheme.primary,
+                  size: 140,
                 ),
               ),
               decoration: pageDecoration,
               footer: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
                 child: Container(
-                  padding: const EdgeInsets.all(8.0),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
                   decoration: BoxDecoration(
-                    color: Theme.of(context).brightness == Brightness.light
-                        ? const Color(0xFF4E6700).withValues(alpha: 0.2)
-                        : const Color(0xFFD0EE82).withValues(alpha: 0.2),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: ListTile(
-                    title: const Text('Dark Mode'),
-                    trailing: Switch(
-                      value: themeProvider.currentThemeType == ThemeType.dark,
-                      onChanged: (_) {
-                        themeProvider.toggleTheme();
-                      },
+                    color: colorScheme.surfaceContainerHigh,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                      color: colorScheme.outlineVariant.withValues(alpha: 0.4),
                     ),
-                    onTap: () {
-                      themeProvider.toggleTheme();
+                  ),
+                  child: DropdownButton<ThemeType>(
+                    value: themeProvider.currentThemeType,
+                    onChanged: (value) {
+                      if (value != null) {
+                        themeProvider.setThemeType(value);
+                      }
                     },
+                    isExpanded: true,
+                    underline: const SizedBox.shrink(),
+                    icon: Icon(Icons.arrow_drop_down_rounded,
+                        color: colorScheme.primary),
+                    items: const [
+                      DropdownMenuItem<ThemeType>(
+                        value: ThemeType.system,
+                        child: Text(
+                          'System Default',
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                      DropdownMenuItem<ThemeType>(
+                        value: ThemeType.light,
+                        child: Text(
+                          'Light Theme',
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                      DropdownMenuItem<ThemeType>(
+                        value: ThemeType.dark,
+                        child: Text(
+                          'Dark Theme',
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -176,27 +232,24 @@ class _WelcomeState extends State<Welcome> {
           skipOrBackFlex: 0,
           nextFlex: 0,
           showBackButton: true,
-          back: const Icon(Icons.arrow_back),
-          next: const Icon(Icons.arrow_forward),
+          back: const Icon(Icons.arrow_back_rounded),
+          next: const Icon(Icons.arrow_forward_rounded),
           done: const Text(
             'Let\'s Go',
-            style: TextStyle(fontWeight: FontWeight.w600),
+            style: TextStyle(fontWeight: FontWeight.w700),
           ),
           curve: Curves.fastLinearToSlowEaseIn,
           controlsMargin: const EdgeInsets.all(16),
           controlsPadding: kIsWeb
               ? const EdgeInsets.all(12)
               : const EdgeInsets.fromLTRB(8, 4, 8, 4),
-          dotsDecorator: const DotsDecorator(
-            size: Size(10, 10),
-            activeSize: Size(22, 10),
-            activeShape: RoundedRectangleBorder(
+          dotsDecorator: DotsDecorator(
+            size: const Size(8, 8),
+            activeSize: const Size(24, 8),
+            activeColor: colorScheme.primary,
+            color: colorScheme.outlineVariant,
+            activeShape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(25)),
-            ),
-          ),
-          dotsContainerDecorator: const ShapeDecoration(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
             ),
           ),
         ),

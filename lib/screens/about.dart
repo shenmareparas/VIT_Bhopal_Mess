@@ -17,8 +17,8 @@ class _AboutState extends State<About> {
 
   @override
   void dispose() {
-    super.dispose();
     _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -28,88 +28,86 @@ class _AboutState extends State<About> {
       children: [
         Scaffold(
           appBar: AppBar(
-            title: const Text('About', style: TextStyle(fontSize: 25)),
+            title: const Text('About'),
             centerTitle: true,
           ),
           body: Center(
             child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ZoomIn(
-                      child: const CircleAvatar(
-                        radius: 130,
-                        backgroundImage: AssetImage('assets/images/icon.png'),
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ZoomIn(
+                    child: const CircleAvatar(
+                      radius: 130,
+                      backgroundImage: AssetImage('assets/images/icon.png'),
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  const Text(
+                    'VITB Mess',
+                    style: TextStyle(
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Text(
+                    'v1.1.4',
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  const Text(
+                    "App aims to make it easier for\nVIT Bhopal University Students\nto find the correct food item\navailable at the mess based on\nthe current day and time",
+                    style: TextStyle(
+                      fontSize: 17,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 15),
+                  const Text(
+                    'Developed by Paras Shenmare\n Made with 💚 in Flutter',
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 15),
+                  ElevatedButton(
+                    onPressed: () {
+                      launchUrlString(
+                          "mailto:shenmareparas+vitbmess@gmail.com?subject=VIT%20Bhopal%20Mess%20Feedback");
+                    },
+                    child: const IntrinsicWidth(
+                      child: Row(
+                        children: [
+                          Text('Send Feedback   '),
+                          Icon(Icons.send_rounded)
+                        ],
                       ),
                     ),
-                    const SizedBox(height: 15),
-                    const Text(
-                      'VITB Mess',
-                      style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.bold,
+                  ),
+                  const SizedBox(height: 5),
+                  ElevatedButton(
+                    onPressed: () {
+                      if (isPlaying) {
+                        _controller.stop();
+                      } else {
+                        _controller.play();
+                      }
+                      isPlaying = !isPlaying;
+                    },
+                    child: const IntrinsicWidth(
+                      child: Row(
+                        children: [
+                          Text('1.5K+ Downloads  '),
+                          Icon(Icons.celebration_rounded)
+                        ],
                       ),
                     ),
-                    const Text(
-                      'v1.1.4',
-                      style: TextStyle(
-                        fontSize: 14,
-                      ),
-                    ),
-                    const SizedBox(height: 15),
-                    const Text(
-                      "App aims to make it easier for\nVIT Bhopal University Students\nto find the correct food item\navailable at the mess based on\nthe current day and time",
-                      style: TextStyle(
-                        fontSize: 17,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 15),
-                    const Text(
-                      'Developed by Paras Shenmare\n Made with 💚 in Flutter',
-                      style: TextStyle(
-                        fontSize: 14,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 15),
-                    ElevatedButton(
-                      onPressed: () {
-                        launchUrlString(
-                            "mailto:shenmareparas+vitbmess@gmail.com?subject=VIT%20Bhopal%20Mess%20Feedback");
-                      },
-                      child: const IntrinsicWidth(
-                        child: Row(
-                          children: [
-                            Text('Send Feedback   '),
-                            Icon(Icons.send_rounded)
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    ElevatedButton(
-                      onPressed: () {
-                        if (isPlaying) {
-                          _controller.stop();
-                        } else {
-                          _controller.play();
-                        }
-                        isPlaying = !isPlaying;
-                      },
-                      child: const IntrinsicWidth(
-                        child: Row(
-                          children: [
-                            Text('1.5K+ Downloads  '),
-                            Icon(Icons.celebration_rounded)
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

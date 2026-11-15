@@ -1,9 +1,8 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DevCard extends StatelessWidget {
   final String name;
-
   final String description;
   final String image;
   final List<Socials> socials;
@@ -18,50 +17,102 @@ class DevCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Card(
-      elevation: 3,
+      elevation: 0,
+      color: colorScheme.surfaceContainerLow,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(24),
+        side: BorderSide(
+          color: colorScheme.outlineVariant.withValues(alpha: 0.35),
+        ),
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      name,
-                      style: const TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        name,
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w700,
+                          color: colorScheme.onSurface,
+                        ),
                       ),
-                    ),
-                    Text(
-                      description,
-                      style: const TextStyle(fontSize: 13),
-                    ),
-                  ],
+                      const SizedBox(height: 4),
+                      Text(
+                        description,
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                CircleAvatar(
-                  radius: 55,
-                  backgroundImage: AssetImage(image),
+                Container(
+                  padding: const EdgeInsets.all(3),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: colorScheme.primary,
+                      width: 2,
+                    ),
+                  ),
+                  child: CircleAvatar(
+                    radius: 44,
+                    backgroundImage: AssetImage(image),
+                  ),
                 ),
               ],
             ),
-            const SizedBox(height: 5),
+            const SizedBox(height: 16),
+            Divider(
+              height: 1,
+              color: colorScheme.outlineVariant.withValues(alpha: 0.25),
+            ),
+            const SizedBox(height: 12),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: socials.map((socials) {
-                return IconButton(
-                  tooltip: socials.tooltip,
-                  iconSize: socials.iconSize,
-                  onPressed: () {
-                    launchUrlString(
-                        mode: LaunchMode.externalNonBrowserApplication,
-                        socials.link);
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: socials.map((social) {
+                return IconButton.filledTonal(
+                  tooltip: social.tooltip,
+                  iconSize: social.iconSize > 24 ? 22 : social.iconSize,
+                  style: IconButton.styleFrom(
+                    backgroundColor: colorScheme.surfaceContainerHigh,
+                    foregroundColor: colorScheme.primary,
+                    padding: const EdgeInsets.all(12),
+                  ),
+                  onPressed: () async {
+                    final uri = Uri.tryParse(social.link);
+                    if (uri != null) {
+                      try {
+                        final launched = await launchUrl(
+                          uri,
+                          mode: LaunchMode.externalApplication,
+                        );
+                        if (!launched) {
+                          await launchUrl(
+                            uri,
+                            mode: LaunchMode.platformDefault,
+                          );
+                        }
+                      } catch (_) {
+                        await launchUrl(
+                          uri,
+                          mode: LaunchMode.platformDefault,
+                        );
+                      }
+                    }
                   },
-                  icon: socials.icon,
+                  icon: social.icon,
                 );
               }).toList(),
             ),

@@ -7,11 +7,14 @@ The "VIT Bhopal Mess" app & website is designed to simplify the process of findi
 
 ## Features
 - **Current Time Tracking:** The app automatically detects the current time and displays the food items available during that specific time slot.
-- **User-Friendly Interface:** The user interface is designed to be intuitive and easy to navigate, allowing users to quickly find the information they need.
+- **User-Friendly Interface:** Upgraded with Material 3 Expressive design, featuring tonal containers, refined elevation, and responsive cards across all screens.
 - **Search Functionality:** Users can search for specific Day or Meal time to get Food Items of it respectively.
-- **Canteen:** Users can view, search as well as sort the menu and its prices available in the canteen, it can also see the total price of the selected items by adding or removing items from the cart, enabling them to make informed decisions about their food choices outside the mess.
-- **UnderBelly:** Users can view and search the menu and its prices available at UnderBelly, enabling them to make informed decisions about their food choices in between classes.
+- **Canteen:** Users can view, search, and sort the canteen menu and prices, see the total price of selected items, and manage their cart.
+- **UnderBelly:** Users can view, search, and jump across categories at UnderBelly, enabling informed decisions between classes.
 - **Mayuri:** Users can browse beverages, snacks, chaat, and meals served at Mayuri with instant category navigation and pricing.
+- **Cart Reset Action:** Easily empty and reset the cart with a single tap and confirmation prompt inside the cart view.
+- **System Default Theme Support:** Tri-state appearance options (System Default, Light Theme, Dark Theme) with automatic system brightness matching.
+- **Enhanced iOS Experience:** Native inset grouped preference sections, Cupertino toggles, and selection haptics.
 
 ## Screenshots
 <table>
@@ -36,7 +39,7 @@ The "VIT Bhopal Mess" app & website is designed to simplify the process of findi
 - **Framework**: Flutter and Dart for building the cross-platform app
 - **Native Dependency Management**: Swift Package Manager (SPM) for iOS
 - **Web**: WebAssembly (WasmGC) support for modern high-performance web deployment
-- **Design System**: Material UI 3 with dynamic Light & Dark themes
+- **Design System**: Material UI 3 Expressive with brand deep-green palettes and System Default / Light / Dark modes
 - **State & Persistence**: `provider` and `shared_preferences`
 
 ## Installation

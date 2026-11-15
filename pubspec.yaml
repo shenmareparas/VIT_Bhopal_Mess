@@ -45,6 +45,8 @@ dependencies:
   font_awesome_flutter: ^11.0.0
   share_plus: ^13.3.1
   flutter_animate: ^4.5.0
+  cupertino_ui: ^1.1.6
+  scrollable_positioned_list: ^0.3.8
 
 dev_dependencies:
   flutter_test:

@@ -23,36 +23,38 @@ VIT_Bhopal_Mess/
 │   └── settings.gradle         # Plugin management and plugin versions
 ├── assets/                     # Images, developer avatars, playstore assets
 ├── ios/                        # iOS host project (Swift Package Manager, iOS 15.0+ deployment target)
+│   └── Runner/
+│       └── Info.plist          # Configured with LSApplicationQueriesSchemes for external links
 ├── lib/
-│   ├── main.dart               # Entry point, MultiProvider setup, theme & mess initialization, routing
+│   ├── main.dart               # Entry point, MultiProvider setup, theme & mess initialization, splash screen, routing
 │   ├── models/
 │   │   ├── menu_item.dart      # Unified MenuItem entity model
 │   │   └── map.dart            # Schedule catalogs and eatery food lists
 │   ├── parsers/
 │   │   └── mess_menu_paser.dart # Mess schedule and helper accessor functions
 │   ├── provider/
-│   │   ├── theme_provider.dart # Dynamic theme state management (Light/Dark)
+│   │   ├── theme_provider.dart # Dynamic theme state management (System Default, Light, Dark)
 │   │   ├── mess_provider.dart  # Mess schedule, selected day/meal, and SharedPreferences persistence
 │   │   └── canteen_view_model.dart # Eatery catalog, search, filter, and cart state management
 │   ├── screens/
-│   │   ├── about.dart          # About page, app info, confetti celebration
+│   │   ├── about.dart          # About page, app info, confetti celebration with 1.5K+ downloads counter
 │   │   ├── canteen.dart        # Canteen menu, search, filtering, and cart trigger
 │   │   ├── cart.dart           # Canteen cart route (wrapper for GenericCartScreen)
 │   │   ├── cartM.dart          # Mayuri cart route (wrapper for GenericCartScreen)
 │   │   ├── cartUB.dart         # UnderBelly cart route with WhatsApp order composer
-│   │   ├── generic_cart_screen.dart # Unified cart UI with animations and dynamic call/order actions
+│   │   ├── generic_cart_screen.dart # Unified cart UI with animations, empty cart reset action, and dynamic call/order actions
 │   │   ├── developer.dart      # Contributor profiles and social links
-│   │   ├── home_screen.dart    # Main screen holding the four primary tabs
-│   │   ├── mayuri.dart         # Mayuri eatery menu and search
-│   │   ├── mess.dart           # Mess menu display with time detection and reactive day/meal picker
-│   │   ├── settings.dart       # App settings, mess selection, and theme switching
-│   │   ├── underbelly.dart     # UnderBelly eatery menu and search
-│   │   └── welcome.dart        # Onboarding introduction screen
+│   │   ├── home_screen.dart    # Main screen holding the four primary tabs with M3 Expressive styling
+│   │   ├── mayuri.dart         # Mayuri eatery menu, search, category chips, and quick-jump dialog
+│   │   ├── mess.dart           # Mess menu display with time detection, day/meal pickers, and reset FAB
+│   │   ├── settings.dart       # App settings, mess selection, iOS inset grouped design, and tri-state theme picker
+│   │   ├── underbelly.dart     # UnderBelly eatery menu, search, category chips, and quick-jump dialog
+│   │   └── welcome.dart        # Onboarding introduction screen with theme and caterer selection
 │   ├── utils/
-│   │   ├── color_schemes.dart  # Material UI 3 color palette definitions
+│   │   ├── color_schemes.dart  # Material UI 3 Expressive color palettes with brand deep greens
 │   │   └── floating_snackbar.dart # Custom snackbar utilities
 │   └── widgets/
-│       └── dev_card.dart       # Developer information card widget
+│       └── dev_card.dart       # Developer information card widget with platform-resilient URL launcher
 ├── pubspec.yaml                # Package dependencies and asset declarations
 └── analysis_options.yaml       # Dart analyzer rules and exclusions
 ```
@@ -60,10 +62,11 @@ VIT_Bhopal_Mess/
 ## Key Technologies and Packages
 
 - **Framework**: Flutter 3.50+ / Dart 3.14+
-- **Design System**: `package:material_ui/material_ui.dart` (Modular Material UI 3)
+- **Design System**: `package:material_ui/material_ui.dart` (Material 3 Expressive) and `package:cupertino_ui/cupertino_ui.dart`
 - **Architecture**: Model-View-ViewModel (MVVM) powered by `provider`
 - **State Management**: `provider` (Theme, Mess, and Canteen ViewModels)
-- **Persistent Storage**: `shared_preferences` (Persisting user preferences, selected mess, and themes)
+- **Persistent Storage**: `shared_preferences` (Persisting user preferences, selected mess, and theme mode)
+- **Theme Modes**: Tri-state theme support: System Default (default), Light Theme, and Dark Theme
 - **Animations and UI**: `animate_do`, `flutter_animate`, `confetti`, `introduction_screen`
 - **Iconography**: `cupertino_icons`, `font_awesome_flutter`
 - **Utilities**: `intl`, `url_launcher`, `share_plus`, `upgrader`
@@ -84,5 +87,7 @@ VIT_Bhopal_Mess/
 
 - **iOS Dependency Manager**: Swift Package Manager (SPM). CocoaPods is deintegrated.
 - **Minimum iOS Deployment Target**: 15.0
+- **URL Scheme Querying**: Added `LSApplicationQueriesSchemes` for `https`, `http`, `tel`, `mailto`, and `whatsapp` in `Info.plist`.
+- **Platform Experience**: iOS inset grouped cards, `CupertinoSwitch`, and tactile haptic feedback.
 - **Xcode / iOS Support**: Tested and verified up to iOS 27.2 simulators.
 - **WebAssembly (Wasm)**: Fully supported and verified via `flutter build web --wasm` with WasmGC.
