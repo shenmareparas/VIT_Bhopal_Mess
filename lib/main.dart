@@ -1,3 +1,5 @@
+import 'dart:ui' show PointerDeviceKind;
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -13,7 +15,9 @@ import '/screens/welcome.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  if (!kIsWeb) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
 
   ThemeProvider themeProvider = ThemeProvider();
   await themeProvider.initializeTheme();
@@ -43,6 +47,18 @@ Future<Widget> firstScreen() async {
   return isFirstLaunch ? const Welcome() : const HomeScreen();
 }
 
+class AppScrollBehavior extends MaterialScrollBehavior {
+  const AppScrollBehavior();
+
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.trackpad,
+        PointerDeviceKind.stylus,
+      };
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -56,6 +72,7 @@ class MyApp extends StatelessWidget {
 
         return MaterialApp(
           debugShowCheckedModeBanner: false,
+          scrollBehavior: const AppScrollBehavior(),
           theme: themeProvider.lightThemeData,
           darkTheme: themeProvider.darkThemeData,
           themeMode: themeProvider.themeMode,

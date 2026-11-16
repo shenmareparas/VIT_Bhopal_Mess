@@ -3,18 +3,25 @@
 # VIT Bhopal Mess
 The "VIT Bhopal Mess" app & website is designed to simplify the process of finding out the correct food item available at the mess based on the current day and time. It provides an intuitive and user-friendly interface for VIT Bhopal University students to check the mess menu and make informed decisions about their meal choices. It also provides the option to view the menu in the Canteen as well as in UnderBelly and Mayuri with their respective prices.
 
+Web App: [https://vitbmess.vercel.app/](https://vitbmess.vercel.app/)
+
 <a href='https://play.google.com/store/apps/details?id=com.shenmareparas.vit_mess&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width ="300"/></a>
 
 ## Features
+- **Responsive Website & Desktop UI:** Fully optimized for web and desktop browser viewports (1080p, 1440p, 4K) with max-width boundaries that prevent awkward stretching.
+- **Adaptive Desktop Navigation:** Top navigation header on wide displays with centered tabs, quick 1-click caterer mess switcher dropdown, and theme toggle button.
+- **Direct Day and Meal Selectors:** Single-click day (Monday to Sunday) and meal (Breakfast, Lunch, Snacks, Dinner) selectors on desktop without modal dialog popups.
+- **Live Desktop Side-Cart:** Persistent order summary sidebar on desktop screens (>=1024px) for live item tracking, price calculation, item adjustments, and direct WhatsApp ordering.
+- **Multi-Column Food Grids:** Responsive 1 to 4 column catalog grids with hover elevation transitions, pointer cursors, and counter controls.
 - **Current Time Tracking:** The app automatically detects the current time and displays the food items available during that specific time slot.
 - **User-Friendly Interface:** Upgraded with Material 3 Expressive design, featuring tonal containers, refined elevation, and responsive cards across all screens.
-- **Search Functionality:** Users can search for specific Day or Meal time to get Food Items of it respectively.
+- **Search Functionality:** Users can search for specific dishes, days, or meal times across menus with hotkey support.
 - **Canteen:** Users can view, search, and sort the canteen menu and prices, see the total price of selected items, and manage their cart.
-- **UnderBelly:** Users can view, search, and jump across categories at UnderBelly, enabling informed decisions between classes.
+- **UnderBelly:** Users can view, search, and jump across categories at UnderBelly with WhatsApp order dispatch and phone calling.
 - **Mayuri:** Users can browse beverages, snacks, chaat, and meals served at Mayuri with instant category navigation and pricing.
 - **Cart Reset Action:** Easily empty and reset the cart with a single tap and confirmation prompt inside the cart view.
 - **System Default Theme Support:** Tri-state appearance options (System Default, Light Theme, Dark Theme) with automatic system brightness matching.
-- **Enhanced iOS Experience:** Native inset grouped preference sections, Cupertino toggles, and selection haptics.
+- **Enhanced iOS & Desktop Experience:** Native inset grouped preference sections, Cupertino toggles, selection haptics, pointer cursors, and mouse/trackpad drag scrolling via `AppScrollBehavior`.
 
 ## Screenshots
 <table>
@@ -36,9 +43,9 @@ The "VIT Bhopal Mess" app & website is designed to simplify the process of findi
 
 ## Architecture & Technologies
 - **Architecture**: Model-View-ViewModel (MVVM) pattern with `Provider`
-- **Framework**: Flutter and Dart for building the cross-platform app
-- **Native Dependency Management**: Swift Package Manager (SPM) for iOS
-- **Web**: WebAssembly (WasmGC) support for modern high-performance web deployment
+- **Framework**: Flutter (3.50+) and Dart (3.14+) for building the cross-platform app
+- **Native Dependency Management**: Swift Package Manager (SPM) for iOS (CocoaPods deintegrated)
+- **Web & Desktop**: WebAssembly (WasmGC) support, responsive breakpoints, desktop mouse/trackpad drag scrolling via `AppScrollBehavior`, and OpenGraph link previews
 - **Design System**: Material UI 3 Expressive with brand deep-green palettes and System Default / Light / Dark modes
 - **State & Persistence**: `provider` and `shared_preferences`
 
@@ -57,7 +64,14 @@ flutter pub get
 ```bash
 flutter run
 ```
-5. Open the VIT Mess app on your emulator, device, or web browser.
+5. Or run on the web:
+```bash
+flutter run -d chrome
+```
+6. Build for high-performance WebAssembly (WasmGC):
+```bash
+flutter build web --wasm
+```
 
 ## Contribution
 Contributions to the VIT Mess app are welcome and encouraged! If you would like to contribute, please follow these steps:

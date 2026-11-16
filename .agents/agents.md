@@ -35,6 +35,20 @@ VIT Bhopal Mess is a Flutter application designed for VIT Bhopal University stud
   - Material 3 Expressive: All UI components (cards, dialogs, buttons, search bars, navigation tabs) follow M3 Expressive design specifications with tonal elevations and container palettes.
   - Theme Selection: Three options (System Default, Light Theme, Dark Theme) with System Default as default.
   - iOS Adaptations: Platform-aware segmented inset grouped section styling, `CupertinoSwitch`, tactile haptic feedback (`HapticFeedback.selectionClick()`, `HapticFeedback.lightImpact()`), and iOS query scheme compatibility in `Info.plist`.
+- **Responsive Web and Desktop Standards**:
+  - Breakpoints: Standard Material 3 tiers defined in `lib/widgets/responsive_layout.dart`:
+    - Mobile: Width < 640px
+    - Tablet: 640px <= Width < 1024px (with `Breakpoints.isWide` threshold at >= 840px)
+    - Desktop: Width >= 1024px
+    - Max Content Width: 1200px (with screen-specific bounds such as 640px for About/Settings, 1040px for Mess, and 1240px for eatery catalogs)
+  - Max-Width Constraints: Always wrap desktop views with `ResponsiveContentWrapper` or appropriate `ConstrainedBox` to prevent unnatural stretching on wide and ultra-wide monitors.
+  - Adaptive Navigation: Responsive header bar with centered tabs, quick caterer switcher dropdown (`MessProvider.messNames`), and theme toggle on wide viewports; compact TabBar on mobile.
+  - Desktop Live Side-Cart: On desktop screens (>= 1024px), display `DesktopCartPanel` side-by-side with eatery menus for live order summary, price calculation, and direct WhatsApp or phone ordering without screen transitions.
+  - Reusable Food Cards: Use `MenuItemCard` for food items with hover elevation transitions, pointer cursor affordances, and quantity counters.
+  - Inline Selectors on Desktop: Replace modal day/meal picker dialogs with inline horizontal filter chips on desktop mess views while keeping dialog pickers on mobile.
+  - Desktop Ergonomics: Ensure interactive elements provide hover states and pointer cursors (`SystemMouseCursors.click`). Enable mouse, trackpad, touch, and stylus drag scrolling with `AppScrollBehavior`.
+  - Navigation Swipe Physics: Disable TabBar swipe physics on web and desktop platforms (`kIsWeb || isDesktopPlatform || Breakpoints.isDesktop(context)`) to prevent accidental page transitions during mouse or trackpad interactions.
+  - Platform Safety: Strictly guard all `dart:io` `Platform` calls with `!kIsWeb` to prevent runtime crashes on Flutter Web. Guard mobile-specific APIs (such as `SystemChrome.setPreferredOrientations` and `UpgradeAlert`) from running on Web.
 - **Code Completeness**:
   - Write complete, production-ready code. Do not introduce placeholder comments or unhandled `TODO` stubs.
 - **Icon Usage**:

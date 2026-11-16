@@ -82,37 +82,40 @@ class DevCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: socials.map((social) {
-                return IconButton.filledTonal(
-                  tooltip: social.tooltip,
-                  iconSize: social.iconSize > 24 ? 22 : social.iconSize,
-                  style: IconButton.styleFrom(
-                    backgroundColor: colorScheme.surfaceContainerHigh,
-                    foregroundColor: colorScheme.primary,
-                    padding: const EdgeInsets.all(12),
-                  ),
-                  onPressed: () async {
-                    final uri = Uri.tryParse(social.link);
-                    if (uri != null) {
-                      try {
-                        final launched = await launchUrl(
-                          uri,
-                          mode: LaunchMode.externalApplication,
-                        );
-                        if (!launched) {
+                return MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: IconButton.filledTonal(
+                    tooltip: social.tooltip,
+                    iconSize: social.iconSize > 24 ? 22 : social.iconSize,
+                    style: IconButton.styleFrom(
+                      backgroundColor: colorScheme.surfaceContainerHigh,
+                      foregroundColor: colorScheme.primary,
+                      padding: const EdgeInsets.all(12),
+                    ),
+                    onPressed: () async {
+                      final uri = Uri.tryParse(social.link);
+                      if (uri != null) {
+                        try {
+                          final launched = await launchUrl(
+                            uri,
+                            mode: LaunchMode.externalApplication,
+                          );
+                          if (!launched) {
+                            await launchUrl(
+                              uri,
+                              mode: LaunchMode.platformDefault,
+                            );
+                          }
+                        } catch (_) {
                           await launchUrl(
                             uri,
                             mode: LaunchMode.platformDefault,
                           );
                         }
-                      } catch (_) {
-                        await launchUrl(
-                          uri,
-                          mode: LaunchMode.platformDefault,
-                        );
                       }
-                    }
-                  },
-                  icon: social.icon,
+                    },
+                    icon: social.icon,
+                  ),
                 );
               }).toList(),
             ),

@@ -112,6 +112,30 @@ ThemeData _buildTheme(ColorScheme colorScheme) {
       unselectedLabelStyle:
           const TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
     ),
+    chipTheme: ChipThemeData(
+      backgroundColor: colorScheme.surfaceContainerHigh,
+      selectedColor: colorScheme.primary,
+      disabledColor: colorScheme.surfaceContainerLow,
+      labelStyle: TextStyle(
+        color: colorScheme.onSurface,
+        fontWeight: FontWeight.w600,
+        fontSize: 14,
+      ),
+      secondaryLabelStyle: TextStyle(
+        color: colorScheme.onPrimary,
+        fontWeight: FontWeight.w700,
+        fontSize: 14,
+      ),
+      checkmarkColor: colorScheme.onPrimary,
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      side: BorderSide(
+        color: colorScheme.outlineVariant.withValues(alpha: 0.35),
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      showCheckmark: false,
+    ),
     cardTheme: CardThemeData(
       elevation: 1,
       color: colorScheme.surfaceContainerLow,

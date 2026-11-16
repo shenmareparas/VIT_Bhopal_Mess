@@ -7,6 +7,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:vit_bhopal_mess/provider/mess_provider.dart';
 import 'package:vit_bhopal_mess/provider/theme_provider.dart';
+import 'package:vit_bhopal_mess/widgets/responsive_layout.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
@@ -23,179 +24,182 @@ class Settings extends StatelessWidget {
         title: const Text('Settings'),
         centerTitle: true,
       ),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        children: [
-          FadeInUp(
-            duration: const Duration(milliseconds: 300),
-            child: _buildSectionHeader(
-              context: context,
-              icon: Icons.restaurant_menu_rounded,
-              title: 'CATERER PREFERENCE',
+      body: ResponsiveContentWrapper(
+        maxWidth: 760,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            FadeInUp(
+              duration: const Duration(milliseconds: 300),
+              child: _buildSectionHeader(
+                context: context,
+                icon: Icons.restaurant_menu_rounded,
+                title: 'CATERER PREFERENCE',
+              ),
             ),
-          ),
-          const SizedBox(height: 6),
-          FadeInUp(
-            duration: const Duration(milliseconds: 300),
-            child: Card(
-              elevation: 0,
-              color: colorScheme.surfaceContainerLow,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(isIOS ? 18 : 24),
-                side: BorderSide(
-                  color: colorScheme.outlineVariant.withValues(alpha: 0.35),
+            const SizedBox(height: 6),
+            FadeInUp(
+              duration: const Duration(milliseconds: 300),
+              child: Card(
+                elevation: 0,
+                color: colorScheme.surfaceContainerLow,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(isIOS ? 18 : 24),
+                  side: BorderSide(
+                    color: colorScheme.outlineVariant.withValues(alpha: 0.35),
+                  ),
+                ),
+                clipBehavior: Clip.antiAlias,
+                child: RadioGroup<int>(
+                  groupValue: messProvider.selectedMess,
+                  onChanged: (value) {
+                    if (value != null) {
+                      if (isIOS) HapticFeedback.selectionClick();
+                      messProvider.setSelectedMess(value);
+                    }
+                  },
+                  child: Column(
+                    children: [
+                      _buildMessTile(
+                        context: context,
+                        title: 'Boys Hostel 1 CRCL Mess',
+                        value: 1,
+                        groupValue: messProvider.selectedMess,
+                        isIOS: isIOS,
+                        onChanged: (val) {
+                          if (isIOS) HapticFeedback.selectionClick();
+                          messProvider.setSelectedMess(val);
+                        },
+                      ),
+                      _buildDivider(context),
+                      _buildMessTile(
+                        context: context,
+                        title: 'Boys Hostel 2 & 3 Mayuri Mess',
+                        value: 2,
+                        groupValue: messProvider.selectedMess,
+                        isIOS: isIOS,
+                        onChanged: (val) {
+                          if (isIOS) HapticFeedback.selectionClick();
+                          messProvider.setSelectedMess(val);
+                        },
+                      ),
+                      _buildDivider(context),
+                      _buildMessTile(
+                        context: context,
+                        title: 'Boys Hostel 6 Safal Mess',
+                        value: 4,
+                        groupValue: messProvider.selectedMess,
+                        isIOS: isIOS,
+                        onChanged: (val) {
+                          if (isIOS) HapticFeedback.selectionClick();
+                          messProvider.setSelectedMess(val);
+                        },
+                      ),
+                      _buildDivider(context),
+                      _buildMessTile(
+                        context: context,
+                        title: 'Girls Hostel AB Mess',
+                        value: 3,
+                        groupValue: messProvider.selectedMess,
+                        isIOS: isIOS,
+                        onChanged: (val) {
+                          if (isIOS) HapticFeedback.selectionClick();
+                          messProvider.setSelectedMess(val);
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              clipBehavior: Clip.antiAlias,
-              child: RadioGroup<int>(
-                groupValue: messProvider.selectedMess,
-                onChanged: (value) {
-                  if (value != null) {
-                    if (isIOS) HapticFeedback.selectionClick();
-                    messProvider.setSelectedMess(value);
-                  }
-                },
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(14, 8, 14, 20),
+              child: Text(
+                'Mess menu and timing schedules reflect your selected caterer across all meal tabs automatically.',
+                style: TextStyle(
+                  fontSize: 13,
+                  color: colorScheme.onSurfaceVariant,
+                ),
+              ),
+            ),
+            FadeInUp(
+              duration: const Duration(milliseconds: 300),
+              delay: const Duration(milliseconds: 150),
+              child: _buildSectionHeader(
+                context: context,
+                icon: Icons.palette_outlined,
+                title: 'APPEARANCE',
+              ),
+            ),
+            const SizedBox(height: 6),
+            FadeInUp(
+              duration: const Duration(milliseconds: 300),
+              delay: const Duration(milliseconds: 150),
+              child: Card(
+                elevation: 0,
+                color: colorScheme.surfaceContainerLow,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(isIOS ? 18 : 24),
+                  side: BorderSide(
+                    color: colorScheme.outlineVariant.withValues(alpha: 0.35),
+                  ),
+                ),
+                clipBehavior: Clip.antiAlias,
                 child: Column(
                   children: [
-                    _buildMessTile(
+                    _buildThemeTile(
                       context: context,
-                      title: 'Boys Hostel 1 CRCL Mess',
-                      value: 1,
-                      groupValue: messProvider.selectedMess,
+                      title: 'System Default',
+                      subtitle: 'Follow device system appearance',
+                      themeType: ThemeType.system,
+                      groupValue: themeProvider.currentThemeType,
+                      icon: isIOS
+                          ? CupertinoIcons.device_phone_portrait
+                          : Icons.brightness_auto_rounded,
                       isIOS: isIOS,
-                      onChanged: (val) {
+                      onChanged: (type) {
                         if (isIOS) HapticFeedback.selectionClick();
-                        messProvider.setSelectedMess(val);
+                        themeProvider.setThemeType(type);
                       },
                     ),
                     _buildDivider(context),
-                    _buildMessTile(
+                    _buildThemeTile(
                       context: context,
-                      title: 'Boys Hostel 2 & 3 Mayuri Mess',
-                      value: 2,
-                      groupValue: messProvider.selectedMess,
+                      title: 'Light Theme',
+                      subtitle: 'Always use light mode',
+                      themeType: ThemeType.light,
+                      groupValue: themeProvider.currentThemeType,
+                      icon: isIOS
+                          ? CupertinoIcons.sun_max_fill
+                          : Icons.light_mode_rounded,
                       isIOS: isIOS,
-                      onChanged: (val) {
+                      onChanged: (type) {
                         if (isIOS) HapticFeedback.selectionClick();
-                        messProvider.setSelectedMess(val);
+                        themeProvider.setThemeType(type);
                       },
                     ),
                     _buildDivider(context),
-                    _buildMessTile(
+                    _buildThemeTile(
                       context: context,
-                      title: 'Boys Hostel 6 Safal Mess',
-                      value: 4,
-                      groupValue: messProvider.selectedMess,
+                      title: 'Dark Theme',
+                      subtitle: 'Always use dark mode',
+                      themeType: ThemeType.dark,
+                      groupValue: themeProvider.currentThemeType,
+                      icon: isIOS
+                          ? CupertinoIcons.moon_fill
+                          : Icons.dark_mode_rounded,
                       isIOS: isIOS,
-                      onChanged: (val) {
+                      onChanged: (type) {
                         if (isIOS) HapticFeedback.selectionClick();
-                        messProvider.setSelectedMess(val);
-                      },
-                    ),
-                    _buildDivider(context),
-                    _buildMessTile(
-                      context: context,
-                      title: 'Girls Hostel AB Mess',
-                      value: 3,
-                      groupValue: messProvider.selectedMess,
-                      isIOS: isIOS,
-                      onChanged: (val) {
-                        if (isIOS) HapticFeedback.selectionClick();
-                        messProvider.setSelectedMess(val);
+                        themeProvider.setThemeType(type);
                       },
                     ),
                   ],
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(14, 8, 14, 20),
-            child: Text(
-              'Mess menu and timing schedules reflect your selected caterer across all meal tabs automatically.',
-              style: TextStyle(
-                fontSize: 13,
-                color: colorScheme.onSurfaceVariant,
-              ),
-            ),
-          ),
-          FadeInUp(
-            duration: const Duration(milliseconds: 300),
-            delay: const Duration(milliseconds: 150),
-            child: _buildSectionHeader(
-              context: context,
-              icon: Icons.palette_outlined,
-              title: 'APPEARANCE',
-            ),
-          ),
-          const SizedBox(height: 6),
-          FadeInUp(
-            duration: const Duration(milliseconds: 300),
-            delay: const Duration(milliseconds: 150),
-            child: Card(
-              elevation: 0,
-              color: colorScheme.surfaceContainerLow,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(isIOS ? 18 : 24),
-                side: BorderSide(
-                  color: colorScheme.outlineVariant.withValues(alpha: 0.35),
-                ),
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: Column(
-                children: [
-                  _buildThemeTile(
-                    context: context,
-                    title: 'System Default',
-                    subtitle: 'Follow device system appearance',
-                    themeType: ThemeType.system,
-                    groupValue: themeProvider.currentThemeType,
-                    icon: isIOS
-                        ? CupertinoIcons.device_phone_portrait
-                        : Icons.brightness_auto_rounded,
-                    isIOS: isIOS,
-                    onChanged: (type) {
-                      if (isIOS) HapticFeedback.selectionClick();
-                      themeProvider.setThemeType(type);
-                    },
-                  ),
-                  _buildDivider(context),
-                  _buildThemeTile(
-                    context: context,
-                    title: 'Light Theme',
-                    subtitle: 'Always use light mode',
-                    themeType: ThemeType.light,
-                    groupValue: themeProvider.currentThemeType,
-                    icon: isIOS
-                        ? CupertinoIcons.sun_max_fill
-                        : Icons.light_mode_rounded,
-                    isIOS: isIOS,
-                    onChanged: (type) {
-                      if (isIOS) HapticFeedback.selectionClick();
-                      themeProvider.setThemeType(type);
-                    },
-                  ),
-                  _buildDivider(context),
-                  _buildThemeTile(
-                    context: context,
-                    title: 'Dark Theme',
-                    subtitle: 'Always use dark mode',
-                    themeType: ThemeType.dark,
-                    groupValue: themeProvider.currentThemeType,
-                    icon: isIOS
-                        ? CupertinoIcons.moon_fill
-                        : Icons.dark_mode_rounded,
-                    isIOS: isIOS,
-                    onChanged: (type) {
-                      if (isIOS) HapticFeedback.selectionClick();
-                      themeProvider.setThemeType(type);
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

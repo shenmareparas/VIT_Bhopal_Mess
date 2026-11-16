@@ -18,6 +18,16 @@ class MessProvider with ChangeNotifier {
   String get formattedDate => _formattedDate;
   String get mealTime => _mealTime;
 
+  static const Map<int, String> messNames = {
+    1: 'CRCL Mess (BH 1)',
+    2: 'Mayuri Mess (BH 2 & 3)',
+    4: 'Safal Mess (BH 6)',
+    3: 'AB Mess (Girls)',
+  };
+
+  String get currentMessName =>
+      messNames[_selectedMess] ?? 'Mess $_selectedMess';
+
   static const List<String> days = [
     'Monday',
     'Tuesday',
